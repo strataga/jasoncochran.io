@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import type { Metadata } from 'next'
+import { Linkedin, Mail, Phone } from 'lucide-react'
 
 export const metadata: Metadata = {
   title: 'Home',
@@ -30,7 +31,7 @@ export default function Home() {
       addressCountry: 'US',
     },
     sameAs: [
-      'https://linkedin.com/in/cochranjason',
+      'https://www.linkedin.com/in/cochranjason/',
     ],
     knowsAbout: [
       'JavaScript',
@@ -65,7 +66,7 @@ export default function Home() {
           {/* Grid Pattern Overlay */}
           <div className="absolute inset-0 grid-pattern opacity-10"></div>
 
-          <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+          <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               {/* Left Column - Text Content */}
               <div className="text-center lg:text-left space-y-8 animate-fade-in-up">
@@ -98,6 +99,28 @@ export default function Home() {
                   >
                     View Resume
                   </Link>
+                </div>
+
+                {/* Social Links */}
+                <div className="flex gap-4 justify-center lg:justify-start pt-6">
+                  <a
+                    href="https://www.linkedin.com/in/cochranjason/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white rounded-lg font-semibold shadow-lg hover:shadow-xl transition-all hover:scale-110 active:scale-95 group"
+                    aria-label="Connect with Jason Cochran on LinkedIn"
+                  >
+                    <Linkedin className="w-6 h-6 group-hover:rotate-6 transition-transform" />
+                    <span className="text-lg">LinkedIn</span>
+                  </a>
+                  <a
+                    href="mailto:jlcochran2013@gmail.com"
+                    className="flex items-center gap-3 px-6 py-3 bg-white dark:bg-slate-800 text-slate-900 dark:text-white rounded-lg font-semibold shadow-lg hover:shadow-xl transition-all hover:scale-110 active:scale-95 border-2 border-slate-200 dark:border-slate-700 group"
+                    aria-label="Email Jason Cochran"
+                  >
+                    <Mail className="w-6 h-6 group-hover:rotate-6 transition-transform" />
+                    <span className="text-lg">Email</span>
+                  </a>
                 </div>
 
                 {/* Stats */}

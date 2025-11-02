@@ -3,6 +3,7 @@
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useState } from 'react'
+import { Linkedin } from 'lucide-react'
 
 export default function Navigation() {
   const pathname = usePathname()
@@ -26,7 +27,7 @@ export default function Navigation() {
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex space-x-8">
+          <div className="hidden md:flex items-center space-x-8">
             {links.map((link) => (
               <Link
                 key={link.href}
@@ -40,6 +41,16 @@ export default function Navigation() {
                 {link.label}
               </Link>
             ))}
+            <a
+              href="https://www.linkedin.com/in/cochranjason/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white rounded-lg font-semibold shadow-md hover:shadow-lg transition-all hover:scale-105 active:scale-95"
+              aria-label="View Jason Cochran's LinkedIn Profile"
+            >
+              <Linkedin className="w-5 h-5" />
+              <span>LinkedIn</span>
+            </a>
           </div>
 
           {/* Mobile menu button */}
@@ -83,6 +94,16 @@ export default function Navigation() {
                 {link.label}
               </Link>
             ))}
+            <a
+              href="https://www.linkedin.com/in/cochranjason/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 px-4 py-3 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-lg font-semibold shadow-md mt-4"
+              aria-label="View Jason Cochran's LinkedIn Profile"
+            >
+              <Linkedin className="w-5 h-5" />
+              <span>LinkedIn Profile</span>
+            </a>
           </div>
         )}
       </div>

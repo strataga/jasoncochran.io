@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import './globals.css'
 import Navigation from '@/components/Navigation'
+import { Linkedin } from 'lucide-react'
 
 export const metadata: Metadata = {
   title: {
@@ -59,9 +60,19 @@ export default function RootLayout({
               </div>
               <div>
                 <h4 className="font-semibold text-slate-900 dark:text-white mb-4">Connect</h4>
-                <ul className="space-y-2 text-sm">
+                <ul className="space-y-3 text-sm">
                   <li><a href="mailto:jlcochran2013@gmail.com" className="text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">jlcochran2013@gmail.com</a></li>
-                  <li><a href="https://linkedin.com/in/cochranjason" target="_blank" rel="noopener noreferrer" className="text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">LinkedIn</a></li>
+                  <li>
+                    <a
+                      href="https://www.linkedin.com/in/cochranjason/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white rounded-lg font-semibold shadow-md hover:shadow-lg transition-all hover:scale-105"
+                    >
+                      <Linkedin className="w-4 h-4" />
+                      <span>LinkedIn Profile</span>
+                    </a>
+                  </li>
                   <li><a href="tel:+14322607580" className="text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">(432) 260-7580</a></li>
                   <li><span className="text-slate-600 dark:text-slate-400">Midland, TX</span></li>
                 </ul>

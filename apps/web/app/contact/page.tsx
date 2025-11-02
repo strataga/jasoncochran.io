@@ -47,7 +47,7 @@ export default function ContactPage() {
           </a>
 
           <a
-            href="https://linkedin.com/in/cochranjason"
+            href="https://www.linkedin.com/in/cochranjason/"
             target="_blank"
             rel="noopener noreferrer"
             className="group p-6 bg-white dark:bg-slate-800 rounded-2xl border-2 border-slate-200 dark:border-slate-700 hover:border-pink-500 dark:hover:border-pink-400 transition-all hover:shadow-xl hover:scale-105"

@@ -18,7 +18,7 @@ export default function Resume() {
           <span>•</span>
           <span>Midland, TX</span>
           <span>•</span>
-          <a href="https://linkedin.com/in/cochranjason" className="hover:text-blue-600" target="_blank" rel="noopener noreferrer">
+          <a href="https://www.linkedin.com/in/cochranjason/" className="hover:text-blue-600" target="_blank" rel="noopener noreferrer">
             LinkedIn
           </a>
         </div>

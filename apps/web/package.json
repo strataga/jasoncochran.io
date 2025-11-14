@@ -6,7 +6,10 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "eslint . --ext .ts,.tsx,.js,.jsx --max-warnings 5",
+    "lint:fix": "eslint . --ext .ts,.tsx,.js,.jsx --fix",
+    "type-check": "tsc --noEmit",
+    "clean": "rm -rf .next"
   },
   "keywords": [],
   "author": "",
@@ -33,14 +36,19 @@
     "tailwind-merge": "^3.3.1"
   },
   "devDependencies": {
+    "@eslint/eslintrc": "^3.3.1",
+    "@eslint/js": "^9.39.1",
     "@tailwindcss/postcss": "^4.1.16",
     "@types/node": "^24.9.1",
     "@types/react": "^19.2.2",
     "autoprefixer": "^10.4.21",
     "eslint": "^9.38.0",
     "eslint-config-next": "^16.0.0",
+    "eslint-plugin-react": "^7.37.5",
+    "globals": "^16.5.0",
     "postcss": "^8.5.6",
     "tailwindcss": "^4.1.16",
-    "typescript": "^5.9.3"
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.46.4"
   }
 }

@@ -13,7 +13,7 @@ Set these in Railway dashboard under "Variables":
 ```
 RESEND_API_KEY=re_your_api_key_here
 RESEND_FROM_EMAIL=contact@yourdomain.com
-RESEND_TO_EMAIL=jlcochran2013@gmail.com
+RESEND_TO_EMAIL=jason.cochran@strataga.io
 ```
 
 ## Deployment Methods
@@ -68,7 +68,7 @@ RESEND_TO_EMAIL=jlcochran2013@gmail.com
    ```bash
    railway variables set RESEND_API_KEY=re_your_api_key_here
    railway variables set RESEND_FROM_EMAIL=contact@yourdomain.com
-   railway variables set RESEND_TO_EMAIL=jlcochran2013@gmail.com
+   railway variables set RESEND_TO_EMAIL=jason.cochran@strataga.io
    ```
 
 5. **Deploy**
@@ -93,7 +93,7 @@ If needed, customize in `railway.json` or railway.toml.
    - Go to your service
    - Click "Settings" > "Domains"
    - Click "Custom Domain"
-   - Enter your domain (e.g., jasoncochran.com)
+   - Enter your domain (e.g., jasoncochran.io)
 
 2. **Update DNS**
    - Add CNAME record pointing to Railway's provided domain

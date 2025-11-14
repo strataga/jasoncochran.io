@@ -1,11 +1,11 @@
 ---
 title: "Offline-First Mobile Apps: Architecture and Sync Strategies"
 date: "2024-08-14"
-description: "Building mobile applications that work seamlessly offline and sync when connected, based on experience building WellPulse for oil field operations with unreliable connectivity."
+description: "Building mobile applications that work seamlessly offline and sync when connected, based on experience building WellOS for oil field operations with unreliable connectivity."
 tags: ["mobile", "react-native", "offline-first", "sqlite", "sync", "architecture"]
 ---
 
-In the oil and gas industry, field workers spend most of their time in remote locations with zero cellular coverage. When we built WellPulse, a field operations app for well inspections and maintenance tracking, we faced a hard requirement: the app must work perfectly offline and sync seamlessly when connectivity returns.
+In the oil and gas industry, field workers spend most of their time in remote locations with zero cellular coverage. When we built WellOS, a field operations app for well inspections and maintenance tracking, we faced a hard requirement: the app must work perfectly offline and sync seamlessly when connectivity returns.
 
 After two years of running in production across hundreds of remote well sites, our offline-first architecture has proven reliable. Here's everything we learned about building truly offline-capable mobile applications.
 
@@ -42,7 +42,7 @@ export class LocalDatabase {
   private db: ReturnType<typeof drizzle>;
 
   async initialize(): Promise<void> {
-    const expo = SQLite.openDatabaseSync('wellpulse.db');
+    const expo = SQLite.openDatabaseSync('wellos.db');
     this.db = drizzle(expo);
 
     // Run migrations
@@ -651,7 +651,7 @@ Don't use offline-first when:
 
 ## Conclusion
 
-Building WellPulse with offline-first architecture transformed the field worker experience. They don't worry about connectivity—they just do their work, and everything syncs automatically when possible.
+Building WellOS with offline-first architecture transformed the field worker experience. They don't worry about connectivity—they just do their work, and everything syncs automatically when possible.
 
 The key ingredients:
 
@@ -661,4 +661,4 @@ The key ingredients:
 - Optimistic UI updates
 - Extensive offline testing
 
-After 25 years of building applications, I can confidently say that offline-first is the future of mobile development for any app where reliability matters more than complexity.
+After 27 years of building applications, I can confidently say that offline-first is the future of mobile development for any app where reliability matters more than complexity.

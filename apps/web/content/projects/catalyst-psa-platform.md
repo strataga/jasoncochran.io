@@ -1,8 +1,8 @@
-# Rook PSA Platform
+# Catalyst PSA Platform
 
 ## Overview
 
-Rook is a comprehensive Professional Services Automation (PSA) platform designed to streamline project management, resource allocation, time tracking, and financial management for professional services organizations. This enterprise-grade SaaS application represents a modern approach to PSA software, built with scalability, maintainability, and user experience as core priorities.
+Catalyst is a comprehensive Professional Services Automation (PSA) platform designed to streamline project management, resource allocation, time tracking, and financial management for professional services organizations. This enterprise-grade SaaS application represents a modern approach to PSA software, built with scalability, maintainability, and user experience as core priorities.
 
 ## Project Scale
 
@@ -53,6 +53,7 @@ Built from the ground up as a multi-tenant SaaS platform with:
 ## Technology Stack
 
 ### Backend
+
 - **NestJS**: Enterprise-grade Node.js framework providing excellent structure and TypeScript support
 - **TypeScript**: Strong typing throughout the application
 - **PostgreSQL**: Reliable, performant relational database
@@ -60,12 +61,14 @@ Built from the ground up as a multi-tenant SaaS platform with:
 - **Drizzle ORM**: Additional ORM used for complex queries and performance optimization
 
 ### Frontend
+
 - **React**: Component-based UI development
 - **Next.js**: Server-side rendering and optimal performance
 - **TypeScript**: Type safety on the frontend
 - **Tailwind CSS**: Utility-first CSS framework for rapid UI development
 
 ### Infrastructure
+
 - **Docker**: Containerization for consistent environments
 - **Kubernetes**: Container orchestration for production deployment
 - **PostgreSQL**: Primary database with replication for high availability
@@ -74,6 +77,7 @@ Built from the ground up as a multi-tenant SaaS platform with:
 ## Key Features
 
 ### Project Management
+
 - Comprehensive project tracking with customizable workflows
 - Milestone and deliverable management
 - Project templates for common engagement types
@@ -81,6 +85,7 @@ Built from the ground up as a multi-tenant SaaS platform with:
 - Resource forecasting and capacity planning
 
 ### Time Tracking
+
 - Intuitive time entry interface
 - Mobile-friendly time capture
 - Bulk time entry for efficiency
@@ -88,6 +93,7 @@ Built from the ground up as a multi-tenant SaaS platform with:
 - Integration with calendar systems
 
 ### Resource Management
+
 - Visual resource allocation
 - Skill-based resource matching
 - Capacity planning tools
@@ -95,6 +101,7 @@ Built from the ground up as a multi-tenant SaaS platform with:
 - Bench management
 
 ### Financial Management
+
 - Flexible billing models (fixed fee, time & materials, retainer)
 - Automated invoicing
 - Revenue recognition
@@ -102,6 +109,7 @@ Built from the ground up as a multi-tenant SaaS platform with:
 - Financial forecasting and reporting
 
 ### Reporting & Analytics
+
 - Real-time dashboards
 - Customizable reports
 - Export to Excel, PDF
@@ -111,12 +119,14 @@ Built from the ground up as a multi-tenant SaaS platform with:
 ## Development Practices
 
 ### Testing Strategy
+
 - **Unit Tests**: Comprehensive coverage of business logic
 - **Integration Tests**: Testing interactions between components
 - **E2E Tests**: Critical user journey validation
 - **Test Coverage**: 85%+ coverage maintained
 
 ### CI/CD Pipeline
+
 - Automated testing on every commit
 - Staging environment for QA validation
 - Blue-green deployment strategy
@@ -124,6 +134,7 @@ Built from the ground up as a multi-tenant SaaS platform with:
 - Rollback capabilities
 
 ### Code Quality
+
 - ESLint and Prettier for code consistency
 - SonarQube for code quality metrics
 - Regular code reviews
@@ -132,18 +143,21 @@ Built from the ground up as a multi-tenant SaaS platform with:
 ## Challenges Overcome
 
 ### Performance Optimization
+
 - Implemented database query optimization reducing response times by 60%
 - Added intelligent caching strategy
 - Optimized N+1 query problems
 - Database indexing strategy
 
 ### Data Migration
+
 - Migrated from legacy system with 5+ years of historical data
 - Zero-downtime migration strategy
 - Data validation and reconciliation
 - Rollback procedures
 
 ### Scalability
+
 - Designed for horizontal scaling
 - Database sharding strategy for large tenants
 - Connection pooling optimization

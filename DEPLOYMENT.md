@@ -24,7 +24,7 @@ Vercel is the easiest way to deploy your Next.js application.
 
 3. **Configure Domain** (Optional)
    - Go to Project Settings > Domains
-   - Add your custom domain (e.g., jasoncochran.com)
+   - Add your custom domain (e.g., jasoncochran.io)
    - Update DNS records as instructed
 
 ### Environment Variables (if needed)
@@ -138,4 +138,4 @@ After successful deployment:
 
 Your live site will be at: `https://your-project.vercel.app`
 
-With custom domain: `https://jasoncochran.com`
+With custom domain: `https://jasoncochran.io`

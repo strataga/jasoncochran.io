@@ -53,18 +53,11 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
           ← Back to Projects
         </Link>
 
-        {/* Project Header */}
-        <header className="mb-8 bg-white dark:bg-slate-800 rounded-3xl p-8 shadow-xl border-2 border-slate-200 dark:border-slate-700">
+        {/* Project Content */}
+        <div className="prose prose-lg dark:prose-invert max-w-none bg-white dark:bg-slate-800 rounded-3xl p-8 md:p-12 shadow-xl border-2 border-slate-200 dark:border-slate-700 prose-headings:text-slate-900 dark:prose-headings:text-white prose-h2:text-3xl prose-h2:font-bold prose-h2:mt-8 prose-h2:mb-4 prose-h3:text-2xl prose-h3:font-semibold prose-h3:mt-6 prose-h3:mb-3 prose-p:text-slate-600 dark:prose-p:text-slate-300 prose-p:leading-relaxed prose-li:text-slate-600 dark:prose-li:text-slate-300 prose-strong:text-slate-900 dark:prose-strong:text-white prose-code:text-blue-600 dark:prose-code:text-blue-400 prose-code:bg-blue-50 dark:prose-code:bg-blue-900/20 prose-code:px-1 prose-code:py-0.5 prose-code:rounded">
           <div className="inline-block px-4 py-2 bg-blue-100 dark:bg-blue-900/30 rounded-full text-blue-700 dark:text-blue-300 text-sm font-semibold mb-4">
             Case Study
           </div>
-          <h1 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
-            {project.title}
-          </h1>
-        </header>
-
-        {/* Project Content */}
-        <div className="prose prose-lg dark:prose-invert max-w-none bg-white dark:bg-slate-800 rounded-3xl p-8 md:p-12 shadow-xl border-2 border-slate-200 dark:border-slate-700 prose-headings:text-slate-900 dark:prose-headings:text-white prose-h2:text-3xl prose-h2:font-bold prose-h2:mt-8 prose-h2:mb-4 prose-h3:text-2xl prose-h3:font-semibold prose-h3:mt-6 prose-h3:mb-3 prose-p:text-slate-600 dark:prose-p:text-slate-300 prose-p:leading-relaxed prose-li:text-slate-600 dark:prose-li:text-slate-300 prose-strong:text-slate-900 dark:prose-strong:text-white prose-code:text-blue-600 dark:prose-code:text-blue-400 prose-code:bg-blue-50 dark:prose-code:bg-blue-900/20 prose-code:px-1 prose-code:py-0.5 prose-code:rounded">
           <MDXRemote
             source={project.content}
             options={{

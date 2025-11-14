@@ -1,5 +1,21 @@
 import Link from 'next/link'
+import type { Metadata } from 'next'
 import { getAllPosts } from '@/lib/blog'
+
+export const metadata: Metadata = {
+  title: 'Blog',
+  description: 'Insights on software architecture, development practices, and lessons learned from 27 years of building enterprise applications. Topics include React, Next.js, NestJS, TypeScript, and AI-assisted development.',
+  keywords: ['Software Development Blog', 'React', 'Next.js', 'TypeScript', 'Architecture', 'NestJS', 'AI Development'],
+  openGraph: {
+    title: 'Blog - Jason Cochran',
+    description: 'Software development insights and lessons learned from 27 years of experience',
+    type: 'website',
+    url: 'https://jasoncochran.io/blog',
+  },
+  alternates: {
+    canonical: 'https://jasoncochran.io/blog',
+  },
+}
 
 export default function Blog() {
   const posts = getAllPosts()
@@ -13,7 +29,7 @@ export default function Blog() {
             Blog
           </h1>
           <p className="text-xl text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
-            Insights on software architecture, development practices, and lessons learned from 25 years of building enterprise applications
+            Insights on software architecture, development practices, and lessons learned from 27 years of building enterprise applications
           </p>
         </header>
 

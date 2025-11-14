@@ -5,13 +5,13 @@ description: "A practical comparison of GraphQL and REST APIs based on real-worl
 tags: ["graphql", "rest", "api-design", "architecture", "performance"]
 ---
 
-After building both GraphQL and REST APIs for the Rook PSA platform, I've learned that the "GraphQL vs REST" debate misses the point. They're tools for different jobs. The question isn't which is better—it's which fits your specific use case.
+After building both GraphQL and REST APIs for the Catalyst PSA platform, I've learned that the "GraphQL vs REST" debate misses the point. They're tools for different jobs. The question isn't which is better—it's which fits your specific use case.
 
-Here's what 25 years of API development and hands-on experience with both approaches taught me about when to use each.
+Here's what 27 years of API development and hands-on experience with both approaches taught me about when to use each.
 
 ## REST for Project Management, GraphQL for Reporting
 
-In Rook PSA, we used both in the same application:
+In Catalyst PSA, we used both in the same application:
 
 - **REST APIs**: CRUD operations on projects, tasks, time entries
 - **GraphQL API**: Complex reporting dashboard fetching data across multiple entities
@@ -430,7 +430,7 @@ export interface ProjectQuery {
 
 REST requires manual documentation (OpenAPI) and type definitions.
 
-## Our Hybrid Approach in Rook PSA
+## Our Hybrid Approach in Catalyst PSA
 
 We used both:
 
@@ -527,6 +527,6 @@ After building both REST and GraphQL APIs in production, I've learned that it's 
 
 REST excels at simple, cacheable, resource-oriented APIs. GraphQL excels at complex data fetching with flexible clients.
 
-In Rook PSA, using both gave us the best of both worlds: simple CRUD with REST, flexible reporting with GraphQL.
+In Catalyst PSA, using both gave us the best of both worlds: simple CRUD with REST, flexible reporting with GraphQL.
 
-After 25 years of API development, I can say confidently: pick the right tool for the job, and don't be afraid to use both.
+After 27 years of API development, I can say confidently: pick the right tool for the job, and don't be afraid to use both.

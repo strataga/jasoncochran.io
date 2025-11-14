@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://jasoncochran.com/sitemap.xml
+Sitemap: https://jasoncochran.io/sitemap.xml

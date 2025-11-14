@@ -1,4 +1,16 @@
 {
+  "name": "jason-cochran",
+  "version": "1.0.0",
+  "private": true,
+  "packageManager": "pnpm@9.15.2",
+  "scripts": {
+    "dev": "turbo run dev",
+    "build": "turbo run build",
+    "lint": "turbo run lint",
+    "type-check": "turbo run type-check",
+    "clean": "turbo run clean && rm -rf node_modules",
+    "format": "prettier --write \"**/*.{ts,tsx,md,json}\""
+  },
   "dependencies": {
     "@mdx-js/loader": "^3.1.1",
     "@mdx-js/react": "^3.1.1",
@@ -6,5 +18,9 @@
     "@types/mdx": "^2.0.13",
     "gray-matter": "^4.0.3",
     "next-mdx-remote": "^5.0.0"
+  },
+  "devDependencies": {
+    "prettier": "^3.3.3",
+    "turbo": "^2.3.3"
   }
 }

@@ -1,0 +1,426 @@
+---
+title: "My 2025 Development Stack: Built for Speed, Designed for Scale"
+date: "2025-11-14"
+description: "The exact tools and frameworks I use to ship enterprise-grade MVPs in weeks. From Next.js to NestJS, from Claude Code to Cursor—here's my battle-tested rapid prototyping stack."
+tags: ["tools", "nextjs", "nestjs", "typescript", "ai", "productivity"]
+---
+
+After building 100+ applications over 27 years, I've refined my development stack to a sharp edge: **maximum velocity without sacrificing quality**. This isn't about chasing trends—it's about using tools that let me ship production-ready MVPs in weeks instead of months.
+
+Here's the exact stack I use for rapid prototyping in 2025, and why each tool earned its place.
+
+## The Foundation: TypeScript Everywhere
+
+**Why**: Type safety eliminates an entire class of bugs before they reach production. AI tools work better with TypeScript. Refactoring is fearless.
+
+**The Reality**: 27 years ago, I wrote Perl and PHP without types. Today, I won't touch a project without TypeScript. The upfront investment in types pays dividends every single day.
+
+```typescript
+// This catches bugs at compile time, not production
+interface User {
+  id: string;
+  email: string;
+  role: 'admin' | 'user' | 'guest';
+}
+
+// TypeScript prevents this mistake:
+const user: User = {
+  id: '123',
+  email: 'test@example.com',
+  role: 'administrator' // ❌ Error: Type '"administrator"' is not assignable
+}
+```
+
+## Frontend: Next.js 15 (App Router)
+
+**Why I chose it**:
+- Server Components reduce client-side JavaScript
+- Built-in API routes for rapid prototyping
+- Exceptional developer experience
+- SEO and performance out of the box
+- Vercel deployment in minutes
+
+**Real-world example**: The Catalyst PSA platform (320K+ LOC) uses Next.js App Router. Features like server-side data fetching and streaming make complex dashboards snappy.
+
+```typescript
+// app/dashboard/page.tsx
+// Server Component - data fetching happens on the server
+export default async function DashboardPage() {
+  // No loading states, no useEffect, just data
+  const projects = await db.query.projects.findMany({
+    where: eq(projects.status, 'active'),
+    with: { tasks: true, members: true }
+  });
+
+  return <ProjectDashboard projects={projects} />;
+}
+```
+
+### UI: Tailwind CSS + Shadcn/ui
+
+**Why**:
+- Utility-first CSS = faster styling
+- No context switching between files
+- AI tools understand Tailwind perfectly
+- Shadcn/ui provides beautiful, accessible components
+- Copy-paste, customize, own the code
+
+**Speed factor**: Building a complex form with validation used to take hours. Now? 15 minutes.
+
+```typescript
+<form className="space-y-4">
+  <div>
+    <Label htmlFor="email">Email</Label>
+    <Input
+      id="email"
+      type="email"
+      placeholder="you@example.com"
+      className="w-full"
+    />
+  </div>
+  <Button className="w-full">Submit</Button>
+</form>
+```
+
+## Backend: NestJS
+
+**Why it's my go-to**:
+- Enterprise architecture patterns out of the box
+- Dependency injection makes testing trivial
+- Decorator-based routing is clean and intuitive
+- Scales from MVP to enterprise
+- TypeScript native
+
+**The pattern that saves me weeks**:
+
+```typescript
+// users/users.module.ts
+@Module({
+  imports: [TypeOrmModule.forFeature([User])],
+  controllers: [UsersController],
+  providers: [UsersService, UsersRepository],
+  exports: [UsersService], // Clean dependency management
+})
+export class UsersModule {}
+
+// users/users.controller.ts
+@Controller('users')
+@UseGuards(JwtAuthGuard)
+export class UsersController {
+  constructor(private readonly usersService: UsersService) {}
+
+  @Get()
+  @ApiOperation({ summary: 'Get all users' })
+  async findAll(@Query() query: PaginationDto) {
+    return this.usersService.findAll(query);
+  }
+
+  @Post()
+  @ApiOperation({ summary: 'Create user' })
+  async create(@Body() createUserDto: CreateUserDto) {
+    return this.usersService.create(createUserDto);
+  }
+}
+```
+
+This structure is so consistent that AI tools can generate entire modules following the pattern. I just review and refine the business logic.
+
+## Database: PostgreSQL + Drizzle ORM
+
+**Why I switched from Prisma**:
+- Drizzle is lighter and faster
+- SQL-like syntax (easier for AI to generate correctly)
+- Better TypeScript inference
+- Edge-compatible
+
+**Schema definition**:
+
+```typescript
+// schema/users.ts
+export const users = pgTable('users', {
+  id: uuid('id').defaultRandom().primaryKey(),
+  email: varchar('email', { length: 255 }).notNull().unique(),
+  name: varchar('name', { length: 255 }).notNull(),
+  role: varchar('role', { length: 50 }).notNull(),
+  createdAt: timestamp('created_at').defaultNow().notNull(),
+});
+
+// Type inference - automatically generated!
+export type User = typeof users.$inferSelect;
+export type NewUser = typeof users.$inferInsert;
+```
+
+**Migration generation**: `drizzle-kit generate` creates SQL migrations automatically. No guesswork.
+
+## State Management: Zustand + React Query
+
+**Why this combo wins**:
+
+**Zustand** for global UI state:
+```typescript
+// stores/auth-store.ts
+export const useAuthStore = create<AuthState>((set) => ({
+  user: null,
+  isAuthenticated: false,
+  login: (user) => set({ user, isAuthenticated: true }),
+  logout: () => set({ user: null, isAuthenticated: false }),
+}));
+```
+
+**React Query** for server state:
+```typescript
+// hooks/use-projects.ts
+export function useProjects() {
+  return useQuery({
+    queryKey: ['projects'],
+    queryFn: async () => {
+      const res = await fetch('/api/projects');
+      return res.json();
+    },
+    staleTime: 5 * 60 * 1000, // 5 minutes
+  });
+}
+```
+
+**Speed factor**: No Redux boilerplate. No action creators. No reducers. Just clean, fast state management.
+
+## Mobile: React Native + Expo
+
+**For cross-platform MVPs**:
+- Write once, deploy to iOS and Android
+- Expo Go for instant testing
+- OTA updates without app store approval
+- Share code with Next.js web app
+
+**Real project**: WellOS mobile app shares 70% of its business logic with the web app via shared packages.
+
+```typescript
+// apps/mobile/app/(tabs)/index.tsx
+export default function HomeScreen() {
+  const { data: wells } = useWells(); // Same hook as web!
+
+  return (
+    <View style={styles.container}>
+      <WellList wells={wells} /> {/* Shared component logic */}
+    </View>
+  );
+}
+```
+
+## AI Development Tools
+
+### 1. Claude Code
+**Use case**: Architecture, large refactors, codebase analysis
+
+**Real example**: "Migrate all authentication logic from session-based to JWT while maintaining backward compatibility."
+
+Claude Code analyzes the codebase, generates a migration plan, and executes it across 50+ files.
+
+### 2. Cursor
+**Use case**: Rapid feature development, inline code generation
+
+**Real example**: Typing a comment like `// Create invoice PDF generation service with templates` generates a complete service with error handling, validation, and types.
+
+### 3. GitHub Copilot
+**Use case**: Autocomplete, test generation, repetitive patterns
+
+**Real example**: Writing one test case, Copilot suggests 10 more covering edge cases.
+
+## DevOps & Deployment
+
+### Vercel (Frontend)
+- Push to main → instant deployment
+- Preview deployments for every PR
+- Edge functions for global performance
+- Zero configuration
+
+### Railway (Backend & Database)
+- NestJS API deploys in minutes
+- PostgreSQL with automatic backups
+- Environment variables management
+- $5/month to start
+
+### Alternative: AWS (Enterprise)
+For larger projects:
+- ECS for containerized apps
+- RDS for databases
+- CloudFront + S3 for static assets
+- Route 53 for DNS
+
+## Monitoring & Analytics
+
+- **Sentry**: Error tracking and performance monitoring
+- **LogRocket**: Session replay for debugging user issues
+- **Vercel Analytics**: Web vitals and performance metrics
+- **Axiom**: Structured logging
+
+## The Monorepo Structure
+
+**Tool**: Turborepo
+
+```
+my-app/
+├── apps/
+│   ├── web/          # Next.js app
+│   ├── api/          # NestJS backend
+│   └── mobile/       # React Native app
+├── packages/
+│   ├── ui/           # Shared components
+│   ├── db/           # Database schemas & migrations
+│   ├── types/        # Shared TypeScript types
+│   └── config/       # ESLint, TypeScript configs
+└── turbo.json        # Build orchestration
+```
+
+**Benefits**:
+- Share code across apps
+- Single command builds everything
+- Consistent tooling and configs
+- AI tools understand the structure
+
+## Testing Stack
+
+**Unit & Integration**: Vitest
+- Faster than Jest
+- Better TypeScript support
+- Compatible with modern tools
+
+**E2E**: Playwright
+- Cross-browser testing
+- Visual regression testing
+- Generated with AI assistance
+
+```typescript
+// tests/auth.spec.ts
+test('user can login', async ({ page }) => {
+  await page.goto('/login');
+  await page.fill('[name=email]', 'test@example.com');
+  await page.fill('[name=password]', 'password123');
+  await page.click('button[type=submit]');
+
+  await expect(page).toHaveURL('/dashboard');
+});
+```
+
+## Documentation
+
+- **Storybook**: Component documentation
+- **OpenAPI/Swagger**: Auto-generated API docs from NestJS
+- **Notion**: Project specs and architecture decisions
+
+## Version Control & CI/CD
+
+- **GitHub**: Version control
+- **GitHub Actions**: CI/CD pipelines
+- **Conventional Commits**: Automated changelog generation
+
+```yaml
+# .github/workflows/main.yml
+name: CI
+on: [push, pull_request]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+      - run: npm install
+      - run: npm run lint
+      - run: npm run test
+      - run: npm run build
+```
+
+## The Complete Stack Summary
+
+| Layer | Tool | Why |
+|-------|------|-----|
+| Frontend | Next.js 15 | SSR, App Router, Vercel integration |
+| Backend | NestJS | Enterprise patterns, DI, scalability |
+| Database | PostgreSQL + Drizzle | Reliability, type safety, performance |
+| Mobile | React Native + Expo | Cross-platform, code sharing |
+| UI | Tailwind + Shadcn/ui | Speed, consistency, accessibility |
+| State | Zustand + React Query | Simple, powerful, performant |
+| AI Coding | Claude Code, Cursor, Copilot | 3-5x development speed |
+| Deployment | Vercel + Railway | Zero-config, instant deploys |
+| Monitoring | Sentry + LogRocket | Catch issues before users complain |
+| Testing | Vitest + Playwright | Fast, reliable, AI-friendly |
+
+## ROI: What This Stack Delivers
+
+**Traditional stack (2018)**:
+- 3 months to MVP
+- Complex configuration
+- Slow feedback loops
+- Manual deployment processes
+
+**My 2025 stack**:
+- ✅ 6-8 weeks to MVP
+- ✅ Zero-config defaults
+- ✅ Instant preview deployments
+- ✅ AI-accelerated development
+- ✅ End-to-end type safety
+- ✅ Enterprise-grade from day one
+
+## Not Just Tools—Patterns
+
+Here's the secret: **The tools matter less than the patterns**.
+
+I've established patterns for:
+- Authentication & authorization
+- Error handling
+- Validation
+- Database access
+- API design
+- Testing strategies
+
+Once these patterns are established, AI tools can replicate them across the entire codebase. That's where the speed comes from.
+
+## For Startups: The Bottom Line
+
+Using this stack, I can deliver:
+
+- **Week 1**: Project setup, authentication, basic CRUD
+- **Week 2-3**: Core features, database design
+- **Week 4-5**: Advanced features, integrations
+- **Week 6**: Testing, polish, deployment
+- **Week 7-8**: Iteration based on feedback
+
+This is production-ready code, not a prototype that needs to be rewritten.
+
+## Want to Move This Fast?
+
+This stack isn't theoretical—it's what I use daily to ship real applications for real clients. The combination of 27 years of architectural experience and cutting-edge AI tooling is a force multiplier.
+
+If you're a startup looking to validate your idea quickly or an established company needing to move faster, [let's talk about your project](/contact).
+
+---
+
+**Complete Tool List**:
+
+**Development**:
+- TypeScript
+- Next.js 15
+- NestJS
+- React Native + Expo
+- Drizzle ORM + PostgreSQL
+
+**AI Tools**:
+- Claude Code
+- Cursor
+- GitHub Copilot
+
+**Deployment**:
+- Vercel
+- Railway
+- AWS (enterprise)
+
+**Monitoring**:
+- Sentry
+- LogRocket
+- Vercel Analytics
+
+**Testing**:
+- Vitest
+- Playwright
+- Storybook

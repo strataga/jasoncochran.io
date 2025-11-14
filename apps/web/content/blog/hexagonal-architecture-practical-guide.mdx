@@ -1,11 +1,11 @@
 ---
-title: "Hexagonal Architecture in Practice: Building the Rook PSA Platform"
+title: "Hexagonal Architecture in Practice: Building the Catalyst PSA Platform"
 date: "2024-03-15"
-description: "A practical guide to implementing Hexagonal Architecture in a 320K+ line enterprise SaaS platform, with real-world examples and lessons learned."
+description: "A practical guide to implementing Hexagonal Architecture in a 320K+ line enterprise SaaS platform, with real-world examples and lessons learned from Catalyst PSA."
 tags: ["architecture", "hexagonal-architecture", "enterprise", "nestjs", "design-patterns"]
 ---
 
-After 25 years of building software, I've seen architectural patterns come and go. But Hexagonal Architecture—also known as Ports and Adapters—has proven to be one of the most effective patterns for building maintainable enterprise applications. When we built the Rook PSA platform, which grew to over 320,000 lines of code, Hexagonal Architecture was instrumental in keeping our codebase manageable and testable.
+After 27 years of building software, I've seen architectural patterns come and go. But Hexagonal Architecture—also known as Ports and Adapters—has proven to be one of the most effective patterns for building maintainable enterprise applications. When we built the Catalyst PSA platform, which grew to over 320,000 lines of code, Hexagonal Architecture was instrumental in keeping our codebase manageable and testable.
 
 ## What is Hexagonal Architecture?
 
@@ -17,7 +17,7 @@ The architecture consists of three main layers:
 - **Application Layer**: Use cases and orchestration
 - **Infrastructure Layer**: External dependencies (databases, APIs, message queues)
 
-## Why We Chose Hexagonal Architecture for Rook PSA
+## Why We Chose Hexagonal Architecture for Catalyst PSA
 
 When you're building a platform that needs to scale to hundreds of thousands of lines of code and serve enterprise clients, maintainability becomes paramount. Here's why Hexagonal Architecture made sense:
 
@@ -212,12 +212,12 @@ After three years and 320,000+ lines of code, Hexagonal Architecture proved its 
 
 ## When Not to Use Hexagonal Architecture
 
-Hexagonal Architecture isn't free. It requires discipline and adds some complexity. For small projects or MVPs, it might be overkill. We used it for Rook PSA because we knew it would grow large and need to evolve over years.
+Hexagonal Architecture isn't free. It requires discipline and adds some complexity. For small projects or MVPs, it might be overkill. We used it for Catalyst PSA because we knew it would grow large and need to evolve over years.
 
 If you're building a simple CRUD app that won't change much, stick with a simpler architecture. But if you're building enterprise software that needs to stand the test of time, Hexagonal Architecture is worth the investment.
 
 ## Conclusion
 
-Hexagonal Architecture transformed how we built the Rook PSA platform. It gave us the flexibility to evolve our technology choices, the confidence to refactor without fear, and the clarity to work as a large team on a massive codebase.
+Hexagonal Architecture transformed how we built the Catalyst PSA platform. It gave us the flexibility to evolve our technology choices, the confidence to refactor without fear, and the clarity to work as a large team on a massive codebase.
 
-The key is starting with clean boundaries and maintaining the discipline not to let infrastructure concerns leak into your domain. It's not always easy, but after 25 years of writing code, I can tell you it's one of the best architectural decisions you can make for enterprise applications.
+The key is starting with clean boundaries and maintaining the discipline not to let infrastructure concerns leak into your domain. It's not always easy, but after 27 years of writing code, I can tell you it's one of the best architectural decisions you can make for enterprise applications.

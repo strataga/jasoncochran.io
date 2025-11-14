@@ -7,7 +7,7 @@ tags: ['TypeScript', 'JavaScript', 'Best Practices']
 
 # TypeScript Best Practices for 2025
 
-In the decade since I started using TypeScript, it has evolved from a niche Microsoft project to the industry standard for building robust JavaScript applications. Working on enterprise codebases like Rook PSA (320K+ lines) and WellPulse, I've learned that TypeScript's value goes far beyond catching typos—it's about encoding business logic and domain knowledge directly into your type system.
+In the decade since I started using TypeScript, it has evolved from a niche Microsoft project to the industry standard for building robust JavaScript applications. Working on enterprise codebases like Catalyst PSA (320K+ lines) and WellOS, I've learned that TypeScript's value goes far beyond catching typos—it's about encoding business logic and domain knowledge directly into your type system.
 
 Here are the patterns and practices that have proven most valuable across years of production TypeScript development.
 
@@ -146,7 +146,7 @@ function handleState(state: RequestState) {
 }
 ```
 
-In Rook PSA, we use this pattern extensively for async operations, form states, and API calls. It eliminates entire classes of bugs.
+In Catalyst PSA, we use this pattern extensively for async operations, form states, and API calls. It eliminates entire classes of bugs.
 
 ### Conditional Types for Advanced Patterns
 
@@ -212,7 +212,7 @@ interface Project {
 type ProjectUpdate = UpdateType<Project>
 // Result: { id: string; title?: string; description?: string; startDate?: Date }
 
-// Real usage from Rook PSA
+// Real usage from Catalyst PSA
 async function updateProject(update: ProjectUpdate) {
   // id is required, everything else is optional
   const { id, ...changes } = update
@@ -725,4 +725,4 @@ Key takeaways:
 - **Use utility types** - They're built-in for a reason
 - **Type your APIs** - End-to-end type safety prevents entire classes of bugs
 
-After 25 years of development and a decade with TypeScript, I can confidently say it's one of the most impactful tools for building maintainable JavaScript applications. These patterns have proven themselves across hundreds of thousands of lines of production code—use them wisely, and your codebase will thank you.
+After 27 years of development and a decade with TypeScript, I can confidently say it's one of the most impactful tools for building maintainable JavaScript applications. These patterns have proven themselves across hundreds of thousands of lines of production code—use them wisely, and your codebase will thank you.

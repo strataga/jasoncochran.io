@@ -25,9 +25,9 @@ interface Project {
 const projects: Project[] = [
   {
     id: 1,
-    title: 'Rook PSA Platform',
+    title: 'Catalyst PSA Platform',
     subtitle: 'Enterprise SaaS • 320K+ LOC',
-    slug: 'rook-psa-platform',
+    slug: 'catalyst-psa-platform',
     description: 'Professional Services Automation platform with comprehensive project management, time tracking, resource allocation, and financial management capabilities.',
     architectureHighlights: [
       'Hexagonal Architecture with 61 identified patterns',
@@ -40,9 +40,9 @@ const projects: Project[] = [
   },
   {
     id: 2,
-    title: 'WellPulse',
+    title: 'WellOS',
     subtitle: 'Oil & Gas SaaS • Multi-Platform',
-    slug: 'wellpulse',
+    slug: 'wellos',
     description: 'Comprehensive Oil & Gas field operations platform with offline-first capabilities, real-time data sync, and multi-platform support for web and mobile.',
     architectureHighlights: [
       '6 integrated applications (Web, Mobile, Admin, API, Sync, Dashboard)',
@@ -150,7 +150,7 @@ export default function Projects() {
             100+ Projects Delivered
           </h2>
           <p className="text-lg text-slate-600 dark:text-slate-400 mb-6 max-w-2xl mx-auto">
-            Over 25 years, I've delivered hundreds of successful projects across various industries including
+            Over 27 years, I've delivered hundreds of successful projects across various industries including
             healthcare, finance, oil & gas, and professional services.
           </p>
           <p className="text-slate-600 dark:text-slate-400 mb-8">

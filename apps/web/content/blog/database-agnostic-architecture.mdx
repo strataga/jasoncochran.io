@@ -1,11 +1,11 @@
 ---
 title: "Database-Agnostic Architecture: Why and How"
 date: "2024-07-28"
-description: "Building applications that can work with multiple database systems without rewriting code, based on experience with WellPulse's 6-app platform supporting PostgreSQL, MongoDB, and SQLite."
+description: "Building applications that can work with multiple database systems without rewriting code, based on experience with WellOS's 6-app platform supporting PostgreSQL, MongoDB, and SQLite."
 tags: ["database", "architecture", "postgresql", "mongodb", "sqlite", "drizzle"]
 ---
 
-When we started building WellPulse, an oil and gas field operations platform, we faced an unusual challenge: our application needed to run in three completely different environments with three different databases.
+When we started building WellOS, an oil and gas field operations platform, we faced an unusual challenge: our application needed to run in three completely different environments with three different databases.
 
 - **Cloud deployment**: PostgreSQL for the main SaaS platform
 - **On-premise installations**: MongoDB for clients with existing NoSQL infrastructure
@@ -25,7 +25,7 @@ Database-agnostic architecture decouples your business logic from database imple
 - **Offline support**: Sync between SQLite (offline) and PostgreSQL (server)
 - **Client choice**: Let enterprise clients use their preferred database
 
-The tradeoff is giving up database-specific optimizations. For WellPulse, this was acceptable—business logic complexity far outweighed database complexity.
+The tradeoff is giving up database-specific optimizations. For WellOS, this was acceptable—business logic complexity far outweighed database complexity.
 
 ## The Three-Layer Approach
 
@@ -542,8 +542,8 @@ Don't use it when:
 
 ## Conclusion
 
-Building WellPulse with database-agnostic architecture let us support PostgreSQL, MongoDB, and SQLite with a single codebase. Field workers use SQLite offline, corporate users have PostgreSQL, and on-premise clients can use MongoDB.
+Building WellOS with database-agnostic architecture let us support PostgreSQL, MongoDB, and SQLite with a single codebase. Field workers use SQLite offline, corporate users have PostgreSQL, and on-premise clients can use MongoDB.
 
 The key is clean separation between domain logic and persistence, simple repository interfaces, and discipline to avoid database-specific features leaking into business code.
 
-After 25 years of building applications, I've learned that staying database-agnostic provides invaluable flexibility. The slight complexity cost pays for itself when requirements inevitably change.
+After 27 years of building applications, I've learned that staying database-agnostic provides invaluable flexibility. The slight complexity cost pays for itself when requirements inevitably change.

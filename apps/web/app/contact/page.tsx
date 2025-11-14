@@ -29,12 +29,12 @@ export default function ContactPage() {
         {/* Contact Methods */}
         <div className="grid md:grid-cols-3 gap-6 mb-16">
           <a
-            href="mailto:jlcochran2013@gmail.com"
+            href="mailto:jason.cochran@strataga.io"
             className="group p-6 bg-white dark:bg-slate-800 rounded-2xl border-2 border-slate-200 dark:border-slate-700 hover:border-blue-500 dark:hover:border-blue-400 transition-all hover:shadow-xl hover:scale-105"
           >
             <div className="text-4xl mb-4 group-hover:scale-110 transition-transform">📧</div>
             <h3 className="font-bold text-slate-900 dark:text-white mb-2">Email</h3>
-            <p className="text-sm text-slate-600 dark:text-slate-400 break-all">jlcochran2013@gmail.com</p>
+            <p className="text-sm text-slate-600 dark:text-slate-400 break-all">jason.cochran@strataga.io</p>
           </a>
 
           <a

@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import type { Metadata } from 'next'
 import { getAllPosts } from '@/lib/blog'
 
 export async function generateStaticParams() {
@@ -12,6 +13,27 @@ export async function generateStaticParams() {
   return Array.from(tags).map(tag => ({
     tag: encodeURIComponent(tag)
   }))
+}
+
+export async function generateMetadata({ params }: { params: Promise<{ tag: string }> }): Promise<Metadata> {
+  const { tag: encodedTag } = await params
+  const tag = decodeURIComponent(encodedTag)
+  const allPosts = getAllPosts()
+  const filteredPosts = allPosts.filter(post => post.tags?.includes(tag))
+
+  return {
+    title: `${tag} - Blog Posts | Jason Cochran`,
+    description: `${filteredPosts.length} blog ${filteredPosts.length === 1 ? 'post' : 'posts'} about ${tag}. Topics include software development, AI-assisted development, modern tech stack, and enterprise architecture.`,
+    openGraph: {
+      title: `${tag} - Blog Posts | Jason Cochran`,
+      description: `Browse ${filteredPosts.length} blog ${filteredPosts.length === 1 ? 'post' : 'posts'} about ${tag}`,
+      type: 'website',
+      url: `https://jasoncochran.io/blog/tag/${encodedTag}`,
+    },
+    alternates: {
+      canonical: `https://jasoncochran.io/blog/tag/${encodedTag}`,
+    },
+  }
 }
 
 export default async function TagPage({ params }: { params: Promise<{ tag: string }> }) {

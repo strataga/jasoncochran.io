@@ -14,6 +14,7 @@ export default function Navigation() {
     { href: '/resume', label: 'Resume' },
     { href: '/projects', label: 'Projects' },
     { href: '/blog', label: 'Blog' },
+    { href: '/certifications', label: 'Certifications' },
     { href: '/contact', label: 'Contact' },
   ]
 

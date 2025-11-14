@@ -1,11 +1,11 @@
 ---
 title: "Building Scalable APIs with NestJS"
 date: "2024-11-05"
-description: "Architectural patterns and best practices for building enterprise-grade scalable APIs with NestJS, based on experience building the Rook PSA backend serving thousands of requests per minute."
+description: "Architectural patterns and best practices for building enterprise-grade scalable APIs with NestJS, based on experience building the Catalyst PSA backend serving thousands of requests per minute."
 tags: ["nestjs", "api", "nodejs", "architecture", "scalability", "typescript"]
 ---
 
-NestJS transformed how we built the Rook PSA backend. Coming from years of Express development, NestJS's structure, dependency injection, and TypeScript-first approach made building and maintaining a large-scale API dramatically easier.
+NestJS transformed how we built the Catalyst PSA backend. Coming from years of Express development, NestJS's structure, dependency injection, and TypeScript-first approach made building and maintaining a large-scale API dramatically easier.
 
 After building an API handling 50,000+ requests/minute with NestJS, here's everything I learned about building scalable APIs.
 
@@ -19,7 +19,7 @@ Express is great for simple APIs, but enterprise applications need structure. Ne
 - **Decorators**: Clean, declarative syntax
 - **Built-in tools**: Guards, interceptors, pipes, exception filters
 
-For Rook PSA's 320K+ LOC codebase, this structure was essential.
+For Catalyst PSA's 320K+ LOC codebase, this structure was essential.
 
 ## Project Structure
 
@@ -486,7 +486,7 @@ Auto-generate API docs:
 import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 
 const config = new DocumentBuilder()
-  .setTitle('Rook PSA API')
+  .setTitle('Catalyst PSA API')
   .setDescription('Professional Services Automation Platform API')
   .setVersion('1.0')
   .addBearerAuth()
@@ -665,6 +665,6 @@ Monitor request duration, error rates, and database queries in production.
 
 ## Conclusion
 
-NestJS transformed how we built the Rook PSA API. Its structure, dependency injection, and built-in features made building a scalable, maintainable API handling 50K+ req/min straightforward.
+NestJS transformed how we built the Catalyst PSA API. Its structure, dependency injection, and built-in features made building a scalable, maintainable API handling 50K+ req/min straightforward.
 
-After 25 years of building APIs, NestJS is my go-to framework for enterprise Node.js applications. It provides the structure and patterns needed for large codebases without sacrificing flexibility.
+After 27 years of building APIs, NestJS is my go-to framework for enterprise Node.js applications. It provides the structure and patterns needed for large codebases without sacrificing flexibility.

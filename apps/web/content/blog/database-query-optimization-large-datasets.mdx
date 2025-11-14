@@ -5,7 +5,7 @@ description: "Proven techniques for optimizing database queries in enterprise ap
 tags: ["database", "performance", "postgresql", "sql", "optimization", "indexing"]
 ---
 
-When Rook PSA hit 10 million time entries and queries started taking 30+ seconds, we had to get serious about database optimization. After 25 years of database work and optimizing queries across PostgreSQL, SQL Server, MySQL, and MongoDB, here are the techniques that made the biggest impact.
+When Catalyst PSA hit 10 million time entries and queries started taking 30+ seconds, we had to get serious about database optimization. After 27 years of database work and optimizing queries across PostgreSQL, SQL Server, MySQL, and MongoDB, here are the techniques that made the biggest impact.
 
 ## Start with EXPLAIN: Understand Before Optimizing
 
@@ -493,7 +493,7 @@ We found 15 unused indexes consuming 2GB. Dropped them.
 
 ## Results
 
-After applying these optimizations to Rook PSA:
+After applying these optimizations to Catalyst PSA:
 
 - **Dashboard load**: 30s -> 1.5s (20x faster)
 - **Report generation**: 45s -> 3s (15x faster)
@@ -515,4 +515,4 @@ After applying these optimizations to Rook PSA:
 
 Database optimization is about understanding how databases work: indexes, query plans, joins, and aggregations. With the right indexes and query patterns, even databases with hundreds of millions of rows can be fast.
 
-After 25 years of database work, I've learned that most performance problems come from missing indexes or N+1 queries. Fix those, and you're 90% of the way there.
+After 27 years of database work, I've learned that most performance problems come from missing indexes or N+1 queries. Fix those, and you're 90% of the way there.

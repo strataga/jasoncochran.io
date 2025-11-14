@@ -1,11 +1,11 @@
 ---
 title: "CQRS Pattern Implementation in Enterprise Applications"
 date: "2024-04-22"
-description: "How implementing CQRS in the Rook PSA platform improved performance, scalability, and code maintainability for complex enterprise workflows."
+description: "How implementing CQRS in the Catalyst PSA platform improved performance, scalability, and code maintainability for complex enterprise workflows."
 tags: ["cqrs", "architecture", "enterprise", "performance", "scalability"]
 ---
 
-When the Rook PSA platform started experiencing performance bottlenecks with complex reporting queries slowing down transaction processing, we knew we needed a better approach. That's when we implemented Command Query Responsibility Segregation (CQRS), and it fundamentally changed how we architected our enterprise application.
+When the Catalyst PSA platform started experiencing performance bottlenecks with complex reporting queries slowing down transaction processing, we knew we needed a better approach. That's when we implemented Command Query Responsibility Segregation (CQRS), and it fundamentally changed how we architected our enterprise application.
 
 ## The Problem: Reads and Writes Don't Scale the Same Way
 
@@ -14,7 +14,7 @@ Traditional CRUD applications use the same models and database structures for bo
 - **Writes** are typically transactional, need strong consistency, and involve complex business logic
 - **Reads** need to be fast, can tolerate eventual consistency, and often require data denormalized across multiple entities
 
-In Rook PSA, we had project managers running complex reports that joined 10+ tables, locking rows and slowing down time entry submissions from field workers. The same database schema that was perfect for maintaining data integrity was terrible for reporting performance.
+In Catalyst PSA, we had project managers running complex reports that joined 10+ tables, locking rows and slowing down time entry submissions from field workers. The same database schema that was perfect for maintaining data integrity was terrible for reporting performance.
 
 ## What is CQRS?
 
@@ -25,7 +25,7 @@ CQRS separates your application into two distinct paths:
 
 Each side can use different models, databases, and optimization strategies. The key insight is that the way you write data doesn't have to be the way you read it.
 
-## Our CQRS Implementation in Rook PSA
+## Our CQRS Implementation in Catalyst PSA
 
 Here's how we implemented CQRS in our NestJS application:
 
@@ -211,7 +211,7 @@ We also gained the ability to scale reads and writes independently. The query si
 
 ### Challenge 1: Eventual Consistency
 
-CQRS means your read models are eventually consistent, not immediately consistent. For Rook PSA, this was mostly fine—users understood that dashboards might lag by a second or two. But for some operations (like "create project and redirect to project page"), we needed to ensure the read model was updated first.
+CQRS means your read models are eventually consistent, not immediately consistent. For Catalyst PSA, this was mostly fine—users understood that dashboards might lag by a second or two. But for some operations (like "create project and redirect to project page"), we needed to ensure the read model was updated first.
 
 Our solution was to make critical event handlers synchronous:
 
@@ -286,12 +286,12 @@ Don't use it when:
 
 ## Beyond CQRS: Event Sourcing
 
-We explored Event Sourcing (storing events as the source of truth, not current state) but decided against it for Rook PSA. Event Sourcing adds significant complexity and was overkill for our needs. CQRS alone gave us 90% of the benefits without the complexity.
+We explored Event Sourcing (storing events as the source of truth, not current state) but decided against it for Catalyst PSA. Event Sourcing adds significant complexity and was overkill for our needs. CQRS alone gave us 90% of the benefits without the complexity.
 
 ## Conclusion
 
-Implementing CQRS in the Rook PSA platform was one of our best architectural decisions. It solved real performance problems, made our codebase more maintainable by making read and write operations explicit, and gave us the flexibility to optimize each side independently.
+Implementing CQRS in the Catalyst PSA platform was one of our best architectural decisions. It solved real performance problems, made our codebase more maintainable by making read and write operations explicit, and gave us the flexibility to optimize each side independently.
 
 The key is not to use CQRS everywhere, but to apply it strategically where read/write patterns diverge. Combined with Hexagonal Architecture and DDD, CQRS helped us build a platform that scaled to 320,000+ lines of code while staying maintainable and performant.
 
-After 25 years of building applications, I can confidently say that CQRS is an essential pattern for any enterprise application that needs to handle both complex transactions and high-performance reads.
+After 27 years of building applications, I can confidently say that CQRS is an essential pattern for any enterprise application that needs to handle both complex transactions and high-performance reads.

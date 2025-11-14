@@ -27,7 +27,7 @@ export async function POST(request: NextRequest) {
     // Send email via Resend
     const { data, error } = await resend.emails.send({
       from: process.env.RESEND_FROM_EMAIL || 'onboarding@resend.dev',
-      to: process.env.RESEND_TO_EMAIL || 'jlcochran2013@gmail.com',
+      to: process.env.RESEND_TO_EMAIL || 'jason.cochran@strataga.io',
       subject: `New Contact Form Submission`,
       html: `
         <!DOCTYPE html>
@@ -68,7 +68,7 @@ export async function POST(request: NextRequest) {
             </div>
 
             <div style="text-align: center; margin-top: 20px; color: #9ca3af; font-size: 12px;">
-              <p style="margin: 0;">Sent from jasoncochran.com contact form</p>
+              <p style="margin: 0;">Sent from jasoncochran.io contact form</p>
             </div>
           </body>
         </html>

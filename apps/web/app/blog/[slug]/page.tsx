@@ -2,6 +2,7 @@ import { notFound } from 'next/navigation'
 import { getPostBySlug, getAllPosts } from '@/lib/blog'
 import { MDXRemote } from 'next-mdx-remote/rsc'
 import Link from 'next/link'
+import type { Metadata } from 'next'
 import rehypePrettyCode from 'rehype-pretty-code'
 import { CodeBlock } from '@/components/code-block'
 
@@ -10,6 +11,41 @@ export async function generateStaticParams() {
   return posts.map((post) => ({
     slug: post.slug,
   }))
+}
+
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const { slug } = await params
+  const post = getPostBySlug(slug)
+
+  if (!post) {
+    return {
+      title: 'Post Not Found',
+    }
+  }
+
+  return {
+    title: post.title,
+    description: post.description,
+    keywords: post.tags,
+    authors: [{ name: 'Jason Cochran' }],
+    openGraph: {
+      title: post.title,
+      description: post.description,
+      type: 'article',
+      publishedTime: post.date,
+      authors: ['Jason Cochran'],
+      tags: post.tags,
+      url: `https://jasoncochran.io/blog/${slug}`,
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: post.title,
+      description: post.description,
+    },
+    alternates: {
+      canonical: `https://jasoncochran.io/blog/${slug}`,
+    },
+  }
 }
 
 export default async function BlogPost({ params }: { params: Promise<{ slug: string }> }) {

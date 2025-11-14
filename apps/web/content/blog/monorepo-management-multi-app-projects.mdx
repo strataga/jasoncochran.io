@@ -1,17 +1,17 @@
 ---
 title: "Monorepo Management for Multi-App Projects"
 date: "2025-02-14"
-description: "Managing a monorepo with 6 integrated applications in the WellPulse platform using Turborepo, shared packages, and effective build strategies for mobile and web apps."
+description: "Managing a monorepo with 6 integrated applications in the WellOS platform using Turborepo, shared packages, and effective build strategies for mobile and web apps."
 tags: ["monorepo", "turborepo", "react-native", "nextjs", "tooling", "dx"]
 ---
 
-When we built WellPulse—a platform with 6 integrated apps (3 React Native mobile apps, 2 Next.js web apps, and 1 Node.js backend)—we needed a way to share code, manage dependencies, and build efficiently. A monorepo was the answer.
+When we built WellOS—a platform with 6 integrated apps (3 React Native mobile apps, 2 Next.js web apps, and 1 Node.js backend)—we needed a way to share code, manage dependencies, and build efficiently. A monorepo was the answer.
 
 After two years managing 200,000+ lines of code across multiple apps in a single repository, here's everything I learned about monorepo management.
 
 ## Why Monorepo?
 
-WellPulse consists of:
+WellOS consists of:
 
 - **Field Worker Mobile App** (React Native)
 - **Manager Mobile App** (React Native)
@@ -37,7 +37,7 @@ We chose monorepo, and it transformed our development workflow.
 ## Monorepo Structure
 
 ```
-wellpulse/
+wellos/
 ├── apps/
 │   ├── mobile-field/          # React Native - field workers
 │   ├── mobile-manager/        # React Native - managers
@@ -64,7 +64,7 @@ We use Turborepo for fast, cached builds:
 ```json
 // package.json (root)
 {
-  "name": "wellpulse-monorepo",
+  "name": "wellos-monorepo",
   "private": true,
   "workspaces": [
     "apps/*",
@@ -147,7 +147,7 @@ export class WellInspection {
 ```json
 // packages/domain/package.json
 {
-  "name": "@wellpulse/domain",
+  "name": "@wellos/domain",
   "version": "1.0.0",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -159,7 +159,7 @@ export class WellInspection {
     "date-fns": "^2.30.0"
   },
   "devDependencies": {
-    "@wellpulse/tsconfig": "*",
+    "@wellos/tsconfig": "*",
     "typescript": "^5.0.0"
   }
 }
@@ -201,7 +201,7 @@ export const Button: React.FC<ButtonProps> = ({
 ```json
 // packages/ui/package.json
 {
-  "name": "@wellpulse/ui",
+  "name": "@wellos/ui",
   "version": "1.0.0",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -213,7 +213,7 @@ export const Button: React.FC<ButtonProps> = ({
     "react": "^18.2.0"
   },
   "devDependencies": {
-    "@wellpulse/tsconfig": "*",
+    "@wellos/tsconfig": "*",
     "tsup": "^7.0.0",
     "typescript": "^5.0.0"
   }
@@ -320,7 +320,7 @@ Apps extend these configs:
 ```json
 // apps/web-dashboard/tsconfig.json
 {
-  "extends": "@wellpulse/tsconfig/nextjs.json"
+  "extends": "@wellos/tsconfig/nextjs.json"
 }
 ```
 
@@ -331,12 +331,12 @@ Apps extend these configs:
 ```json
 // apps/web-dashboard/package.json
 {
-  "name": "@wellpulse/web-dashboard",
+  "name": "@wellos/web-dashboard",
   "dependencies": {
-    "@wellpulse/domain": "*",
-    "@wellpulse/ui": "*",
-    "@wellpulse/types": "*",
-    "@wellpulse/utils": "*",
+    "@wellos/domain": "*",
+    "@wellos/ui": "*",
+    "@wellos/types": "*",
+    "@wellos/utils": "*",
     "next": "14.0.0",
     "react": "^18.2.0"
   }
@@ -345,9 +345,9 @@ Apps extend these configs:
 
 ```typescript
 // apps/web-dashboard/components/InspectionList.tsx
-import { Button } from '@wellpulse/ui';
-import { WellInspection } from '@wellpulse/domain';
-import { formatDate } from '@wellpulse/utils';
+import { Button } from '@wellos/ui';
+import { WellInspection } from '@wellos/domain';
+import { formatDate } from '@wellos/utils';
 
 export const InspectionList = ({ inspections }: { inspections: WellInspection[] }) => {
   return (
@@ -371,12 +371,12 @@ export const InspectionList = ({ inspections }: { inspections: WellInspection[] 
 ```json
 // apps/mobile-field/package.json
 {
-  "name": "@wellpulse/mobile-field",
+  "name": "@wellos/mobile-field",
   "dependencies": {
-    "@wellpulse/domain": "*",
-    "@wellpulse/ui-native": "*",
-    "@wellpulse/types": "*",
-    "@wellpulse/utils": "*",
+    "@wellos/domain": "*",
+    "@wellos/ui-native": "*",
+    "@wellos/types": "*",
+    "@wellos/utils": "*",
     "react-native": "0.72.0"
   }
 }
@@ -384,9 +384,9 @@ export const InspectionList = ({ inspections }: { inspections: WellInspection[] 
 
 ```typescript
 // apps/mobile-field/screens/InspectionListScreen.tsx
-import { Button } from '@wellpulse/ui-native';
-import { WellInspection } from '@wellpulse/domain';
-import { formatDate } from '@wellpulse/utils';
+import { Button } from '@wellos/ui-native';
+import { WellInspection } from '@wellos/domain';
+import { formatDate } from '@wellos/utils';
 
 export const InspectionListScreen = () => {
   const inspections = useInspections();
@@ -440,10 +440,10 @@ Build only what changed:
 turbo run build
 
 # Build only affected apps
-turbo run build --filter=...@wellpulse/mobile-field
+turbo run build --filter=...@wellos/mobile-field
 
 # Build a single app and its dependencies
-turbo run build --filter=@wellpulse/web-dashboard
+turbo run build --filter=@wellos/web-dashboard
 ```
 
 In CI, we use Git to build only changed apps:
@@ -478,8 +478,8 @@ jobs:
 turbo run dev
 
 # Run specific apps
-turbo run dev --filter=@wellpulse/mobile-field
-turbo run dev --filter=@wellpulse/web-dashboard --filter=@wellpulse/api
+turbo run dev --filter=@wellos/mobile-field
+turbo run dev --filter=@wellos/web-dashboard --filter=@wellos/api
 ```
 
 Turborepo runs them in parallel with streaming output.
@@ -509,7 +509,7 @@ Use workspace protocol:
 ```json
 {
   "dependencies": {
-    "@wellpulse/domain": "*"  // Always use latest local version
+    "@wellos/domain": "*"  // Always use latest local version
   }
 }
 ```
@@ -534,7 +534,7 @@ Apps inherit these versions:
 // apps/web-dashboard/package.json
 {
   "devDependencies": {
-    "@wellpulse/tsconfig": "*",
+    "@wellos/tsconfig": "*",
     // typescript inherited from root
   }
 }
@@ -645,12 +645,12 @@ Monorepos aren't always the answer:
 - **Different teams**: Cross-team monorepos require coordination
 - **Massive scale**: Google's monorepo works for Google, but 100K+ developers requires special tooling
 
-For WellPulse (6 apps, 10 developers), monorepo was perfect.
+For WellOS (6 apps, 10 developers), monorepo was perfect.
 
 ## Conclusion
 
-Managing WellPulse as a monorepo with Turborepo transformed our development experience. Code sharing is trivial, atomic changes across apps are possible, and builds are blazingly fast with caching.
+Managing WellOS as a monorepo with Turborepo transformed our development experience. Code sharing is trivial, atomic changes across apps are possible, and builds are blazingly fast with caching.
 
 The key is structure: organize into apps and packages, use Turborepo for builds, and leverage workspace dependencies.
 
-After 25 years of managing codebases, monorepos are my preferred approach for multi-app projects with shared code. The initial setup investment pays dividends in developer productivity.
+After 27 years of managing codebases, monorepos are my preferred approach for multi-app projects with shared code. The initial setup investment pays dividends in developer productivity.

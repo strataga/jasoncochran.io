@@ -1,11 +1,11 @@
 ---
 title: "Building Real-Time Features with WebSockets and Redis"
 date: "2024-10-12"
-description: "Implementing scalable real-time collaboration features in enterprise SaaS using WebSockets, Redis Pub/Sub, and React, with lessons from building live updates in Rook PSA."
+description: "Implementing scalable real-time collaboration features in enterprise SaaS using WebSockets, Redis Pub/Sub, and React, with lessons from building live updates in Catalyst PSA."
 tags: ["websockets", "redis", "realtime", "pub-sub", "scalability", "nestjs"]
 ---
 
-When we added real-time collaboration to the Rook PSA platform—live updates to project timesheets, instant notifications, real-time presence indicators—we discovered that building truly scalable real-time features is harder than it looks.
+When we added real-time collaboration to the Catalyst PSA platform—live updates to project timesheets, instant notifications, real-time presence indicators—we discovered that building truly scalable real-time features is harder than it looks.
 
 After handling millions of WebSocket messages and scaling to support hundreds of concurrent users collaborating on shared projects, here's everything we learned about building real-time features the right way.
 
@@ -660,8 +660,8 @@ if (process.env.NODE_ENV === 'development') {
 
 ## Conclusion
 
-Building real-time features with WebSockets and Redis transformed Rook PSA into a collaborative platform. Team members see updates instantly, get notified immediately, and can see who else is working on projects in real-time.
+Building real-time features with WebSockets and Redis transformed Catalyst PSA into a collaborative platform. Team members see updates instantly, get notified immediately, and can see who else is working on projects in real-time.
 
 The architecture—WebSocket gateways + Redis pub/sub + domain events—scales horizontally and has handled millions of messages reliably.
 
-After 25 years of building applications, I can say that real-time features are no longer optional for modern enterprise software. Users expect instant updates, and with WebSockets and Redis, delivering that experience is achievable at scale.
+After 27 years of building applications, I can say that real-time features are no longer optional for modern enterprise software. Users expect instant updates, and with WebSockets and Redis, delivering that experience is achievable at scale.

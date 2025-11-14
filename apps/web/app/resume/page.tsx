@@ -1,3 +1,20 @@
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Resume',
+  description: 'Resume of Jason Cochran - 27 years of experience building web and mobile applications. Founder of Strataga LLC. Expert in React, Next.js, NestJS, Rust, TypeScript, and modern cloud technologies.',
+  keywords: ['Resume', 'CV', 'Software Engineer', 'React', 'Next.js', 'TypeScript', 'NestJS', 'Rust', 'Azure', 'Full Stack Developer'],
+  openGraph: {
+    title: 'Resume - Jason Cochran',
+    description: '27 years of software engineering experience. Founder of Strataga LLC, building WellOS and Catalyst PSA platforms.',
+    type: 'profile',
+    url: 'https://jasoncochran.io/resume',
+  },
+  alternates: {
+    canonical: 'https://jasoncochran.io/resume',
+  },
+}
+
 export default function Resume() {
   return (
     <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
@@ -8,8 +25,8 @@ export default function Resume() {
           27 Years Experience - Web/Mobile Apps Developer
         </p>
         <div className="flex flex-wrap gap-4 text-gray-600 dark:text-gray-400">
-          <a href="mailto:jlcochran2013@gmail.com" className="hover:text-blue-600">
-            jlcochran2013@gmail.com
+          <a href="mailto:jason.cochran@strataga.io" className="hover:text-blue-600">
+            jason.cochran@strataga.io
           </a>
           <span>•</span>
           <a href="tel:+14322607580" className="hover:text-blue-600">
@@ -77,6 +94,21 @@ export default function Resume() {
         </h2>
         <div className="space-y-2">
           <div>
+            <a href="https://learn.microsoft.com/api/credentials/share/en-us/JasonCochran-0426/AFE0258379C78FC6?sharingId=955379E09D280B0D" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">
+              Microsoft Azure Fundamentals (AZ-900)
+            </a>
+          </div>
+          <div>
+            <a href="https://learn.microsoft.com/api/credentials/share/en-us/JasonCochran-0426/88863517C68C1A2E?sharingId=955379E09D280B0D" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">
+              Microsoft Azure AI Fundamentals (AI-900)
+            </a>
+          </div>
+          <div>
+            <p className="text-gray-600 dark:text-gray-300">
+              Microsoft Azure Administrator Associate (AZ-104) - In Progress
+            </p>
+          </div>
+          <div>
             <a href="https://www.hackerrank.com/certificates/3adb70f4345d" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">
               JavaScript Certification - HackerRank
             </a>
@@ -106,6 +138,29 @@ export default function Resume() {
         </h2>
 
         <div className="space-y-8">
+          {/* Strataga */}
+          <div>
+            <div className="flex flex-col md:flex-row md:flex-wrap md:justify-between md:items-start mb-2">
+              <div>
+                <h3 className="text-xl font-semibold">Founder & CEO</h3>
+                <p className="text-gray-600 dark:text-gray-400">Strataga, LLC - Midland, TX</p>
+              </div>
+              <p className="text-gray-500 dark:text-gray-400">Oct 2025 - Present</p>
+            </div>
+            <ul className="list-disc list-inside space-y-2 text-gray-600 dark:text-gray-300 ml-2">
+              <li>Founded technology solutions company focused on oil & gas operations in the Permian Basin</li>
+              <li>Built WellOS - comprehensive SaaS platform for upstream oil & gas operators ($50/well/month)</li>
+              <li>Architected multi-tenant platform with Rust (Axum) backend, Next.js 15, React Native, and Electron</li>
+              <li>Implemented real-time SCADA integration (OPC UA, Modbus TCP, MQTT) with &lt;1 second latency</li>
+              <li>Developed offline-first mobile and desktop apps with event sourcing sync architecture</li>
+              <li>Integrated TimescaleDB for 20x faster time-series data ingestion and compression</li>
+              <li>Built ML service for equipment failure prediction (7-30 day advance warnings, &gt;80% accuracy)</li>
+              <li>Created automated RRC compliance reporting for Texas oil & gas operators</li>
+              <li>Documented 95+ architectural patterns for enterprise software development</li>
+              <li>Provide custom software development and cloud infrastructure consulting services</li>
+            </ul>
+          </div>
+
           {/* Servant */}
           <div>
             <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-2">

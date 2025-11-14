@@ -8,23 +8,23 @@ export const metadata: Metadata = {
     default: 'Jason Cochran - Senior Software Engineer',
     template: '%s | Jason Cochran'
   },
-  description: '25 years of experience building exceptional web and mobile applications. Expert in React, Next.js, Node.js, NestJS, and modern web technologies.',
+  description: '27 years of experience building exceptional web and mobile applications. Expert in React, Next.js, Node.js, NestJS, and modern web technologies.',
   keywords: ['Software Engineer', 'React', 'Next.js', 'Node.js', 'TypeScript', 'NestJS', 'Software Engineer', 'Web Development'],
   authors: [{ name: 'Jason Cochran' }],
   creator: 'Jason Cochran',
-  metadataBase: new URL('https://jasoncochran.com'),
+  metadataBase: new URL('https://jasoncochran.io'),
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://jasoncochran.com',
+    url: 'https://jasoncochran.io',
     title: 'Jason Cochran - Senior Software Engineer',
-    description: '25 years of experience building exceptional web and mobile applications',
+    description: '27 years of experience building exceptional web and mobile applications',
     siteName: 'Jason Cochran Portfolio',
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Jason Cochran - Senior Software Engineer',
-    description: '25 years of experience building exceptional web and mobile applications',
+    description: '27 years of experience building exceptional web and mobile applications',
   },
 }
 
@@ -46,7 +46,7 @@ export default function RootLayout({
               <div>
                 <h3 className="font-bold text-lg mb-4 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Jason Cochran</h3>
                 <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
-                  Senior Software Engineer with 25 years of experience building exceptional web and mobile applications.
+                  Senior Software Engineer with 27 years of experience building exceptional web and mobile applications.
                 </p>
               </div>
               <div>
@@ -56,12 +56,13 @@ export default function RootLayout({
                   <li><a href="/resume" className="text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Resume</a></li>
                   <li><a href="/projects" className="text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Projects</a></li>
                   <li><a href="/blog" className="text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Blog</a></li>
+                  <li><a href="/certifications" className="text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Certifications</a></li>
                 </ul>
               </div>
               <div>
                 <h4 className="font-semibold text-slate-900 dark:text-white mb-4">Connect</h4>
                 <ul className="space-y-3 text-sm">
-                  <li><a href="mailto:jlcochran2013@gmail.com" className="text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">jlcochran2013@gmail.com</a></li>
+                  <li><a href="mailto:jason.cochran@strataga.io" className="text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">jason.cochran@strataga.io</a></li>
                   <li>
                     <a
                       href="https://www.linkedin.com/in/cochranjason/"

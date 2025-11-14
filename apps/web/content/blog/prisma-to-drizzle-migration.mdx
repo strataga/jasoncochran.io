@@ -5,13 +5,13 @@ description: "Lessons learned migrating a 320K+ LOC enterprise SaaS platform fro
 tags: ["prisma", "drizzle", "orm", "migration", "typescript", "postgresql"]
 ---
 
-When we migrated the Rook PSA platform from Prisma to Drizzle ORM, we were taking a calculated risk. Prisma was working fine, but we were hitting performance walls and wanted more control over our SQL. After successfully migrating 320,000+ lines of code and 150+ database tables, I can confidently say it was worth it.
+When we migrated the Catalyst PSA platform from Prisma to Drizzle ORM, we were taking a calculated risk. Prisma was working fine, but we were hitting performance walls and wanted more control over our SQL. After successfully migrating 320,000+ lines of code and 150+ database tables, I can confidently say it was worth it.
 
 Here's everything we learned about migrating from Prisma to Drizzle in a production enterprise application.
 
 ## Why We Migrated
 
-Prisma is an excellent ORM. We built Rook PSA on it and were mostly happy. But as the platform grew, we encountered issues:
+Prisma is an excellent ORM. We built Catalyst PSA on it and were mostly happy. But as the platform grew, we encountered issues:
 
 ### Performance Problems
 
@@ -549,6 +549,6 @@ Stay with Prisma if:
 
 Migrating from Prisma to Drizzle was one of our best technical decisions. It gave us the control and performance we needed while maintaining type safety and developer experience.
 
-The key is approaching it methodically—don't rush, test everything, and migrate incrementally. After 25 years of building applications, I've learned that good migrations are never big-bang rewrites; they're careful, measured transitions.
+The key is approaching it methodically—don't rush, test everything, and migrate incrementally. After 27 years of building applications, I've learned that good migrations are never big-bang rewrites; they're careful, measured transitions.
 
 If you're hitting Prisma's limitations and your team has strong SQL skills, Drizzle is worth serious consideration. Just plan for a 2-3 month migration timeline for a large codebase.

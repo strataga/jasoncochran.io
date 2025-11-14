@@ -1,16 +1,44 @@
 # Jason Cochran - Personal Website
 
-A modern, professional portfolio website showcasing 25 years of software engineering experience.
+A modern, professional portfolio website showcasing 27 years of software engineering experience.
 
 ## 🚀 Quick Start
 
 ```bash
-cd apps/web
-npm install
-npm run dev
+# Install dependencies (using pnpm for faster installs)
+pnpm install
+
+# Start development server
+pnpm dev
 ```
 
-Visit http://localhost:3010
+Visit <http://localhost:3000>
+
+## 📜 Available Commands
+
+### Development
+
+```bash
+pnpm dev          # Start all apps in development mode (uses Turbo)
+pnpm build        # Build all apps for production
+pnpm lint         # Run linting across all apps
+pnpm type-check   # Type check all TypeScript files
+pnpm format       # Format code with Prettier
+pnpm clean        # Clean all build artifacts and node_modules
+```
+
+### Per-App Commands
+
+```bash
+cd apps/web
+pnpm dev          # Start just the web app
+pnpm build        # Build just the web app
+pnpm lint         # Lint just the web app
+pnpm type-check   # Type check just the web app
+pnpm clean        # Clean web app build artifacts
+```
+
+> **Note**: This project uses **pnpm** for package management. If you don't have pnpm installed, run `npm install -g pnpm` first.
 
 ## 📁 Project Structure
 
@@ -28,11 +56,14 @@ jason-cochran/
 
 ## 🛠️ Tech Stack
 
+- **Package Manager**: pnpm (fast, efficient, disk-space friendly)
+- **Monorepo**: Turborepo (for fast builds and caching)
 - **Framework**: Next.js 16 (App Router)
 - **React**: 19
 - **Language**: TypeScript
 - **Styling**: Tailwind CSS 4
 - **Blog**: MDX with next-mdx-remote
+- **Code Quality**: ESLint v9 (flat config), Prettier
 - **Deployment**: Vercel-ready
 
 ## 📄 Pages
@@ -51,7 +82,7 @@ jason-cochran/
 - 🚀 Optimized performance
 - 📊 Featured case studies:
   - **Rook** - PSA Platform (320K+ LOC, hexagonal architecture)
-  - **WellPulse** - Oil & Gas SaaS (6 apps, offline-first)
+  - **WellOS** - The Operating System for Oil & Gas Operations (Rust + Next.js, SCADA integration, offline-first)
   - NFT Collectibles Platform
 
 ## 📝 Customization
@@ -95,18 +126,25 @@ npm run build
 npm start
 ```
 
-## 📜 Scripts
+## 🏗️ Monorepo Structure
 
-```bash
-npm run dev      # Start development server
-npm run build    # Build for production
-npm start        # Start production server
-npm run lint     # Run ESLint
-```
+This project uses **Turborepo** for efficient monorepo management:
+
+- **Parallel execution**: Tasks run concurrently across all apps
+- **Smart caching**: Turborepo caches build outputs for faster rebuilds
+- **Dependency awareness**: Tasks run in the correct order based on dependencies
+- **Incremental builds**: Only rebuild what changed
+
+### Why Turbo?
+
+- 🚀 **3-5x faster builds** with intelligent caching
+- 🔄 **Parallel task execution** across the monorepo
+- 📦 **Shared dependencies** and code between apps
+- 🎯 **Consistent tooling** across all projects
 
 ## 📧 Contact
 
-- **Email**: jlcochran2013@gmail.com
+- **Email**: <jason.cochran@strataga.io>
 - **Phone**: (432) 260-7580
 - **LinkedIn**: [linkedin.com/in/cochranjason](https://linkedin.com/in/cochranjason)
 - **Location**: Midland, TX

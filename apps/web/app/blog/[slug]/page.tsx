@@ -6,6 +6,7 @@ import type { Metadata } from 'next'
 import rehypePrettyCode from 'rehype-pretty-code'
 import remarkGfm from 'remark-gfm'
 import { CodeBlock } from '@/components/code-block'
+import { BlogPostFooter } from '@/components/blog-post-footer'
 
 export async function generateStaticParams() {
   const posts = getAllPosts()
@@ -122,15 +123,8 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
           />
         </div>
 
-        {/* Footer */}
-        <footer className="mt-12 pt-8 border-t border-slate-200 dark:border-slate-800">
-          <Link
-            href="/blog"
-            className="text-blue-600 dark:text-blue-400 hover:underline font-medium"
-          >
-            ← Back to all posts
-          </Link>
-        </footer>
+        {/* Author Footer */}
+        <BlogPostFooter />
       </article>
     </div>
   )

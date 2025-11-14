@@ -1,6 +1,7 @@
 # Blog Content Calendar 2025-2026
 
 ## Current Status
+
 - **Total Published**: 37 blog posts
 - **Recommended New Posts**: 15
 - **Focus**: Permian Basin oil & gas consulting + technical expertise
@@ -21,6 +22,7 @@ These posts directly support Permian Basin consulting positioning and should be 
 **SEO Keywords**: "Rust SCADA systems", "Permian Basin SCADA", "oil and gas performance"
 
 **Outline**:
+
 - Introduction: The performance demands of real-time SCADA
 - Node.js/NestJS: What I built before WellOS
 - Why Rust? The case for systems programming
@@ -39,12 +41,14 @@ These posts directly support Permian Basin consulting positioning and should be 
 - CTA: Schedule consultation for SCADA modernization
 
 **Code Snippets Needed**:
+
 - Axum route handler example
 - SQLx compile-time SQL checking
 - SCADA tag subscription in Rust
 - Performance benchmarks (response times, memory usage)
 
 **WellOS Case Study Elements**:
+
 - Processing 1000+ SCADA tags per second
 - <1 second data latency
 - Memory usage comparison
@@ -62,6 +66,7 @@ These posts directly support Permian Basin consulting positioning and should be 
 **SEO Keywords**: "Texas RRC compliance automation", "W-10 automation", "oil and gas regulatory reporting"
 
 **Outline**:
+
 - Introduction: The burden of manual RRC reporting
 - Texas RRC requirements overview
   - W-10 (Monthly production)
@@ -91,12 +96,14 @@ These posts directly support Permian Basin consulting positioning and should be 
 - CTA: Learn more about WellOS compliance features
 
 **Code Snippets Needed**:
+
 - W-10 report data structure
 - Automated calculation functions
 - PDF generation with templates
 - Audit trail schema
 
 **Real-World Metrics**:
+
 - <30 second report generation
 - 10+ hours/month saved
 - 90% reduction in data entry errors
@@ -114,6 +121,7 @@ These posts directly support Permian Basin consulting positioning and should be 
 **SEO Keywords**: "OPC UA Rust integration", "SCADA protocol", "industrial automation"
 
 **Outline**:
+
 - Introduction: Why OPC UA for oil & gas SCADA
 - OPC UA protocol overview
   - Client-server architecture
@@ -147,6 +155,7 @@ These posts directly support Permian Basin consulting positioning and should be 
 - CTA: Need SCADA integration? Contact for consultation
 
 **Code Snippets Needed**:
+
 - OPC UA client initialization
 - Tag subscription code
 - Circuit breaker pattern
@@ -154,6 +163,7 @@ These posts directly support Permian Basin consulting positioning and should be 
 - Data persistence layer
 
 **Technical Details**:
+
 - Connection pooling strategies
 - Certificate management
 - Reconnection logic
@@ -171,6 +181,7 @@ These posts directly support Permian Basin consulting positioning and should be 
 **SEO Keywords**: "event sourcing offline", "field data sync", "offline-first architecture"
 
 **Outline**:
+
 - Introduction: The Permian Basin connectivity challenge
 - Why offline-first for oil & gas?
   - Unreliable cellular connectivity
@@ -210,6 +221,7 @@ These posts directly support Permian Basin consulting positioning and should be 
 - CTA: Building offline-first software? Let's talk
 
 **Code Snippets Needed**:
+
 - Event schema TypeScript types
 - SQLite setup for React Native
 - Sync queue implementation
@@ -217,6 +229,7 @@ These posts directly support Permian Basin consulting positioning and should be 
 - Server-side event replay
 
 **Architecture Diagrams Needed**:
+
 - Event sourcing flow diagram
 - Offline sync architecture
 - Conflict resolution decision tree
@@ -233,6 +246,7 @@ These posts directly support Permian Basin consulting positioning and should be 
 **SEO Keywords**: "TimescaleDB oil and gas", "time-series database", "production data optimization"
 
 **Outline**:
+
 - Introduction: Why oil & gas needs time-series databases
 - The problem with vanilla PostgreSQL
   - Slow time-series queries
@@ -276,12 +290,14 @@ These posts directly support Permian Basin consulting positioning and should be 
 - CTA: Need database optimization? Schedule consultation
 
 **Code Snippets Needed**:
+
 - Hypertable creation
 - Compression policy configuration
 - Continuous aggregate examples
 - Query performance comparisons
 
 **Performance Metrics**:
+
 - Insert benchmarks: vanilla PostgreSQL vs TimescaleDB
 - Storage comparison with compression
 - Dashboard query speed improvements
@@ -298,6 +314,7 @@ These posts directly support Permian Basin consulting positioning and should be 
 **SEO Keywords**: "predictive maintenance oil and gas", "equipment failure prediction", "ML SCADA"
 
 **Outline**:
+
 - Introduction: The cost of unplanned downtime
 - Traditional vs predictive maintenance
   - Reactive: Expensive failures
@@ -340,12 +357,14 @@ These posts directly support Permian Basin consulting positioning and should be 
 - CTA: Explore WellOS ML capabilities
 
 **Code Snippets Needed**:
+
 - Feature engineering pipeline
 - Model training code
 - FastAPI prediction service
 - Integration with TimescaleDB
 
 **Case Study Metrics**:
+
 - Training dataset size
 - Model accuracy metrics
 - Real-world prediction examples
@@ -367,6 +386,7 @@ Establish technical authority across broader topics while maintaining oil & gas 
 **SEO Keywords**: "React Server Components", "Next.js 15 performance", "server-side rendering"
 
 **Outline**:
+
 - Introduction: The evolution of React rendering
 - RSC vs traditional approaches:
   - CSR (Client-Side Rendering)
@@ -403,12 +423,14 @@ Establish technical authority across broader topics while maintaining oil & gas 
 - CTA: Need Next.js expertise? Contact for consultation
 
 **Code Snippets Needed**:
+
 - Server Component examples
 - Client Component examples
 - Data fetching patterns
 - Streaming implementation
 
 **Performance Metrics**:
+
 - Lighthouse scores before/after
 - Bundle size comparison
 - Time to Interactive improvements
@@ -425,6 +447,7 @@ Establish technical authority across broader topics while maintaining oil & gas 
 **SEO Keywords**: "Electron enterprise apps", "offline desktop applications", "field operations software"
 
 **Outline**:
+
 - Introduction: Why desktop apps still matter
 - Electron vs alternatives:
   - Electron: Chromium + Node.js
@@ -472,12 +495,14 @@ Establish technical authority across broader topics while maintaining oil & gas 
 - CTA: Need enterprise desktop development? Let's talk
 
 **Code Snippets Needed**:
+
 - Electron main process setup
 - IPC communication examples
 - SQLite integration
 - Auto-update implementation
 
 **Architecture Diagrams**:
+
 - Main/Renderer process communication
 - Offline sync architecture
 - Auto-update flow
@@ -494,6 +519,7 @@ Establish technical authority across broader topics while maintaining oil & gas 
 **SEO Keywords**: "multi-tenant database", "SaaS architecture", "database per tenant"
 
 **Outline**:
+
 - Introduction: Multi-tenancy fundamentals
 - Three approaches compared:
   - Shared database, shared schema (row-level isolation)
@@ -534,12 +560,14 @@ Establish technical authority across broader topics while maintaining oil & gas 
 - CTA: Building multi-tenant SaaS? Schedule consultation
 
 **Code Snippets Needed**:
+
 - Tenant routing middleware (Next.js)
 - Database connection per tenant
 - Provisioning script
 - PgBouncer config
 
 **Architecture Diagrams**:
+
 - Multi-tenancy comparison diagram
 - 5-tier infrastructure diagram
 - Connection pooling architecture
@@ -556,6 +584,7 @@ Establish technical authority across broader topics while maintaining oil & gas 
 **SEO Keywords**: "circuit breaker pattern", "SCADA reliability", "fault tolerance"
 
 **Outline**:
+
 - Introduction: Why SCADA integration needs circuit breakers
 - The cascade failure problem:
   - OPC UA server becomes unresponsive
@@ -593,12 +622,14 @@ Establish technical authority across broader topics while maintaining oil & gas 
 - CTA: Need reliable SCADA integration? Contact us
 
 **Code Snippets Needed**:
+
 - Circuit breaker implementation (Rust)
 - State machine logic
 - Integration example
 - Monitoring setup
 
 **Diagrams**:
+
 - Circuit breaker state machine
 - Cascade failure scenario
 - Recovery flow
@@ -619,6 +650,7 @@ Support general consulting positioning beyond oil & gas.
 **SEO Keywords**: "build vs buy software", "oil and gas software decision", "custom development ROI"
 
 **Outline**:
+
 - Introduction: The eternal software question
 - Total Cost of Ownership (TCO) framework:
   - Initial costs (licensing vs development)
@@ -656,6 +688,7 @@ Support general consulting positioning beyond oil & gas.
 - CTA: Need help evaluating options? Free consultation
 
 **Deliverables**:
+
 - Decision matrix template
 - TCO calculator spreadsheet
 - Risk assessment checklist
@@ -672,6 +705,7 @@ Support general consulting positioning beyond oil & gas.
 **SEO Keywords**: "WebAssembly production", "WASM Rust", "browser performance"
 
 **Outline**:
+
 - Introduction: When JavaScript isn't fast enough
 - What is WebAssembly?
   - Binary instruction format
@@ -714,6 +748,7 @@ Support general consulting positioning beyond oil & gas.
 - CTA: Need performance optimization? Let's talk
 
 **Code Snippets Needed**:
+
 - Rust function example
 - WASM compilation setup
 - JavaScript integration
@@ -731,6 +766,7 @@ Support general consulting positioning beyond oil & gas.
 **SEO Keywords**: "Azure vs AWS", "oil and gas cloud hosting", "SaaS infrastructure"
 
 **Outline**:
+
 - Introduction: Choosing cloud provider for oil & gas SaaS
 - Comparison criteria:
   - PostgreSQL managed services
@@ -774,6 +810,7 @@ Support general consulting positioning beyond oil & gas.
 - CTA: Need cloud architecture guidance? Schedule consultation
 
 **Deliverables**:
+
 - Cost comparison spreadsheet
 - Regional latency map
 - Integration matrix
@@ -790,6 +827,7 @@ Support general consulting positioning beyond oil & gas.
 **SEO Keywords**: "Modbus TCP integration", "PLC connection", "industrial protocols"
 
 **Outline**:
+
 - Introduction: Modbus TCP in oil & gas operations
 - Protocol overview:
   - Modbus TCP vs Modbus RTU
@@ -838,6 +876,7 @@ Support general consulting positioning beyond oil & gas.
 - CTA: Need industrial protocol integration? Contact us
 
 **Code Snippets Needed**:
+
 - Node.js Modbus client
 - Rust Modbus client
 - Polling loop implementation
@@ -855,6 +894,7 @@ Support general consulting positioning beyond oil & gas.
 **SEO Keywords**: "legacy system costs", "oil and gas modernization", "TCO analysis"
 
 **Outline**:
+
 - Introduction: The hidden costs of "good enough"
 - Direct costs of legacy systems:
   - Annual licensing fees (often $500+ per well)
@@ -896,6 +936,7 @@ Support general consulting positioning beyond oil & gas.
 - CTA: Free TCO analysis for your operation
 
 **Deliverables**:
+
 - TCO calculator Excel template
 - Cost comparison worksheet
 - ROI timeline chart
@@ -905,20 +946,24 @@ Support general consulting positioning beyond oil & gas.
 ## Publishing Strategy
 
 ### Phase 1: Establish Oil & Gas Authority (Months 1-2)
+
 **Goal**: Position as Permian Basin oil & gas expert
 
 Publish in this order:
+
 1. Texas RRC Compliance Automation
 2. Permian Basin Modern SCADA Systems (already published)
 3. Rust vs Node.js for SCADA
 4. OPC UA Integration Guide
 
 **Expected Impact**:
+
 - Permian Basin operator leads
 - Establish SCADA expertise
 - Compliance consulting inquiries
 
 ### Phase 2: Technical Depth (Months 3-4)
+
 **Goal**: Demonstrate advanced technical capabilities
 
 5. Event Sourcing for Offline Operations
@@ -927,11 +972,13 @@ Publish in this order:
 8. Circuit Breaker Pattern for SCADA
 
 **Expected Impact**:
+
 - Attract technical decision makers
 - Differentiate from competitors
 - Enterprise consulting opportunities
 
 ### Phase 3: Broaden Appeal (Months 5-6)
+
 **Goal**: Attract non-oil & gas consulting clients
 
 9. React Server Components
@@ -940,11 +987,13 @@ Publish in this order:
 12. WebAssembly in Production
 
 **Expected Impact**:
+
 - SaaS consulting leads
 - Broader technical audience
 - Enterprise architecture projects
 
 ### Phase 4: Business Positioning (Months 7+)
+
 **Goal**: Position as strategic advisor
 
 13. Build vs Buy Decision Framework
@@ -953,6 +1002,7 @@ Publish in this order:
 16. Modbus TCP Integration
 
 **Expected Impact**:
+
 - C-level consulting engagement
 - Strategic advisor positioning
 - Higher-value projects
@@ -964,6 +1014,7 @@ Publish in this order:
 For each blog post:
 
 ### Pre-Publication
+
 - [ ] Write comprehensive post (2,000-3,000 words)
 - [ ] Add 3-5 code examples
 - [ ] Include WellOS case study elements
@@ -973,6 +1024,7 @@ For each blog post:
 - [ ] Include strong CTA at end
 
 ### Post-Publication
+
 - [ ] Share on LinkedIn with summary
 - [ ] Post to relevant subreddits (r/oilandgas, r/rust, etc.)
 - [ ] Email to existing clients/contacts
@@ -981,6 +1033,7 @@ For each blog post:
 - [ ] Submit to Hacker News (if technical enough)
 
 ### SEO Optimization
+
 - [ ] Meta title with keywords
 - [ ] Meta description (155 chars)
 - [ ] H1 with primary keyword
@@ -992,6 +1045,7 @@ For each blog post:
 ### Calls to Action
 
 Rotate between these CTAs:
+
 1. Schedule oil & gas consultation → `/contact`
 2. Learn more about WellOS → `/projects/wellos`
 3. View consulting services → `/oil-gas`
@@ -1005,24 +1059,28 @@ Rotate between these CTAs:
 Track these metrics for each post:
 
 ### Traffic
+
 - Page views (first 30 days)
 - Average time on page
 - Bounce rate
 - Traffic sources (organic, social, referral)
 
 ### Engagement
+
 - Comments/feedback
 - Social shares
 - LinkedIn post engagement
 - Email newsletter clicks
 
 ### Conversions
+
 - Contact form submissions
 - Consultation requests
 - WellOS demo requests
 - Resume downloads
 
 ### SEO
+
 - Google Search Console impressions
 - Keyword rankings
 - Backlinks acquired
@@ -1045,6 +1103,7 @@ Track these metrics for each post:
 ## Quick Reference: Priority Posts
 
 **This Week (Must Write)**:
+
 1. Texas RRC Compliance Automation
 2. Rust vs Node.js for SCADA
 
@@ -1057,6 +1116,7 @@ Track these metrics for each post:
 6. ML Equipment Failure Prediction
 
 **Quarter Goal**:
+
 - Publish 10 of 15 recommended posts
 - Establish clear Permian Basin oil & gas authority
 - Generate 5+ qualified consultation leads from blog traffic

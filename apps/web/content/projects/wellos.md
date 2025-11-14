@@ -405,5 +405,5 @@ WellOS isn't just a portfolio project - it's a production-ready SaaS platform so
 ---
 
 **Status**: Active development, target launch January 1, 2026
-**Repository**: Private (Strataga LLC)
+**Repository**: Private (Strataga)
 **Documentation**: 95+ patterns, comprehensive architecture guides

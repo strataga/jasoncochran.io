@@ -4,18 +4,18 @@ import type { Metadata } from 'next'
 import { Linkedin, Mail } from 'lucide-react'
 
 export const metadata: Metadata = {
-  title: 'Jason Cochran - Software Engineer | Founder of Strataga | AI-Powered Development',
-  description: 'Senior Software Engineer with 27 years experience. Founder of Strataga building WellOS and Catalyst PSA. AI-assisted workflows for rapid enterprise development. Ship MVPs in weeks, not months.',
+  title: 'Jason Cochran - Software Engineer | Founder at Strataga | AI-Powered Development',
+  description: 'Software Engineer with 27 years experience. Founder at Strataga building WellOS and Catalyst PSA. AI-assisted workflows for rapid enterprise development. Ship MVPs in weeks, not months.',
   keywords: ['Jason Cochran', 'Software Engineer', 'Strataga', 'WellOS', 'Catalyst PSA', 'AI Development', 'React', 'Next.js', 'NestJS', 'Rust', 'Midland TX', 'Azure Certified'],
   openGraph: {
     title: 'Jason Cochran - Software Engineer & Founder | AI-Powered Development',
-    description: 'Founder of Strataga. 27 years experience building enterprise applications. AI-enhanced workflows for rapid development.',
+    description: 'Founder at Strataga. 27 years experience building enterprise applications. AI-enhanced workflows for rapid development.',
     type: 'website',
     url: 'https://jasoncochran.io',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Jason Cochran - Software Engineer & Founder',
+    title: 'Jason Cochran - Software Engineer | Founder at Strataga | AI-Powered Development',
     description: 'Building WellOS and Catalyst PSA. AI-powered development workflows.',
   },
   alternates: {
@@ -28,8 +28,8 @@ export default function Home() {
     '@context': 'https://schema.org',
     '@type': 'Person',
     name: 'Jason Cochran',
-    jobTitle: 'Founder & CEO, Senior Software Engineer',
-    description: 'Senior Software Engineer with 27 years of experience. Founder of Strataga LLC, building WellOS and Catalyst PSA platforms. Specializes in AI-assisted development for rapid enterprise application delivery.',
+    jobTitle: 'Software Engineer | Founder at Strataga | AI-Powered Development',
+    description: 'Software Engineer with 27 years of experience. Founder at Strataga, building WellOS and Catalyst PSA platforms. Specializes in AI-assisted development for rapid enterprise application delivery.',
     url: 'https://jasoncochran.io',
     email: 'jason.cochran@strataga.io',
     telephone: '+14322607580',
@@ -97,20 +97,24 @@ export default function Home() {
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               {/* Left Column - Text Content */}
               <div className="text-center lg:text-left space-y-8 animate-fade-in-up">
-                <div className="inline-block px-4 py-2 bg-blue-100 dark:bg-blue-900/30 rounded-full text-blue-700 dark:text-blue-300 text-sm font-semibold">
-                  Available for Rapid MVP Development
-                </div>
+                <Link href="/oil-gas" className="inline-block px-4 py-2 bg-blue-100 dark:bg-blue-900/30 hover:bg-blue-200 dark:hover:bg-blue-900/50 rounded-full text-blue-700 dark:text-blue-300 text-sm font-semibold transition-colors">
+                  Permian Basin Oil & Gas Specialist →
+                </Link>
 
-                <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight">
+                <h1 className="text-3xl md:text-4xl lg:text-6xl font-bold leading-tight">
                   <span className="block text-slate-900 dark:text-white mb-2">Jason Cochran</span>
                   <span className="block bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent animate-gradient">
-                    Senior Software Engineer
+                    Software Engineer & Consultant
+                  </span>
+                  <span className="block mt-4 text-xl md:text-2xl lg:text-3xl text-slate-700 dark:text-slate-300  bg-clip-text text-transparent animate-gradient">
+                    Founder at <a href="https://strataga.io" target="_blank" rel="noopener noreferrer">Strataga</a>
                   </span>
                 </h1>
 
                 <p className="text-xl md:text-2xl text-slate-600 dark:text-slate-400 leading-relaxed max-w-2xl">
-                  Rapid-fire development for startups and fast-moving teams. 27 years of experience + cutting-edge AI tooling =
-                  ship MVPs in weeks, not months. Enterprise-grade architecture at startup speed.
+                  Software consulting for Permian Basin oil & gas operators and fast-moving startups. Specializing in SCADA systems,
+                  field data solutions, and enterprise SaaS. 27 years of experience + cutting-edge AI tooling =
+                  ship production-ready software in weeks, not months.
                 </p>
 
                 <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
@@ -177,7 +181,7 @@ export default function Home() {
                   <div className="relative w-full h-full bg-gradient-to-br from-slate-200 to-slate-300 dark:from-slate-800 dark:to-slate-700 rounded-3xl shadow-2xl overflow-hidden border-4 border-white dark:border-slate-900">
                     <Image
                       src="/jason_cochran_photo2.png"
-                      alt="Jason Cochran - Senior Software Engineer"
+                      alt="Jason Cochran - Software Engineer | Founder at Strataga | AI-Powered Development"
                       fill
                       className="object-cover"
                       priority
@@ -473,24 +477,25 @@ export default function Home() {
         <section className="py-20 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-              Need to Ship Fast?
+              Ready to Modernize Your Operations?
             </h2>
             <p className="text-xl text-blue-100 mb-8 leading-relaxed">
-              Specializing in rapid MVP development for startups. Leveraging AI-assisted workflows and 27 years of experience
-              to deliver production-ready code at unprecedented speed. Let's turn your idea into reality.
+              Specializing in Permian Basin oil & gas software consulting and rapid MVP development for startups.
+              From SCADA systems to mobile field data capture, I deliver production-ready solutions in weeks, not months.
+              Let's turn your vision into reality.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 href="/contact"
                 className="px-8 py-4 bg-white text-purple-600 rounded-xl font-bold shadow-lg hover:shadow-xl transition-all hover:scale-105 active:scale-95"
               >
-                Get in Touch
+                Schedule Consultation
               </Link>
               <Link
-                href="/resume"
+                href="/oil-gas"
                 className="px-8 py-4 bg-purple-900/50 text-white rounded-xl font-bold shadow-lg hover:shadow-xl transition-all hover:scale-105 active:scale-95 border-2 border-white/20"
               >
-                Download Resume
+                Oil & Gas Services
               </Link>
             </div>
           </div>

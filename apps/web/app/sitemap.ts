@@ -49,6 +49,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     },
     {
+      url: 'https://jasoncochran.io/oil-gas',
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.9,
+    },
+    {
       url: 'https://jasoncochran.io/projects/catalyst-psa-platform',
       lastModified: new Date(),
       changeFrequency: 'monthly',

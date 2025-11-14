@@ -2,11 +2,11 @@ import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: 'Resume',
-  description: 'Resume of Jason Cochran - 27 years of experience building web and mobile applications. Founder of Strataga LLC. Expert in React, Next.js, NestJS, Rust, TypeScript, and modern cloud technologies.',
+  description: 'Resume of Jason Cochran - 27 years of experience building web and mobile applications. Founder at Strataga. Expert in React, Next.js, NestJS, Rust, TypeScript, and modern cloud technologies.',
   keywords: ['Resume', 'CV', 'Software Engineer', 'React', 'Next.js', 'TypeScript', 'NestJS', 'Rust', 'Azure', 'Full Stack Developer'],
   openGraph: {
     title: 'Resume - Jason Cochran',
-    description: '27 years of software engineering experience. Founder of Strataga LLC, building WellOS and Catalyst PSA platforms.',
+    description: '27 years of software engineering experience. Founder at Strataga, building WellOS and Catalyst PSA platforms.',
     type: 'profile',
     url: 'https://jasoncochran.io/resume',
   },
@@ -47,7 +47,7 @@ export default function Resume() {
           Summary
         </h2>
         <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
-          Senior Software Engineer with 27 years of experience building scalable web and mobile applications.
+          Software Engineer with 27 years of experience building scalable web and mobile applications.
           Expertise in modern JavaScript/TypeScript ecosystems, including React, React Native, Next.js, and Node.js.
           Proven track record of leading development teams, architecting complex systems, and delivering high-quality
           solutions across diverse industries including healthcare, energy, blockchain, and e-commerce.
@@ -142,7 +142,7 @@ export default function Resume() {
           <div>
             <div className="flex flex-col md:flex-row md:flex-wrap md:justify-between md:items-start mb-2">
               <div>
-                <h3 className="text-xl font-semibold">Founder & CEO</h3>
+                <h3 className="text-xl font-semibold">Founder</h3>
                 <p className="text-gray-600 dark:text-gray-400">Strataga, LLC - Midland, TX</p>
               </div>
               <p className="text-gray-500 dark:text-gray-400">Oct 2025 - Present</p>

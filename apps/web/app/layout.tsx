@@ -5,7 +5,7 @@ import { Linkedin } from 'lucide-react'
 
 export const metadata: Metadata = {
   title: {
-    default: 'Jason Cochran - Senior Software Engineer',
+    default: 'Jason Cochran - Software Engineer and Consultant',
     template: '%s | Jason Cochran'
   },
   description: '27 years of experience building exceptional web and mobile applications. Expert in React, Next.js, Node.js, NestJS, and modern web technologies.',
@@ -17,13 +17,13 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_US',
     url: 'https://jasoncochran.io',
-    title: 'Jason Cochran - Senior Software Engineer',
+    title: 'Jason Cochran - Software Engineer and Consultant',
     description: '27 years of experience building exceptional web and mobile applications',
     siteName: 'Jason Cochran Portfolio',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Jason Cochran - Senior Software Engineer',
+    title: 'Jason Cochran - Software Engineer and Consultant',
     description: '27 years of experience building exceptional web and mobile applications',
   },
 }
@@ -46,7 +46,7 @@ export default function RootLayout({
               <div>
                 <h3 className="font-bold text-lg mb-4 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Jason Cochran</h3>
                 <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
-                  Senior Software Engineer with 27 years of experience building exceptional web and mobile applications.
+                  Software Engineer with 27 years of experience building exceptional web and mobile applications.
                 </p>
               </div>
               <div>

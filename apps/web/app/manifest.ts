@@ -2,7 +2,7 @@ import { MetadataRoute } from 'next'
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: 'Jason Cochran - Senior Software Engineer',
+    name: 'Jason Cochran - Software Engineer | Founder at Strataga | AI-Powered Development',
     short_name: 'Jason Cochran',
     description: '27 years of experience building exceptional web and mobile applications',
     start_url: '/',

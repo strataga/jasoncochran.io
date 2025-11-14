@@ -7,6 +7,7 @@ import rehypePrettyCode from 'rehype-pretty-code'
 import remarkGfm from 'remark-gfm'
 import { CodeBlock } from '@/components/code-block'
 import { BlogPostFooter } from '@/components/blog-post-footer'
+import { ShareButtons } from '@/components/share-buttons'
 
 export async function generateStaticParams() {
   const posts = getAllPosts()
@@ -69,6 +70,15 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
           ← Back to Blog
         </Link>
 
+        {/* Featured Image */}
+        <div className="mb-8 rounded-3xl overflow-hidden shadow-xl border-2 border-slate-200 dark:border-slate-700">
+          <img
+            src={`/blog/${slug}/opengraph-image`}
+            alt={post.title}
+            className="w-full h-auto"
+          />
+        </div>
+
         {/* Post Header */}
         <header className="mb-8 bg-white dark:bg-slate-800 rounded-3xl p-8 shadow-xl border-2 border-slate-200 dark:border-slate-700">
           <time className="text-sm text-slate-500 dark:text-slate-400">
@@ -120,6 +130,15 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
             components={{
               pre: CodeBlock,
             }}
+          />
+        </div>
+
+        {/* Share Buttons */}
+        <div className="mt-8">
+          <ShareButtons
+            title={post.title}
+            url={`https://jasoncochran.io/blog/${slug}`}
+            description={post.description}
           />
         </div>
 

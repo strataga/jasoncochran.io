@@ -4,6 +4,7 @@ import { MDXRemote } from 'next-mdx-remote/rsc'
 import Link from 'next/link'
 import type { Metadata } from 'next'
 import rehypePrettyCode from 'rehype-pretty-code'
+import remarkGfm from 'remark-gfm'
 import { CodeBlock } from '@/components/code-block'
 
 export async function generateStaticParams() {
@@ -103,6 +104,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
             source={post.content}
             options={{
               mdxOptions: {
+                remarkPlugins: [remarkGfm],
                 rehypePlugins: [
                   [rehypePrettyCode, {
                     theme: {

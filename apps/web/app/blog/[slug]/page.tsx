@@ -71,7 +71,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
           ← Back to Blog
         </Link>
 
-        {/* Featured Image */}
+        {/* Featured Image with Title Overlay */}
         <div className="mb-8 rounded-3xl overflow-hidden shadow-xl border-2 border-slate-200 dark:border-slate-700">
           <Image
             src={`/blog/${slug}/opengraph-image`}
@@ -82,36 +82,6 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
             priority
           />
         </div>
-
-        {/* Post Header */}
-        <header className="mb-8 bg-white dark:bg-slate-800 rounded-3xl p-8 shadow-xl border-2 border-slate-200 dark:border-slate-700">
-          <time className="text-sm text-slate-500 dark:text-slate-400">
-            {new Date(post.date).toLocaleDateString('en-US', {
-              year: 'numeric',
-              month: 'long',
-              day: 'numeric',
-            })}
-          </time>
-          <h1 className="text-4xl md:text-5xl font-bold mt-2 mb-4 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
-            {post.title}
-          </h1>
-          <p className="text-xl text-slate-600 dark:text-slate-300">
-            {post.description}
-          </p>
-          {post.tags && post.tags.length > 0 && (
-            <div className="flex flex-wrap gap-2 mt-6 pt-6 border-t border-slate-200 dark:border-slate-700">
-              {post.tags.map((tag) => (
-                <Link
-                  key={tag}
-                  href={`/blog/tag/${encodeURIComponent(tag)}`}
-                  className="px-3 py-1 bg-slate-100 dark:bg-slate-700 hover:bg-blue-100 dark:hover:bg-blue-900/30 hover:text-blue-700 dark:hover:text-blue-300 text-slate-700 dark:text-slate-300 rounded-full text-sm font-medium transition-colors"
-                >
-                  {tag}
-                </Link>
-              ))}
-            </div>
-          )}
-        </header>
 
         {/* Post Content */}
         <div className="prose prose-lg dark:prose-invert max-w-none bg-white dark:bg-slate-800 rounded-3xl p-8 shadow-xl border-2 border-slate-200 dark:border-slate-700">

@@ -2,6 +2,7 @@ import { notFound } from 'next/navigation'
 import { getPostBySlug, getAllPosts } from '@/lib/blog'
 import { MDXRemote } from 'next-mdx-remote/rsc'
 import Link from 'next/link'
+import Image from 'next/image'
 import type { Metadata } from 'next'
 import rehypePrettyCode from 'rehype-pretty-code'
 import remarkGfm from 'remark-gfm'
@@ -72,10 +73,13 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
 
         {/* Featured Image */}
         <div className="mb-8 rounded-3xl overflow-hidden shadow-xl border-2 border-slate-200 dark:border-slate-700">
-          <img
+          <Image
             src={`/blog/${slug}/opengraph-image`}
             alt={post.title}
+            width={1200}
+            height={630}
             className="w-full h-auto"
+            priority
           />
         </div>
 

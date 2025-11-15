@@ -1,5 +1,7 @@
 import { ImageResponse } from 'next/og'
 import { getPostBySlug } from '@/lib/blog'
+import * as fs from 'fs'
+import * as path from 'path'
 
 export const alt = 'Blog Post'
 export const size = {
@@ -11,6 +13,15 @@ export const contentType = 'image/png'
 export default async function Image({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params
   const post = getPostBySlug(slug)
+
+  // Load AI-generated background image
+  const imagePath = path.join(process.cwd(), 'public', 'blog', slug, 'ai-generated.png')
+  let backgroundImage = null
+
+  if (fs.existsSync(imagePath)) {
+    const imageBuffer = fs.readFileSync(imagePath)
+    backgroundImage = `data:image/png;base64,${imageBuffer.toString('base64')}`
+  }
 
   if (!post) {
     return new ImageResponse(
@@ -40,12 +51,16 @@ export default async function Image({ params }: { params: Promise<{ slug: string
           height: '100%',
           display: 'flex',
           flexDirection: 'column',
-          background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+          background: backgroundImage
+            ? `url(${backgroundImage})`
+            : 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
           padding: '60px',
           position: 'relative',
         }}
       >
-        {/* Background Pattern */}
+        {/* Dark overlay for text readability */}
         <div
           style={{
             position: 'absolute',
@@ -53,8 +68,7 @@ export default async function Image({ params }: { params: Promise<{ slug: string
             left: 0,
             right: 0,
             bottom: 0,
-            opacity: 0.1,
-            background: 'repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(255,255,255,.1) 10px, rgba(255,255,255,.1) 20px)',
+            background: 'linear-gradient(135deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.5) 100%)',
           }}
         />
 

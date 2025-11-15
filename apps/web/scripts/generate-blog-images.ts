@@ -1,5 +1,6 @@
 #!/usr/bin/env tsx
 
+import 'dotenv/config'
 import Replicate from 'replicate'
 import { getAllPosts, type BlogPost } from '../lib/blog'
 import * as fs from 'fs'
@@ -16,15 +17,18 @@ async function generateImagePrompt(post: BlogPost): Promise<string> {
   // Create a descriptive prompt based on blog content
   const topics = post.tags?.slice(0, 3).join(', ') || 'technology'
 
-  // Base prompt focused on technical/professional imagery
-  const prompt = `A professional, modern, abstract illustration representing: ${post.title}.
+  // Clean abstract background prompt
+  const prompt = `Abstract professional background for a technical blog about ${topics}.
 
-Theme: ${post.description}
-Style: Clean, minimal, tech-focused with gradients of blue, purple, and pink.
-Topics: ${topics}
-Mood: Professional, innovative, cutting-edge technology.
-Format: Wide aspect ratio, suitable for blog header.
-No text or words in the image.`
+Style: Clean, modern, sophisticated abstract design.
+Elements: Smooth gradients, subtle geometric shapes, flowing forms, minimal patterns.
+Colors: Deep blues, purples, teals, and dark grays with subtle highlights.
+Composition: Elegant, spacious, premium aesthetic suitable as a background.
+Lighting: Soft ambient lighting, depth and dimension.
+Mood: Professional, technical, innovative, modern.
+
+IMPORTANT: Completely abstract background image only. Absolutely NO text, NO words, NO letters, NO numbers of any kind.
+This will be used as a background for text overlay.`
 
   return prompt
 }

@@ -44,22 +44,9 @@ async function generateBlogImages(force: boolean = false) {
   console.log(`Found ${posts.length} blog posts`)
 
   if (!process.env.REPLICATE_API_TOKEN) {
-    // Check if all images already exist
-    const missingImages = posts.filter(post => {
-      const imagePath = path.join(__dirname, '..', 'public', 'blog', post.slug, 'ai-generated.png')
-      return !fs.existsSync(imagePath)
-    })
-
-    if (missingImages.length === 0) {
-      console.log('✅ All blog images already exist, skipping generation')
-      return
-    }
-
-    console.error(`Error: REPLICATE_API_TOKEN required to generate ${missingImages.length} missing images`)
-    console.log('Get your token at: https://replicate.com/account/api-tokens')
-    console.log('\nMissing images for:')
-    missingImages.forEach(post => console.log(`  - ${post.slug}`))
-    process.exit(1)
+    console.log('⚠️  REPLICATE_API_TOKEN not set, skipping image generation')
+    console.log('Images should already be committed to git for production builds')
+    return
   }
 
   for (const post of posts) {

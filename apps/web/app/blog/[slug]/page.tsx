@@ -74,10 +74,10 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
         {/* Featured Image */}
         <div className="mb-8 rounded-3xl overflow-hidden shadow-xl border-2 border-slate-200 dark:border-slate-700">
           <Image
-            src={`/blog/${slug}/opengraph-image`}
+            src={`/blog/${slug}/ai-generated.png`}
             alt={post.title}
-            width={1200}
-            height={630}
+            width={1920}
+            height={1080}
             className="w-full h-auto"
             priority
           />

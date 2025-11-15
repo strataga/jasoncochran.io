@@ -5,7 +5,7 @@ description: "Lessons learned migrating a 320K+ LOC enterprise SaaS platform fro
 tags: ["prisma", "drizzle", "orm", "migration", "typescript", "postgresql"]
 ---
 
-When we migrated the Catalyst PSA platform from Prisma to Drizzle ORM, we were taking a calculated risk. Prisma was working fine, but we were hitting performance walls and wanted more control over our SQL. After successfully migrating 320,000+ lines of code and 150+ database tables, I can confidently say it was worth it.
+When we migrated the Catalyst PSA platform from Prisma to Drizzle ORM, we were taking a calculated risk. Prisma was working fine, but we were hitting performance walls and wanted more control over our SQL. After successfully migrating a large codebase, I can confidently say it was worth it.
 
 Here's everything we learned about migrating from Prisma to Drizzle in a production enterprise application.
 
@@ -84,7 +84,7 @@ Most importantly, Drizzle's API felt natural for developers who understand SQL.
 
 ## Migration Strategy
 
-Migrating 320,000+ lines of code required a methodical approach. We couldn't stop development for a big-bang rewrite.
+Migrating a large codebase required a methodical approach. We couldn't stop development for a big-bang rewrite.
 
 ### Phase 1: Set Up Drizzle Alongside Prisma (Week 1)
 

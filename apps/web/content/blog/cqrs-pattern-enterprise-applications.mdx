@@ -292,6 +292,6 @@ We explored Event Sourcing (storing events as the source of truth, not current s
 
 Implementing CQRS in the Catalyst PSA platform was one of our best architectural decisions. It solved real performance problems, made our codebase more maintainable by making read and write operations explicit, and gave us the flexibility to optimize each side independently.
 
-The key is not to use CQRS everywhere, but to apply it strategically where read/write patterns diverge. Combined with Hexagonal Architecture and DDD, CQRS helped us build a platform that scaled to 320,000+ lines of code while staying maintainable and performant.
+The key is not to use CQRS everywhere, but to apply it strategically where read/write patterns diverge. Combined with Hexagonal Architecture and DDD, CQRS helped us build a platform that scaled while staying maintainable and performant.
 
 After 27 years of building applications, I can confidently say that CQRS is an essential pattern for any enterprise application that needs to handle both complex transactions and high-performance reads.

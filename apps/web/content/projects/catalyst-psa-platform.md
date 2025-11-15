@@ -6,7 +6,6 @@ Catalyst is a comprehensive Professional Services Automation (PSA) platform desi
 
 ## Project Scale
 
-- **Lines of Code**: 320,000+
 - **Architecture Patterns**: 61 identified patterns
 - **Development Period**: 2023-2024
 - **Team Size**: 5-8 developers

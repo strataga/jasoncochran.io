@@ -162,8 +162,7 @@ export default async function Image({ params }: { params: Promise<{ slug: string
               lineHeight: 1.4,
             }}
           >
-            {post.description.slice(0, 180)}
-            {post.description.length > 180 ? '...' : ''}
+            {post.description.slice(0, 180) + (post.description.length > 180 ? '...' : '')}
           </div>
 
           {/* Spacer */}

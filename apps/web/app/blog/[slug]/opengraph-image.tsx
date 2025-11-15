@@ -144,14 +144,13 @@ export default async function Image({ params }: { params: Promise<{ slug: string
           {/* Title */}
           <div
             style={{
-              fontSize: post.title.length > 80 ? 48 : 60,
+              fontSize: post.title.length > 60 ? 44 : post.title.length > 40 ? 52 : 60,
               fontWeight: 'bold',
               color: 'white',
-              lineHeight: 1.2,
+              lineHeight: 1.15,
               marginBottom: '20px',
-              display: 'flex',
-              maxHeight: '240px',
-              overflow: 'hidden',
+              display: 'block',
+              wordWrap: 'break-word',
             }}
           >
             {post.title}
@@ -160,16 +159,15 @@ export default async function Image({ params }: { params: Promise<{ slug: string
           {/* Description */}
           <div
             style={{
-              fontSize: 24,
+              fontSize: 22,
               color: 'rgba(255, 255, 255, 0.9)',
               lineHeight: 1.4,
-              display: 'flex',
-              maxHeight: '100px',
-              overflow: 'hidden',
+              display: 'block',
+              wordWrap: 'break-word',
             }}
           >
-            {post.description.slice(0, 150)}
-            {post.description.length > 150 ? '...' : ''}
+            {post.description.slice(0, 180)}
+            {post.description.length > 180 ? '...' : ''}
           </div>
 
           {/* Spacer */}

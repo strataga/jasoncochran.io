@@ -149,8 +149,6 @@ export default async function Image({ params }: { params: Promise<{ slug: string
               color: 'white',
               lineHeight: 1.15,
               marginBottom: '20px',
-              display: 'block',
-              wordWrap: 'break-word',
             }}
           >
             {post.title}
@@ -162,8 +160,6 @@ export default async function Image({ params }: { params: Promise<{ slug: string
               fontSize: 22,
               color: 'rgba(255, 255, 255, 0.9)',
               lineHeight: 1.4,
-              display: 'block',
-              wordWrap: 'break-word',
             }}
           >
             {post.description.slice(0, 180)}

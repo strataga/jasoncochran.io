@@ -30,7 +30,7 @@ export function BlogPostFooter() {
               Jason Cochran
             </h3>
             <p className="text-lg font-semibold text-blue-600 dark:text-blue-400 mb-3">
-              Software Consultant | Permian Basin Oil & Gas Specialist
+              Sofware Engineer | Cloud Consultant | Founder at Strataga
             </p>
             <p className="text-slate-600 dark:text-slate-300 mb-4 leading-relaxed">
               27 years of experience building enterprise software for oil & gas operators and startups.

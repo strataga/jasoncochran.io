@@ -199,7 +199,7 @@ export default async function Image({ params }: { params: Promise<{ slug: string
                   color: 'rgba(255, 255, 255, 0.8)',
                 }}
               >
-                Software Consultant | Permian Basin Oil & Gas
+                Sofware Engineer | Cloud Consultant | Founder at Strataga
               </div>
             </div>
             <div

@@ -2,6 +2,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import type { Metadata } from 'next'
 import { Linkedin, Mail } from 'lucide-react'
+import { LatestBlogPosts } from '@/components/LatestBlogPosts'
 
 export const metadata: Metadata = {
   title: 'Jason Cochran - Software Engineer | Founder at Strataga | AI-Powered Development',
@@ -192,6 +193,9 @@ export default function Home() {
             </div>
           </div>
         </section>
+
+        {/* Latest Blog Posts */}
+        <LatestBlogPosts />
 
         {/* Featured Projects Section */}
         <section className="py-20 bg-white dark:bg-slate-900">

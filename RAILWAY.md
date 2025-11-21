@@ -21,6 +21,7 @@ RESEND_TO_EMAIL=jason.cochran@strataga.io
 ### Method 1: Deploy from GitHub (Recommended)
 
 1. **Push to GitHub**
+
    ```bash
    git init
    git add .
@@ -49,22 +50,26 @@ RESEND_TO_EMAIL=jason.cochran@strataga.io
 ### Method 2: Deploy with Railway CLI
 
 1. **Install Railway CLI**
+
    ```bash
    npm i -g @railway/cli
    ```
 
 2. **Login**
+
    ```bash
    railway login
    ```
 
 3. **Initialize Project**
+
    ```bash
    cd apps/web
    railway init
    ```
 
 4. **Add Environment Variables**
+
    ```bash
    railway variables set RESEND_API_KEY=re_your_api_key_here
    railway variables set RESEND_FROM_EMAIL=contact@yourdomain.com
@@ -72,6 +77,7 @@ RESEND_TO_EMAIL=jason.cochran@strataga.io
    ```
 
 5. **Deploy**
+
    ```bash
    railway up
    ```
@@ -133,12 +139,14 @@ You can customize health checks in Railway settings if needed.
 Railway automatically deploys when you push to your main branch.
 
 To disable auto-deploy:
+
 - Go to service settings
 - Disable "Auto Deploy"
 
 ## Rollbacks
 
 If a deployment fails:
+
 1. Go to "Deployments" tab
 2. Click on a previous successful deployment
 3. Click "Redeploy"
@@ -154,16 +162,19 @@ For staging/production environments:
 ## Troubleshooting
 
 **Build Failures:**
+
 - Check logs in Railway dashboard
 - Verify all dependencies are in package.json
 - Ensure Node version compatibility (Railway uses Node 18+ by default)
 
 **Contact Form Not Working:**
+
 - Verify `RESEND_API_KEY` is set correctly
 - Check Resend dashboard for delivery status
 - Verify `RESEND_FROM_EMAIL` domain is verified in Resend
 
 **Styles Not Loading:**
+
 - Check build logs for Tailwind CSS errors
 - Verify postcss.config.mjs is present
 - Clear Railway cache and redeploy

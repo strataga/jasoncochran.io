@@ -89,12 +89,14 @@ pnpm build    # Try building again
 ### Speed
 
 First build:
+
 ```bash
 pnpm build
 # Takes ~8-10 seconds
 ```
 
 Second build (with cache):
+
 ```bash
 pnpm build
 # Takes ~100ms (using cache!)
@@ -103,6 +105,7 @@ pnpm build
 ### Parallel Execution
 
 All tasks run in parallel when possible:
+
 ```bash
 pnpm lint
 # Runs lint on all apps simultaneously
@@ -111,6 +114,7 @@ pnpm lint
 ### Force Rebuild
 
 Ignore cache and rebuild everything:
+
 ```bash
 pnpm build -- --force
 ```
@@ -118,9 +122,11 @@ pnpm build -- --force
 ## Port Configuration
 
 Default ports:
-- **Web app**: http://localhost:3000
+
+- **Web app**: <http://localhost:3000>
 
 To change the port:
+
 ```bash
 cd apps/web
 PORT=3001 pnpm dev
@@ -149,4 +155,3 @@ pnpm dev
 - **💾 Disk efficient**: Saves GB of disk space with content-addressable storage
 - **🔒 Strict**: Better dependency resolution, no phantom dependencies
 - **📦 Monorepo friendly**: Built-in workspace support
-

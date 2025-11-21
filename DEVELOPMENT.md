@@ -59,16 +59,19 @@ pnpm type-check # Only type-checks the web app
 ### Debugging Turbo
 
 **See what Turbo is doing:**
+
 ```bash
 pnpm dev -- --verbosity=2
 ```
 
 **Force rebuild (ignore cache):**
+
 ```bash
 pnpm build -- --force
 ```
 
 **Run a specific task in a specific app:**
+
 ```bash
 pnpm exec turbo run build --filter=web
 ```
@@ -76,6 +79,7 @@ pnpm exec turbo run build --filter=web
 ## Workflow Best Practices
 
 ### Before Committing
+
 ```bash
 pnpm lint        # Fix linting issues
 pnpm type-check  # Ensure no type errors
@@ -84,6 +88,7 @@ pnpm build       # Ensure it builds
 ```
 
 ### Daily Development
+
 ```bash
 pnpm dev         # Start all apps
 # Work on your features
@@ -128,11 +133,13 @@ Prettier settings are in `.prettierrc`:
 ```
 
 Format all files:
+
 ```bash
 pnpm format
 ```
 
 Format specific files:
+
 ```bash
 pnpm exec prettier --write "apps/web/app/**/*.tsx"
 ```
@@ -142,11 +149,13 @@ pnpm exec prettier --write "apps/web/app/**/*.tsx"
 ESLint is configured per-app using ESLint v9 flat config format.
 
 Run linting:
+
 ```bash
 pnpm lint
 ```
 
 Fix auto-fixable issues:
+
 ```bash
 cd apps/web && pnpm lint:fix
 ```
@@ -187,6 +196,7 @@ jobs:
 Turbo caches locally in `.turbo/`. This is gitignored.
 
 For CI/CD, use Turbo Remote Cache:
+
 ```bash
 pnpm exec turbo login
 pnpm exec turbo link
@@ -254,35 +264,41 @@ PORT=3001 pnpm dev
 ## Quick Reference
 
 **Start everything:**
+
 ```bash
 pnpm dev
 ```
 
 **Build everything:**
+
 ```bash
 pnpm build
 ```
 
 **Check code quality:**
+
 ```bash
 pnpm lint && pnpm type-check
 ```
 
 **Format code:**
+
 ```bash
 pnpm format
 ```
 
 **Clean everything:**
+
 ```bash
 pnpm clean
 ```
 
 **Work on just web app:**
+
 ```bash
 cd apps/web && pnpm dev
 ```
 
 ---
 
-For more info on Turborepo: https://turbo.build/repo/docs
+For more info on Turborepo: <https://turbo.build/repo/docs>

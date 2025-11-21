@@ -4,9 +4,10 @@
 
 Vercel is the easiest way to deploy your Next.js application.
 
-### Steps:
+### Steps
 
 1. **Push to GitHub**
+
    ```bash
    git init
    git add .
@@ -41,11 +42,12 @@ npm run build
 npm start
 ```
 
-Visit http://localhost:3000
+Visit <http://localhost:3000>
 
 ## 📊 Performance Optimization
 
 The site is already optimized with:
+
 - ✅ Static page generation
 - ✅ Image optimization (Next.js Image component ready)
 - ✅ CSS optimization (Tailwind CSS purge)
@@ -85,6 +87,7 @@ Add your photo to `apps/web/public/your-photo.jpg`
 ## 🎨 Create Favicon & Icons
 
 Create the following files in `apps/web/public/`:
+
 - `favicon.ico` (32x32)
 - `icon-192.png` (192x192)
 - `icon-512.png` (512x512)
@@ -94,6 +97,7 @@ You can use [Favicon Generator](https://favicon.io/) to create these.
 ## 📱 Test Deployment
 
 After deploying:
+
 1. Test all pages load correctly
 2. Verify responsive design on mobile
 3. Check dark mode works
@@ -104,15 +108,18 @@ After deploying:
 ## 🔧 Troubleshooting
 
 **Build Fails:**
+
 - Check all imports are correct
 - Verify no TypeScript errors: `npm run type-check`
 - Ensure all dependencies are installed
 
 **Styles Not Working:**
+
 - Clear `.next` folder: `rm -rf .next`
 - Rebuild: `npm run build`
 
 **Images Not Loading:**
+
 - Ensure images are in `public/` folder
 - Check file paths are correct
 - Use Next.js Image component for optimization
@@ -120,16 +127,19 @@ After deploying:
 ## 📈 Analytics (Optional)
 
 Add Vercel Analytics for free:
+
 1. Enable in Vercel dashboard
 2. No code changes needed
 
 Add Google Analytics:
+
 1. Get tracking ID
 2. Add to `app/layout.tsx`
 
 ## 🎉 Post-Deployment
 
 After successful deployment:
+
 1. Share your portfolio URL
 2. Update LinkedIn with portfolio link
 3. Add to resume

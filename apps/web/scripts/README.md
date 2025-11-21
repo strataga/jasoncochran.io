@@ -4,9 +4,10 @@ This script generates AI-powered images for blog posts using Replicate's FLUX mo
 
 ## Setup
 
-1. Get a Replicate API token from https://replicate.com/account/api-tokens
+1. Get a Replicate API token from <https://replicate.com/account/api-tokens>
 
 2. Add it to your `.env` file:
+
    ```bash
    REPLICATE_API_TOKEN=r8_your_token_here
    ```
@@ -14,22 +15,26 @@ This script generates AI-powered images for blog posts using Replicate's FLUX mo
 ## Usage
 
 ### Generate images for all posts
+
 ```bash
 npm run generate-blog-images
 ```
 
 This will:
+
 - Read all blog posts from `/content/blog`
 - Generate an AI image for each post based on its title, description, and tags
 - Save images to `/public/blog/[slug]/ai-generated.png`
 - Skip posts that already have images (unless `--force` is used)
 
 ### Regenerate all images
+
 ```bash
 npm run generate-blog-images -- --force
 ```
 
 ### Automatic generation on build
+
 Images are automatically generated before each build via the `prebuild` script in `package.json`.
 
 ## How it works

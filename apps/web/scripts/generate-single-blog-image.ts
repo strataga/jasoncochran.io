@@ -18,20 +18,132 @@ interface BlogPostMetadata {
   tags?: string[]
 }
 
+// Color palettes designed for white text overlay - all dark/rich backgrounds
+const colorPalettes = [
+  {
+    name: 'Deep Ocean',
+    colors: 'Deep navy blue, midnight blue, dark teal with subtle cyan highlights',
+    mood: 'calm, deep, professional',
+  },
+  {
+    name: 'Cosmic Purple',
+    colors: 'Rich purple, deep violet, dark magenta with soft pink accents',
+    mood: 'creative, innovative, mysterious',
+  },
+  {
+    name: 'Forest Night',
+    colors: 'Dark emerald green, deep forest green, black with subtle jade highlights',
+    mood: 'natural, growth-oriented, grounded',
+  },
+  {
+    name: 'Sunset Ember',
+    colors: 'Deep burgundy, dark crimson, burnt orange fading to black',
+    mood: 'warm, energetic, passionate',
+  },
+  {
+    name: 'Midnight Gold',
+    colors: 'Rich black, dark charcoal with elegant gold and amber accents',
+    mood: 'premium, sophisticated, luxurious',
+  },
+  {
+    name: 'Arctic Aurora',
+    colors: 'Deep blue-black, dark indigo with ethereal green and cyan aurora wisps',
+    mood: 'magical, inspiring, expansive',
+  },
+  {
+    name: 'Volcanic',
+    colors: 'Deep charcoal, obsidian black with molten orange and red undertones',
+    mood: 'powerful, transformative, bold',
+  },
+  {
+    name: 'Deep Space',
+    colors: 'Pure black, dark purple-blue with distant star-like white specks and nebula hints',
+    mood: 'infinite, exploratory, futuristic',
+  },
+]
+
+// Visual styles that work well as backgrounds
+const visualStyles = [
+  {
+    name: 'Flowing Gradients',
+    elements: 'Smooth flowing gradients, soft color transitions, organic curves',
+    composition: 'Sweeping diagonal flows, layered depth',
+  },
+  {
+    name: 'Geometric Abstract',
+    elements: 'Subtle geometric shapes, overlapping polygons, soft edges',
+    composition: 'Balanced asymmetry, floating forms',
+  },
+  {
+    name: 'Particle Field',
+    elements: 'Scattered light particles, bokeh effects, glowing dots',
+    composition: 'Depth of field, concentrated areas of light',
+  },
+  {
+    name: 'Wave Forms',
+    elements: 'Smooth wave patterns, sound wave aesthetics, flowing lines',
+    composition: 'Horizontal movement, rhythmic patterns',
+  },
+  {
+    name: 'Crystalline',
+    elements: 'Faceted surfaces, light refraction, gem-like structures',
+    composition: 'Angular elegance, prismatic effects',
+  },
+  {
+    name: 'Smoke and Light',
+    elements: 'Wispy smoke trails, volumetric lighting, soft diffusion',
+    composition: 'Ethereal atmosphere, layered transparency',
+  },
+  {
+    name: 'Topographic',
+    elements: 'Contour lines, elevation patterns, map-like aesthetics',
+    composition: 'Flowing terrain lines, organic structure',
+  },
+  {
+    name: 'Neural Network',
+    elements: 'Connected nodes, flowing data streams, network visualization',
+    composition: 'Interconnected patterns, subtle complexity',
+  },
+]
+
+// Use slug to create deterministic but varied selection
+function getSeededElement<T>(array: T[], seed: string): T {
+  let hash = 0
+  for (let i = 0; i < seed.length; i++) {
+    const char = seed.charCodeAt(i)
+    hash = ((hash << 5) - hash) + char
+    hash = hash & hash
+  }
+  return array[Math.abs(hash) % array.length]
+}
+
 async function generateImagePrompt(post: BlogPostMetadata): Promise<string> {
   const topics = post.tags?.slice(0, 3).join(', ') || 'technology'
 
+  // Use slug to deterministically select palette and style (so regenerating same slug gives similar results)
+  // but add randomness for truly new posts
+  const palette = getSeededElement(colorPalettes, post.slug)
+  const style = getSeededElement(visualStyles, post.slug + 'style')
+
   const prompt = `Abstract professional background for a technical blog about ${topics}.
 
-Style: Clean, modern, sophisticated abstract design.
-Elements: Smooth gradients, subtle geometric shapes, flowing forms, minimal patterns.
-Colors: Deep blues, purples, teals, and dark grays with subtle highlights.
-Composition: Elegant, spacious, premium aesthetic suitable as a background.
-Lighting: Soft ambient lighting, depth and dimension.
-Mood: Professional, technical, innovative, modern.
+Style: ${style.name} - ${style.elements}
+Composition: ${style.composition}
+Colors: ${palette.colors}
+Mood: ${palette.mood}, professional, modern
 
-IMPORTANT: Completely abstract background image only. Absolutely NO text, NO words, NO letters, NO numbers of any kind.
-This will be used as a background for text overlay.`
+Technical requirements:
+- Dark background suitable for white text overlay
+- Rich, saturated colors with good contrast
+- Subtle complexity, not overwhelming
+- High-end, premium aesthetic
+- Soft ambient lighting with depth and dimension
+
+CRITICAL: Completely abstract background image only. Absolutely NO text, NO words, NO letters, NO numbers, NO symbols of any kind. No logos, no icons, no readable elements whatsoever.
+This will be used as a background for white text overlay - ensure sufficient dark areas for text legibility.`
+
+  console.log(`   Palette: ${palette.name}`)
+  console.log(`   Style: ${style.name}`)
 
   return prompt
 }

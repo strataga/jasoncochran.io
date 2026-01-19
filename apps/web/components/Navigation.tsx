@@ -7,7 +7,7 @@ import { Linkedin } from 'lucide-react'
 
 const XIcon = ({ className }: { className?: string }) => (
   <svg className={className} viewBox="0 0 24 24" fill="currentColor">
-    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
   </svg>
 )
 
@@ -24,11 +24,14 @@ export default function Navigation() {
   ]
 
   return (
-    <nav className="sticky top-0 z-50" style={{
-      background: 'var(--pop-red)',
-      borderBottom: '4px solid var(--pop-black)',
-      boxShadow: '0 4px 0 var(--pop-black)'
-    }}>
+    <nav
+      className="sticky top-0 z-50"
+      style={{
+        background: 'var(--pop-red)',
+        borderBottom: '4px solid var(--pop-black)',
+        boxShadow: '0 4px 0 var(--pop-black)',
+      }}
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
@@ -47,24 +50,13 @@ export default function Navigation() {
                 key={link.href}
                 href={link.href}
                 className={`transition-all font-semibold text-sm uppercase tracking-wide ${
-                  pathname === link.href
-                    ? 'text-yellow-300'
-                    : 'text-white hover:text-yellow-300'
+                  pathname === link.href ? 'text-yellow-300' : 'text-white hover:text-yellow-300'
                 }`}
                 style={{ fontFamily: 'var(--font-mono)' }}
               >
                 {link.label}
               </Link>
             ))}
-            <a
-              href="https://blog.jasoncochran.io"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="transition-all font-semibold text-sm uppercase tracking-wide text-white hover:text-yellow-300"
-              style={{ fontFamily: 'var(--font-mono)' }}
-            >
-              Blog
-            </a>
             <a
               href="https://x.com/jcochranio"
               target="_blank"
@@ -121,25 +113,13 @@ export default function Navigation() {
                 href={link.href}
                 onClick={() => setMobileMenuOpen(false)}
                 className={`block py-2 font-semibold uppercase tracking-wide ${
-                  pathname === link.href
-                    ? 'text-yellow-300'
-                    : 'text-white'
+                  pathname === link.href ? 'text-yellow-300' : 'text-white'
                 }`}
                 style={{ fontFamily: 'var(--font-mono)' }}
               >
                 {link.label}
               </Link>
             ))}
-            <a
-              href="https://blog.jasoncochran.io"
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={() => setMobileMenuOpen(false)}
-              className="block py-2 font-semibold uppercase tracking-wide text-white"
-              style={{ fontFamily: 'var(--font-mono)' }}
-            >
-              Blog
-            </a>
             <div className="flex gap-6 mt-4">
               <a
                 href="https://x.com/jcochranio"
@@ -149,7 +129,9 @@ export default function Navigation() {
                 aria-label="Follow Jason Cochran on X"
               >
                 <XIcon className="w-6 h-6" />
-                <span className="font-semibold" style={{ fontFamily: 'var(--font-mono)' }}>@jcochranio</span>
+                <span className="font-semibold" style={{ fontFamily: 'var(--font-mono)' }}>
+                  @jcochranio
+                </span>
               </a>
               <a
                 href="https://www.linkedin.com/in/cochranjason/"
@@ -159,7 +141,9 @@ export default function Navigation() {
                 aria-label="View Jason Cochran's LinkedIn Profile"
               >
                 <Linkedin className="w-6 h-6" />
-                <span className="font-semibold" style={{ fontFamily: 'var(--font-mono)' }}>LinkedIn</span>
+                <span className="font-semibold" style={{ fontFamily: 'var(--font-mono)' }}>
+                  LinkedIn
+                </span>
               </a>
             </div>
           </div>

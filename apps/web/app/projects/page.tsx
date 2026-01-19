@@ -1,12 +1,13 @@
 import Link from 'next/link'
 import type { Metadata } from 'next'
+import { ArrowRight, Code2, Layers, Zap, Clock, ExternalLink } from 'lucide-react'
 
 export const metadata: Metadata = {
   title: 'Projects',
-  description: 'Featured projects and case studies by Jason Cochran. Enterprise-grade applications built with modern technologies.',
+  description: 'AI-powered projects and SaaS applications by Jason Cochran. Building production-ready software with AI-augmented development and automation.',
   openGraph: {
     title: 'Projects - Jason Cochran',
-    description: 'Featured projects and case studies showcasing enterprise-grade architecture',
+    description: 'AI-powered projects showcasing modern development with Claude AI, automation, and rapid delivery',
     type: 'website',
   },
 }
@@ -19,53 +20,68 @@ interface Project {
   description: string
   architectureHighlights: string[]
   techStack: string[]
-  gradient: string
+  accentColor: 'red' | 'yellow' | 'blue'
+  comingSoon?: boolean
+  isBeta?: boolean
+  liveUrl?: string
+  hasCaseStudy?: boolean
 }
 
 const projects: Project[] = [
   {
     id: 1,
-    title: 'Catalyst PSA Platform',
-    subtitle: 'Enterprise SaaS • 320K+ LOC',
-    slug: 'catalyst-psa-platform',
-    description: 'Professional Services Automation platform with comprehensive project management, time tracking, resource allocation, and financial management capabilities.',
+    title: 'BuildPilot',
+    subtitle: 'AI SaaS • App Builder',
+    slug: 'buildpilot',
+    description: 'AI-powered full-stack web application builder. Describe what you want, AI agents architect and build it. Transform ideas into production-ready codebases in minutes.',
     architectureHighlights: [
-      'Hexagonal Architecture with 61 identified patterns',
-      'CQRS pattern for scalable data operations',
-      'Domain-Driven Design with bounded contexts',
-      'Multi-tenant SaaS with organization isolation',
+      'Autonomous AI agents (Architect + Developer + Tester)',
+      'Real-time Kanban board with WebSocket updates',
+      'E2B sandbox for secure code execution',
+      'GitHub integration with branch-per-feature workflow',
     ],
-    techStack: ['NestJS', 'React', 'TypeScript', 'PostgreSQL', 'Prisma', 'Drizzle'],
-    gradient: 'from-blue-500 to-cyan-500',
+    techStack: ['Next.js', 'FastAPI', 'Python', 'Anthropic Claude', 'Supabase', 'Inngest', 'E2B'],
+    accentColor: 'red',
+    isBeta: true,
+    liveUrl: 'https://trybuildpilot.dev',
+    hasCaseStudy: true,
   },
   {
     id: 2,
-    title: 'WellOS',
-    subtitle: 'Oil & Gas SaaS • Multi-Platform',
-    slug: 'wellos',
-    description: 'Comprehensive Oil & Gas field operations platform with offline-first capabilities, real-time data sync, and multi-platform support for web and mobile.',
+    title: 'ClickToWA',
+    subtitle: 'SaaS • Marketing Automation',
+    slug: 'clicktowa',
+    description: 'Trackable WhatsApp click-to-chat link platform with real-time analytics, QR code generation, custom short codes, and intelligent bot filtering for marketing automation.',
     architectureHighlights: [
-      '6 integrated applications (Web, Mobile, Admin, API, Sync, Dashboard)',
-      'Offline-first architecture with automatic sync',
-      'Database-agnostic design pattern',
-      'Real-time field data collection and reporting',
+      'Sub-100ms redirect performance',
+      'Real-time click analytics and geo-tracking',
+      'AI-powered bot detection and filtering',
+      'Custom domain support with automated SSL',
     ],
-    techStack: ['Next.js', 'React Native', 'Node.js', 'PostgreSQL', 'MongoDB', 'SQLite', 'Drizzle'],
-    gradient: 'from-purple-500 to-pink-500',
+    techStack: ['Next.js', 'TypeScript', 'PostgreSQL', 'Redis', 'Vercel'],
+    accentColor: 'blue',
+    liveUrl: 'https://clicktowa.com',
+    hasCaseStudy: true,
   },
 ]
 
+const accentColors = {
+  red: 'bg-[var(--pop-red)]',
+  yellow: 'bg-[var(--pop-yellow)]',
+  blue: 'bg-[var(--pop-blue)]',
+}
+
 export default function Projects() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-purple-50 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950 py-20">
+    <div className="min-h-screen py-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <header className="text-center mb-16">
-          <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
-            Featured Projects
+          <h1 className="section-header text-5xl md:text-6xl mb-6 mx-auto">
+            FEATURED PROJECTS
           </h1>
-          <p className="text-xl text-slate-600 dark:text-slate-400 max-w-2xl mx-auto leading-relaxed">
-            Enterprise-grade applications showcasing modern architecture patterns and development practices
+          <p className="text-xl text-[var(--text-secondary)] max-w-2xl mx-auto leading-relaxed" style={{ fontFamily: 'var(--font-body)' }}>
+            AI-powered applications built with modern development practices and automation
           </p>
         </header>
 
@@ -74,32 +90,49 @@ export default function Projects() {
           {projects.map((project) => (
             <article
               key={project.id}
-              className="group bg-gradient-to-br from-white to-slate-50 dark:from-slate-800 dark:to-slate-900 rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all hover:scale-105 border-2 border-slate-200 dark:border-slate-700"
+              className="project-card group relative"
             >
+              {/* Accent bar */}
+              <div className={`absolute top-0 left-0 w-full h-2 ${accentColors[project.accentColor]}`}></div>
+
+              {/* Status Badge */}
+              {project.isBeta && (
+                <div className="absolute top-4 right-4 z-10 flex items-center gap-1 px-3 py-1 bg-[var(--pop-blue)] text-[var(--pop-white)] border-2 border-[var(--pop-black)] text-xs font-bold" style={{ fontFamily: 'var(--font-mono)' }}>
+                  BETA
+                </div>
+              )}
+              {project.comingSoon && (
+                <div className="absolute top-4 right-4 z-10 flex items-center gap-1 px-3 py-1 bg-[var(--pop-red)] text-[var(--pop-white)] border-2 border-[var(--pop-black)] text-xs font-bold" style={{ fontFamily: 'var(--font-mono)' }}>
+                  <Clock className="w-3 h-3" />
+                  COMING SOON
+                </div>
+              )}
+
               {/* Header */}
-              <div className="mb-6">
-                <h2 className="text-3xl font-bold text-slate-900 dark:text-white mb-2">
+              <div className="mb-6 pt-4">
+                <h2 className="text-3xl text-[var(--pop-black)] mb-2" style={{ fontFamily: 'var(--font-headline)' }}>
                   {project.title}
                 </h2>
-                <p className="text-sm text-blue-600 dark:text-blue-400 font-semibold">
+                <span className="tag-pop">
                   {project.subtitle}
-                </p>
+                </span>
               </div>
 
               {/* Description */}
-              <p className="text-slate-600 dark:text-slate-400 mb-6 leading-relaxed">
+              <p className="text-[var(--text-secondary)] mb-6 leading-relaxed" style={{ fontFamily: 'var(--font-body)' }}>
                 {project.description}
               </p>
 
               {/* Architecture Highlights */}
               <div className="mb-6">
-                <h3 className="font-semibold text-slate-900 dark:text-white mb-3 text-sm">
-                  Architecture Highlights
+                <h3 className="font-bold text-[var(--pop-black)] mb-3 flex items-center gap-2" style={{ fontFamily: 'var(--font-headline)' }}>
+                  <Layers className="w-5 h-5 text-[var(--pop-red)]" />
+                  ARCHITECTURE HIGHLIGHTS
                 </h3>
-                <ul className="space-y-2 text-sm text-slate-600 dark:text-slate-400">
+                <ul className="space-y-2 text-sm text-[var(--text-secondary)]" style={{ fontFamily: 'var(--font-body)' }}>
                   {project.architectureHighlights.map((highlight, index) => (
                     <li key={index} className="flex items-start">
-                      <span className="text-blue-500 mr-2">•</span>
+                      <span className="text-[var(--pop-red)] mr-2 font-bold">•</span>
                       <span>{highlight}</span>
                     </li>
                   ))}
@@ -108,77 +141,97 @@ export default function Projects() {
 
               {/* Tech Stack */}
               <div className="mb-6">
-                <h3 className="font-semibold text-slate-900 dark:text-white mb-3 text-sm">
-                  Tech Stack
+                <h3 className="font-bold text-[var(--pop-black)] mb-3 flex items-center gap-2" style={{ fontFamily: 'var(--font-headline)' }}>
+                  <Code2 className="w-5 h-5 text-[var(--pop-blue)]" />
+                  TECH STACK
                 </h3>
                 <div className="flex flex-wrap gap-2">
-                  {project.techStack.map((tech, index) => {
-                    const colors = [
-                      'bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300',
-                      'bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300',
-                      'bg-pink-100 dark:bg-pink-900/30 text-pink-700 dark:text-pink-300',
-                    ]
-                    return (
-                      <span
-                        key={tech}
-                        className={`px-3 py-1 ${colors[index % colors.length]} rounded-full text-xs font-medium`}
-                      >
-                        {tech}
-                      </span>
-                    )
-                  })}
+                  {project.techStack.map((tech) => (
+                    <span
+                      key={tech}
+                      className="tag-pop"
+                    >
+                      {tech}
+                    </span>
+                  ))}
                 </div>
               </div>
 
-              {/* View Case Study Link */}
-              <Link
-                href={`/projects/${project.slug}`}
-                className="inline-flex items-center text-blue-600 dark:text-blue-400 font-semibold hover:underline hover:gap-3 transition-all group-hover:translate-x-1"
-              >
-                View Full Case Study
-                <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                </svg>
-              </Link>
+              {/* Links */}
+              <div className="flex flex-wrap gap-4">
+                {project.liveUrl && (
+                  <a
+                    href={project.liveUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center text-[var(--pop-blue)] font-bold hover:underline underline-offset-4"
+                    style={{ fontFamily: 'var(--font-headline)', fontSize: '1.1rem' }}
+                  >
+                    VISIT SITE
+                    <ExternalLink className="w-5 h-5 ml-2" />
+                  </a>
+                )}
+                {project.hasCaseStudy ? (
+                  <Link
+                    href={`/projects/${project.slug}`}
+                    className="inline-flex items-center text-[var(--pop-red)] font-bold hover:underline underline-offset-4"
+                    style={{ fontFamily: 'var(--font-headline)', fontSize: '1.1rem' }}
+                  >
+                    VIEW CASE STUDY
+                    <ArrowRight className="w-5 h-5 ml-2" />
+                  </Link>
+                ) : (
+                  <span
+                    className="inline-flex items-center text-[var(--text-muted)] font-bold cursor-not-allowed"
+                    style={{ fontFamily: 'var(--font-headline)', fontSize: '1.1rem' }}
+                  >
+                    CASE STUDY COMING SOON
+                  </span>
+                )}
+              </div>
             </article>
           ))}
         </div>
 
         {/* Additional Projects Note */}
-        <div className="text-center bg-white dark:bg-slate-800 rounded-3xl p-12 shadow-xl border-2 border-slate-200 dark:border-slate-700">
-          <h2 className="text-3xl font-bold text-slate-900 dark:text-white mb-4">
-            100+ Projects Delivered
+        <div className="card-pop p-12 text-center mb-16">
+          <div className="stat-pop-number mb-4">100+</div>
+          <h2 className="text-3xl text-[var(--pop-black)] mb-4" style={{ fontFamily: 'var(--font-headline)' }}>
+            PROJECTS DELIVERED
           </h2>
-          <p className="text-lg text-slate-600 dark:text-slate-400 mb-6 max-w-2xl mx-auto">
-            Over 27 years, I've delivered hundreds of successful projects across various industries including
-            healthcare, finance, oil & gas, and professional services.
+          <p className="text-lg text-[var(--text-secondary)] mb-6 max-w-2xl mx-auto" style={{ fontFamily: 'var(--font-body)' }}>
+            Over 28 years, I've delivered hundreds of successful projects leveraging AI-augmented development,
+            automation, and modern software architecture.
           </p>
-          <p className="text-slate-600 dark:text-slate-400 mb-8">
-            The featured projects above represent recent enterprise-grade applications showcasing modern architecture patterns.
+          <p className="text-[var(--text-secondary)]" style={{ fontFamily: 'var(--font-body)' }}>
+            The featured projects showcase AI-powered applications built with rapid development workflows using Claude Code and Cursor.
           </p>
         </div>
 
         {/* CTA Section */}
-        <section className="mt-16 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-4">
-            Let's Build Something Together
-          </h2>
-          <p className="text-xl text-slate-600 dark:text-slate-400 mb-8 max-w-2xl mx-auto">
-            I'm available for consulting, contract work, and full-time opportunities.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link
-              href="/contact"
-              className="inline-block px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl font-bold shadow-lg hover:shadow-xl transition-all hover:scale-105 active:scale-95"
-            >
-              Get in Touch
-            </Link>
-            <Link
-              href="/resume"
-              className="inline-block px-8 py-4 bg-white dark:bg-slate-800 text-slate-900 dark:text-white rounded-xl font-bold shadow-lg hover:shadow-xl transition-all hover:scale-105 active:scale-95 border-2 border-slate-200 dark:border-slate-700"
-            >
-              View Resume
-            </Link>
+        <section className="text-center">
+          <div className="card-pop p-12" style={{ background: 'var(--pop-black)' }}>
+            <Zap className="w-12 h-12 text-[var(--pop-yellow)] mx-auto mb-4" />
+            <h2 className="text-3xl md:text-4xl text-[var(--pop-white)] mb-4" style={{ fontFamily: 'var(--font-headline)' }}>
+              LET'S BUILD SOMETHING TOGETHER
+            </h2>
+            <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto" style={{ fontFamily: 'var(--font-body)' }}>
+              I'm available for consulting, contract work, and full-time opportunities.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link
+                href="/contact"
+                className="btn-pop btn-pop-primary"
+              >
+                GET IN TOUCH
+              </Link>
+              <Link
+                href="/resume"
+                className="btn-pop btn-pop-yellow"
+              >
+                VIEW RESUME
+              </Link>
+            </div>
           </div>
         </section>
       </div>

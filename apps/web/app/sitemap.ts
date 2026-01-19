@@ -1,16 +1,6 @@
 import { MetadataRoute } from 'next'
-import { getAllPosts } from '@/lib/blog'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const posts = getAllPosts()
-
-  const blogPosts = posts.map((post) => ({
-    url: `https://jasoncochran.io/blog/${post.slug}`,
-    lastModified: new Date(post.date),
-    changeFrequency: 'monthly' as const,
-    priority: 0.7,
-  }))
-
   return [
     {
       url: 'https://jasoncochran.io',
@@ -31,12 +21,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9,
     },
     {
-      url: 'https://jasoncochran.io/blog',
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.8,
-    },
-    {
       url: 'https://jasoncochran.io/contact',
       lastModified: new Date(),
       changeFrequency: 'yearly',
@@ -49,10 +33,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     },
     {
-      url: 'https://jasoncochran.io/oil-gas',
+      url: 'https://jasoncochran.io/projects/buildpilot',
       lastModified: new Date(),
       changeFrequency: 'monthly',
-      priority: 0.9,
+      priority: 0.8,
+    },
+    {
+      url: 'https://jasoncochran.io/projects/clicktowa',
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.8,
     },
     {
       url: 'https://jasoncochran.io/projects/catalyst-psa-platform',
@@ -66,6 +56,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'monthly',
       priority: 0.8,
     },
-    ...blogPosts,
   ]
 }

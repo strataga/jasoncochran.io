@@ -57,7 +57,7 @@ export default async function OgImage() {
               display: 'flex',
             }}
           >
-            Software Engineer • 27 Years Experience
+            Software Engineer • 28 Years Experience
           </div>
           <div
             style={{

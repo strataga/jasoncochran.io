@@ -33,7 +33,7 @@ export function BlogPostFooter() {
               Sofware Engineer | Cloud Consultant | Founder at Strataga
             </p>
             <p className="text-slate-600 dark:text-slate-300 mb-4 leading-relaxed">
-              27 years of experience building enterprise software for oil & gas operators and startups.
+              28 years of experience building enterprise software for oil & gas operators and startups.
               Specializing in SCADA systems, field data solutions, and AI-powered rapid development.
               Based in Midland, TX serving the Permian Basin.
             </p>

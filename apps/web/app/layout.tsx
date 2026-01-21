@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import './globals.css'
 import Navigation from '@/components/Navigation'
+import FloatingContact from '@/components/FloatingContact'
 import { Linkedin, Youtube } from 'lucide-react'
 
 const XIcon = ({ className }: { className?: string }) => (
@@ -66,6 +67,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
       <body className="antialiased">
         <Navigation />
+        <FloatingContact />
         <main className="min-h-screen">{children}</main>
         <footer>
           {/* CTA Section */}
@@ -76,7 +78,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               borderTop: '6px solid var(--pop-black)',
             }}
           >
-            <div className="max-w-4xl mx-auto px-4">
+            <div className="max-w-7xl mx-auto px-4">
               <h2
                 className="text-3xl md:text-4xl mb-6 text-white"
                 style={{ fontFamily: 'var(--font-headline)', textTransform: 'uppercase' }}

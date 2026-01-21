@@ -461,3 +461,140 @@
 .animate-slide-up {
   animation: slide-up 0.6s ease-out;
 }
+
+/* Floating Contact Widget */
+.floating-contact {
+  display: none;
+  position: fixed !important;
+  top: 100px !important;
+  right: -280px !important;
+  z-index: 100002 !important;
+  transition: right 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+  /* Extend hover area to prevent animation loop */
+  padding-left: 60px;
+  margin-left: -60px;
+  padding-right: 40px;
+  margin-right: -40px;
+}
+
+.floating-contact:hover {
+  right: 20px !important;
+}
+
+/* Invisible trigger zone to prevent hover flicker - extends left AND right */
+.floating-contact::before {
+  content: '';
+  position: absolute;
+  top: -20px;
+  left: -120px;
+  right: -60px;
+  bottom: -20px;
+  background: transparent;
+  pointer-events: auto;
+}
+
+.floating-contact-link {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  text-decoration: none;
+  filter: drop-shadow(0 8px 24px rgba(0, 0, 0, 0.25));
+  transition: filter 0.3s ease;
+}
+
+.floating-contact:hover .floating-contact-link {
+  filter: drop-shadow(0 12px 32px rgba(0, 0, 0, 0.35));
+}
+
+.floating-photo {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 4px solid var(--pop-black);
+  background: var(--pop-cream);
+  flex-shrink: 0;
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  order: 1;
+  transform: rotate(-12deg);
+}
+
+.floating-contact:hover .floating-photo {
+  transform: rotate(0deg) scale(1.08);
+}
+
+.floating-photo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+}
+
+.floating-chat-bubble {
+  background: var(--pop-yellow);
+  border: 3px solid var(--pop-black);
+  box-shadow: 4px 4px 0 var(--pop-black);
+  padding: 0.875rem 1.25rem;
+  border-radius: 12px;
+  white-space: nowrap;
+  position: relative;
+  order: 2;
+  opacity: 0;
+  transform: translateX(-20px);
+  transition: all 0.3s ease;
+}
+
+.floating-contact:hover .floating-chat-bubble {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Speech bubble tail pointing left to photo */
+.floating-chat-bubble::after {
+  content: '';
+  position: absolute;
+  left: -12px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0;
+  height: 0;
+  border-right: 12px solid var(--pop-yellow);
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+}
+
+.floating-chat-bubble::before {
+  content: '';
+  position: absolute;
+  left: -18px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0;
+  height: 0;
+  border-right: 15px solid var(--pop-black);
+  border-top: 13px solid transparent;
+  border-bottom: 13px solid transparent;
+}
+
+.chat-text {
+  display: block;
+  font-family: var(--font-headline);
+  font-size: 1.25rem;
+  color: var(--pop-black);
+  margin-bottom: 0.25rem;
+}
+
+.chat-cta {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--pop-red);
+  font-weight: 700;
+}
+
+/* Only show on desktop */
+@media (min-width: 1200px) {
+  .floating-contact {
+    display: block !important;
+  }
+}

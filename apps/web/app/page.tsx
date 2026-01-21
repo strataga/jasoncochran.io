@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import type { Metadata } from 'next'
-import { Linkedin, Mail, ArrowRight, Layers, Code2, ExternalLink, Youtube } from 'lucide-react'
+import { Linkedin, ArrowRight, Layers, Code2, ExternalLink, Youtube } from 'lucide-react'
 
 const XIcon = ({ className }: { className?: string }) => (
   <svg className={className} viewBox="0 0 24 24" fill="currentColor">
@@ -91,7 +91,7 @@ export default function Home() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               {/* Left Column - Text Content */}
-              <div className="animate-slide-up">
+              <div className="animate-slide-up text-center lg:text-left">
                 <div className="badge-pop mb-8 inline-block">
                   AI-Powered Software Development
                 </div>
@@ -118,15 +118,13 @@ export default function Home() {
                   Founder at{' '}
                   <a
                     href="https://strataga.io"
-                    target="_blank"
-                    rel="noopener noreferrer"
                     style={{ color: 'var(--pop-red)', fontWeight: '600' }}
                   >
                     Strataga
                   </a>
                 </p>
 
-                <p className="text-lg mb-8 leading-relaxed" style={{
+                <p className="text-lg mb-8 leading-relaxed mx-auto lg:mx-0" style={{
                   fontFamily: 'var(--font-body)',
                   color: 'var(--text-secondary)',
                   maxWidth: '540px'
@@ -137,7 +135,7 @@ export default function Home() {
                   From complex enterprise systems to rapid MVPs.
                 </p>
 
-                <div className="flex flex-col sm:flex-row gap-4 mb-8">
+                <div className="flex flex-col sm:flex-row gap-4 mb-8 justify-center lg:justify-start">
                   <Link href="/contact" className="btn-pop btn-pop-primary">
                     Let's Work Together
                   </Link>
@@ -147,7 +145,7 @@ export default function Home() {
                 </div>
 
                 {/* Social Links */}
-                <div className="flex flex-wrap gap-4 justify-center sm:justify-start">
+                <div className="flex flex-wrap gap-4 justify-center lg:justify-start">
                   <a
                     href="https://www.linkedin.com/in/cochranjason/"
                     target="_blank"
@@ -180,15 +178,6 @@ export default function Home() {
                   >
                     <Youtube className="w-5 h-5" />
                     <span>YouTube</span>
-                  </a>
-                  <a
-                    href="mailto:me@jasoncochran.io"
-                    className="btn-pop btn-pop-secondary w-full sm:w-auto justify-center"
-                    style={{ padding: '0.75rem 1.25rem' }}
-                    aria-label="Email Jason Cochran"
-                  >
-                    <Mail className="w-5 h-5" />
-                    <span>Email</span>
                   </a>
                 </div>
               </div>
@@ -356,8 +345,6 @@ export default function Home() {
                 <div className="flex flex-wrap gap-4">
                   <a
                     href="https://trybuildpilot.dev"
-                    target="_blank"
-                    rel="noopener noreferrer"
                     className="inline-flex items-center text-[var(--pop-blue)] font-bold hover:underline underline-offset-4"
                     style={{ fontFamily: 'var(--font-headline)', fontSize: '1.1rem' }}
                   >
@@ -441,8 +428,6 @@ export default function Home() {
                 <div className="flex flex-wrap gap-4">
                   <a
                     href="https://clicktowa.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
                     className="inline-flex items-center text-[var(--pop-blue)] font-bold hover:underline underline-offset-4"
                     style={{ fontFamily: 'var(--font-headline)', fontSize: '1.1rem' }}
                   >
@@ -592,33 +577,6 @@ export default function Home() {
           </div>
         </section>
 
-        {/* CTA Section */}
-        <section className="py-20" style={{
-          background: 'var(--pop-red)',
-          borderTop: '4px solid var(--pop-black)'
-        }}>
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 className="text-4xl md:text-5xl mb-6" style={{
-              fontFamily: 'var(--font-headline)',
-              color: 'var(--pop-white)'
-            }}>
-              Ready to Build Something Amazing?
-            </h2>
-            <p className="text-xl mb-8 leading-relaxed" style={{ color: 'rgba(255,255,255,0.9)' }}>
-              Whether you need a rapid MVP, enterprise automation, or AI-Powered Software Development workflows,
-              I deliver production-ready solutions in weeks, not months.
-              Let's turn your vision into reality.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="/contact" className="btn-pop btn-pop-yellow">
-                Schedule Consultation
-              </Link>
-              <Link href="/projects" className="btn-pop btn-pop-secondary">
-                View My Work
-              </Link>
-            </div>
-          </div>
-        </section>
       </div>
     </>
   )

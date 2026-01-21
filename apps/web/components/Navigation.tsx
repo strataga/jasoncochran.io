@@ -51,8 +51,6 @@ export default function Navigation() {
                 <a
                   key={link.href}
                   href={link.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
                   className="transition-all font-semibold text-sm uppercase tracking-wide text-white hover:text-yellow-300"
                   style={{ fontFamily: 'var(--font-mono)' }}
                 >
@@ -135,8 +133,6 @@ export default function Navigation() {
                 <a
                   key={link.href}
                   href={link.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
                   onClick={() => setMobileMenuOpen(false)}
                   className="block py-2 font-semibold uppercase tracking-wide text-white hover:text-yellow-300"
                   style={{ fontFamily: 'var(--font-mono)' }}

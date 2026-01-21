@@ -19,7 +19,7 @@ export const metadata: Metadata = {
 export default function Resume() {
   return (
     <div className="min-h-screen py-16">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <header className="mb-12">
           <h1 className="section-header text-5xl md:text-6xl mb-4">Jason Cochran</h1>
@@ -100,12 +100,12 @@ export default function Resume() {
           <div className="card-pop p-6">
             <div className="space-y-3">
               <div>
-                <a href="https://learn.microsoft.com/api/credentials/share/en-us/JasonCochran-0426/AFE0258379C78FC6?sharingId=955379E09D280B0D" target="_blank" rel="noopener noreferrer" className="text-[var(--pop-red)] hover:underline font-semibold">
+                <a href="https://learn.microsoft.com/api/credentials/share/en-us/JasonCochran-0426/AFE0258379C78FC6?sharingId=955379E09D280B0D" className="text-[var(--pop-red)] hover:underline font-semibold">
                   Microsoft Azure Fundamentals (AZ-900)
                 </a>
               </div>
               <div>
-                <a href="https://learn.microsoft.com/api/credentials/share/en-us/JasonCochran-0426/88863517C68C1A2E?sharingId=955379E09D280B0D" target="_blank" rel="noopener noreferrer" className="text-[var(--pop-red)] hover:underline font-semibold">
+                <a href="https://learn.microsoft.com/api/credentials/share/en-us/JasonCochran-0426/88863517C68C1A2E?sharingId=955379E09D280B0D" className="text-[var(--pop-red)] hover:underline font-semibold">
                   Microsoft Azure AI Fundamentals (AI-900)
                 </a>
               </div>
@@ -114,17 +114,17 @@ export default function Resume() {
                 <span className="ml-3 text-[var(--text-secondary)]">Microsoft Azure Administrator Associate (AZ-104)</span>
               </div>
               <div>
-                <a href="https://www.hackerrank.com/certificates/3adb70f4345d" target="_blank" rel="noopener noreferrer" className="text-[var(--pop-red)] hover:underline font-semibold">
+                <a href="https://www.hackerrank.com/certificates/3adb70f4345d" className="text-[var(--pop-red)] hover:underline font-semibold">
                   JavaScript Certification - HackerRank
                 </a>
               </div>
               <div>
-                <a href="https://app.testdome.com/cert/30dcc723088f45b6b5e49e0fcac36db4" target="_blank" rel="noopener noreferrer" className="text-[var(--pop-red)] hover:underline font-semibold">
+                <a href="https://app.testdome.com/cert/30dcc723088f45b6b5e49e0fcac36db4" className="text-[var(--pop-red)] hover:underline font-semibold">
                   React.js Certification - TestDome
                 </a>
               </div>
               <div>
-                <a href="https://www.hackerrank.com/certificates/cd642c762766" target="_blank" rel="noopener noreferrer" className="text-[var(--pop-red)] hover:underline font-semibold">
+                <a href="https://www.hackerrank.com/certificates/cd642c762766" className="text-[var(--pop-red)] hover:underline font-semibold">
                   Node.js Certification - HackerRank
                 </a>
               </div>

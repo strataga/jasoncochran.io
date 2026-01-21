@@ -65,7 +65,7 @@ export default function CertificationsPage() {
     <div className="min-h-screen py-16">
       {/* Header */}
       <section className="mb-16">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="section-header text-5xl md:text-6xl mb-6 mx-auto">
             CERTIFICATIONS & CREDENTIALS
           </h1>
@@ -137,8 +137,6 @@ export default function CertificationsPage() {
                 {cert.verifyUrl !== '#' && (
                   <a
                     href={cert.verifyUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 text-[var(--pop-red)] font-bold hover:gap-3 transition-all"
                     style={{ fontFamily: 'var(--font-headline)' }}
                   >
@@ -188,7 +186,7 @@ export default function CertificationsPage() {
 
       {/* Why Certifications Matter */}
       <section className="mb-16">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="card-pop p-8 md:p-12" style={{ background: 'var(--pop-black)' }}>
             <BookOpen className="w-12 h-12 text-[var(--pop-yellow)] mb-6" />
             <h2 className="text-3xl md:text-4xl text-[var(--pop-white)] mb-6" style={{ fontFamily: 'var(--font-headline)' }}>
@@ -210,7 +208,7 @@ export default function CertificationsPage() {
 
       {/* CTA */}
       <section>
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="card-pop p-12">
             <Rocket className="w-12 h-12 text-[var(--pop-red)] mx-auto mb-4" />
             <h2 className="text-3xl md:text-4xl text-[var(--pop-black)] mb-6" style={{ fontFamily: 'var(--font-headline)' }}>

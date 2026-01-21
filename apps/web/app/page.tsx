@@ -37,8 +37,7 @@ export default function Home() {
     jobTitle: 'Software Engineer | AI & Automation Specialist',
     description: 'Software Engineer with 28 years of experience. Specializes in AI-assisted development, automation workflows, and modern software architecture for rapid application delivery.',
     url: 'https://jasoncochran.io',
-    email: 'jason.cochran@strataga.io',
-    telephone: '+14322607580',
+    email: 'me@jasoncochran.io',
     address: {
       '@type': 'PostalAddress',
       addressLocality: 'Midland',
@@ -183,7 +182,7 @@ export default function Home() {
                     <span>YouTube</span>
                   </a>
                   <a
-                    href="mailto:jason.cochran@strataga.io"
+                    href="mailto:me@jasoncochran.io"
                     className="btn-pop btn-pop-secondary w-full sm:w-auto justify-center"
                     style={{ padding: '0.75rem 1.25rem' }}
                     aria-label="Email Jason Cochran"

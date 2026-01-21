@@ -103,9 +103,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                   style={{
                     fontFamily: 'var(--font-mono)',
                     fontSize: '0.875rem',
-                    background: 'transparent',
-                    color: 'var(--pop-white)',
-                    border: '3px solid var(--pop-white)',
+                    background: 'var(--pop-yellow)',
+                    color: 'var(--pop-black)',
+                    border: '3px solid var(--pop-black)',
+                    boxShadow: '4px 4px 0 var(--pop-black)',
                   }}
                 >
                   View My Work
@@ -205,10 +206,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                   <ul className="space-y-2 text-sm" style={{ fontFamily: 'var(--font-mono)' }}>
                     <li>
                       <a
-                        href="mailto:jason.cochran@strataga.io"
+                        href="mailto:me@jasoncochran.io"
                         className="hover:text-[var(--pop-yellow)] transition-colors"
                       >
-                        jason.cochran@strataga.io
+                        me@jasoncochran.io
                       </a>
                     </li>
                     <li>
@@ -242,14 +243,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                       >
                         <Youtube className="w-4 h-4" />
                         <span>YouTube</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        href="tel:+14322607580"
-                        className="hover:text-[var(--pop-yellow)] transition-colors"
-                      >
-                        (432) 260-7580
                       </a>
                     </li>
                     <li style={{ color: 'rgba(255,255,255,0.5)' }}>Midland, TX</li>

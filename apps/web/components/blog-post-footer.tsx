@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import { Mail, Phone, MapPin } from 'lucide-react'
+import { Mail, MapPin } from 'lucide-react'
 
 export function BlogPostFooter() {
   return (
@@ -45,15 +45,9 @@ export function BlogPostFooter() {
                 <span>Midland, TX</span>
               </div>
               <div className="flex items-center gap-2">
-                <Phone className="w-4 h-4" />
-                <a href="tel:+14322607580" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-                  (432) 260-7580
-                </a>
-              </div>
-              <div className="flex items-center gap-2">
                 <Mail className="w-4 h-4" />
-                <a href="mailto:jason.cochran@strataga.io" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-                  jason.cochran@strataga.io
+                <a href="mailto:me@jasoncochran.io" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                  me@jasoncochran.io
                 </a>
               </div>
             </div>

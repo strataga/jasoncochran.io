@@ -13,7 +13,7 @@ Set these in Railway dashboard under "Variables":
 ```
 RESEND_API_KEY=re_your_api_key_here
 RESEND_FROM_EMAIL=contact@yourdomain.com
-RESEND_TO_EMAIL=jason.cochran@strataga.io
+RESEND_TO_EMAIL=me@jasoncochran.io
 ```
 
 ## Deployment Methods
@@ -73,7 +73,7 @@ RESEND_TO_EMAIL=jason.cochran@strataga.io
    ```bash
    railway variables set RESEND_API_KEY=re_your_api_key_here
    railway variables set RESEND_FROM_EMAIL=contact@yourdomain.com
-   railway variables set RESEND_TO_EMAIL=jason.cochran@strataga.io
+   railway variables set RESEND_TO_EMAIL=me@jasoncochran.io
    ```
 
 5. **Deploy**

@@ -144,8 +144,7 @@ This project uses **Turborepo** for efficient monorepo management:
 
 ## 📧 Contact
 
-- **Email**: <jason.cochran@strataga.io>
-- **Phone**: (432) 260-7580
+- **Email**: <me@jasoncochran.io>
 - **LinkedIn**: [linkedin.com/in/cochranjason](https://linkedin.com/in/cochranjason)
 - **Location**: Midland, TX
 

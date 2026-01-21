@@ -69,10 +69,10 @@ export default function ContactForm() {
             Please try again or email me directly at:
           </p>
           <a
-            href="mailto:jason.cochran@strataga.io"
+            href="mailto:me@jasoncochran.io"
             className="text-red-900 dark:text-red-100 font-semibold underline"
           >
-            jason.cochran@strataga.io
+            me@jasoncochran.io
           </a>
         </div>
       )}

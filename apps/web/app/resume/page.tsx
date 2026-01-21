@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Download, Mail, Phone, MapPin, Linkedin } from 'lucide-react'
+import { Download, Mail, MapPin, Linkedin } from 'lucide-react'
 
 export const metadata: Metadata = {
   title: 'Resume',
@@ -27,13 +27,9 @@ export default function Resume() {
             Software Engineer | AI & Automation Specialist
           </p>
           <div className="flex flex-wrap gap-4 text-[var(--text-secondary)]" style={{ fontFamily: 'var(--font-mono)', fontSize: '0.875rem' }}>
-            <a href="mailto:jason.cochran@strataga.io" className="flex items-center gap-2 hover:text-[var(--pop-red)] transition-colors">
+            <a href="mailto:me@jasoncochran.io" className="flex items-center gap-2 hover:text-[var(--pop-red)] transition-colors">
               <Mail className="w-4 h-4" />
-              jason.cochran@strataga.io
-            </a>
-            <a href="tel:+14322607580" className="flex items-center gap-2 hover:text-[var(--pop-red)] transition-colors">
-              <Phone className="w-4 h-4" />
-              (432) 260-7580
+              me@jasoncochran.io
             </a>
             <span className="flex items-center gap-2">
               <MapPin className="w-4 h-4" />

@@ -1,6 +1,6 @@
 import ContactForm from '@/components/ContactForm'
 import type { Metadata } from 'next'
-import { Mail, Phone, Linkedin, MapPin, Clock } from 'lucide-react'
+import { Mail, Linkedin, MapPin, Clock, Youtube } from 'lucide-react'
 
 const XIcon = ({ className }: { className?: string }) => (
   <svg className={className} viewBox="0 0 24 24" fill="currentColor">
@@ -36,25 +36,27 @@ export default function ContactPage() {
         {/* Contact Methods */}
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
           <a
-            href="mailto:jason.cochran@strataga.io"
+            href="mailto:me@jasoncochran.io"
             className="card-pop p-6 text-center group"
           >
             <div className="w-16 h-16 mx-auto mb-4 bg-[var(--pop-red)] border-4 border-[var(--pop-black)] flex items-center justify-center group-hover:scale-110 transition-transform">
               <Mail className="w-8 h-8 text-[var(--pop-white)]" />
             </div>
             <h3 className="font-bold text-[var(--pop-black)] mb-2" style={{ fontFamily: 'var(--font-headline)', fontSize: '1.25rem' }}>EMAIL</h3>
-            <p className="text-sm text-[var(--text-secondary)] break-all" style={{ fontFamily: 'var(--font-mono)' }}>jason.cochran@strataga.io</p>
+            <p className="text-sm text-[var(--text-secondary)] break-all" style={{ fontFamily: 'var(--font-mono)' }}>me@jasoncochran.io</p>
           </a>
 
           <a
-            href="tel:+14322607580"
+            href="https://www.youtube.com/@jcochranio"
+            target="_blank"
+            rel="noopener noreferrer"
             className="card-pop p-6 text-center group"
           >
             <div className="w-16 h-16 mx-auto mb-4 bg-[var(--pop-yellow)] border-4 border-[var(--pop-black)] flex items-center justify-center group-hover:scale-110 transition-transform">
-              <Phone className="w-8 h-8 text-[var(--pop-black)]" />
+              <Youtube className="w-8 h-8 text-[var(--pop-black)]" />
             </div>
-            <h3 className="font-bold text-[var(--pop-black)] mb-2" style={{ fontFamily: 'var(--font-headline)', fontSize: '1.25rem' }}>PHONE</h3>
-            <p className="text-sm text-[var(--text-secondary)]" style={{ fontFamily: 'var(--font-mono)' }}>(432) 260-7580</p>
+            <h3 className="font-bold text-[var(--pop-black)] mb-2" style={{ fontFamily: 'var(--font-headline)', fontSize: '1.25rem' }}>YOUTUBE</h3>
+            <p className="text-sm text-[var(--text-secondary)]" style={{ fontFamily: 'var(--font-mono)' }}>@jcochranio</p>
           </a>
 
           <a

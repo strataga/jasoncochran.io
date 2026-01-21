@@ -79,7 +79,7 @@ export default function RalphVideoPage() {
   if (!showRickRoll) {
     return (
       <div className="min-h-screen flex items-center justify-center py-16">
-        <div className="text-center">
+        <div className="text-center flex flex-col items-center">
           <p
             className="mb-6"
             style={{
@@ -92,7 +92,7 @@ export default function RalphVideoPage() {
           </p>
           <button
             onClick={handleDownload}
-            className="px-8 py-4 font-bold tracking-wide transition-all hover:translate-x-1 hover:-translate-y-1 flex items-center gap-3 cursor-pointer"
+            className="px-8 py-4 font-bold tracking-wide transition-all hover:translate-x-1 hover:-translate-y-1 inline-flex items-center gap-3 cursor-pointer"
             style={{
               fontFamily: 'var(--font-mono)',
               fontSize: '1rem',

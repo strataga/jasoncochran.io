@@ -126,6 +126,7 @@
   border: 4px solid var(--pop-black);
   box-shadow: var(--shadow-pop);
   transition: all 0.2s ease;
+  border-radius: 18px;
 }
 
 .card-pop:hover {
@@ -187,6 +188,7 @@
   padding: 1.5rem;
   background: var(--pop-white);
   border: 3px solid var(--pop-black);
+  border-radius: 16px;
 }
 
 .stat-pop-number {
@@ -209,6 +211,7 @@
   border: 6px solid var(--pop-black);
   box-shadow: 8px 8px 0 var(--pop-black);
   background: var(--pop-white);
+  border-radius: 18px;
 }
 
 /* Project cards */
@@ -218,6 +221,7 @@
   box-shadow: var(--shadow-pop);
   padding: 2rem;
   transition: all 0.2s ease;
+  border-radius: 18px;
 }
 
 .project-card:hover {
@@ -244,6 +248,7 @@
   overflow: hidden;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
   cursor: pointer;
+  border-radius: 18px;
 }
 
 .skill-card:hover {

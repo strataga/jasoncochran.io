@@ -1,36 +1,30 @@
 'use client'
 
-import { useState } from 'react'
+import { ComponentPropsWithoutRef, ReactElement, ReactNode, useState } from 'react'
 
-export function CodeBlock({ children, ...props }: any) {
+type CodeBlockProps = ComponentPropsWithoutRef<'pre'> & {
+  children: ReactElement<{ children?: ReactNode }>
+}
+
+export function CodeBlock({ children, ...props }: CodeBlockProps) {
   const [copied, setCopied] = useState(false)
+
+  const flattenToString = (value: ReactNode): string => {
+    if (typeof value === 'string' || typeof value === 'number') return String(value)
+    if (Array.isArray(value)) return value.map(flattenToString).join('')
+    if (value && typeof value === 'object' && 'props' in value) {
+      const child = (value as { props?: { children?: ReactNode } }).props?.children
+      return child ? flattenToString(child) : ''
+    }
+    return ''
+  }
 
   // Extract the code text from children
   const getCodeText = () => {
     if (!children || !children.props) return ''
 
     const code = children.props.children
-    if (typeof code === 'string') return code
-
-    // Handle nested structure
-    if (Array.isArray(code)) {
-      return code
-        .map(child => {
-          if (typeof child === 'string') return child
-          if (child?.props?.children) {
-            if (typeof child.props.children === 'string') return child.props.children
-            if (Array.isArray(child.props.children)) {
-              return child.props.children
-                .map((c: any) => typeof c === 'string' ? c : c?.props?.children || '')
-                .join('')
-            }
-          }
-          return ''
-        })
-        .join('\n')
-    }
-
-    return ''
+    return flattenToString(code)
   }
 
   const copyToClipboard = async () => {

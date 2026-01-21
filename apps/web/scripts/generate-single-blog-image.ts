@@ -190,10 +190,10 @@ async function generateSingleBlogImage(slug: string, title: string, tags: string
           output_quality: 90,
         }
       }
-    ) as any
+    ) as unknown
 
     // Download and save image
-    const imageUrl = Array.isArray(output) ? output[0] : output
+    const imageUrl = Array.isArray(output) ? String(output[0]) : String(output)
     console.log('   Downloading image...')
     await downloadImage(imageUrl, imagePath)
 

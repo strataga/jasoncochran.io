@@ -4,7 +4,6 @@ import matter from 'gray-matter'
 import { marked } from 'marked'
 
 const CONTENT_DIR = path.join(process.cwd(), 'content', 'blog')
-const IMAGES_DIR = path.join(process.cwd(), 'public', 'blog')
 const EXPORT_DIR = path.join(process.cwd(), 'ghost-export')
 const IMAGE_BASE_URL = 'https://jasoncochran.io'
 
@@ -38,7 +37,7 @@ function getAllPosts(): BlogPost[] {
 
 function convertToHtml(mdxContent: string): string {
   // Remove any JSX/React components
-  let cleanContent = mdxContent
+  const cleanContent = mdxContent
     .replace(/<[A-Z][a-zA-Z]*[^>]*\/>/g, '')
     .replace(/<[A-Z][a-zA-Z]*[^>]*>[\s\S]*?<\/[A-Z][a-zA-Z]*>/g, '')
 
@@ -93,10 +92,10 @@ function createGhostExport(): void {
     }
   })
 
-  const ghostPosts: any[] = []
-  const postsMeta: any[] = []
-  const postsTags: any[] = []
-  const postsAuthors: any[] = []
+  const ghostPosts: Record<string, unknown>[] = []
+  const postsMeta: Record<string, unknown>[] = []
+  const postsTags: Record<string, unknown>[] = []
+  const postsAuthors: Record<string, unknown>[] = []
 
   let postIdCounter = 1
 

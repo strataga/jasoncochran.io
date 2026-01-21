@@ -80,6 +80,16 @@ export default function RalphVideoPage() {
     return (
       <div className="min-h-screen flex items-center justify-center py-16">
         <div className="text-center">
+          <p
+            className="mb-6"
+            style={{
+              fontFamily: 'var(--font-mono)',
+              fontSize: '1.1rem',
+              color: 'var(--pop-black)',
+            }}
+          >
+            Looking for the Ralph video?
+          </p>
           <button
             onClick={handleDownload}
             className="px-8 py-4 font-bold tracking-wide transition-all hover:translate-x-1 hover:-translate-y-1 flex items-center gap-3 cursor-pointer"

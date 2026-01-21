@@ -93,7 +93,7 @@ export default function Navigation() {
               href="https://www.youtube.com/@jcochranio"
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-[var(--pop-red)] border-2 border-white text-white hover:bg-[var(--pop-yellow)] hover:text-[var(--pop-black)] hover:border-[var(--pop-yellow)] transition-all p-1.5 rounded"
+              className="text-white hover:text-[var(--pop-yellow)] transition-colors p-1"
               aria-label="Subscribe to Jason Cochran on YouTube"
             >
               <Youtube className="w-5 h-5" />
@@ -186,7 +186,7 @@ export default function Navigation() {
                 href="https://www.youtube.com/@jcochranio"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 bg-[var(--pop-red)] border-2 border-white text-white hover:bg-[var(--pop-yellow)] hover:text-[var(--pop-black)] hover:border-[var(--pop-yellow)] transition-all px-2 py-1 rounded"
+                className="flex items-center gap-2 text-white hover:text-[var(--pop-yellow)] transition-colors"
                 aria-label="Subscribe to Jason Cochran on YouTube"
               >
                 <Youtube className="w-5 h-5" />

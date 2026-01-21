@@ -206,7 +206,7 @@ export default function Home() {
                       src="/jason_cochran_photo.webp"
                       alt="Jason Cochran - Software Engineer | AI & Automation Specialist"
                       fill
-                      className="object-cover rounded-2xl"
+                      className="object-cover rounded-xl border-4 border-[var(--pop-black)]"
                       priority
                     />
                   </div>

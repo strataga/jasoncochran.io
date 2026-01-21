@@ -4,7 +4,7 @@ import { Award, ExternalLink, Calendar, BookOpen, Rocket } from 'lucide-react'
 
 export const metadata: Metadata = {
   title: 'Certifications',
-  description: 'AI and Cloud certifications. Microsoft Azure AI Fundamentals (AI-900), Azure Fundamentals (AZ-900), and continuous learning in AI-powered development.',
+  description: 'AI and Cloud certifications. Microsoft Azure AI Fundamentals (AI-900), Azure Fundamentals (AZ-900), and continuous learning in AI-Powered Software Development.',
   openGraph: {
     title: 'Jason Cochran - AI & Cloud Certifications',
     description: 'Microsoft Azure and AI certifications for modern software development',

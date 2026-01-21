@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Jason Cochran - Software Engineer | AI & Automation Specialist',
-    description: 'AI-powered development workflows. Ship faster with modern tooling.',
+    description: 'AI-Powered Software Development workflows. Ship faster with modern tooling.',
   },
   alternates: {
     canonical: 'https://jasoncochran.io',
@@ -94,7 +94,7 @@ export default function Home() {
               {/* Left Column - Text Content */}
               <div className="animate-slide-up">
                 <div className="badge-pop mb-8 inline-block">
-                  AI-Powered Development
+                  AI-Powered Software Development
                 </div>
 
                 <h1 className="text-5xl md:text-6xl lg:text-7xl mb-4" style={{
@@ -233,7 +233,7 @@ export default function Home() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
               <h2 className="section-header text-4xl md:text-5xl mb-4">
-                AI-Powered Development
+                AI-Powered Software Development
               </h2>
               <p className="text-lg mt-8" style={{ color: 'var(--text-secondary)', maxWidth: '600px', margin: '2rem auto 0' }}>
                 Leveraging AI tools to ship faster without sacrificing quality
@@ -606,7 +606,7 @@ export default function Home() {
               Ready to Build Something Amazing?
             </h2>
             <p className="text-xl mb-8 leading-relaxed" style={{ color: 'rgba(255,255,255,0.9)' }}>
-              Whether you need a rapid MVP, enterprise automation, or AI-powered development workflows,
+              Whether you need a rapid MVP, enterprise automation, or AI-Powered Software Development workflows,
               I deliver production-ready solutions in weeks, not months.
               Let's turn your vision into reality.
             </p>

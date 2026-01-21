@@ -3,7 +3,7 @@ import { Download, Mail, Phone, MapPin, Linkedin } from 'lucide-react'
 
 export const metadata: Metadata = {
   title: 'Resume',
-  description: 'Resume of Jason Cochran - 28 years of software engineering experience. AI-powered development specialist. Expert in React, Next.js, NestJS, TypeScript, and building AI-augmented automation solutions.',
+  description: 'Resume of Jason Cochran - 28 years of software engineering experience. AI-Powered Software Development specialist. Expert in React, Next.js, NestJS, TypeScript, and building AI-augmented automation solutions.',
   keywords: ['Resume', 'CV', 'Software Engineer', 'AI Development', 'Automation', 'React', 'Next.js', 'TypeScript', 'NestJS', 'Full Stack Developer'],
   openGraph: {
     title: 'Resume - Jason Cochran',
@@ -154,7 +154,7 @@ export default function Resume() {
                 <span className="tag-pop">Oct 2025 - Present</span>
               </div>
               <ul className="list-disc list-inside space-y-2 text-[var(--text-secondary)] ml-2" style={{ fontFamily: 'var(--font-body)' }}>
-                <li>Founded technology solutions company focused on AI-powered development and automation</li>
+                <li>Founded technology solutions company focused on AI-Powered Software Development and automation</li>
                 <li>Built BuildPilot - AI-powered full-stack web application builder using Claude AI and autonomous agents</li>
                 <li>Created ClickToWA - SaaS platform for trackable WhatsApp marketing with real-time analytics</li>
                 <li>Leveraging Claude Code and Cursor for 10x development velocity on all projects</li>

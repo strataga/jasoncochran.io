@@ -75,7 +75,7 @@ export default function Navigation() {
               href="https://x.com/jcochranio"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-white hover:text-yellow-300 transition-colors"
+              className="text-white hover:text-[var(--pop-yellow)] transition-colors p-1"
               aria-label="Follow Jason Cochran on X"
             >
               <XIcon className="w-5 h-5" />
@@ -84,7 +84,7 @@ export default function Navigation() {
               href="https://www.linkedin.com/in/cochranjason/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-white hover:text-yellow-300 transition-colors"
+              className="text-white hover:text-[var(--pop-yellow)] transition-colors p-1"
               aria-label="View Jason Cochran's LinkedIn Profile"
             >
               <Linkedin className="w-5 h-5" />
@@ -93,7 +93,7 @@ export default function Navigation() {
               href="https://www.youtube.com/@jcochranio"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-white hover:text-yellow-300 transition-colors"
+              className="bg-[var(--pop-red)] border-2 border-white text-white hover:bg-[var(--pop-yellow)] hover:text-[var(--pop-black)] hover:border-[var(--pop-yellow)] transition-all p-1.5 rounded"
               aria-label="Subscribe to Jason Cochran on YouTube"
             >
               <Youtube className="w-5 h-5" />
@@ -157,16 +157,16 @@ export default function Navigation() {
                 </Link>
               )
             )}
-            <div className="flex gap-6 mt-4">
+            <div className="flex flex-wrap gap-4 mt-4">
               <a
                 href="https://x.com/jcochranio"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 text-white hover:text-yellow-300 transition-colors"
+                className="flex items-center gap-2 text-white hover:text-[var(--pop-yellow)] transition-colors"
                 aria-label="Follow Jason Cochran on X"
               >
-                <XIcon className="w-6 h-6" />
-                <span className="font-semibold" style={{ fontFamily: 'var(--font-mono)' }}>
+                <XIcon className="w-5 h-5" />
+                <span className="font-semibold text-sm" style={{ fontFamily: 'var(--font-mono)' }}>
                   @jcochranio
                 </span>
               </a>
@@ -174,11 +174,11 @@ export default function Navigation() {
                 href="https://www.linkedin.com/in/cochranjason/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 text-white hover:text-yellow-300 transition-colors"
+                className="flex items-center gap-2 text-white hover:text-[var(--pop-yellow)] transition-colors"
                 aria-label="View Jason Cochran's LinkedIn Profile"
               >
-                <Linkedin className="w-6 h-6" />
-                <span className="font-semibold" style={{ fontFamily: 'var(--font-mono)' }}>
+                <Linkedin className="w-5 h-5" />
+                <span className="font-semibold text-sm" style={{ fontFamily: 'var(--font-mono)' }}>
                   LinkedIn
                 </span>
               </a>
@@ -186,11 +186,11 @@ export default function Navigation() {
                 href="https://www.youtube.com/@jcochranio"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 text-white hover:text-yellow-300 transition-colors"
+                className="flex items-center gap-2 bg-[var(--pop-red)] border-2 border-white text-white hover:bg-[var(--pop-yellow)] hover:text-[var(--pop-black)] hover:border-[var(--pop-yellow)] transition-all px-2 py-1 rounded"
                 aria-label="Subscribe to Jason Cochran on YouTube"
               >
-                <Youtube className="w-6 h-6" />
-                <span className="font-semibold" style={{ fontFamily: 'var(--font-mono)' }}>
+                <Youtube className="w-5 h-5" />
+                <span className="font-semibold text-sm" style={{ fontFamily: 'var(--font-mono)' }}>
                   YouTube
                 </span>
               </a>

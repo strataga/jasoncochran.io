@@ -28,7 +28,7 @@ export default function ContactPage() {
             LET'S WORK TOGETHER
           </h1>
           <p className="text-xl text-[var(--text-secondary)] max-w-2xl mx-auto leading-relaxed" style={{ fontFamily: 'var(--font-body)' }}>
-            Looking for AI-powered development, automation solutions, or rapid MVP delivery?
+            Looking for AI-Powered Software Development, automation solutions, or rapid MVP delivery?
             Let's build something exceptional together.
           </p>
         </div>

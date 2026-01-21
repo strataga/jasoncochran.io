@@ -22,7 +22,7 @@ export async function GET(request: NextRequest) {
   if (!isAllowed) {
     // Rick-roll anyone trying to access directly
     const baseUrl = request.nextUrl.origin
-    return NextResponse.redirect(new URL('/nice-try', baseUrl))
+    return NextResponse.redirect(new URL('/ralph-video', baseUrl))
   }
 
   try {

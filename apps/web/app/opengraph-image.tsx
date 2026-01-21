@@ -75,7 +75,7 @@ export default function OpengraphImage() {
         {/* Yellow badge */}
         <div
           style={{
-            display: 'inline-block',
+            display: 'flex',
             padding: '10px 24px',
             background: '#FFCC00',
             border: '4px solid #1a1a1a',
@@ -83,8 +83,8 @@ export default function OpengraphImage() {
             fontSize: '20px',
             fontWeight: 700,
             color: '#1a1a1a',
-            width: 'fit-content',
             boxShadow: '4px 4px 0 #1a1a1a',
+            alignSelf: 'flex-start',
           }}
         >
           SOFTWARE ENGINEER & AI SPECIALIST

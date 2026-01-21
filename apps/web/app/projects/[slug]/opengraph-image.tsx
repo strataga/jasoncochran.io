@@ -100,7 +100,7 @@ export default async function ProjectOgImage({ params }: { params: Promise<{ slu
         {/* Case Study badge */}
         <div
           style={{
-            display: 'inline-block',
+            display: 'flex',
             padding: '8px 20px',
             background: accentColor,
             border: '4px solid #1a1a1a',
@@ -108,8 +108,8 @@ export default async function ProjectOgImage({ params }: { params: Promise<{ slu
             fontSize: '20px',
             fontWeight: 700,
             color: accentColor === '#FFCC00' ? '#1a1a1a' : '#ffffff',
-            width: 'fit-content',
             boxShadow: '4px 4px 0 #1a1a1a',
+            alignSelf: 'flex-start',
           }}
         >
           CASE STUDY

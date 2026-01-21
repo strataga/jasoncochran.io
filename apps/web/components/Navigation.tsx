@@ -20,6 +20,7 @@ export default function Navigation() {
     { href: '/resume', label: 'Resume' },
     { href: '/projects', label: 'Projects' },
     { href: '/certifications', label: 'Certifications' },
+    { href: 'https://blog.jasoncochran.io', label: 'Blog', external: true },
     { href: '/contact', label: 'Contact' },
   ]
 
@@ -45,18 +46,31 @@ export default function Navigation() {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-6">
-            {links.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className={`transition-all font-semibold text-sm uppercase tracking-wide ${
-                  pathname === link.href ? 'text-yellow-300' : 'text-white hover:text-yellow-300'
-                }`}
-                style={{ fontFamily: 'var(--font-mono)' }}
-              >
-                {link.label}
-              </Link>
-            ))}
+            {links.map((link) =>
+              link.external ? (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="transition-all font-semibold text-sm uppercase tracking-wide text-white hover:text-yellow-300"
+                  style={{ fontFamily: 'var(--font-mono)' }}
+                >
+                  {link.label}
+                </a>
+              ) : (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className={`transition-all font-semibold text-sm uppercase tracking-wide ${
+                    pathname === link.href ? 'text-yellow-300' : 'text-white hover:text-yellow-300'
+                  }`}
+                  style={{ fontFamily: 'var(--font-mono)' }}
+                >
+                  {link.label}
+                </Link>
+              )
+            )}
             <a
               href="https://x.com/jcochranio"
               target="_blank"
@@ -116,19 +130,33 @@ export default function Navigation() {
             className="md:hidden py-4 space-y-2"
             style={{ borderTop: '3px solid var(--pop-black)' }}
           >
-            {links.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                onClick={() => setMobileMenuOpen(false)}
-                className={`block py-2 font-semibold uppercase tracking-wide ${
-                  pathname === link.href ? 'text-yellow-300' : 'text-white'
-                }`}
-                style={{ fontFamily: 'var(--font-mono)' }}
-              >
-                {link.label}
-              </Link>
-            ))}
+            {links.map((link) =>
+              link.external ? (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="block py-2 font-semibold uppercase tracking-wide text-white hover:text-yellow-300"
+                  style={{ fontFamily: 'var(--font-mono)' }}
+                >
+                  {link.label}
+                </a>
+              ) : (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  onClick={() => setMobileMenuOpen(false)}
+                  className={`block py-2 font-semibold uppercase tracking-wide ${
+                    pathname === link.href ? 'text-yellow-300' : 'text-white'
+                  }`}
+                  style={{ fontFamily: 'var(--font-mono)' }}
+                >
+                  {link.label}
+                </Link>
+              )
+            )}
             <div className="flex gap-6 mt-4">
               <a
                 href="https://x.com/jcochranio"

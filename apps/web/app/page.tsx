@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import type { Metadata } from 'next'
-import { Linkedin, Mail, ArrowRight, Layers, Code2, ExternalLink } from 'lucide-react'
+import { Linkedin, Mail, ArrowRight, Layers, Code2, ExternalLink, Youtube } from 'lucide-react'
 
 const XIcon = ({ className }: { className?: string }) => (
   <svg className={className} viewBox="0 0 24 24" fill="currentColor">
@@ -148,12 +148,12 @@ export default function Home() {
                 </div>
 
                 {/* Social Links */}
-                <div className="flex gap-4">
+                <div className="flex flex-wrap gap-4 justify-center sm:justify-start">
                   <a
                     href="https://www.linkedin.com/in/cochranjason/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="btn-pop btn-pop-primary"
+                    className="btn-pop btn-pop-primary w-full sm:w-auto justify-center"
                     style={{ padding: '0.75rem 1.25rem' }}
                     aria-label="Connect with Jason Cochran on LinkedIn"
                   >
@@ -164,7 +164,7 @@ export default function Home() {
                     href="https://x.com/jcochranio"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="btn-pop btn-pop-primary"
+                    className="btn-pop btn-pop-primary w-full sm:w-auto justify-center"
                     style={{ padding: '0.75rem 1.25rem' }}
                     aria-label="Follow Jason Cochran on X"
                   >
@@ -172,8 +172,19 @@ export default function Home() {
                     <span>@jcochranio</span>
                   </a>
                   <a
+                    href="https://www.youtube.com/@jcochranio"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn-pop btn-pop-primary w-full sm:w-auto justify-center"
+                    style={{ padding: '0.75rem 1.25rem' }}
+                    aria-label="Subscribe to Jason Cochran on YouTube"
+                  >
+                    <Youtube className="w-5 h-5" />
+                    <span>YouTube</span>
+                  </a>
+                  <a
                     href="mailto:jason.cochran@strataga.io"
-                    className="btn-pop btn-pop-secondary"
+                    className="btn-pop btn-pop-secondary w-full sm:w-auto justify-center"
                     style={{ padding: '0.75rem 1.25rem' }}
                     aria-label="Email Jason Cochran"
                   >
@@ -185,14 +196,17 @@ export default function Home() {
 
               {/* Right Column - Photo & Stats */}
               <div className="animate-pop-in" style={{ animationDelay: '0.2s' }}>
-                <div className="relative w-full aspect-square max-w-md mx-auto">
+                <div
+                  className="relative w-full h-[70vh] sm:h-auto sm:aspect-square max-w-md mx-auto overflow-hidden"
+                  style={{ minHeight: '360px' }}
+                >
                   {/* Photo Container */}
                   <div className="frame-pop w-full h-full overflow-hidden">
                     <Image
-                      src="/jason_cochran_photo2.png"
+                      src="/jason_cochran_photo.webp"
                       alt="Jason Cochran - Software Engineer | AI & Automation Specialist"
                       fill
-                      className="object-cover"
+                      className="object-cover rounded-2xl"
                       priority
                     />
                   </div>

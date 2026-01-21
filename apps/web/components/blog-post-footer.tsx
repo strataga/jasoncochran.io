@@ -16,10 +16,10 @@ export function BlogPostFooter() {
             <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 rounded-2xl blur opacity-30"></div>
             <div className="relative w-full h-full bg-gradient-to-br from-slate-200 to-slate-300 dark:from-slate-700 dark:to-slate-600 rounded-2xl overflow-hidden border-2 border-white dark:border-slate-800">
               <Image
-                src="/jason_cochran_photo2.png"
+                src="/jason_cochran_photo.webp"
                 alt="Jason Cochran"
                 fill
-                className="object-cover"
+                className="object-cover rounded-2xl"
               />
             </div>
           </div>

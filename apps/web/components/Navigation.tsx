@@ -3,7 +3,7 @@
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useState } from 'react'
-import { Linkedin } from 'lucide-react'
+import { Linkedin, Youtube } from 'lucide-react'
 
 const XIcon = ({ className }: { className?: string }) => (
   <svg className={className} viewBox="0 0 24 24" fill="currentColor">
@@ -75,6 +75,15 @@ export default function Navigation() {
             >
               <Linkedin className="w-5 h-5" />
             </a>
+            <a
+              href="https://www.youtube.com/@jcochranio"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-white hover:text-yellow-300 transition-colors"
+              aria-label="Subscribe to Jason Cochran on YouTube"
+            >
+              <Youtube className="w-5 h-5" />
+            </a>
           </div>
 
           {/* Mobile menu button */}
@@ -143,6 +152,18 @@ export default function Navigation() {
                 <Linkedin className="w-6 h-6" />
                 <span className="font-semibold" style={{ fontFamily: 'var(--font-mono)' }}>
                   LinkedIn
+                </span>
+              </a>
+              <a
+                href="https://www.youtube.com/@jcochranio"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 text-white hover:text-yellow-300 transition-colors"
+                aria-label="Subscribe to Jason Cochran on YouTube"
+              >
+                <Youtube className="w-6 h-6" />
+                <span className="font-semibold" style={{ fontFamily: 'var(--font-mono)' }}>
+                  YouTube
                 </span>
               </a>
             </div>

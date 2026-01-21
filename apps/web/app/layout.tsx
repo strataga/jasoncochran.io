@@ -36,11 +36,20 @@ export const metadata: Metadata = {
     title: 'Jason Cochran - Software Engineer and Consultant',
     description: '28 years of experience building exceptional web and mobile applications',
     siteName: 'Jason Cochran Portfolio',
+    images: [
+      {
+        url: '/opengraph-image',
+        width: 1200,
+        height: 630,
+        alt: 'Jason Cochran - Software Engineer & AI Specialist',
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Jason Cochran - Software Engineer and Consultant',
     description: '28 years of experience building exceptional web and mobile applications',
+    images: ['/opengraph-image'],
   },
 }
 

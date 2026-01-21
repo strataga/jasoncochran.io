@@ -1,12 +1,13 @@
-import Link from 'next/link'
-import type { Metadata } from 'next'
+'use client'
 
-export const metadata: Metadata = {
-  title: '404 - Page Not Found',
-  description: 'This page was vibe-coded out of existence.',
-}
+import Link from 'next/link'
 
 export default function NotFound() {
+  const preventCopy = (e: React.MouseEvent) => {
+    e.preventDefault()
+    return false
+  }
+
   return (
     <div className="min-h-screen flex items-center justify-center py-16">
       <div className="max-w-2xl mx-auto px-4 text-center">
@@ -29,22 +30,34 @@ export default function NotFound() {
               }}
             />
 
-            {/* Video Player */}
+            {/* Video Player with copy protection */}
             <video
               autoPlay
               loop
               muted
               playsInline
-              className="block max-w-full"
+              controlsList="nodownload nofullscreen noremoteplayback"
+              disablePictureInPicture
+              onContextMenu={preventCopy}
+              className="block max-w-full select-none"
               style={{
                 width: '600px',
                 height: 'auto',
                 border: '3px solid var(--pop-black)',
+                pointerEvents: 'none',
               }}
             >
               <source src="/videos/ralph-animation.mp4" type="video/mp4" />
               Your browser does not support the video tag.
             </video>
+
+            {/* Transparent overlay to prevent interaction */}
+            <div
+              className="absolute inset-0"
+              onContextMenu={preventCopy}
+              onDragStart={preventCopy}
+              style={{ zIndex: 10 }}
+            />
 
             {/* Play indicator badge */}
             <div
@@ -56,6 +69,7 @@ export default function NotFound() {
                 color: 'var(--pop-white)',
                 fontSize: '0.7rem',
                 boxShadow: '2px 2px 0 var(--pop-black)',
+                zIndex: 20,
               }}
             >
               LIVE

@@ -10,19 +10,6 @@ export default function NotFound() {
   return (
     <div className="min-h-screen flex items-center justify-center py-16">
       <div className="max-w-2xl mx-auto px-4 text-center">
-        {/* Big 404 */}
-        <div
-          className="text-[8rem] md:text-[12rem] font-bold leading-none mb-0"
-          style={{
-            fontFamily: 'var(--font-headline)',
-            color: 'var(--pop-red)',
-            textShadow: '6px 6px 0 var(--pop-black)',
-            WebkitTextStroke: '3px var(--pop-black)',
-          }}
-        >
-          404
-        </div>
-
         {/* Ralph Wiggum Video with pop-art styling */}
         <div className="relative mb-6">
           <div

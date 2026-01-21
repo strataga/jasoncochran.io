@@ -19,98 +19,192 @@ export default async function ProjectOgImage({ params }: { params: Promise<{ slu
 
   if (!project) {
     return new ImageResponse(
-      (
-        <div
-          style={{
-            height: '100%',
-            width: '100%',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            background: '#0f172a',
-            color: 'white',
-            fontSize: 40,
-          }}
-        >
-          Project Not Found
-        </div>
-      ),
-      { ...size }
-    )
-  }
-
-  return new ImageResponse(
-    (
       <div
         style={{
           height: '100%',
           width: '100%',
           display: 'flex',
-          flexDirection: 'column',
-          background: 'linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%)',
-          padding: '60px 80px',
+          alignItems: 'center',
+          justifyContent: 'center',
+          background: '#1a1a1a',
+          color: 'white',
+          fontSize: 40,
+          fontFamily: 'Bebas Neue, Impact, Arial Black, sans-serif',
         }}
       >
+        Project Not Found
+      </div>,
+      { ...size }
+    )
+  }
+
+  const accentColor =
+    project.accentColor === 'red'
+      ? '#FF3B30'
+      : project.accentColor === 'blue'
+        ? '#007AFF'
+        : '#FFCC00'
+
+  return new ImageResponse(
+    <div
+      style={{
+        height: '100%',
+        width: '100%',
+        display: 'flex',
+        flexDirection: 'column',
+        background: '#FFFEF5',
+        padding: 0,
+        position: 'relative',
+        overflow: 'hidden',
+      }}
+    >
+      {/* Background pattern - dots */}
+      <div
+        style={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          width: '100%',
+          height: '100%',
+          backgroundImage: 'radial-gradient(circle, rgba(0, 0, 0, 0.03) 4px, transparent 4px)',
+          backgroundSize: '24px 24px',
+        }}
+      />
+
+      {/* Accent bar at top */}
+      <div
+        style={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          width: '100%',
+          height: '16px',
+          background: accentColor,
+          borderBottom: '6px solid #1a1a1a',
+        }}
+      />
+
+      {/* Main content */}
+      <div
+        style={{
+          display: 'flex',
+          flexDirection: 'column',
+          gap: '24px',
+          width: '100%',
+          padding: '60px 80px',
+          position: 'relative',
+          zIndex: 1,
+          flex: 1,
+        }}
+      >
+        {/* Case Study badge */}
+        <div
+          style={{
+            display: 'inline-block',
+            padding: '8px 20px',
+            background: accentColor,
+            border: '4px solid #1a1a1a',
+            fontFamily: 'Space Mono, monospace',
+            fontSize: '20px',
+            fontWeight: 700,
+            color: accentColor === '#FFCC00' ? '#1a1a1a' : '#ffffff',
+            width: 'fit-content',
+            boxShadow: '4px 4px 0 #1a1a1a',
+          }}
+        >
+          CASE STUDY
+        </div>
+
+        {/* Project title */}
+        <div
+          style={{
+            fontSize: '72px',
+            fontWeight: 900,
+            fontFamily: 'Bebas Neue, Impact, Arial Black, sans-serif',
+            letterSpacing: '0.02em',
+            color: '#1a1a1a',
+            lineHeight: 1.1,
+            maxWidth: '900px',
+          }}
+        >
+          {project.title.toUpperCase()}
+        </div>
+
+        {/* Project subtitle */}
+        <div
+          style={{
+            fontSize: '28px',
+            fontFamily: 'Space Mono, monospace',
+            color: '#4a4a4a',
+            fontWeight: 600,
+            textTransform: 'uppercase',
+          }}
+        >
+          {project.subtitle}
+        </div>
+
+        {/* Tech stack tags */}
         <div
           style={{
             display: 'flex',
-            flexDirection: 'column',
-            flex: 1,
-            justifyContent: 'space-between',
+            flexWrap: 'wrap',
+            gap: '12px',
+            marginTop: '16px',
           }}
         >
-          <div style={{ display: 'flex', flexDirection: 'column' }}>
+          {project.techStack?.slice(0, 5).map((tech) => (
             <div
+              key={tech}
               style={{
-                background: 'rgba(59, 130, 246, 0.2)',
-                color: '#60a5fa',
-                padding: '12px 24px',
-                borderRadius: 30,
-                fontSize: 28,
-                display: 'inline-flex',
-                alignSelf: 'flex-start',
-                marginBottom: 30,
+                padding: '8px 16px',
+                background: '#FFCC00',
+                border: '3px solid #1a1a1a',
+                fontFamily: 'Space Mono, monospace',
+                fontSize: '16px',
+                fontWeight: 700,
+                color: '#1a1a1a',
               }}
             >
-              Case Study
+              {tech}
             </div>
-            <div
-              style={{
-                fontSize: 72,
-                fontWeight: 'bold',
-                background: 'linear-gradient(135deg, #2563eb 0%, #7c3aed 50%, #db2777 100%)',
-                backgroundClip: 'text',
-                color: 'transparent',
-                lineHeight: 1.2,
-                display: 'flex',
-                maxWidth: 1000,
-              }}
-            >
-              {project.title}
-            </div>
-          </div>
+          ))}
+        </div>
+
+        {/* Bottom footer */}
+        <div
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            marginTop: 'auto',
+            borderTop: '4px solid #1a1a1a',
+            paddingTop: '24px',
+          }}
+        >
           <div
             style={{
-              display: 'flex',
-              alignItems: 'center',
-              borderTop: '2px solid #334155',
-              paddingTop: 30,
+              fontSize: '24px',
+              fontWeight: 700,
+              fontFamily: 'Bebas Neue, Impact, Arial Black, sans-serif',
+              color: '#1a1a1a',
             }}
           >
-            <div
-              style={{
-                fontSize: 32,
-                color: '#cbd5e1',
-                fontWeight: 'bold',
-                display: 'flex',
-              }}
-            >
-              Jason Cochran • Portfolio
-            </div>
+            Jason Cochran • Portfolio
+          </div>
+
+          <div
+            style={{
+              fontSize: '18px',
+              fontFamily: 'Space Mono, monospace',
+              color: '#6a6a6a',
+              fontWeight: 600,
+            }}
+          >
+            jasoncochran.io
           </div>
         </div>
       </div>
-    ),
+    </div>,
     {
       ...size,
     }

@@ -8,6 +8,10 @@ export interface Project {
   slug: string
   title: string
   content: string
+  subtitle?: string
+  accentColor?: 'red' | 'yellow' | 'blue'
+  techStack?: string[]
+  liveUrl?: string
 }
 
 export function getAllProjects(): Project[] {
@@ -43,7 +47,7 @@ export function getProjectBySlug(slug: string): Project | null {
   try {
     const fullPath = path.join(contentDirectory, `${slug}.md`)
     const fileContents = fs.readFileSync(fullPath, 'utf8')
-    const { content } = matter(fileContents)
+    const { content, data } = matter(fileContents)
 
     // Extract title from first # heading
     const titleMatch = content.match(/^#\s+(.+)$/m)
@@ -53,6 +57,10 @@ export function getProjectBySlug(slug: string): Project | null {
       slug,
       title,
       content,
+      subtitle: data.subtitle as string | undefined,
+      accentColor: data.accentColor as 'red' | 'yellow' | 'blue' | undefined,
+      techStack: data.techStack as string[] | undefined,
+      liveUrl: data.liveUrl as string | undefined,
     }
   } catch {
     return null

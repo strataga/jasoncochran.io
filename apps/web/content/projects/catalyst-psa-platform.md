@@ -1,3 +1,15 @@
+---
+subtitle: 'Enterprise SaaS • PSA Platform'
+accentColor: 'blue'
+techStack:
+  - 'Next.js'
+  - 'Node.js'
+  - 'TypeScript'
+  - 'PostgreSQL'
+  - 'NestJS'
+  - 'Prisma'
+---
+
 # Catalyst PSA Platform
 
 ## Overview

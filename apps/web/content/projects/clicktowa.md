@@ -1,3 +1,15 @@
+---
+subtitle: 'SaaS • Marketing Automation'
+accentColor: 'blue'
+techStack:
+  - 'Next.js'
+  - 'TypeScript'
+  - 'PostgreSQL'
+  - 'Redis'
+  - 'Vercel'
+liveUrl: 'https://clicktowa.com'
+---
+
 # ClickToWA
 
 ## Overview
@@ -37,6 +49,7 @@ ClickToWA bridges the gap between web marketing and WhatsApp engagement:
 ## Core Features
 
 ### Link Management
+
 - Create unlimited WhatsApp chat links
 - Custom short codes for memorable URLs
 - Pre-filled message templates
@@ -44,6 +57,7 @@ ClickToWA bridges the gap between web marketing and WhatsApp engagement:
 - Bulk link creation via API
 
 ### Analytics Dashboard
+
 - **Real-time tracking**: See clicks as they happen
 - **Geographic data**: Country, city, region breakdowns
 - **Device analytics**: Mobile vs desktop, OS, browser
@@ -51,24 +65,28 @@ ClickToWA bridges the gap between web marketing and WhatsApp engagement:
 - **Time-based analysis**: Peak hours, daily trends
 
 ### QR Code Generation
+
 - Instant QR codes for any link
 - Multiple format downloads (PNG, SVG)
 - Customizable size and colors
 - Perfect for print materials, packaging, signage
 
 ### Bot Detection
+
 - Machine learning-based bot identification
 - Filter out automated traffic
 - Accurate engagement metrics
 - Genuine user statistics
 
 ### Custom Domains (Pro)
+
 - Use your own domain for links
 - Full SSL certificate support
 - Branded link experience
 - Enterprise-grade reliability
 
 ### API Access
+
 - RESTful API for integration
 - Create links programmatically
 - Retrieve analytics data
@@ -77,6 +95,7 @@ ClickToWA bridges the gap between web marketing and WhatsApp engagement:
 ## Technical Architecture
 
 ### Performance Optimization
+
 The platform achieves sub-100ms redirect performance through:
 
 - **Edge computing**: Redirects processed at edge locations
@@ -85,6 +104,7 @@ The platform achieves sub-100ms redirect performance through:
 - **CDN distribution**: Global content delivery
 
 ### Analytics Pipeline
+
 Real-time analytics without impacting redirect speed:
 
 - **Async processing**: Click events queued for processing
@@ -93,6 +113,7 @@ Real-time analytics without impacting redirect speed:
 - **Data retention**: Configurable history periods
 
 ### Multi-Tenancy
+
 Secure isolation between customers:
 
 - **Tenant separation**: Complete data isolation
@@ -102,12 +123,14 @@ Secure isolation between customers:
 ## Pricing Model
 
 ### Free Tier
+
 - 5 links
 - 1,000 monthly clicks
 - Basic analytics
 - Standard QR codes
 
 ### Pro ($19/month)
+
 - 100 links
 - 100,000 monthly clicks
 - Advanced analytics
@@ -118,6 +141,7 @@ Secure isolation between customers:
 ## Technical Stack
 
 ### Frontend
+
 - **Next.js 14**: App router with server components
 - **TypeScript**: Full type safety
 - **Tailwind CSS**: Responsive design
@@ -125,12 +149,14 @@ Secure isolation between customers:
 - **React Query**: Data fetching and caching
 
 ### Backend
+
 - **Next.js API Routes**: Serverless functions
 - **PostgreSQL**: Primary database
 - **Redis**: Caching and rate limiting
 - **Vercel**: Hosting and edge functions
 
 ### Infrastructure
+
 - **Vercel Edge Network**: Global distribution
 - **Vercel Analytics**: Performance monitoring
 - **Upstash Redis**: Serverless Redis
@@ -146,24 +172,28 @@ Secure isolation between customers:
 ## Use Cases
 
 ### E-Commerce
+
 - Product inquiry links on listings
 - Cart abandonment recovery
 - Customer support shortcuts
 - Order status inquiries
 
 ### Marketing Campaigns
+
 - Social media bio links
 - Email campaign CTAs
 - Print advertisement QR codes
 - Event promotion tracking
 
 ### Customer Support
+
 - Website chat alternatives
 - FAQ quick responses
 - Appointment scheduling
 - Feedback collection
 
 ### Sales Teams
+
 - Personalized outreach links
 - Lead qualification tracking
 - Demo request handling
@@ -172,18 +202,21 @@ Secure isolation between customers:
 ## Development Highlights
 
 ### Clean Architecture
+
 - Separation of concerns
 - Domain-driven design principles
 - Repository pattern for data access
 - Service layer abstraction
 
 ### Testing Strategy
+
 - Unit tests for business logic
 - Integration tests for API endpoints
 - E2E tests for critical flows
 - Performance benchmarking
 
 ### Security
+
 - Rate limiting per IP and user
 - Input validation and sanitization
 - SQL injection prevention

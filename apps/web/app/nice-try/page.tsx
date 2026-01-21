@@ -1,10 +1,78 @@
 'use client'
 
 import Link from 'next/link'
+import { useEffect, useRef, useState } from 'react'
+
+declare global {
+  interface Window {
+    YT: {
+      Player: new (
+        elementId: string,
+        config: {
+          videoId: string
+          playerVars: Record<string, number | string>
+          events: {
+            onReady: (event: { target: YTPlayer }) => void
+          }
+        }
+      ) => YTPlayer
+    }
+    onYouTubeIframeAPIReady: () => void
+  }
+}
+
+interface YTPlayer {
+  unMute: () => void
+  playVideo: () => void
+}
 
 export default function NiceTryPage() {
+  const playerRef = useRef<YTPlayer | null>(null)
+  const [isMuted, setIsMuted] = useState(true)
+
+  useEffect(() => {
+    // Load YouTube IFrame API
+    const tag = document.createElement('script')
+    tag.src = 'https://www.youtube.com/iframe_api'
+    const firstScriptTag = document.getElementsByTagName('script')[0]
+    firstScriptTag.parentNode?.insertBefore(tag, firstScriptTag)
+
+    window.onYouTubeIframeAPIReady = () => {
+      playerRef.current = new window.YT.Player('rick-roll-player', {
+        videoId: 'dQw4w9WgXcQ',
+        playerVars: {
+          autoplay: 1,
+          mute: 1,
+          loop: 1,
+          playlist: 'dQw4w9WgXcQ',
+          controls: 0,
+          modestbranding: 1,
+          rel: 0,
+          showinfo: 0,
+          iv_load_policy: 3,
+          disablekb: 1,
+        },
+        events: {
+          onReady: (event) => {
+            event.target.playVideo()
+          },
+        },
+      })
+    }
+  }, [])
+
+  const handleUnmute = () => {
+    if (playerRef.current && isMuted) {
+      playerRef.current.unMute()
+      setIsMuted(false)
+    }
+  }
+
   return (
-    <div className="min-h-screen flex items-center justify-center py-16">
+    <div
+      className="min-h-screen flex items-center justify-center py-16"
+      onClick={handleUnmute}
+    >
       <div className="max-w-2xl mx-auto px-4 text-center">
         {/* Rick Roll Video with pop-art styling */}
         <div className="relative mb-6">
@@ -26,17 +94,12 @@ export default function NiceTryPage() {
               }}
             />
 
-            {/* YouTube Embed with autoplay */}
-            <iframe
-              width="600"
-              height="338"
-              src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1&loop=1&playlist=dQw4w9WgXcQ"
-              title="Nice Try"
-              frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-              className="block max-w-full"
+            {/* YouTube Player Container */}
+            <div
+              id="rick-roll-player"
               style={{
+                width: '600px',
+                height: '338px',
                 border: '3px solid var(--pop-black)',
               }}
             />
@@ -58,6 +121,16 @@ export default function NiceTryPage() {
             </div>
           </div>
         </div>
+
+        {/* Unmute hint */}
+        {isMuted && (
+          <p
+            className="text-xs mb-4 animate-pulse"
+            style={{ fontFamily: 'var(--font-mono)', color: 'var(--pop-red)' }}
+          >
+            Click anywhere to unmute
+          </p>
+        )}
 
         {/* Comic-style speech bubble */}
         <div

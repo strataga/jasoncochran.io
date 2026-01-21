@@ -139,8 +139,8 @@ export default function NotFound() {
           </div>
         </div>
 
-        {/* CTA Buttons */}
-        <div className="flex flex-wrap justify-center gap-4">
+        {/* CTA Button */}
+        <div className="flex justify-center">
           <Link
             href="/"
             className="px-6 py-3 font-bold uppercase tracking-wide transition-all hover:translate-x-1 hover:-translate-y-1"
@@ -154,20 +154,6 @@ export default function NotFound() {
             }}
           >
             Escape The Loop
-          </Link>
-          <Link
-            href="/projects"
-            className="px-6 py-3 font-bold uppercase tracking-wide transition-all hover:translate-x-1 hover:-translate-y-1"
-            style={{
-              fontFamily: 'var(--font-mono)',
-              fontSize: '0.875rem',
-              background: 'var(--pop-yellow)',
-              color: 'var(--pop-black)',
-              border: '3px solid var(--pop-black)',
-              boxShadow: '4px 4px 0 var(--pop-black)',
-            }}
-          >
-            See What Exists
           </Link>
         </div>
 

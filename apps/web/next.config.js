@@ -6,7 +6,7 @@ const nextConfig = {
   pageExtensions: ['js', 'jsx', 'mdx', 'ts', 'tsx'],
   output: 'standalone',
   turbopack: {
-    root: path.join(__dirname),
+    root: path.join(__dirname, '..', '..'),
   },
 }
 

@@ -140,8 +140,8 @@ export default function NotFound() {
           </div>
         </div>
 
-        {/* CTA Buttons */}
-        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+        {/* CTA Button */}
+        <div className="flex justify-center">
           <Link
             href="/"
             className="px-6 py-3 font-bold uppercase tracking-wide transition-all hover:translate-x-1 hover:-translate-y-1"
@@ -155,36 +155,6 @@ export default function NotFound() {
             }}
           >
             Escape The Loop
-          </Link>
-
-          {/* Fake download button - leads to rick-roll */}
-          <Link
-            href="/nice-try"
-            className="px-6 py-3 font-bold tracking-wide transition-all hover:translate-x-1 hover:-translate-y-1 flex items-center gap-2"
-            style={{
-              fontFamily: 'var(--font-mono)',
-              fontSize: '0.75rem',
-              background: 'var(--pop-blue)',
-              color: 'var(--pop-white)',
-              border: '3px solid var(--pop-black)',
-              boxShadow: '4px 4px 0 var(--pop-black)',
-            }}
-          >
-            <svg
-              width="16"
-              height="16"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
-              <polyline points="7 10 12 15 17 10" />
-              <line x1="12" y1="15" x2="12" y2="3" />
-            </svg>
-            Download Ralph Video
           </Link>
         </div>
 

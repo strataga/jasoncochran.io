@@ -47,7 +47,7 @@ export default function NotFound() {
                 pointerEvents: 'none',
               }}
             >
-              <source src="/videos/ralph-animation.mp4" type="video/mp4" />
+              <source src="/api/video/ralph" type="video/mp4" />
               Your browser does not support the video tag.
             </video>
 

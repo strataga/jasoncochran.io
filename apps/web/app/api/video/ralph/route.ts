@@ -21,7 +21,7 @@ export async function GET(request: NextRequest) {
 
   if (!isAllowed) {
     // Rick-roll anyone trying to access directly
-    return NextResponse.redirect('https://www.youtube.com/watch?v=dQw4w9WgXcQ')
+    return NextResponse.redirect('/nice-try')
   }
 
   try {

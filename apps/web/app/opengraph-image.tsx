@@ -3,7 +3,12 @@ import { ImageResponse } from 'next/og'
 // Route segment config
 export const runtime = 'nodejs'
 
-export default function OpengraphImage() {
+export default async function OpengraphImage() {
+  // Fetch the profile image
+  const imageData = await fetch(
+    new URL('/images/jason-profile.jpg', 'https://jasoncochran.io')
+  ).then((res) => res.arrayBuffer())
+
   return new ImageResponse(
     <div
       style={{
@@ -44,19 +49,28 @@ export default function OpengraphImage() {
         }}
       />
 
-      {/* Main content */}
+      {/* Main content - two column layout */}
       <div
         style={{
           display: 'flex',
-          flexDirection: 'column',
-          gap: '24px',
+          gap: '40px',
           width: '100%',
-          maxWidth: '1000px',
-          padding: '60px 80px',
+          maxWidth: '1100px',
+          padding: '50px 60px',
           position: 'relative',
           zIndex: 1,
+          alignItems: 'center',
         }}
       >
+        {/* Left column - text content */}
+        <div
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            gap: '20px',
+            flex: 1,
+          }}
+        >
         {/* Name */}
         <div
           style={{
@@ -274,6 +288,39 @@ export default function OpengraphImage() {
             }}
           >
             Email
+          </div>
+        </div>
+      </div>
+
+        {/* Right column - profile image */}
+        <div
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            flexShrink: 0,
+          }}
+        >
+          <div
+            style={{
+              width: '320px',
+              height: '320px',
+              borderRadius: '16px',
+              border: '6px solid #1a1a1a',
+              boxShadow: '8px 8px 0 #1a1a1a',
+              overflow: 'hidden',
+              display: 'flex',
+            }}
+          >
+            <img
+              src={`data:image/jpeg;base64,${Buffer.from(imageData).toString('base64')}`}
+              alt="Jason Cochran"
+              style={{
+                width: '100%',
+                height: '100%',
+                objectFit: 'cover',
+              }}
+            />
           </div>
         </div>
       </div>

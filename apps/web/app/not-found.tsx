@@ -50,7 +50,7 @@ export default function NotFound() {
               playsInline
               className="block max-w-full"
               style={{
-                width: '400px',
+                width: '600px',
                 height: 'auto',
                 border: '3px solid var(--pop-black)',
               }}

@@ -30,20 +30,20 @@ interface Project {
 const projects: Project[] = [
   {
     id: 1,
-    title: 'BuildPilot',
-    subtitle: 'AI SaaS • App Builder',
-    slug: 'buildpilot',
-    description: 'AI-powered full-stack web application builder. Describe what you want, AI agents architect and build it. Transform ideas into production-ready codebases in minutes.',
+    title: 'DemiArch',
+    subtitle: 'AI Tool • Code Generator',
+    slug: 'demiarch',
+    description: 'Local-first, open-source AI application builder in Rust. Generate production-ready code through conversational AI while keeping all data local and under your control.',
     architectureHighlights: [
-      'Autonomous AI agents (Architect + Developer + Tester)',
-      'Real-time Kanban board with WebSocket updates',
-      'E2B sandbox for secure code execution',
-      'GitHub integration with branch-per-feature workflow',
+      'Russian Doll hierarchical agent system with 3-level delegation',
+      'Learned skills that auto-extract and persist debugging knowledge',
+      'Dynamic model routing with reinforcement learning',
+      'WASM-sandboxed plugin system for extensibility',
     ],
-    techStack: ['Next.js', 'FastAPI', 'Python', 'Anthropic Claude', 'Supabase', 'Inngest', 'E2B'],
+    techStack: ['Rust', 'SQLite', 'OpenRouter', 'Ratatui', 'Tauri', 'WASM'],
     accentColor: 'red',
     isBeta: true,
-    liveUrl: 'https://trybuildpilot.dev',
+    liveUrl: 'https://github.com/strataga/demiarch',
     hasCaseStudy: true,
   },
   {
@@ -162,8 +162,6 @@ export default function Projects() {
                 {project.liveUrl && (
                   <a
                     href={project.liveUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
                     className="inline-flex items-center text-[var(--pop-blue)] font-bold hover:underline underline-offset-4"
                     style={{ fontFamily: 'var(--font-headline)', fontSize: '1.1rem' }}
                   >

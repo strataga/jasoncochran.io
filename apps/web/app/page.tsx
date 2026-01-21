@@ -272,7 +272,7 @@ export default function Home() {
             </div>
 
             <div className="grid md:grid-cols-2 gap-8">
-              {/* BuildPilot Project */}
+              {/* DemiArch Project */}
               <article className="project-card group relative">
                 {/* Accent bar */}
                 <div className="absolute top-0 left-0 w-full h-2 bg-[var(--pop-red)]"></div>
@@ -285,17 +285,17 @@ export default function Home() {
                 {/* Header */}
                 <div className="mb-6 pt-4">
                   <h3 className="text-3xl text-[var(--pop-black)] mb-2" style={{ fontFamily: 'var(--font-headline)' }}>
-                    BuildPilot
+                    DemiArch
                   </h3>
                   <span className="tag-pop">
-                    AI SaaS • App Builder
+                    AI Tool • Code Generator
                   </span>
                 </div>
 
                 {/* Description */}
                 <p className="text-[var(--text-secondary)] mb-6 leading-relaxed" style={{ fontFamily: 'var(--font-body)' }}>
-                  AI-powered full-stack web application builder. Describe what you want,
-                  AI agents architect and build it. Transform ideas into production-ready codebases in minutes.
+                  Local-first, open-source AI application builder in Rust. Generate production-ready code
+                  through conversational AI while keeping all data local and under your control.
                 </p>
 
                 {/* Architecture Highlights */}
@@ -307,19 +307,19 @@ export default function Home() {
                   <ul className="space-y-2 text-sm text-[var(--text-secondary)]" style={{ fontFamily: 'var(--font-body)' }}>
                     <li className="flex items-start">
                       <span className="text-[var(--pop-red)] mr-2 font-bold">•</span>
-                      <span>Autonomous AI agents (Architect + Developer + Tester)</span>
+                      <span>Russian Doll hierarchical agent system with 3-level delegation</span>
                     </li>
                     <li className="flex items-start">
                       <span className="text-[var(--pop-red)] mr-2 font-bold">•</span>
-                      <span>Real-time Kanban board with WebSocket updates</span>
+                      <span>Learned skills that auto-extract and persist debugging knowledge</span>
                     </li>
                     <li className="flex items-start">
                       <span className="text-[var(--pop-red)] mr-2 font-bold">•</span>
-                      <span>E2B sandbox for secure code execution</span>
+                      <span>Dynamic model routing with reinforcement learning</span>
                     </li>
                     <li className="flex items-start">
                       <span className="text-[var(--pop-red)] mr-2 font-bold">•</span>
-                      <span>GitHub integration with branch-per-feature workflow</span>
+                      <span>WASM-sandboxed plugin system for extensibility</span>
                     </li>
                   </ul>
                 </div>
@@ -331,28 +331,27 @@ export default function Home() {
                     TECH STACK
                   </h4>
                   <div className="flex flex-wrap gap-2">
-                    <span className="tag-pop">Next.js</span>
-                    <span className="tag-pop">FastAPI</span>
-                    <span className="tag-pop">Python</span>
-                    <span className="tag-pop">Anthropic Claude</span>
-                    <span className="tag-pop">Supabase</span>
-                    <span className="tag-pop">Inngest</span>
-                    <span className="tag-pop">E2B</span>
+                    <span className="tag-pop">Rust</span>
+                    <span className="tag-pop">SQLite</span>
+                    <span className="tag-pop">OpenRouter</span>
+                    <span className="tag-pop">Ratatui</span>
+                    <span className="tag-pop">Tauri</span>
+                    <span className="tag-pop">WASM</span>
                   </div>
                 </div>
 
                 {/* Links */}
                 <div className="flex flex-wrap gap-4">
                   <a
-                    href="https://trybuildpilot.dev"
+                    href="https://github.com/strataga/demiarch"
                     className="inline-flex items-center text-[var(--pop-blue)] font-bold hover:underline underline-offset-4"
                     style={{ fontFamily: 'var(--font-headline)', fontSize: '1.1rem' }}
                   >
-                    VISIT SITE
+                    VIEW ON GITHUB
                     <ExternalLink className="w-5 h-5 ml-2" />
                   </a>
                   <Link
-                    href="/projects/buildpilot"
+                    href="/projects/demiarch"
                     className="inline-flex items-center text-[var(--pop-red)] font-bold hover:underline underline-offset-4"
                     style={{ fontFamily: 'var(--font-headline)', fontSize: '1.1rem' }}
                   >

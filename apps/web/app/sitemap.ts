@@ -33,7 +33,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     },
     {
-      url: 'https://jasoncochran.io/projects/buildpilot',
+      url: 'https://jasoncochran.io/projects/demiarch',
       lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 0.8,

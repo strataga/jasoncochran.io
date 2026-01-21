@@ -151,7 +151,7 @@ export default function Resume() {
               </div>
               <ul className="list-disc list-inside space-y-2 text-[var(--text-secondary)] ml-2" style={{ fontFamily: 'var(--font-body)' }}>
                 <li>Founded technology solutions company focused on AI-Powered Software Development and automation</li>
-                <li>Built BuildPilot - AI-powered full-stack web application builder using Claude AI and autonomous agents</li>
+                <li>Built DemiArch - Local-first, open-source AI code generator in Rust with hierarchical agent system</li>
                 <li>Created ClickToWA - SaaS platform for trackable WhatsApp marketing with real-time analytics</li>
                 <li>Leveraging Claude Code and Cursor for 10x development velocity on all projects</li>
                 <li>Architected multi-tenant SaaS platforms with Next.js, TypeScript, and PostgreSQL</li>

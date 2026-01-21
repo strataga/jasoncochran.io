@@ -20,7 +20,8 @@ export async function GET(request: NextRequest) {
   )
 
   if (!isAllowed) {
-    return new NextResponse('Access denied', { status: 403 })
+    // Rick-roll anyone trying to access directly
+    return NextResponse.redirect('https://www.youtube.com/watch?v=dQw4w9WgXcQ')
   }
 
   try {

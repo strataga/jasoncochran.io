@@ -221,7 +221,7 @@ export default async function OpengraphImage() {
               alignItems: 'center',
               gap: '8px',
               padding: '12px 20px',
-              background: '#FF3B30',
+              background: '#0A66C2',
               border: '4px solid #1a1a1a',
               fontFamily: 'Space Mono, monospace',
               fontSize: '16px',
@@ -230,7 +230,7 @@ export default async function OpengraphImage() {
               boxShadow: '4px 4px 0 #1a1a1a',
             }}
           >
-            LinkedIn
+            /in/cochranjason
           </div>
 
           {/* X */}
@@ -268,26 +268,7 @@ export default async function OpengraphImage() {
               boxShadow: '4px 4px 0 #1a1a1a',
             }}
           >
-            YouTube
-          </div>
-
-          {/* Email */}
-          <div
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-              gap: '8px',
-              padding: '12px 20px',
-              background: '#007AFF',
-              border: '4px solid #1a1a1a',
-              fontFamily: 'Space Mono, monospace',
-              fontSize: '16px',
-              fontWeight: 700,
-              color: '#ffffff',
-              boxShadow: '4px 4px 0 #1a1a1a',
-            }}
-          >
-            Email
+            @jcochranio
           </div>
         </div>
       </div>

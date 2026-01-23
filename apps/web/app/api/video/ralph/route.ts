@@ -21,7 +21,8 @@ export async function GET(request: NextRequest) {
 
   if (!isAllowed) {
     // Rick-roll anyone trying to access directly
-    const baseUrl = request.nextUrl.origin
+    // Use public URL from env to avoid localhost redirect on containerized deployments
+    const baseUrl = process.env.NEXT_PUBLIC_APP_URL || 'https://jasoncochran.io'
     return NextResponse.redirect(new URL('/ralph-video', baseUrl))
   }
 

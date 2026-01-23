@@ -18,6 +18,10 @@ liveUrl: 'https://clicktowa.com'
 
 Live at: [clicktowa.com](https://clicktowa.com)
 
+<video controls width="100%" poster="/videos/clicktowa-poster.jpg" style={{borderRadius: '12px', marginTop: '24px', marginBottom: '24px', boxShadow: '6px 6px 0 var(--pop-black)', border: '4px solid var(--pop-black)'}}>
+  <source src="/videos/clicktowa-marketing.mp4" type="video/mp4" />
+</video>
+
 ## Project Scale
 
 - **Platform**: Web application with API

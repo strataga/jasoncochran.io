@@ -63,6 +63,23 @@ const projects: Project[] = [
     liveUrl: 'https://clicktowa.com',
     hasCaseStudy: true,
   },
+  {
+    id: 3,
+    title: 'CoSplit',
+    subtitle: 'SaaS • Co-Parenting',
+    slug: 'cosplit',
+    description: 'Co-parenting expense tracking app for separating couples. Track shared expenses, generate court-ready PDF exports, and share with co-parents via secure links.',
+    architectureHighlights: [
+      'Real-time sync with Convex serverless backend',
+      'Court-ready PDF export with receipt documentation',
+      'Secure share links - no signup required for co-parent',
+      'Better Auth with Google OAuth integration',
+    ],
+    techStack: ['Next.js', 'TypeScript', 'Convex', 'Better Auth', 'Polar'],
+    accentColor: 'yellow',
+    liveUrl: 'https://cosplitapp.com',
+    hasCaseStudy: true,
+  },
 ]
 
 const accentColors = {

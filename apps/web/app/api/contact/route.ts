@@ -182,7 +182,7 @@ export async function POST(request: NextRequest) {
 
     // Send thank you email to the sender
     await resend.emails.send({
-      from: 'Jason Cochran <no-reply@jasoncochan.io>',
+      from: 'Jason Cochran <no-reply@jasoncochran.io>',
       to: trimmedEmail,
       subject: 'Thanks for reaching out!',
       html: `

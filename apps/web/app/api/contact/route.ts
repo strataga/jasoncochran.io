@@ -125,7 +125,7 @@ export async function POST(request: NextRequest) {
 
   try {
     const { data, error } = await resend.emails.send({
-      from: 'Jason Cochran Contact Form <onboarding@resend.dev>',
+      from: 'Jason Cochran Contact Form <jlcochra2013@gmail.com>',
       to: process.env.RESEND_TO_EMAIL as string,
       subject: `New Contact from ${safeName}`,
       html: `

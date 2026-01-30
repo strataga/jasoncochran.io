@@ -5,7 +5,6 @@ import path from 'path'
 export async function GET(request: NextRequest) {
   // Check referer to block direct access
   const referer = request.headers.get('referer')
-  const host = request.headers.get('host')
 
   // Allow requests from same origin or localhost for development
   const allowedOrigins = [

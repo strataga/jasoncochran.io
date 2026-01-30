@@ -2,13 +2,7 @@ import type { Metadata } from 'next'
 import './globals.css'
 import Navigation from '@/components/Navigation'
 import FloatingContact from '@/components/FloatingContact'
-import { Linkedin, Youtube } from 'lucide-react'
-
-const XIcon = ({ className }: { className?: string }) => (
-  <svg className={className} viewBox="0 0 24 24" fill="currentColor">
-    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
-  </svg>
-)
+import { CONTACT_EMAIL, CONTACT_LOCATION, SOCIAL_LINKS } from '@/lib/social'
 
 export const metadata: Metadata = {
   title: {
@@ -123,6 +117,34 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                   View My Work
                 </a>
               </div>
+              <div
+                className="flex flex-wrap items-center justify-center gap-4 mt-6 text-sm"
+                style={{ fontFamily: 'var(--font-mono)', color: 'rgba(255,255,255,0.9)' }}
+              >
+                <span className="inline-flex items-center gap-2 px-3 py-1 bg-[var(--pop-black)] text-white border border-[var(--pop-yellow)]">
+                  {CONTACT_EMAIL}
+                  <span className="opacity-70">·</span>
+                  {CONTACT_LOCATION}
+                </span>
+                <div className="flex gap-3">
+                  {SOCIAL_LINKS.map((link) => {
+                    const Icon = link.icon
+                    return (
+                      <a
+                        key={link.key}
+                        href={link.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 px-3 py-1 bg-white text-[var(--pop-black)] border-2 border-[var(--pop-black)] hover:-translate-y-0.5 transition-transform"
+                        aria-label={`Visit Jason Cochran on ${link.label}`}
+                      >
+                        <Icon className="w-4 h-4" />
+                        <span className="hidden sm:inline">{link.handle || link.label}</span>
+                      </a>
+                    )
+                  })}
+                </div>
+              </div>
             </div>
           </div>
 
@@ -184,10 +206,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                       </a>
                     </li>
                     <li>
-                      <a
-                        href="https://blog.jasoncochran.io"
-                        className="hover:text-[var(--pop-yellow)] transition-colors"
-                      >
+                      <a href="https://blog.jasoncochran.io" className="hover:text-[var(--pop-yellow)] transition-colors">
                         Blog
                       </a>
                     </li>
@@ -217,46 +236,30 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                   <ul className="space-y-2 text-sm" style={{ fontFamily: 'var(--font-mono)' }}>
                     <li>
                       <a
-                        href="mailto:me@jasoncochran.io"
+                        href={`mailto:${CONTACT_EMAIL}`}
                         className="hover:text-[var(--pop-yellow)] transition-colors"
                       >
-                        me@jasoncochran.io
+                        {CONTACT_EMAIL}
                       </a>
                     </li>
-                    <li>
-                      <a
-                        href="https://x.com/jcochranio"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 hover:text-[var(--pop-yellow)] transition-colors"
-                      >
-                        <XIcon className="w-4 h-4" />
-                        <span>@jcochranio</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        href="https://www.linkedin.com/in/cochranjason/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 hover:text-[var(--pop-yellow)] transition-colors"
-                      >
-                        <Linkedin className="w-4 h-4" />
-                        <span>LinkedIn</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        href="https://www.youtube.com/@jcochranio"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 hover:text-[var(--pop-yellow)] transition-colors"
-                      >
-                        <Youtube className="w-4 h-4" />
-                        <span>YouTube</span>
-                      </a>
-                    </li>
-                    <li style={{ color: 'rgba(255,255,255,0.5)' }}>Midland, TX</li>
+                    {SOCIAL_LINKS.map((link) => {
+                      const Icon = link.icon
+                      return (
+                        <li key={link.key}>
+                          <a
+                            href={link.href}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-2 hover:text-[var(--pop-yellow)] transition-colors"
+                            aria-label={`Visit Jason Cochran on ${link.label}`}
+                          >
+                            <Icon className="w-4 h-4" />
+                            <span>{link.handle || link.label}</span>
+                          </a>
+                        </li>
+                      )
+                    })}
+                    <li style={{ color: 'rgba(255,255,255,0.5)' }}>{CONTACT_LOCATION}</li>
                   </ul>
                 </div>
               </div>

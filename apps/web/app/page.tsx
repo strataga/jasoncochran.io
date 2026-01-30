@@ -1,13 +1,8 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import type { Metadata } from 'next'
-import { Linkedin, ArrowRight, Layers, Code2, ExternalLink, Youtube } from 'lucide-react'
-
-const XIcon = ({ className }: { className?: string }) => (
-  <svg className={className} viewBox="0 0 24 24" fill="currentColor">
-    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-  </svg>
-)
+import { ArrowRight, Layers, Code2, ExternalLink } from 'lucide-react'
+import { CONTACT_EMAIL, CONTACT_LOCATION, SOCIAL_LINKS } from '@/lib/social'
 
 export const metadata: Metadata = {
   title: 'Jason Cochran - Software Engineer | AI & Automation Specialist',
@@ -146,40 +141,32 @@ export default function Home() {
 
                 {/* Social Links */}
                 <div className="flex flex-wrap gap-4 justify-center lg:justify-start">
-                  <a
-                    href="https://www.linkedin.com/in/cochranjason/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="btn-pop btn-pop-primary w-full sm:w-auto justify-center"
-                    style={{ padding: '0.75rem 1.25rem' }}
-                    aria-label="Connect with Jason Cochran on LinkedIn"
-                  >
-                    <Linkedin className="w-5 h-5" />
-                    <span>LinkedIn</span>
-                  </a>
-                  <a
-                    href="https://x.com/jcochranio"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="btn-pop btn-pop-primary w-full sm:w-auto justify-center"
-                    style={{ padding: '0.75rem 1.25rem' }}
-                    aria-label="Follow Jason Cochran on X"
-                  >
-                    <XIcon className="w-5 h-5" />
-                    <span>@jcochranio</span>
-                  </a>
-                  <a
-                    href="https://www.youtube.com/@jcochranio"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="btn-pop btn-pop-primary w-full sm:w-auto justify-center"
-                    style={{ padding: '0.75rem 1.25rem' }}
-                    aria-label="Subscribe to Jason Cochran on YouTube"
-                  >
-                    <Youtube className="w-5 h-5" />
-                    <span>YouTube</span>
-                  </a>
+                  {SOCIAL_LINKS.map((link) => {
+                    const Icon = link.icon
+                    return (
+                      <a
+                        key={link.key}
+                        href={link.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="btn-pop btn-pop-primary w-full sm:w-auto justify-center"
+                        style={{ padding: '0.75rem 1.25rem' }}
+                        aria-label={`Connect with Jason Cochran on ${link.label}`}
+                      >
+                        <Icon className="w-5 h-5" />
+                        <span>{link.handle || link.label}</span>
+                      </a>
+                    )
+                  })}
                 </div>
+                <p
+                  className="text-sm mt-4 text-[var(--text-secondary)] flex flex-wrap items-center gap-3 justify-center lg:justify-start"
+                  style={{ fontFamily: 'var(--font-mono)' }}
+                >
+                  <span>{CONTACT_EMAIL}</span>
+                  <span className="opacity-60">•</span>
+                  <span>{CONTACT_LOCATION}</span>
+                </p>
               </div>
 
               {/* Right Column - Photo & Stats */}
@@ -254,6 +241,143 @@ export default function Home() {
                   From concept to working prototype in days, not weeks.
                   Modern frameworks + AI tooling = unprecedented development speed.
                 </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Services & Engagements */}
+        <section className="py-20" style={{ background: 'var(--pop-cream)', borderTop: '4px solid var(--pop-black)' }}>
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-12">
+              <h2 className="section-header text-4xl md:text-5xl mb-4">Services & Engagements</h2>
+              <p
+                className="text-lg"
+                style={{ color: 'var(--text-secondary)', maxWidth: '720px', margin: '0 auto' }}
+              >
+                Practical, time-boxed engagements that get you to production fast. Clear scope, clear
+                timelines, rapid delivery.
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-2 xl:grid-cols-4 gap-6">
+              <div className="card-pop p-6 h-full">
+                <div className="flex items-center justify-between mb-4">
+                  <h3 className="text-xl font-bold" style={{ fontFamily: 'var(--font-headline)' }}>
+                    AI MVP Sprint
+                  </h3>
+                  <span className="tag-pop">2-4 weeks</span>
+                </div>
+                <p className="text-[var(--text-secondary)] mb-4" style={{ fontFamily: 'var(--font-body)' }}>
+                  Ship a working prototype with AI features, auth, payments, and telemetry baked in.
+                </p>
+                <ul className="space-y-2 text-sm" style={{ fontFamily: 'var(--font-body)' }}>
+                  <li className="flex items-start gap-2">
+                    <span className="text-[var(--pop-red)]">•</span>
+                    Clickable UI + hosted preview
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-[var(--pop-red)]">•</span>
+                    Clean API layer + tests
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-[var(--pop-red)]">•</span>
+                    Handoff docs & next steps
+                  </li>
+                </ul>
+              </div>
+
+              <div className="card-pop p-6 h-full">
+                <div className="flex items-center justify-between mb-4">
+                  <h3 className="text-xl font-bold" style={{ fontFamily: 'var(--font-headline)' }}>
+                    Automation & Agents
+                  </h3>
+                  <span className="tag-pop">2-6 weeks</span>
+                </div>
+                <p className="text-[var(--text-secondary)] mb-4" style={{ fontFamily: 'var(--font-body)' }}>
+                  Design and ship agentic workflows that plug into your stack and cut manual effort.
+                </p>
+                <ul className="space-y-2 text-sm" style={{ fontFamily: 'var(--font-body)' }}>
+                  <li className="flex items-start gap-2">
+                    <span className="text-[var(--pop-red)]">•</span>
+                    Integrations with CRMs, data stores, and APIs
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-[var(--pop-red)]">•</span>
+                    Guardrails, monitoring, and human-in-the-loop
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-[var(--pop-red)]">•</span>
+                    ROI-driven playbooks & dashboards
+                  </li>
+                </ul>
+              </div>
+
+              <div className="card-pop p-6 h-full">
+                <div className="flex items-center justify-between mb-4">
+                  <h3 className="text-xl font-bold" style={{ fontFamily: 'var(--font-headline)' }}>
+                    Platform Modernization
+                  </h3>
+                  <span className="tag-pop">3-8 weeks</span>
+                </div>
+                <p className="text-[var(--text-secondary)] mb-4" style={{ fontFamily: 'var(--font-body)' }}>
+                  Architecture reviews, performance tuning, and pragmatic refactors without downtime.
+                </p>
+                <ul className="space-y-2 text-sm" style={{ fontFamily: 'var(--font-body)' }}>
+                  <li className="flex items-start gap-2">
+                    <span className="text-[var(--pop-red)]">•</span>
+                    Modular boundaries & DX upgrades
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-[var(--pop-red)]">•</span>
+                    CI/CD hardening & observability
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-[var(--pop-red)]">•</span>
+                    Security & cost optimization checklist
+                  </li>
+                </ul>
+              </div>
+
+              <div className="card-pop p-6 h-full">
+                <div className="flex items-center justify-between mb-4">
+                  <h3 className="text-xl font-bold" style={{ fontFamily: 'var(--font-headline)' }}>
+                    Advisory & Fractional CTO
+                  </h3>
+                  <span className="tag-pop">Monthly</span>
+                </div>
+                <p className="text-[var(--text-secondary)] mb-4" style={{ fontFamily: 'var(--font-body)' }}>
+                  Ongoing partnership for roadmap shaping, hiring, vendor evals, and technical due diligence.
+                </p>
+                <ul className="space-y-2 text-sm" style={{ fontFamily: 'var(--font-body)' }}>
+                  <li className="flex items-start gap-2">
+                    <span className="text-[var(--pop-red)]">•</span>
+                    Weekly check-ins & async support
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-[var(--pop-red)]">•</span>
+                    Architecture reviews & risk mapping
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-[var(--pop-red)]">•</span>
+                    Hiring & vendor selection support
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div className="grid md:grid-cols-3 gap-6 mt-10">
+              <div className="stat-pop">
+                <div className="stat-pop-number">28+</div>
+                <div className="stat-pop-label">Years Engineering</div>
+              </div>
+              <div className="stat-pop">
+                <div className="stat-pop-number">100+</div>
+                <div className="stat-pop-label">Projects Shipped</div>
+              </div>
+              <div className="stat-pop">
+                <div className="stat-pop-number">2-6</div>
+                <div className="stat-pop-label">Week delivery windows</div>
               </div>
             </div>
           </div>

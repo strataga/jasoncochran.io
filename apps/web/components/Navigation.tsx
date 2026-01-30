@@ -3,13 +3,7 @@
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useState } from 'react'
-import { Linkedin, Youtube } from 'lucide-react'
-
-const XIcon = ({ className }: { className?: string }) => (
-  <svg className={className} viewBox="0 0 24 24" fill="currentColor">
-    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
-  </svg>
-)
+import { SOCIAL_LINKS } from '@/lib/social'
 
 export default function Navigation() {
   const pathname = usePathname()
@@ -46,56 +40,53 @@ export default function Navigation() {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-6">
-            {links.map((link) =>
-              link.external ? (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  className="transition-all font-semibold text-sm uppercase tracking-wide text-white hover:text-yellow-300"
-                  style={{ fontFamily: 'var(--font-mono)' }}
-                >
-                  {link.label}
-                </a>
-              ) : (
+            {links.map((link) => {
+              const isActive = !link.external && pathname === link.href
+              const className = `transition-all font-semibold text-sm uppercase tracking-wide ${
+                isActive ? 'text-yellow-300' : 'text-white hover:text-yellow-300'
+              }`
+
+              if (link.external) {
+                return (
+                  <a
+                    key={link.href}
+                    href={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={className}
+                    style={{ fontFamily: 'var(--font-mono)' }}
+                  >
+                    {link.label}
+                  </a>
+                )
+              }
+
+              return (
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={`transition-all font-semibold text-sm uppercase tracking-wide ${
-                    pathname === link.href ? 'text-yellow-300' : 'text-white hover:text-yellow-300'
-                  }`}
+                  className={className}
                   style={{ fontFamily: 'var(--font-mono)' }}
                 >
                   {link.label}
                 </Link>
               )
-            )}
-            <a
-              href="https://x.com/jcochranio"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-white hover:text-[var(--pop-yellow)] transition-colors p-1"
-              aria-label="Follow Jason Cochran on X"
-            >
-              <XIcon className="w-5 h-5" />
-            </a>
-            <a
-              href="https://www.linkedin.com/in/cochranjason/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-white hover:text-[var(--pop-yellow)] transition-colors p-1"
-              aria-label="View Jason Cochran's LinkedIn Profile"
-            >
-              <Linkedin className="w-5 h-5" />
-            </a>
-            <a
-              href="https://www.youtube.com/@jcochranio"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-white hover:text-[var(--pop-yellow)] transition-colors p-1"
-              aria-label="Subscribe to Jason Cochran on YouTube"
-            >
-              <Youtube className="w-5 h-5" />
-            </a>
+            })}
+            {SOCIAL_LINKS.map((link) => {
+              const Icon = link.icon
+              return (
+                <a
+                  key={link.key}
+                  href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-white hover:text-[var(--pop-yellow)] transition-colors p-1"
+                  aria-label={`Visit Jason Cochran on ${link.label}`}
+                >
+                  <Icon className="w-5 h-5" />
+                </a>
+              )
+            })}
           </div>
 
           {/* Mobile menu button */}
@@ -128,68 +119,59 @@ export default function Navigation() {
             className="md:hidden py-4 space-y-2"
             style={{ borderTop: '3px solid var(--pop-black)' }}
           >
-            {links.map((link) =>
-              link.external ? (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="block py-2 font-semibold uppercase tracking-wide text-white hover:text-yellow-300"
-                  style={{ fontFamily: 'var(--font-mono)' }}
-                >
-                  {link.label}
-                </a>
-              ) : (
+            {links.map((link) => {
+              const isActive = !link.external && pathname === link.href
+              const className = `block py-2 font-semibold uppercase tracking-wide ${
+                isActive ? 'text-yellow-300' : 'text-white'
+              }`
+
+              if (link.external) {
+                return (
+                  <a
+                    key={link.href}
+                    href={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className={className}
+                    style={{ fontFamily: 'var(--font-mono)' }}
+                  >
+                    {link.label}
+                  </a>
+                )
+              }
+
+              return (
                 <Link
                   key={link.href}
                   href={link.href}
                   onClick={() => setMobileMenuOpen(false)}
-                  className={`block py-2 font-semibold uppercase tracking-wide ${
-                    pathname === link.href ? 'text-yellow-300' : 'text-white'
-                  }`}
+                  className={className}
                   style={{ fontFamily: 'var(--font-mono)' }}
                 >
                   {link.label}
                 </Link>
               )
-            )}
+            })}
             <div className="flex flex-wrap gap-4 mt-4">
-              <a
-                href="https://x.com/jcochranio"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 text-white hover:text-[var(--pop-yellow)] transition-colors"
-                aria-label="Follow Jason Cochran on X"
-              >
-                <XIcon className="w-5 h-5" />
-                <span className="font-semibold text-sm" style={{ fontFamily: 'var(--font-mono)' }}>
-                  @jcochranio
-                </span>
-              </a>
-              <a
-                href="https://www.linkedin.com/in/cochranjason/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 text-white hover:text-[var(--pop-yellow)] transition-colors"
-                aria-label="View Jason Cochran's LinkedIn Profile"
-              >
-                <Linkedin className="w-5 h-5" />
-                <span className="font-semibold text-sm" style={{ fontFamily: 'var(--font-mono)' }}>
-                  LinkedIn
-                </span>
-              </a>
-              <a
-                href="https://www.youtube.com/@jcochranio"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 text-white hover:text-[var(--pop-yellow)] transition-colors"
-                aria-label="Subscribe to Jason Cochran on YouTube"
-              >
-                <Youtube className="w-5 h-5" />
-                <span className="font-semibold text-sm" style={{ fontFamily: 'var(--font-mono)' }}>
-                  YouTube
-                </span>
-              </a>
+              {SOCIAL_LINKS.map((link) => {
+                const Icon = link.icon
+                return (
+                  <a
+                    key={link.key}
+                    href={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 text-white hover:text-[var(--pop-yellow)] transition-colors"
+                    aria-label={`Visit Jason Cochran on ${link.label}`}
+                  >
+                    <Icon className="w-5 h-5" />
+                    <span className="font-semibold text-sm" style={{ fontFamily: 'var(--font-mono)' }}>
+                      {link.handle || link.label}
+                    </span>
+                  </a>
+                )
+              })}
             </div>
           </div>
         )}

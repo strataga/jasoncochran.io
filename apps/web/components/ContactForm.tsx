@@ -50,30 +50,24 @@ export default function ContactForm() {
   return (
     <div className="w-full">
       {submitStatus === 'success' && (
-        <div className="mb-6 p-6 bg-green-50 dark:bg-green-900/20 border-2 border-green-500 dark:border-green-600 rounded-xl">
-          <h3 className="font-bold text-green-900 dark:text-green-100 mb-2">
+        <div className="mb-6 p-6 bg-green-100 border-4 border-[var(--pop-black)]">
+          <h3 className="font-bold text-[var(--pop-black)] mb-2" style={{ fontFamily: 'var(--font-headline)' }}>
             Thank you for reaching out!
           </h3>
-          <p className="text-green-800 dark:text-green-200">
+          <p className="text-[var(--pop-black)]" style={{ fontFamily: 'var(--font-body)' }}>
             I'll get back to you within 24 hours.
           </p>
         </div>
       )}
 
       {submitStatus === 'error' && (
-        <div className="mb-6 p-6 bg-red-50 dark:bg-red-900/20 border-2 border-red-500 dark:border-red-600 rounded-xl">
-          <h3 className="font-bold text-red-900 dark:text-red-100 mb-2">
+        <div className="mb-6 p-6 bg-red-100 border-4 border-[var(--pop-black)]">
+          <h3 className="font-bold text-[var(--pop-black)] mb-2" style={{ fontFamily: 'var(--font-headline)' }}>
             Something went wrong
           </h3>
-          <p className="text-red-800 dark:text-red-200 mb-3">
-            Please try again or email me directly at:
+          <p className="text-[var(--pop-black)]" style={{ fontFamily: 'var(--font-body)' }}>
+            Please try again later.
           </p>
-          <a
-            href="mailto:me@jasoncochran.io"
-            className="text-red-900 dark:text-red-100 font-semibold underline"
-          >
-            me@jasoncochran.io
-          </a>
         </div>
       )}
 

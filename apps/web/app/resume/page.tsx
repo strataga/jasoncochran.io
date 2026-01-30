@@ -27,14 +27,6 @@ export default function Resume() {
             Software Engineer | AI & Automation Specialist
           </p>
           <div className="flex flex-wrap gap-4 text-[var(--text-secondary)]" style={{ fontFamily: 'var(--font-mono)', fontSize: '0.875rem' }}>
-            <a href="mailto:me@jasoncochran.io" className="flex items-center gap-2 hover:text-[var(--pop-red)] transition-colors">
-              <Mail className="w-4 h-4" />
-              me@jasoncochran.io
-            </a>
-            <span className="flex items-center gap-2">
-              <MapPin className="w-4 h-4" />
-              Midland, TX
-            </span>
             <a href="https://www.linkedin.com/in/cochranjason/" className="flex items-center gap-2 hover:text-[var(--pop-red)] transition-colors" target="_blank" rel="noopener noreferrer">
               <Linkedin className="w-4 h-4" />
               LinkedIn

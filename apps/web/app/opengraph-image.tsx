@@ -122,7 +122,7 @@ export default async function OpengraphImage() {
                 lineHeight: 1.3,
               }}
             >
-              Founder at Strataga • 28+ Years Experience
+              Software Engineer • 28+ Years Experience
             </div>
 
             {/* Description */}

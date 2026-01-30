@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import './globals.css'
 import Navigation from '@/components/Navigation'
 import FloatingContact from '@/components/FloatingContact'
-import { CONTACT_EMAIL, CONTACT_LOCATION, SOCIAL_LINKS } from '@/lib/social'
+import { SOCIAL_LINKS } from '@/lib/social'
 
 export const metadata: Metadata = {
   title: {
@@ -121,11 +121,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 className="flex flex-wrap items-center justify-center gap-4 mt-6 text-sm"
                 style={{ fontFamily: 'var(--font-mono)', color: 'rgba(255,255,255,0.9)' }}
               >
-                <span className="inline-flex items-center gap-2 px-3 py-1 bg-[var(--pop-black)] text-white border border-[var(--pop-yellow)]">
-                  {CONTACT_EMAIL}
-                  <span className="opacity-70">·</span>
-                  {CONTACT_LOCATION}
-                </span>
                 <div className="flex gap-3">
                   {SOCIAL_LINKS.map((link) => {
                     const Icon = link.icon
@@ -234,14 +229,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                     Connect
                   </h4>
                   <ul className="space-y-2 text-sm" style={{ fontFamily: 'var(--font-mono)' }}>
-                    <li>
-                      <a
-                        href={`mailto:${CONTACT_EMAIL}`}
-                        className="hover:text-[var(--pop-yellow)] transition-colors"
-                      >
-                        {CONTACT_EMAIL}
-                      </a>
-                    </li>
                     {SOCIAL_LINKS.map((link) => {
                       const Icon = link.icon
                       return (
@@ -259,7 +246,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                         </li>
                       )
                     })}
-                    <li style={{ color: 'rgba(255,255,255,0.5)' }}>{CONTACT_LOCATION}</li>
                   </ul>
                 </div>
               </div>

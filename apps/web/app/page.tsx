@@ -2,7 +2,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import type { Metadata } from 'next'
 import { ArrowRight, Layers, Code2, ExternalLink } from 'lucide-react'
-import { CONTACT_EMAIL, CONTACT_LOCATION, SOCIAL_LINKS } from '@/lib/social'
+import { SOCIAL_LINKS } from '@/lib/social'
 
 export const metadata: Metadata = {
   title: 'Jason Cochran - Software Engineer | AI & Automation Specialist',
@@ -32,22 +32,10 @@ export default function Home() {
     jobTitle: 'Software Engineer | AI & Automation Specialist',
     description: 'Software Engineer with 28 years of experience. Specializes in AI-assisted development, automation workflows, and modern software architecture for rapid application delivery.',
     url: 'https://jasoncochran.io',
-    email: 'me@jasoncochran.io',
-    address: {
-      '@type': 'PostalAddress',
-      addressLocality: 'Midland',
-      addressRegion: 'TX',
-      addressCountry: 'US',
-    },
     sameAs: [
       'https://www.linkedin.com/in/cochranjason/',
       'https://x.com/jcochranio',
     ],
-    worksFor: {
-      '@type': 'Organization',
-      name: 'Strataga, LLC',
-      url: 'https://strataga.io',
-    },
     knowsAbout: [
       'JavaScript',
       'TypeScript',
@@ -106,19 +94,6 @@ export default function Home() {
                   Software Engineer & AI Specialist
                 </h2>
 
-                <p className="text-xl mb-2" style={{
-                  fontFamily: 'var(--font-body)',
-                  color: 'var(--text-secondary)'
-                }}>
-                  Founder at{' '}
-                  <a
-                    href="https://strataga.io"
-                    style={{ color: 'var(--pop-red)', fontWeight: '600' }}
-                  >
-                    Strataga
-                  </a>
-                </p>
-
                 <p className="text-lg mb-8 leading-relaxed mx-auto lg:mx-0" style={{
                   fontFamily: 'var(--font-body)',
                   color: 'var(--text-secondary)',
@@ -159,14 +134,6 @@ export default function Home() {
                     )
                   })}
                 </div>
-                <p
-                  className="text-sm mt-4 text-[var(--text-secondary)] flex flex-wrap items-center gap-3 justify-center lg:justify-start"
-                  style={{ fontFamily: 'var(--font-mono)' }}
-                >
-                  <span>{CONTACT_EMAIL}</span>
-                  <span className="opacity-60">•</span>
-                  <span>{CONTACT_LOCATION}</span>
-                </p>
               </div>
 
               {/* Right Column - Photo & Stats */}

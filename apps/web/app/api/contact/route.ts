@@ -21,8 +21,8 @@ function escapeHtml(value: string) {
 }
 
 function validateEnv() {
-  const { RESEND_API_KEY, RESEND_FROM_EMAIL, RESEND_TO_EMAIL } = process.env
-  if (!RESEND_API_KEY || !RESEND_FROM_EMAIL || !RESEND_TO_EMAIL) {
+  const { RESEND_API_KEY, RESEND_TO_EMAIL } = process.env
+  if (!RESEND_API_KEY || !RESEND_TO_EMAIL) {
     return false
   }
   return true
@@ -125,9 +125,9 @@ export async function POST(request: NextRequest) {
 
   try {
     const { data, error } = await resend.emails.send({
-      from: process.env.RESEND_FROM_EMAIL as string,
+      from: 'Jason Cochran Contact Form <onboarding@resend.dev>',
       to: process.env.RESEND_TO_EMAIL as string,
-      subject: 'New Contact Form Submission',
+      subject: `New Contact from ${safeName}`,
       html: `
         <!DOCTYPE html>
         <html>
@@ -179,6 +179,52 @@ export async function POST(request: NextRequest) {
       console.error('Resend error:', error)
       return NextResponse.json({ error: 'Failed to send email' }, { status: 500 })
     }
+
+    // Send thank you email to the sender
+    await resend.emails.send({
+      from: 'Jason Cochran <onboarding@resend.dev>',
+      to: trimmedEmail,
+      subject: 'Thanks for reaching out!',
+      html: `
+        <!DOCTYPE html>
+        <html>
+          <head>
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Thank You</title>
+          </head>
+          <body style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; line-height: 1.6; color: #333; max-width: 600px; margin: 0 auto; padding: 20px;">
+            <div style="background: #000; padding: 30px; border-radius: 10px 10px 0 0;">
+              <h1 style="color: #FFD600; margin: 0; font-size: 24px;">Thanks for reaching out!</h1>
+            </div>
+
+            <div style="background: #f9fafb; padding: 30px; border-radius: 0 0 10px 10px; border: 1px solid #e5e7eb; border-top: none;">
+              <p style="margin: 0 0 20px 0; color: #1f2937;">
+                Hi ${safeName},
+              </p>
+
+              <p style="margin: 0 0 20px 0; color: #1f2937;">
+                I received your message and will get back to you within one business day.
+              </p>
+
+              <div style="background: white; padding: 20px; border-radius: 8px; margin-bottom: 20px; border: 1px solid #e5e7eb; border-left: 4px solid #FFD600;">
+                <p style="margin: 0 0 10px 0;"><strong style="color: #4b5563;">Your message:</strong></p>
+                <p style="margin: 0; color: #6b7280; white-space: pre-wrap;">${safeMessage}</p>
+              </div>
+
+              <p style="margin: 0; color: #1f2937;">
+                Talk soon,<br>
+                <strong>Jason Cochran</strong>
+              </p>
+            </div>
+
+            <div style="text-align: center; margin-top: 20px; color: #9ca3af; font-size: 12px;">
+              <p style="margin: 0;">jasoncochran.io</p>
+            </div>
+          </body>
+        </html>
+      `,
+    })
 
     return NextResponse.json({ success: true, messageId: data?.id }, { status: 200 })
   } catch (error) {

@@ -1,7 +1,7 @@
 import ContactForm from '@/components/ContactForm'
 import type { Metadata } from 'next'
 import { CalendarClock, Clock, Mail, MapPin } from 'lucide-react'
-import { CALENDLY_URL, CONTACT_EMAIL, CONTACT_LOCATION, SOCIAL_LINKS } from '@/lib/social'
+import { SOCIAL_LINKS } from '@/lib/social'
 
 export const metadata: Metadata = {
   title: 'Contact',
@@ -28,8 +28,8 @@ export default function ContactPage() {
           </p>
         </div>
 
-        {/* Direct Contact Options */}
-        <div className="grid md:grid-cols-3 gap-6 mb-12">
+        {/* Direct Contact Options - temporarily hidden
+        <div className="grid md:grid-cols-2 gap-6 mb-12">
           <div className="card-pop p-6 text-center h-full">
             <div className="w-16 h-16 mx-auto mb-4 bg-[var(--pop-red)] border-4 border-[var(--pop-black)] flex items-center justify-center">
               <Mail className="w-8 h-8 text-[var(--pop-white)]" />
@@ -84,6 +84,7 @@ export default function ContactPage() {
             </div>
           </div>
         </div>
+        */}
 
         <div className="card-pop p-6 mb-12">
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
@@ -126,25 +127,12 @@ export default function ContactPage() {
               Share a few lines about what you need—AI workflows, a rapid MVP, or platform upgrades. I
               respond within one business day.
             </p>
-            <div className="flex flex-wrap gap-3 text-sm" style={{ fontFamily: 'var(--font-mono)' }}>
-              <span className="inline-flex items-center gap-2 px-3 py-1 bg-[var(--pop-yellow)] text-[var(--pop-black)] border-2 border-[var(--pop-black)]">
-                {CONTACT_EMAIL}
-              </span>
-              <a
-                href={CALENDLY_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-3 py-1 bg-[var(--pop-black)] text-white border-2 border-[var(--pop-black)] hover:-translate-y-0.5 transition-transform"
-              >
-                Book a call instead
-              </a>
-            </div>
           </div>
 
           <ContactForm />
         </div>
 
-        {/* Location & Availability */}
+        {/* Location & Availability - temporarily hidden
         <div className="grid md:grid-cols-2 gap-8">
           <div className="stat-pop">
             <div className="w-12 h-12 mx-auto mb-4 bg-[var(--pop-red)] border-3 border-[var(--pop-black)] flex items-center justify-center">
@@ -161,9 +149,10 @@ export default function ContactPage() {
             </div>
             <h3 className="font-bold text-[var(--pop-black)] mb-2" style={{ fontFamily: 'var(--font-headline)', fontSize: '1.5rem' }}>AVAILABILITY</h3>
             <p className="text-[var(--text-secondary)]" style={{ fontFamily: 'var(--font-body)' }}>Open to new build sprints and advisory</p>
-            <p className="text-sm text-[var(--text-muted)] mt-2" style={{ fontFamily: 'var(--font-mono)' }}>Book via Calendly or email for 25-minute intro</p>
+            <p className="text-sm text-[var(--text-muted)] mt-2" style={{ fontFamily: 'var(--font-mono)' }}>Email for project inquiries</p>
           </div>
         </div>
+        */}
       </div>
     </div>
   )

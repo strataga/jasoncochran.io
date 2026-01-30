@@ -9,9 +9,10 @@ export type SocialLink = {
   icon: ComponentType<{ className?: string }>
 }
 
-export const CONTACT_EMAIL = 'me@jasoncochran.io'
-export const CONTACT_LOCATION = 'Midland, TX'
-export const CALENDLY_URL = 'https://cal.com/jcochranio/intro'
+// Temporarily hidden
+// export const CONTACT_EMAIL = 'me@jasoncochran.io'
+// export const CONTACT_LOCATION = 'Midland, TX'
+// export const CALENDLY_URL = 'https://cal.com/jcochranio/intro'
 
 export const XIcon = ({ className }: { className?: string }) => (
   <svg className={className} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">

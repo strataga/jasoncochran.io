@@ -80,6 +80,23 @@ const projects: Project[] = [
     liveUrl: 'https://cosplitapp.com',
     hasCaseStudy: true,
   },
+  {
+    id: 4,
+    title: 'OpenClaw VPS',
+    subtitle: 'Service • AI Hosting',
+    slug: 'openclaw-vps',
+    description: 'Managed hosting platform for OpenClaw AI assistants. Zero-DevOps deployment with done-for-you setup packages and predictable monthly hosting plans.',
+    architectureHighlights: [
+      'White-glove onboarding with discovery calls and training',
+      'Polar integration for one-time and recurring payments',
+      'Real-time booking and survey tracking with Convex',
+      'Turnstile bot protection and rate limiting',
+    ],
+    techStack: ['Next.js', 'TypeScript', 'Convex', 'Polar', 'Turnstile'],
+    accentColor: 'blue',
+    liveUrl: 'https://openclawvps.com',
+    hasCaseStudy: true,
+  },
 ]
 
 const accentColors = {

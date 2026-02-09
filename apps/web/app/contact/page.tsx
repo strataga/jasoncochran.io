@@ -1,6 +1,5 @@
 import ContactForm from '@/components/ContactForm'
 import type { Metadata } from 'next'
-import { CalendarClock, Clock, Mail, MapPin } from 'lucide-react'
 import { SOCIAL_LINKS } from '@/lib/social'
 
 export const metadata: Metadata = {

@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Download, Mail, MapPin, Linkedin } from 'lucide-react'
+import { Download, Linkedin } from 'lucide-react'
 
 export const metadata: Metadata = {
   title: 'Resume',

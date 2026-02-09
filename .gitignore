@@ -47,7 +47,11 @@ next-env.d.ts
 
 # Misc
 .turbo
+.tmp/
 
 # pnpm
 pnpm-lock.yaml
 .playwright-mcp/
+
+# beads
+.beads/.jsonl.lock

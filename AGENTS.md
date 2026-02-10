@@ -12,6 +12,22 @@ bd close <id>         # Complete work
 bd sync               # Sync with git
 ```
 
+## Local Terminal Workflow (Jason)
+
+Jason uses `zsh` in Ghostty, and Cursor as the code editor. Favor this lightweight flow so he doesn't have to think about it:
+
+```bash
+lg                  # lazygit (git UI)
+rgs <query>         # ripgrep search (includes hidden, excludes .git)
+
+c                   # open current folder in Cursor (cursor .)
+cf <path>           # open a file/folder in Cursor (cursor <path>)
+```
+
+Notes:
+- `lazygit` and `yazi` are installed; `yazi` is optional (use when you want a fast terminal file browser).
+- If `cursor` isn't on PATH, install it from Cursor's command palette ("Install 'cursor' command in PATH").
+
 ## Landing the Plane (Session Completion)
 
 **When ending a work session**, you MUST complete ALL steps below. Work is NOT complete until `git push` succeeds.
@@ -37,4 +53,3 @@ bd sync               # Sync with git
 - NEVER stop before pushing - that leaves work stranded locally
 - NEVER say "ready to push when you are" - YOU must push
 - If push fails, resolve and retry until it succeeds
-

@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=512, height=512, initial-scale=1" />
+    <title>VibeTribe - Discord Icon (512x512)</title>
+    <style>
+      :root {
+        --w: 512px;
+        --h: 512px;
+
+        --bg-0: #050611;
+        --bg-1: #0a1022;
+        --ink: rgba(246, 248, 255, 0.96);
+
+        --g1: #7cff6b;
+        --g2: #00d4ff;
+        --g3: #ff4ecd;
+        --g4: #ffb800;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        width: var(--w);
+        height: var(--h);
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background: #000;
+      }
+
+      body {
+        font-family:
+          "SF Pro Display",
+          "Avenir Next",
+          "Avenir",
+          "Helvetica Neue",
+          "Segoe UI",
+          ui-sans-serif,
+          system-ui,
+          -apple-system,
+          sans-serif;
+        color: var(--ink);
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+
+      .stage {
+        width: 100%;
+        height: 100%;
+        display: grid;
+        place-items: center;
+      }
+
+      .avatar {
+        position: relative;
+        width: 448px;
+        height: 448px;
+        border-radius: 999px;
+        background: conic-gradient(
+          from 220deg,
+          rgba(124, 255, 107, 0.96),
+          rgba(0, 212, 255, 0.94),
+          rgba(255, 78, 205, 0.92),
+          rgba(255, 184, 0, 0.94),
+          rgba(124, 255, 107, 0.96)
+        );
+        box-shadow:
+          0 44px 130px rgba(0, 0, 0, 0.62),
+          0 0 0 1px rgba(255, 255, 255, 0.14) inset;
+        transform: translateZ(0);
+      }
+
+      .avatar::before {
+        content: "";
+        position: absolute;
+        inset: 12px;
+        border-radius: 999px;
+        background:
+          radial-gradient(420px 340px at 32% 22%, rgba(0, 212, 255, 0.18), transparent 62%),
+          radial-gradient(420px 340px at 76% 74%, rgba(255, 78, 205, 0.14), transparent 64%),
+          radial-gradient(420px 320px at 36% 88%, rgba(124, 255, 107, 0.12), transparent 66%),
+          linear-gradient(180deg, rgba(10, 14, 30, 0.94), rgba(6, 7, 17, 0.9));
+        border: 1px solid rgba(255, 255, 255, 0.12);
+      }
+
+      .avatar::after {
+        content: "";
+        position: absolute;
+        inset: 12px;
+        border-radius: 999px;
+        background:
+          linear-gradient(rgba(255, 255, 255, 0.10) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(255, 255, 255, 0.10) 1px, transparent 1px),
+          radial-gradient(circle at 22% 28%, rgba(0, 212, 255, 0.55) 0 2px, transparent 3px),
+          radial-gradient(circle at 78% 22%, rgba(255, 78, 205, 0.55) 0 2px, transparent 3px),
+          radial-gradient(circle at 74% 72%, rgba(124, 255, 107, 0.55) 0 2px, transparent 3px),
+          radial-gradient(circle at 30% 78%, rgba(255, 184, 0, 0.55) 0 2px, transparent 3px),
+          radial-gradient(620px 320px at 50% 0%, rgba(255, 255, 255, 0.08), transparent 62%);
+        background-size:
+          32px 32px,
+          32px 32px,
+          auto,
+          auto,
+          auto,
+          auto,
+          auto;
+        opacity: 0.22;
+        mix-blend-mode: overlay;
+        mask-image: radial-gradient(circle at 50% 40%, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0) 70%);
+        pointer-events: none;
+      }
+
+      .glyph {
+        position: absolute;
+        inset: 12px;
+        border-radius: 999px;
+        display: grid;
+        place-items: center;
+        text-align: center;
+        z-index: 2;
+      }
+
+      .glyph span {
+        display: inline-block;
+        font-weight: 920;
+        font-size: 168px;
+        line-height: 0.96;
+        letter-spacing: -0.045em;
+        padding: 0 64px;
+        transform: translateX(-18px);
+        background: linear-gradient(90deg, var(--g1) 0%, var(--g2) 38%, var(--g3) 76%, var(--g4) 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        text-shadow:
+          0 26px 90px rgba(0, 0, 0, 0.55),
+          0 0 30px rgba(0, 212, 255, 0.16);
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="stage" role="img" aria-label="VibeTribe VT icon">
+      <div class="avatar" aria-hidden="true">
+        <div class="glyph"><span>VT</span></div>
+      </div>
+    </div>
+  </body>
+</html>
+

@@ -1,0 +1,498 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=600, height=240, initial-scale=1" />
+    <title>VibeTribe - Discord Profile Banner (600x240)</title>
+    <style>
+      :root {
+        --w: 600px;
+        --h: 240px;
+
+        --bg-0: #050611;
+        --bg-1: #0a1022;
+        --ink: rgba(246, 248, 255, 0.96);
+        --muted: rgba(246, 248, 255, 0.74);
+        --stroke: rgba(255, 255, 255, 0.14);
+        --stroke-2: rgba(255, 255, 255, 0.1);
+        --glass: rgba(255, 255, 255, 0.06);
+
+        --g1: #7cff6b;
+        --g2: #00d4ff;
+        --g3: #ff4ecd;
+        --g4: #ffb800;
+
+        --shadow: rgba(0, 0, 0, 0.55);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        width: var(--w);
+        height: var(--h);
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background: #000;
+      }
+
+      body {
+        font-family:
+          "SF Pro Display",
+          "Avenir Next",
+          "Avenir",
+          "Helvetica Neue",
+          "Segoe UI",
+          ui-sans-serif,
+          system-ui,
+          -apple-system,
+          sans-serif;
+        color: var(--ink);
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+
+      .banner {
+        position: relative;
+        width: var(--w);
+        height: var(--h);
+        overflow: hidden;
+        background:
+          radial-gradient(520px 280px at 12% 26%, rgba(124, 255, 107, 0.32), transparent 62%),
+          radial-gradient(520px 280px at 82% 14%, rgba(255, 78, 205, 0.26), transparent 60%),
+          radial-gradient(520px 320px at 70% 120%, rgba(255, 184, 0, 0.2), transparent 62%),
+          radial-gradient(420px 320px at 108% 66%, rgba(0, 212, 255, 0.18), transparent 60%),
+          linear-gradient(135deg, var(--bg-1), var(--bg-0));
+      }
+
+      .banner::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-image:
+          linear-gradient(rgba(255, 255, 255, 0.075) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(255, 255, 255, 0.075) 1px, transparent 1px);
+        background-size: 34px 34px;
+        opacity: 0.17;
+        mask-image: radial-gradient(circle at 26% 40%, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0) 70%);
+        pointer-events: none;
+      }
+
+      .banner::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='.40'/%3E%3C/svg%3E");
+        opacity: 0.13;
+        mix-blend-mode: overlay;
+        pointer-events: none;
+      }
+
+      .miniWrap {
+        position: relative;
+        width: 168px;
+        height: 132px;
+        pointer-events: none;
+        justify-self: end;
+        transform: translateX(-8px);
+      }
+
+      .miniGlow {
+        position: absolute;
+        inset: -26px -30px;
+        background:
+          radial-gradient(160px 140px at 22% 35%, rgba(124, 255, 107, 0.28), transparent 70%),
+          radial-gradient(200px 180px at 78% 35%, rgba(0, 212, 255, 0.22), transparent 72%),
+          radial-gradient(220px 200px at 58% 86%, rgba(255, 78, 205, 0.2), transparent 74%);
+        filter: blur(16px);
+        opacity: 0.9;
+      }
+
+      .miniCard {
+        position: absolute;
+        inset: 0;
+        border-radius: 16px;
+        border: 1px solid transparent;
+        background:
+          linear-gradient(rgba(11, 16, 34, 0.66), rgba(8, 10, 20, 0.64)) padding-box,
+          linear-gradient(135deg, rgba(124, 255, 107, 0.75), rgba(0, 212, 255, 0.68), rgba(255, 78, 205, 0.64))
+            border-box;
+        box-shadow:
+          0 24px 70px rgba(0, 0, 0, 0.56),
+          inset 0 1px 0 rgba(255, 255, 255, 0.08);
+        transform-origin: right center;
+        transform: perspective(700px) rotateY(-10deg) rotateX(6deg) translateX(8px);
+        overflow: hidden;
+        opacity: 0.92;
+      }
+
+      .miniCard::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          radial-gradient(520px 200px at 50% 0%, rgba(255, 255, 255, 0.07), transparent 56%),
+          radial-gradient(180px 120px at 18% 78%, rgba(0, 212, 255, 0.1), transparent 64%),
+          radial-gradient(180px 120px at 82% 78%, rgba(255, 78, 205, 0.08), transparent 64%);
+        pointer-events: none;
+      }
+
+      .miniTop {
+        position: relative;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 10px 10px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.09);
+        background: rgba(255, 255, 255, 0.04);
+      }
+
+      .miniDots {
+        display: flex;
+        gap: 6px;
+      }
+
+      .miniDot {
+        width: 8px;
+        height: 8px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.18);
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.18);
+      }
+      .miniDot.red {
+        background: rgba(255, 78, 205, 0.78);
+      }
+      .miniDot.yellow {
+        background: rgba(255, 184, 0, 0.78);
+      }
+      .miniDot.green {
+        background: rgba(124, 255, 107, 0.72);
+      }
+
+      .miniTab {
+        margin-left: auto;
+        font-size: 9px;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: rgba(246, 248, 255, 0.66);
+      }
+
+      .miniCode {
+        position: relative;
+        padding: 10px 10px 10px;
+        font-family:
+          ui-monospace,
+          "SF Mono",
+          "JetBrains Mono",
+          "Menlo",
+          "Consolas",
+          "Liberation Mono",
+          monospace;
+        font-size: 10px;
+        line-height: 1.55;
+        color: rgba(246, 248, 255, 0.78);
+      }
+
+      .miniKw {
+        color: rgba(0, 212, 255, 0.9);
+      }
+      .miniFn {
+        color: rgba(124, 255, 107, 0.9);
+      }
+      .miniStr {
+        color: rgba(255, 184, 0, 0.92);
+      }
+      .miniCm {
+        color: rgba(246, 248, 255, 0.48);
+      }
+
+      .content {
+        position: relative;
+        z-index: 2;
+        height: 100%;
+        padding: 16px 18px;
+        display: grid;
+        grid-template-columns: 186px 1fr 168px;
+        gap: 8px;
+        align-items: center;
+      }
+
+      .avatar {
+        position: relative;
+        width: 190px;
+        height: 190px;
+        border-radius: 999px;
+        background: conic-gradient(
+          from 220deg,
+          rgba(124, 255, 107, 0.96),
+          rgba(0, 212, 255, 0.94),
+          rgba(255, 78, 205, 0.92),
+          rgba(255, 184, 0, 0.94),
+          rgba(124, 255, 107, 0.96)
+        );
+        box-shadow:
+          0 26px 72px rgba(0, 0, 0, 0.62),
+          0 0 0 1px rgba(255, 255, 255, 0.16) inset;
+        justify-self: start;
+      }
+
+      .avatar::before {
+        content: "";
+        position: absolute;
+        inset: 8px;
+        border-radius: 999px;
+        background:
+          radial-gradient(220px 180px at 32% 22%, rgba(0, 212, 255, 0.18), transparent 62%),
+          radial-gradient(220px 180px at 76% 74%, rgba(255, 78, 205, 0.14), transparent 64%),
+          linear-gradient(180deg, rgba(10, 14, 30, 0.92), rgba(6, 7, 17, 0.88));
+        border: 1px solid rgba(255, 255, 255, 0.12);
+      }
+
+      .avatarContent {
+        position: absolute;
+        inset: 8px;
+        border-radius: 999px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        text-align: center;
+        z-index: 2;
+      }
+
+      .avatarGlyph {
+        display: inline-block;
+        font-weight: 920;
+        font-size: 62px;
+        line-height: 0.96;
+        letter-spacing: -0.045em;
+        padding: 0 22px;
+        transform: translateX(-7px);
+        background: linear-gradient(90deg, var(--g1) 0%, var(--g2) 38%, var(--g3) 76%, var(--g4) 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        text-shadow:
+          0 16px 52px rgba(0, 0, 0, 0.55),
+          0 0 22px rgba(0, 212, 255, 0.14);
+      }
+
+      .avatarHandle {
+        margin-top: -2px;
+        font-family:
+          ui-monospace,
+          "SF Mono",
+          "JetBrains Mono",
+          "Menlo",
+          "Consolas",
+          "Liberation Mono",
+          monospace;
+        font-size: 10px;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: rgba(246, 248, 255, 0.74);
+        white-space: nowrap;
+      }
+
+      .avatarTag {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 7px 10px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
+        font-family:
+          ui-monospace,
+          "SF Mono",
+          "JetBrains Mono",
+          "Menlo",
+          "Consolas",
+          "Liberation Mono",
+          monospace;
+        font-size: 10px;
+        letter-spacing: 0.11em;
+        text-transform: uppercase;
+        color: rgba(246, 248, 255, 0.78);
+        white-space: nowrap;
+      }
+
+      .avatarTagDot {
+        width: 7px;
+        height: 7px;
+        border-radius: 999px;
+        background: conic-gradient(from 180deg, var(--g1), var(--g2), var(--g3), var(--g4), var(--g1));
+        box-shadow:
+          0 0 0 4px rgba(255, 255, 255, 0.05),
+          0 0 14px rgba(0, 212, 255, 0.22);
+      }
+
+      .rightText {
+        min-width: 0;
+        align-self: center;
+      }
+
+      .kicker {
+        display: inline-flex;
+        align-items: center;
+        gap: 9px;
+        padding: 7px 10px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid var(--stroke);
+        backdrop-filter: blur(6px);
+        box-shadow: 0 18px 50px rgba(0, 0, 0, 0.22);
+        font-size: 11px;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: rgba(246, 248, 255, 0.86);
+        width: fit-content;
+      }
+
+      .spark {
+        width: 9px;
+        height: 9px;
+        border-radius: 999px;
+        background: conic-gradient(from 180deg, var(--g1), var(--g2), var(--g3), var(--g4), var(--g1));
+        box-shadow:
+          0 0 0 4px rgba(255, 255, 255, 0.05),
+          0 0 18px rgba(0, 212, 255, 0.28),
+          0 0 26px rgba(255, 78, 205, 0.22);
+      }
+
+      h1 {
+        margin: 8px 0 4px;
+        font-weight: 860;
+        font-size: 32px;
+        line-height: 1.04;
+        letter-spacing: -0.04em;
+        text-shadow: 0 20px 60px var(--shadow);
+      }
+
+      .title-gradient {
+        background: linear-gradient(90deg, var(--g1) 0%, var(--g2) 34%, var(--g3) 70%, var(--g4) 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+
+      .desc {
+        margin: 0;
+        font-size: 12.5px;
+        line-height: 1.42;
+        color: var(--muted);
+        max-width: 100%;
+        text-wrap: balance;
+      }
+
+      .badges {
+        margin-top: 7px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+        max-width: 240px; /* aim for a tidy 2-line wrap */
+      }
+
+      .badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 4px 7px;
+        border-radius: 999px;
+        background: var(--glass);
+        border: 1px solid var(--stroke-2);
+        box-shadow:
+          inset 0 1px 0 rgba(255, 255, 255, 0.06),
+          0 20px 46px rgba(0, 0, 0, 0.22);
+        font-size: 9px;
+        line-height: 1.1;
+        color: rgba(246, 248, 255, 0.86);
+        letter-spacing: 0.01em;
+        white-space: nowrap;
+      }
+
+      .badge i {
+        display: inline-block;
+        width: 6px;
+        height: 6px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.14);
+        box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.04);
+      }
+
+      .badge.ai i {
+        background: rgba(0, 212, 255, 0.9);
+        box-shadow:
+          0 0 0 4px rgba(0, 212, 255, 0.14),
+          0 0 16px rgba(0, 212, 255, 0.34);
+      }
+      .badge.agents i {
+        background: rgba(124, 255, 107, 0.9);
+        box-shadow:
+          0 0 0 4px rgba(124, 255, 107, 0.14),
+          0 0 16px rgba(124, 255, 107, 0.3);
+      }
+      .badge.live i {
+        background: rgba(255, 78, 205, 0.85);
+        box-shadow:
+          0 0 0 4px rgba(255, 78, 205, 0.14),
+          0 0 16px rgba(255, 78, 205, 0.36);
+      }
+
+      .badge.discord i {
+        background: rgba(88, 101, 242, 0.95); /* Discord blurple */
+        box-shadow:
+          0 0 0 4px rgba(88, 101, 242, 0.16),
+          0 0 16px rgba(88, 101, 242, 0.34);
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="banner" role="img" aria-label="VibeTribe Discord profile banner 600x240">
+      <div class="content">
+        <div class="avatar" aria-hidden="true">
+          <div class="avatarContent">
+            <div class="avatarGlyph">VT</div>
+            <div class="avatarHandle">vibetribe.club</div>
+            <div class="avatarTag"><span class="avatarTagDot"></span> Vibecoding &amp; AI</div>
+          </div>
+        </div>
+
+        <div class="rightText">
+          <div class="kicker"><span class="spark" aria-hidden="true"></span> Discord community</div>
+          <h1><span class="title-gradient">VibeTribe</span></h1>
+          <p class="desc">Join the Discord for vibecoding &amp; AI. Started on X.</p>
+          <div class="badges" aria-hidden="true">
+            <span class="badge discord"><i></i> Join Discord</span>
+            <span class="badge live"><i></i> Live sessions</span>
+            <span class="badge"><i></i> From X</span>
+          </div>
+        </div>
+
+        <div class="miniWrap" aria-hidden="true">
+          <div class="miniGlow"></div>
+          <div class="miniCard">
+            <div class="miniTop">
+              <div class="miniDots">
+                <span class="miniDot red"></span>
+                <span class="miniDot yellow"></span>
+                <span class="miniDot green"></span>
+              </div>
+              <div class="miniTab">vibetribe.club</div>
+            </div>
+            <div class="miniCode">
+              <span class="miniCm">// join us on Discord</span><br />
+              <span class="miniKw">const</span> <span class="miniFn">invite</span> = <span class="miniStr">"vibetribe.club"</span>;
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

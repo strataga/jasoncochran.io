@@ -358,38 +358,29 @@ export default function Home() {
                 Featured Projects
               </h2>
               <p className="text-lg mt-8" style={{ color: 'var(--text-secondary)', maxWidth: '600px', margin: '2rem auto 0' }}>
-                Enterprise-grade architecture built with modern development practices
+                Production software shipped for real users and real businesses
               </p>
             </div>
 
             <div className="grid md:grid-cols-2 gap-8">
-              {/* DemiArch Project */}
+              {/* OpenClaw VPS */}
               <article className="project-card group relative">
-                {/* Accent bar */}
-                <div className="absolute top-0 left-0 w-full h-2 bg-[var(--pop-red)]"></div>
+                <div className="absolute top-0 left-0 w-full h-2 bg-[var(--pop-blue)]"></div>
 
-                {/* BETA Badge */}
-                <div className="absolute top-4 right-4 z-10 flex items-center gap-1 px-3 py-1 bg-[var(--pop-blue)] text-[var(--pop-white)] border-2 border-[var(--pop-black)] text-xs font-bold" style={{ fontFamily: 'var(--font-mono)' }}>
-                  BETA
-                </div>
-
-                {/* Header */}
                 <div className="mb-6 pt-4">
                   <h3 className="text-3xl text-[var(--pop-black)] mb-2" style={{ fontFamily: 'var(--font-headline)' }}>
-                    DemiArch
+                    OpenClaw VPS
                   </h3>
                   <span className="tag-pop">
-                    AI Tool • Code Generator
+                    Service • AI Hosting
                   </span>
                 </div>
 
-                {/* Description */}
                 <p className="text-[var(--text-secondary)] mb-6 leading-relaxed" style={{ fontFamily: 'var(--font-body)' }}>
-                  Local-first, open-source AI application builder in Rust. Generate production-ready code
-                  through conversational AI while keeping all data local and under your control.
+                  Managed hosting platform for OpenClaw AI assistants. Zero-DevOps deployment with done-for-you setup
+                  packages and predictable monthly hosting plans.
                 </p>
 
-                {/* Architecture Highlights */}
                 <div className="mb-6">
                   <h4 className="font-bold text-[var(--pop-black)] mb-3 flex items-center gap-2" style={{ fontFamily: 'var(--font-headline)' }}>
                     <Layers className="w-5 h-5 text-[var(--pop-red)]" />
@@ -398,51 +389,48 @@ export default function Home() {
                   <ul className="space-y-2 text-sm text-[var(--text-secondary)]" style={{ fontFamily: 'var(--font-body)' }}>
                     <li className="flex items-start">
                       <span className="text-[var(--pop-red)] mr-2 font-bold">•</span>
-                      <span>Russian Doll hierarchical agent system with 3-level delegation</span>
+                      <span>White-glove onboarding with discovery calls and training</span>
                     </li>
                     <li className="flex items-start">
                       <span className="text-[var(--pop-red)] mr-2 font-bold">•</span>
-                      <span>Learned skills that auto-extract and persist debugging knowledge</span>
+                      <span>Polar integration for one-time and recurring payments</span>
                     </li>
                     <li className="flex items-start">
                       <span className="text-[var(--pop-red)] mr-2 font-bold">•</span>
-                      <span>Dynamic model routing with reinforcement learning</span>
+                      <span>Real-time booking and survey tracking with Convex</span>
                     </li>
                     <li className="flex items-start">
                       <span className="text-[var(--pop-red)] mr-2 font-bold">•</span>
-                      <span>WASM-sandboxed plugin system for extensibility</span>
+                      <span>Turnstile bot protection and rate limiting</span>
                     </li>
                   </ul>
                 </div>
 
-                {/* Tech Stack */}
                 <div className="mb-6">
                   <h4 className="font-bold text-[var(--pop-black)] mb-3 flex items-center gap-2" style={{ fontFamily: 'var(--font-headline)' }}>
                     <Code2 className="w-5 h-5 text-[var(--pop-blue)]" />
                     TECH STACK
                   </h4>
                   <div className="flex flex-wrap gap-2">
-                    <span className="tag-pop">Rust</span>
-                    <span className="tag-pop">SQLite</span>
-                    <span className="tag-pop">OpenRouter</span>
-                    <span className="tag-pop">Ratatui</span>
-                    <span className="tag-pop">Tauri</span>
-                    <span className="tag-pop">WASM</span>
+                    <span className="tag-pop">Next.js</span>
+                    <span className="tag-pop">TypeScript</span>
+                    <span className="tag-pop">Convex</span>
+                    <span className="tag-pop">Polar</span>
+                    <span className="tag-pop">Turnstile</span>
                   </div>
                 </div>
 
-                {/* Links */}
                 <div className="flex flex-wrap gap-4">
                   <a
-                    href="https://github.com/strataga/demiarch"
+                    href="https://openclawvps.com"
                     className="inline-flex items-center text-[var(--pop-blue)] font-bold hover:underline underline-offset-4"
                     style={{ fontFamily: 'var(--font-headline)', fontSize: '1.1rem' }}
                   >
-                    VIEW ON GITHUB
+                    VISIT SITE
                     <ExternalLink className="w-5 h-5 ml-2" />
                   </a>
                   <Link
-                    href="/projects/demiarch"
+                    href="/projects/openclaw-vps"
                     className="inline-flex items-center text-[var(--pop-red)] font-bold hover:underline underline-offset-4"
                     style={{ fontFamily: 'var(--font-headline)', fontSize: '1.1rem' }}
                   >
@@ -452,28 +440,24 @@ export default function Home() {
                 </div>
               </article>
 
-              {/* ClickToWA Project */}
+              {/* WellOS */}
               <article className="project-card group relative">
-                {/* Accent bar */}
-                <div className="absolute top-0 left-0 w-full h-2 bg-[var(--pop-blue)]"></div>
+                <div className="absolute top-0 left-0 w-full h-2 bg-[var(--pop-red)]"></div>
 
-                {/* Header */}
                 <div className="mb-6 pt-4">
                   <h3 className="text-3xl text-[var(--pop-black)] mb-2" style={{ fontFamily: 'var(--font-headline)' }}>
-                    ClickToWA
+                    WellOS
                   </h3>
                   <span className="tag-pop">
-                    SaaS • Marketing Automation
+                    Platform Suite • Oil & Gas
                   </span>
                 </div>
 
-                {/* Description */}
                 <p className="text-[var(--text-secondary)] mb-6 leading-relaxed" style={{ fontFamily: 'var(--font-body)' }}>
-                  Trackable WhatsApp click-to-chat link platform with real-time analytics,
-                  QR code generation, custom short codes, and intelligent bot filtering for marketing automation.
+                  The Operating System for Upstream Oil &amp; Gas Operators — real-time SCADA, production tracking,
+                  predictive maintenance, ESG compliance, and offline-first field data capture.
                 </p>
 
-                {/* Architecture Highlights */}
                 <div className="mb-6">
                   <h4 className="font-bold text-[var(--pop-black)] mb-3 flex items-center gap-2" style={{ fontFamily: 'var(--font-headline)' }}>
                     <Layers className="w-5 h-5 text-[var(--pop-red)]" />
@@ -482,50 +466,41 @@ export default function Home() {
                   <ul className="space-y-2 text-sm text-[var(--text-secondary)]" style={{ fontFamily: 'var(--font-body)' }}>
                     <li className="flex items-start">
                       <span className="text-[var(--pop-red)] mr-2 font-bold">•</span>
-                      <span>Sub-100ms redirect performance</span>
+                      <span>Six integrated applications across web, mobile, and desktop</span>
                     </li>
                     <li className="flex items-start">
                       <span className="text-[var(--pop-red)] mr-2 font-bold">•</span>
-                      <span>Real-time click analytics and geo-tracking</span>
+                      <span>Multi-tenant SaaS with database-per-tenant isolation</span>
                     </li>
                     <li className="flex items-start">
                       <span className="text-[var(--pop-red)] mr-2 font-bold">•</span>
-                      <span>AI-powered bot detection and filtering</span>
+                      <span>Offline-first field data capture with conflict resolution</span>
                     </li>
                     <li className="flex items-start">
                       <span className="text-[var(--pop-red)] mr-2 font-bold">•</span>
-                      <span>Custom domain support with automated SSL</span>
+                      <span>Real-time SCADA integration and predictive maintenance</span>
                     </li>
                   </ul>
                 </div>
 
-                {/* Tech Stack */}
                 <div className="mb-6">
                   <h4 className="font-bold text-[var(--pop-black)] mb-3 flex items-center gap-2" style={{ fontFamily: 'var(--font-headline)' }}>
                     <Code2 className="w-5 h-5 text-[var(--pop-blue)]" />
                     TECH STACK
                   </h4>
                   <div className="flex flex-wrap gap-2">
-                    <span className="tag-pop">Next.js</span>
-                    <span className="tag-pop">TypeScript</span>
+                    <span className="tag-pop">Rust</span>
+                    <span className="tag-pop">Next.js 15</span>
+                    <span className="tag-pop">React Native</span>
+                    <span className="tag-pop">Electron</span>
                     <span className="tag-pop">PostgreSQL</span>
                     <span className="tag-pop">Redis</span>
-                    <span className="tag-pop">Vercel</span>
                   </div>
                 </div>
 
-                {/* Links */}
                 <div className="flex flex-wrap gap-4">
-                  <a
-                    href="https://clicktowa.com"
-                    className="inline-flex items-center text-[var(--pop-blue)] font-bold hover:underline underline-offset-4"
-                    style={{ fontFamily: 'var(--font-headline)', fontSize: '1.1rem' }}
-                  >
-                    VISIT SITE
-                    <ExternalLink className="w-5 h-5 ml-2" />
-                  </a>
                   <Link
-                    href="/projects/clicktowa"
+                    href="/projects/wellos"
                     className="inline-flex items-center text-[var(--pop-red)] font-bold hover:underline underline-offset-4"
                     style={{ fontFamily: 'var(--font-headline)', fontSize: '1.1rem' }}
                   >

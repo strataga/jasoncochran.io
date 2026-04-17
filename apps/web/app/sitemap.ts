@@ -33,25 +33,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     },
     {
-      url: 'https://jasoncochran.io/projects/demiarch',
+      url: 'https://jasoncochran.io/projects/openclaw-vps',
       lastModified: new Date(),
       changeFrequency: 'monthly',
-      priority: 0.8,
+      priority: 0.9,
     },
     {
-      url: 'https://jasoncochran.io/projects/clicktowa',
+      url: 'https://jasoncochran.io/projects/wellos',
       lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 0.8,
     },
     {
       url: 'https://jasoncochran.io/projects/catalyst-psa-platform',
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.8,
-    },
-    {
-      url: 'https://jasoncochran.io/projects/wellos',
       lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 0.8,

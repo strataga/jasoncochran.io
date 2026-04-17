@@ -152,7 +152,7 @@ Bot protection on checkout:
 
 ### Infrastructure
 
-- **Vercel**: Application hosting
+- **Railway**: Application hosting (Nixpacks)
 - **Convex Cloud**: Database and storage
 - **Cloudflare**: CDN and security
 

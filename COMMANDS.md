@@ -73,7 +73,7 @@ pnpm dev
 
 ```bash
 pnpm build    # Build and test locally
-git push      # Auto-deploys on Vercel
+git push      # Auto-deploys on Railway (see RAILWAY.md)
 ```
 
 ### Troubleshoot

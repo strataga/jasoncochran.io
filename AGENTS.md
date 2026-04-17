@@ -1,55 +1,67 @@
-# Agent Instructions
+# Agent Instructions — jasoncochran.io
 
-This project uses **bd** (beads) for issue tracking. Run `bd onboard` to get started.
+Jason Cochran's personal site: homepage, resume, projects portfolio, contact form, and a few one-off pages (certifications, ralph-video). Deployed to Railway.
 
-## Quick Reference
+## Tech Stack
 
-```bash
-bd ready              # Find available work
-bd show <id>          # View issue details
-bd update <id> --status in_progress  # Claim work
-bd close <id>         # Complete work
-bd sync               # Sync with git
+- **Monorepo**: pnpm workspaces (`apps/*`, `packages/*`) + Turbo (`turbo.json`). Single app today: `apps/web`.
+- **Package manager**: pnpm 10.28.0 (root); `apps/web` uses `package-lock.json` and `npm` for Railway builds (see `railway.json`).
+- **Framework**: Next.js 16 (App Router, `output: 'standalone'`, Turbopack with monorepo root set to repo root).
+- **Language**: TypeScript 5.9, React 19.2.
+- **Styling**: Tailwind CSS v4 (`@tailwindcss/postcss`) + `@tailwindcss/typography`. Tokens/theme in `apps/web/app/globals.css`.
+- **Content**: Markdown via `gray-matter` (filesystem reads in `lib/`). MDX deps are installed (`@next/mdx`, `next-mdx-remote`) and `pageExtensions` includes `.mdx`, but no MDX pages exist yet.
+- **Code highlighting**: `shiki` + `rehype-pretty-code`, plus `components/code-block.tsx`.
+- **Email**: Resend (contact form).
+- **Deploy**: Railway via Nixpacks (`railway.json`, `nixpacks.toml`). Build: `cd apps/web && npm install && npm run build`. Start: `cd apps/web && npm start`.
+
+## Project Layout
+
+```
+apps/web/
+  app/                       # Next.js App Router
+    page.tsx                 # Homepage (large, ~33KB)
+    layout.tsx               # Root layout + metadata
+    resume/ contact/ certifications/ ralph-video/
+    projects/page.tsx        # Project grid
+    projects/[slug]/         # Dynamic project detail + opengraph-image
+    api/contact/route.ts     # Resend-backed contact endpoint
+    api/video/ralph/         # Video API route
+    sitemap.ts               # Hand-maintained URL list — update when adding routes
+    opengraph-image.tsx icon.tsx apple-icon.tsx manifest.ts
+  content/
+    projects/*.md            # One markdown file per project (slug = filename)
+    blog/*.md                # Blog posts exist but NO /blog route is wired up yet
+  components/                # Navigation, ContactForm, code-block, share-buttons, etc.
+  lib/projects.ts            # gray-matter-based project loader
+  lib/social.tsx lib/utils.ts
+  public/                    # Static assets
 ```
 
-## Local Terminal Workflow (Jason)
+## Content Conventions
 
-Jason uses `zsh` in Ghostty, and Cursor as the code editor. Favor this lightweight flow so he doesn't have to think about it:
+- **Projects** (`content/projects/<slug>.md`): frontmatter `subtitle`, `accentColor` (`'red' | 'yellow' | 'blue'`), `techStack: string[]`, `liveUrl`. Title is extracted from the first `# Heading` in the body, not frontmatter. See `lib/projects.ts`.
+- Adding a project: drop the `.md` file, then add the URL to `app/sitemap.ts` (sitemap is not auto-generated).
+- **Blog posts** in `content/blog/` use frontmatter `title`, `date`, `summary`, `tags` — but there is no blog route rendering them yet. Don't assume a `/blog` page exists.
+
+## Commands
+
+From repo root (Turbo fans out to `apps/web`):
 
 ```bash
-lg                  # lazygit (git UI)
-rgs <query>         # ripgrep search (includes hidden, excludes .git)
-
-c                   # open current folder in Cursor (cursor .)
-cf <path>           # open a file/folder in Cursor (cursor <path>)
+pnpm dev          # next dev
+pnpm build        # next build
+pnpm lint         # eslint, max-warnings 5
+pnpm type-check   # tsc --noEmit
+pnpm format       # prettier on ts/tsx/md/json
 ```
 
-Notes:
-- `lazygit` and `yazi` are installed; `yazi` is optional (use when you want a fast terminal file browser).
-- If `cursor` isn't on PATH, install it from Cursor's command palette ("Install 'cursor' command in PATH").
+From `apps/web/` directly: `npm run dev | build | start | lint | lint:fix | type-check | clean`.
 
-## Landing the Plane (Session Completion)
+## Docs in Repo
 
-**When ending a work session**, you MUST complete ALL steps below. Work is NOT complete until `git push` succeeds.
+- `README.md` — project overview and quick start.
+- `DEVELOPMENT.md`, `DEPLOYMENT.md`, `RAILWAY.md`, `COMMANDS.md` — operational runbooks.
 
-**MANDATORY WORKFLOW:**
+## Issue Tracking
 
-1. **File issues for remaining work** - Create issues for anything that needs follow-up
-2. **Run quality gates** (if code changed) - Tests, linters, builds
-3. **Update issue status** - Close finished work, update in-progress items
-4. **PUSH TO REMOTE** - This is MANDATORY:
-   ```bash
-   git pull --rebase
-   bd sync
-   git push
-   git status  # MUST show "up to date with origin"
-   ```
-5. **Clean up** - Clear stashes, prune remote branches
-6. **Verify** - All changes committed AND pushed
-7. **Hand off** - Provide context for next session
-
-**CRITICAL RULES:**
-- Work is NOT complete until `git push` succeeds
-- NEVER stop before pushing - that leaves work stranded locally
-- NEVER say "ready to push when you are" - YOU must push
-- If push fails, resolve and retry until it succeeds
+Uses **bd (beads)** — `.beads/` directory at repo root. `bd ready`, `bd show <id>`, `bd update <id> --status in_progress`, `bd close <id>`, `bd sync`.

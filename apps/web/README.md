@@ -1,6 +1,6 @@
 # Jason Cochran - Personal Website
 
-A modern, professional personal website built with Next.js 14, TypeScript, and Tailwind CSS.
+A modern, professional personal website built with Next.js 16, TypeScript, and Tailwind CSS.
 
 ## Features
 
@@ -14,11 +14,11 @@ A modern, professional personal website built with Next.js 14, TypeScript, and T
 
 ## Tech Stack
 
-- **Framework**: Next.js 14 (App Router)
+- **Framework**: Next.js 16 (App Router)
 - **Language**: TypeScript
-- **Styling**: Tailwind CSS
+- **Styling**: Tailwind CSS 4
 - **Blog**: MDX with next-mdx-remote
-- **Deployment**: Ready for Vercel
+- **Deployment**: Railway (Nixpacks)
 
 ## Getting Started
 
@@ -97,19 +97,11 @@ Your content here...
 
 ## Deployment
 
-### Vercel (Recommended)
-
-1. Push your code to GitHub
-2. Import your repository in Vercel
-3. Deploy with zero configuration
-
-### Other Platforms
-
-Build the production bundle:
+Deploys to Railway from the repo root. See `../../RAILWAY.md` and `../../railway.json` for config.
 
 ```bash
-npm run build
-npm start
+pnpm build
+pnpm start
 ```
 
 ## Scripts

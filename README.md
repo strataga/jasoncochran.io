@@ -64,7 +64,7 @@ jason-cochran/
 - **Styling**: Tailwind CSS 4
 - **Blog**: MDX with next-mdx-remote
 - **Code Quality**: ESLint v9 (flat config), Prettier
-- **Deployment**: Vercel-ready
+- **Deployment**: Railway (Nixpacks, `output: 'standalone'`)
 
 ## 📄 Pages
 
@@ -112,18 +112,14 @@ Your content here...
 
 ## 🚀 Deployment
 
-### Deploy to Vercel
-
-1. Push to GitHub
-2. Import repository in Vercel
-3. Deploy (zero configuration needed)
+Deployed to Railway via Nixpacks. See `railway.json` for config. The web app uses `output: 'standalone'` so Railway builds and runs it directly.
 
 ### Build for Production
 
 ```bash
 cd apps/web
-npm run build
-npm start
+pnpm build
+pnpm start
 ```
 
 ## 🏗️ Monorepo Structure

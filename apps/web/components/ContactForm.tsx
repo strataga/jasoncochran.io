@@ -47,35 +47,31 @@ export default function ContactForm() {
     }
   }
 
+  const inputClasses =
+    'w-full px-4 py-3 rounded-md border border-border bg-card text-foreground placeholder:text-muted-foreground focus:border-primary focus:ring-2 focus:ring-primary/20 transition-colors outline-none'
+
+  const labelClasses = 'block text-sm font-semibold text-foreground mb-2'
+
   return (
     <div className="w-full">
       {submitStatus === 'success' && (
-        <div className="mb-6 p-6 bg-green-100 border-4 border-[var(--pop-black)]">
-          <h3 className="font-bold text-[var(--pop-black)] mb-2" style={{ fontFamily: 'var(--font-headline)' }}>
-            Thank you for reaching out!
-          </h3>
-          <p className="text-[var(--pop-black)]" style={{ fontFamily: 'var(--font-body)' }}>
-            I'll get back to you within 24 hours.
-          </p>
+        <div className="mb-6 p-5 rounded-md bg-green-50 border border-green-200">
+          <h3 className="font-semibold text-green-900 mb-1">Thanks for reaching out.</h3>
+          <p className="text-sm text-green-900/80">I&apos;ll reply within 24 hours.</p>
         </div>
       )}
 
       {submitStatus === 'error' && (
-        <div className="mb-6 p-6 bg-red-100 border-4 border-[var(--pop-black)]">
-          <h3 className="font-bold text-[var(--pop-black)] mb-2" style={{ fontFamily: 'var(--font-headline)' }}>
-            Something went wrong
-          </h3>
-          <p className="text-[var(--pop-black)]" style={{ fontFamily: 'var(--font-body)' }}>
-            Please try again later.
-          </p>
+        <div className="mb-6 p-5 rounded-md bg-red-50 border border-red-200">
+          <h3 className="font-semibold text-red-900 mb-1">Something went wrong.</h3>
+          <p className="text-sm text-red-900/80">Please try again in a moment.</p>
         </div>
       )}
 
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
-        {/* Name */}
         <div>
-          <label htmlFor="name" className="block text-sm font-semibold text-slate-900 dark:text-white mb-2">
-            Name *
+          <label htmlFor="name" className={labelClasses}>
+            Name
           </label>
           <input
             id="name"
@@ -89,18 +85,17 @@ export default function ContactForm() {
                 message: 'Name can only contain letters, spaces, hyphens, and apostrophes',
               },
             })}
-            className="w-full px-4 py-3 rounded-xl border-2 border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-white focus:border-blue-500 dark:focus:border-blue-400 focus:ring-2 focus:ring-blue-500/20 transition-all outline-none"
+            className={inputClasses}
             placeholder="Your name"
           />
           {errors.name && (
-            <p className="mt-2 text-sm text-red-600 dark:text-red-400">{errors.name.message}</p>
+            <p className="mt-2 text-sm text-destructive">{errors.name.message}</p>
           )}
         </div>
 
-        {/* Email */}
         <div>
-          <label htmlFor="email" className="block text-sm font-semibold text-slate-900 dark:text-white mb-2">
-            Email *
+          <label htmlFor="email" className={labelClasses}>
+            Email
           </label>
           <input
             id="email"
@@ -112,18 +107,17 @@ export default function ContactForm() {
                 message: 'Please enter a valid email address',
               },
             })}
-            className="w-full px-4 py-3 rounded-xl border-2 border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-white focus:border-blue-500 dark:focus:border-blue-400 focus:ring-2 focus:ring-blue-500/20 transition-all outline-none"
+            className={inputClasses}
             placeholder="your.email@example.com"
           />
           {errors.email && (
-            <p className="mt-2 text-sm text-red-600 dark:text-red-400">{errors.email.message}</p>
+            <p className="mt-2 text-sm text-destructive">{errors.email.message}</p>
           )}
         </div>
 
-        {/* Message */}
         <div>
-          <label htmlFor="message" className="block text-sm font-semibold text-slate-900 dark:text-white mb-2">
-            Message *
+          <label htmlFor="message" className={labelClasses}>
+            Message
           </label>
           <textarea
             id="message"
@@ -133,21 +127,20 @@ export default function ContactForm() {
               minLength: { value: 10, message: 'Message must be at least 10 characters' },
               maxLength: { value: 2000, message: 'Message must be less than 2000 characters' },
             })}
-            className="w-full px-4 py-3 rounded-xl border-2 border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-white focus:border-blue-500 dark:focus:border-blue-400 focus:ring-2 focus:ring-blue-500/20 transition-all outline-none resize-none"
-            placeholder="Tell me about your project or opportunity..."
+            className={`${inputClasses} resize-none`}
+            placeholder="Which offering above sounds like you, and what's the context?"
           />
           {errors.message && (
-            <p className="mt-2 text-sm text-red-600 dark:text-red-400">{errors.message.message}</p>
+            <p className="mt-2 text-sm text-destructive">{errors.message.message}</p>
           )}
         </div>
 
-        {/* Submit Button */}
         <button
           type="submit"
           disabled={isSubmitting}
-          className="w-full px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl font-bold shadow-lg hover:shadow-xl transition-all disabled:opacity-50 disabled:cursor-not-allowed hover:scale-105 active:scale-95"
+          className="inline-flex items-center justify-center gap-2 h-11 px-6 rounded-md bg-primary text-primary-foreground font-semibold hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
         >
-          {isSubmitting ? 'Sending...' : 'Send Message'}
+          {isSubmitting ? 'Sending…' : 'Send message'}
         </button>
       </form>
     </div>

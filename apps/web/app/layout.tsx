@@ -19,12 +19,13 @@ const jetbrainsMono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: 'Jason Cochran — Production AI Agent Infrastructure',
+    default: 'Jason Cochran — Senior Full-Stack Engineer · Agent Infrastructure',
     template: '%s | Jason Cochran',
   },
   description:
-    'I build production agent infrastructure that does not break in prod. Built OpenClaw VPS, a live multi-tenant agent hosting platform with paying customers.',
+    'Senior full-stack engineer. 28 years shipping production software; currently building agent infrastructure. OpenClaw VPS: live multi-tenant agent hosting with paying customers, per-tenant observability, SLO-gated deploys.',
   keywords: [
+    'Senior Full-Stack Engineer',
     'AI Agent Infrastructure',
     'Production Agents',
     'OpenClaw VPS',
@@ -43,24 +44,24 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_US',
     url: 'https://jasoncochran.io',
-    title: 'Jason Cochran — Production AI Agent Infrastructure',
+    title: 'Jason Cochran — Senior Full-Stack Engineer · Agent Infrastructure',
     description:
-      'I build production agent infrastructure that does not break in prod. Built OpenClaw VPS — live with paying customers.',
+      'Senior full-stack engineer. 28 years shipping production software; currently building agent infrastructure. Shipped OpenClaw VPS — live multi-tenant agent hosting with paying customers.',
     siteName: 'Jason Cochran',
     images: [
       {
         url: '/opengraph-image',
         width: 1200,
         height: 630,
-        alt: 'Jason Cochran — Production AI Agent Infrastructure',
+        alt: 'Jason Cochran — Senior Full-Stack Engineer · Agent Infrastructure',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Jason Cochran — Production AI Agent Infrastructure',
+    title: 'Jason Cochran — Senior Full-Stack Engineer · Agent Infrastructure',
     description:
-      'I build production agent infrastructure that does not break in prod. Built OpenClaw VPS — live with paying customers.',
+      'Senior full-stack engineer. 28 years shipping production software; currently building agent infrastructure. Shipped OpenClaw VPS — live with paying customers.',
     images: ['/opengraph-image'],
   },
 }

@@ -56,6 +56,18 @@ const openClawTechStack = [
   'MCP',
 ]
 
+const bigGigTechStack = ['Next.js', 'React', 'TypeScript']
+
+const fathomlessTechStack = ['Rust', 'SDL3']
+
+// Hero stat panel is disabled for now — markup kept in a JSX comment below.
+// const heroStats: Array<{ value: string; label: string }> = [
+//   { value: '$120', label: 'MRR' },
+//   { value: '~3', label: 'Paying customers' },
+//   { value: '337', label: 'Tests' },
+//   { value: '5', label: 'Launch venues' },
+// ]
+
 export default function Home() {
   return (
     <>
@@ -70,40 +82,56 @@ export default function Home() {
       {/* Hero — single dark band */}
       <section className="bg-hero-bg text-hero-foreground py-20 lg:py-32">
         <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-[820px]">
-            <h1 className="text-5xl md:text-6xl lg:text-[56px] leading-[1.05] tracking-tight font-semibold mb-6">
-              I build production agent infrastructure that{' '}
-              <span className="text-primary">doesn&apos;t break</span>.
-            </h1>
-            <p
-              className="text-lg md:text-xl leading-relaxed mb-10 text-hero-muted"
-              style={{ maxWidth: '580px' }}
-            >
-              I shipped OpenClaw VPS — a live multi-tenant agent hosting platform at Strataga LLC
-              with paying customers, per-tenant cost and latency observability, SLO-gated deploys,
-              and 337 tests backing it.
-            </p>
+          <div className="grid lg:grid-cols-[minmax(0,1fr)_auto] gap-12 lg:gap-20 items-start">
+            <div className="max-w-[820px]">
+              <h1 className="text-5xl md:text-6xl lg:text-[56px] leading-[1.05] tracking-tight font-semibold mb-6">
+                I build production agent infrastructure that{' '}
+                <span className="text-primary">doesn&apos;t break</span>.
+              </h1>
+              <p
+                className="text-lg md:text-xl leading-relaxed mb-10 text-hero-muted"
+                style={{ maxWidth: '580px' }}
+              >
+                I shipped OpenClaw VPS — a live multi-tenant agent hosting platform at Strataga
+                LLC with paying customers, per-tenant cost and latency observability, SLO-gated
+                deploys, and 337 tests backing it.
+              </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 items-start sm:items-center">
-              <Button
-                asChild
-                className="bg-primary text-primary-foreground hover:bg-primary/90 font-semibold h-11 px-6"
-              >
-                <a href={PRIMARY_CTA_HREF} target="_blank" rel="noopener noreferrer">
-                  {PRIMARY_CTA_LABEL}
-                  <ArrowRight className="w-4 h-4" />
-                </a>
-              </Button>
-              <a
-                href="https://openclawvps.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-sm text-hero-muted hover:text-hero-foreground transition-colors inline-flex items-center gap-1.5"
-              >
-                See OpenClaw VPS
-                <ArrowRight className="w-3.5 h-3.5" />
-              </a>
+              <div>
+                <Button
+                  asChild
+                  className="bg-primary text-primary-foreground hover:bg-primary/90 font-semibold h-11 px-6"
+                >
+                  <a href={PRIMARY_CTA_HREF} target="_blank" rel="noopener noreferrer">
+                    {PRIMARY_CTA_LABEL}
+                    <ArrowRight className="w-4 h-4" />
+                  </a>
+                </Button>
+              </div>
             </div>
+
+            {/* Proof-bundle stat panel — disabled for now, keep markup for later reinstatement.
+            <aside
+              aria-label="OpenClaw VPS at a glance"
+              className="hidden lg:block w-[300px] rounded-lg border border-white/10 bg-white/[0.04] p-8"
+            >
+              <p className="text-xs uppercase tracking-[0.14em] text-hero-muted mb-6">
+                OpenClaw VPS at a glance
+              </p>
+              <div className="grid grid-cols-2 gap-x-6 gap-y-6">
+                {heroStats.map((stat) => (
+                  <div key={stat.label}>
+                    <div className="text-3xl font-semibold tracking-tight leading-none">
+                      {stat.value}
+                    </div>
+                    <div className="text-[11px] uppercase tracking-[0.1em] text-hero-muted mt-2">
+                      {stat.label}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </aside>
+            */}
           </div>
         </div>
       </section>
@@ -280,10 +308,22 @@ export default function Home() {
                 <CardTitle className="text-xl">BigGig.io</CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-muted-foreground leading-relaxed text-sm">
-                  Strataga&apos;s freelancer marketplace — the platform I would want to use to find
-                  work. Pre-launch; shipping in Q2.
+                <p className="text-muted-foreground leading-relaxed text-sm mb-6">
+                  Strataga&apos;s freelancer marketplace — the platform I would want to use to
+                  find work.
                 </p>
+
+                <div className="flex flex-wrap gap-2">
+                  {bigGigTechStack.map((tech) => (
+                    <Badge
+                      key={tech}
+                      variant="secondary"
+                      className="font-normal bg-muted text-muted-foreground hover:bg-muted"
+                    >
+                      {tech}
+                    </Badge>
+                  ))}
+                </div>
               </CardContent>
             </Card>
 
@@ -298,10 +338,22 @@ export default function Home() {
                 <CardTitle className="text-xl">Fathomless: The Descent</CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-muted-foreground leading-relaxed text-sm">
-                  First-person grid-based dungeon crawler in C++23 / SDL3. Lovecraftian, cosmic
-                  horror.
+                <p className="text-muted-foreground leading-relaxed text-sm mb-6">
+                  First-person grid-based dungeon crawler in the spirit of{' '}
+                  <em>Eye of the Beholder</em> — D&amp;D on the surface, cosmic horror underneath.
                 </p>
+
+                <div className="flex flex-wrap gap-2">
+                  {fathomlessTechStack.map((tech) => (
+                    <Badge
+                      key={tech}
+                      variant="secondary"
+                      className="font-normal bg-muted text-muted-foreground hover:bg-muted"
+                    >
+                      {tech}
+                    </Badge>
+                  ))}
+                </div>
               </CardContent>
             </Card>
           </div>

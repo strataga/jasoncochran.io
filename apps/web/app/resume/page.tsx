@@ -1,16 +1,10 @@
 import type { Metadata } from 'next'
-import { Download, Linkedin } from 'lucide-react'
+import { Download, Mail, Linkedin } from 'lucide-react'
 
 export const metadata: Metadata = {
-  title: 'Resume',
-  description: 'Resume of Jason Cochran - 28 years of software engineering experience. AI-Powered Software Development specialist. Expert in React, Next.js, NestJS, TypeScript, and building AI-augmented automation solutions.',
-  keywords: ['Resume', 'CV', 'Software Engineer', 'AI Development', 'Automation', 'React', 'Next.js', 'TypeScript', 'NestJS', 'Full Stack Developer'],
-  openGraph: {
-    title: 'Resume - Jason Cochran',
-    description: '28 years of software engineering experience. AI & Automation specialist building production-ready software faster with modern AI tooling.',
-    type: 'profile',
-    url: 'https://jasoncochran.io/resume',
-  },
+  title: 'Resume — Jason Cochran',
+  description:
+    'Jason Cochran resume. Production AI agent infrastructure. Built OpenClaw VPS, a live multi-tenant agent hosting platform with paying customers at Strataga LLC.',
   alternates: {
     canonical: 'https://jasoncochran.io/resume',
   },
@@ -18,280 +12,207 @@ export const metadata: Metadata = {
 
 export default function Resume() {
   return (
-    <div className="min-h-screen py-16">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
-        <header className="mb-12">
-          <h1 className="section-header text-5xl md:text-6xl mb-4">Jason Cochran</h1>
-          <p className="text-xl text-[var(--text-secondary)] mb-6" style={{ fontFamily: 'var(--font-body)' }}>
-            Software Engineer | AI & Automation Specialist
-          </p>
-          <div className="flex flex-wrap gap-4 text-[var(--text-secondary)]" style={{ fontFamily: 'var(--font-mono)', fontSize: '0.875rem' }}>
-            <a href="https://www.linkedin.com/in/cochranjason/" className="flex items-center gap-2 hover:text-[var(--pop-red)] transition-colors" target="_blank" rel="noopener noreferrer">
-              <Linkedin className="w-4 h-4" />
-              LinkedIn
-            </a>
-            <a href="https://x.com/jcochranio" className="flex items-center gap-2 hover:text-[var(--pop-red)] transition-colors" target="_blank" rel="noopener noreferrer">
-              <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-              </svg>
-              @jcochranio
-            </a>
-          </div>
-        </header>
-
-        {/* Summary */}
-        <section className="mb-12">
-          <div className="card-pop p-6">
-            <h2 className="text-2xl mb-4 pb-3 border-b-4 border-[var(--pop-black)]" style={{ fontFamily: 'var(--font-headline)' }}>
-              SUMMARY
-            </h2>
-            <p className="text-[var(--text-secondary)] leading-relaxed" style={{ fontFamily: 'var(--font-body)' }}>
-              Software Engineer with 28 years of experience specializing in AI-augmented development and automation.
-              Leveraging cutting-edge AI tools like Claude Code and Cursor to ship production-ready software in weeks, not months.
-              Expert in modern JavaScript/TypeScript ecosystems, building scalable web and mobile applications with
-              React, Next.js, and Node.js. Passionate about combining deep engineering experience with AI tooling for maximum velocity.
-            </p>
-          </div>
-        </section>
-
-        {/* Skills */}
-        <section className="mb-12">
-          <h2 className="section-header text-3xl mb-6">TECHNICAL SKILLS</h2>
-          <div className="grid md:grid-cols-2 gap-4">
-            <div className="skill-card">
-              <h3 className="font-bold mb-2 text-[var(--pop-black)]" style={{ fontFamily: 'var(--font-headline)', fontSize: '1.25rem' }}>FRONTEND</h3>
-              <p className="text-[var(--text-secondary)]" style={{ fontFamily: 'var(--font-body)' }}>
-                JavaScript, TypeScript, React, React Native, Next.js, HTML/CSS
-              </p>
-            </div>
-            <div className="skill-card skill-card-alt">
-              <h3 className="font-bold mb-2 text-[var(--pop-black)]" style={{ fontFamily: 'var(--font-headline)', fontSize: '1.25rem' }}>BACKEND</h3>
-              <p className="text-[var(--text-secondary)]" style={{ fontFamily: 'var(--font-body)' }}>
-                Node.js, NestJS, Express.js, GraphQL, Web Services
-              </p>
-            </div>
-            <div className="skill-card skill-card-blue">
-              <h3 className="font-bold mb-2 text-[var(--pop-black)]" style={{ fontFamily: 'var(--font-headline)', fontSize: '1.25rem' }}>DATABASES</h3>
-              <p className="text-[var(--text-secondary)]" style={{ fontFamily: 'var(--font-body)' }}>
-                PostgreSQL, MongoDB, SQL Server, MySQL, Redis
-              </p>
-            </div>
-            <div className="skill-card">
-              <h3 className="font-bold mb-2 text-[var(--pop-black)]" style={{ fontFamily: 'var(--font-headline)', fontSize: '1.25rem' }}>TOOLS & DEVOPS</h3>
-              <p className="text-[var(--text-secondary)]" style={{ fontFamily: 'var(--font-body)' }}>
-                Docker, AWS, Git, CI/CD, Jest, Enzyme
-              </p>
-            </div>
-          </div>
-        </section>
-
-        {/* Certifications */}
-        <section className="mb-12">
-          <h2 className="section-header text-3xl mb-6">CERTIFICATIONS</h2>
-          <div className="card-pop p-6">
-            <div className="space-y-3">
-              <div>
-                <a href="https://learn.microsoft.com/api/credentials/share/en-us/JasonCochran-0426/AFE0258379C78FC6?sharingId=955379E09D280B0D" className="text-[var(--pop-red)] hover:underline font-semibold">
-                  Microsoft Azure Fundamentals (AZ-900)
-                </a>
-              </div>
-              <div>
-                <a href="https://learn.microsoft.com/api/credentials/share/en-us/JasonCochran-0426/88863517C68C1A2E?sharingId=955379E09D280B0D" className="text-[var(--pop-red)] hover:underline font-semibold">
-                  Microsoft Azure AI Fundamentals (AI-900)
-                </a>
-              </div>
-              <div>
-                <span className="tag-pop">In Progress</span>
-                <span className="ml-3 text-[var(--text-secondary)]">Microsoft Azure Administrator Associate (AZ-104)</span>
-              </div>
-              <div>
-                <a href="https://www.hackerrank.com/certificates/3adb70f4345d" className="text-[var(--pop-red)] hover:underline font-semibold">
-                  JavaScript Certification - HackerRank
-                </a>
-              </div>
-              <div>
-                <a href="https://app.testdome.com/cert/30dcc723088f45b6b5e49e0fcac36db4" className="text-[var(--pop-red)] hover:underline font-semibold">
-                  React.js Certification - TestDome
-                </a>
-              </div>
-              <div>
-                <a href="https://www.hackerrank.com/certificates/cd642c762766" className="text-[var(--pop-red)] hover:underline font-semibold">
-                  Node.js Certification - HackerRank
-                </a>
-              </div>
-              <div>
-                <span className="text-[var(--text-secondary)]">Certified Corda (Distributed Ledger / Blockchain) Developer</span>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Experience */}
-        <section className="mb-12">
-          <h2 className="section-header text-3xl mb-8">PROFESSIONAL EXPERIENCE</h2>
-
-          <div className="space-y-6">
-            {/* Strataga */}
-            <div className="project-card">
-              <div className="project-card-header">
-                <div className="flex-1">
-                  <h3 className="text-xl" style={{ fontFamily: 'var(--font-headline)' }}>FOUNDER</h3>
-                  <p className="text-[var(--text-secondary)]" style={{ fontFamily: 'var(--font-mono)', fontSize: '0.875rem' }}>Strataga, LLC - Midland, TX</p>
-                </div>
-                <span className="tag-pop">Oct 2025 - Present</span>
-              </div>
-              <ul className="list-disc list-inside space-y-2 text-[var(--text-secondary)] ml-2" style={{ fontFamily: 'var(--font-body)' }}>
-                <li>Founded technology solutions company focused on AI-Powered Software Development and automation</li>
-                <li>Built OpenClaw VPS — managed hosting platform for private AI assistants, live at openclawvps.com (Next.js + TypeScript + Convex + Polar)</li>
-                <li>Leveraging Claude Code and Cursor for 10x development velocity on all projects</li>
-                <li>Architected multi-tenant SaaS platforms with Next.js, TypeScript, and PostgreSQL</li>
-                <li>Implemented AI-assisted testing, code review, and automated deployment pipelines</li>
-                <li>Built ML service for equipment failure prediction (7-30 day advance warnings, &gt;80% accuracy)</li>
-                <li>Documented 95+ architectural patterns for AI-augmented software development</li>
-              </ul>
-            </div>
-
-            {/* Servant */}
-            <div className="project-card">
-              <div className="project-card-header">
-                <div className="flex-1">
-                  <h3 className="text-xl" style={{ fontFamily: 'var(--font-headline)' }}>SENIOR SOFTWARE ENGINEER</h3>
-                  <p className="text-[var(--text-secondary)]" style={{ fontFamily: 'var(--font-mono)', fontSize: '0.875rem' }}>Servant (Remote)</p>
-                </div>
-                <span className="tag-pop">Feb 2025 - Sep 2025</span>
-              </div>
-              <ul className="list-disc list-inside space-y-2 text-[var(--text-secondary)] ml-2" style={{ fontFamily: 'var(--font-body)' }}>
-                <li>Developed full-stack web application using NestJS and Next.js for EMA project portal</li>
-                <li>Implemented role-based access control and JWT authentication for secure user access</li>
-                <li>Built robust API with RESTful endpoints and Swagger documentation</li>
-                <li>Created responsive UI using React, Tailwind CSS, and shadcn/ui components</li>
-                <li>Integrated AWS services (SES, SNS, S3) for notifications and file uploads</li>
-              </ul>
-            </div>
-
-            {/* Big D Companies */}
-            <div className="project-card">
-              <div className="project-card-header">
-                <div className="flex-1">
-                  <h3 className="text-xl" style={{ fontFamily: 'var(--font-headline)' }}>SENIOR SOFTWARE ENGINEER</h3>
-                  <p className="text-[var(--text-secondary)]" style={{ fontFamily: 'var(--font-mono)', fontSize: '0.875rem' }}>Big D Companies - Midland, TX</p>
-                </div>
-                <span className="tag-pop">Mar 2024 - Sep 2024</span>
-              </div>
-              <ul className="list-disc list-inside space-y-2 text-[var(--text-secondary)] ml-2" style={{ fontFamily: 'var(--font-body)' }}>
-                <li>Converted legacy PHP-based SCADA ERP system to modern React/Next.js solution</li>
-                <li>Significantly enhanced performance and maintainability while maintaining MySQL database</li>
-                <li>Implemented testing with Jest and CI/CD with CircleCI</li>
-              </ul>
-            </div>
-
-            {/* Nutrien */}
-            <div className="project-card">
-              <div className="project-card-header">
-                <div className="flex-1">
-                  <h3 className="text-xl" style={{ fontFamily: 'var(--font-headline)' }}>SENIOR REACT NATIVE DEVELOPER</h3>
-                  <p className="text-[var(--text-secondary)]" style={{ fontFamily: 'var(--font-mono)', fontSize: '0.875rem' }}>Nutrien</p>
-                </div>
-                <span className="tag-pop">Sep 2023 - Feb 2024</span>
-              </div>
-              <ul className="list-disc list-inside space-y-2 text-[var(--text-secondary)] ml-2" style={{ fontFamily: 'var(--font-body)' }}>
-                <li>Built custom cross-platform (web/mobile) React Native components using TypeScript</li>
-                <li>Worked in highly agile team environment</li>
-                <li>Testing with Jest and Enzyme, CI/CD through CircleCI</li>
-              </ul>
-            </div>
-
-            {/* TxMQ */}
-            <div className="project-card">
-              <div className="project-card-header">
-                <div className="flex-1">
-                  <h3 className="text-xl" style={{ fontFamily: 'var(--font-headline)' }}>SENIOR SOFTWARE ENGINEER</h3>
-                  <p className="text-[var(--text-secondary)]" style={{ fontFamily: 'var(--font-mono)', fontSize: '0.875rem' }}>TxMQ</p>
-                </div>
-                <span className="tag-pop">Oct 2022 - Jun 2023</span>
-              </div>
-              <ul className="list-disc list-inside space-y-2 text-[var(--text-secondary)] ml-2" style={{ fontFamily: 'var(--font-body)' }}>
-                <li>Developed web and mobile solutions using AngularJS and Ionic</li>
-                <li>Spearheaded AI research initiative using OpenAI, Node.js and React.js</li>
-                <li>Became certified Corda (Distributed Ledger/Blockchain) Developer</li>
-              </ul>
-            </div>
-
-            {/* Verizon */}
-            <div className="project-card">
-              <div className="project-card-header">
-                <div className="flex-1">
-                  <h3 className="text-xl" style={{ fontFamily: 'var(--font-headline)' }}>SENIOR MOBILE APPS DEVELOPER</h3>
-                  <p className="text-[var(--text-secondary)]" style={{ fontFamily: 'var(--font-mono)', fontSize: '0.875rem' }}>Verizon</p>
-                </div>
-                <span className="tag-pop">Oct 2021 - Nov 2022</span>
-              </div>
-              <ul className="list-disc list-inside space-y-2 text-[var(--text-secondary)] ml-2" style={{ fontFamily: 'var(--font-body)' }}>
-                <li>Developed full-stack NFT collectibles solution for AMC Walking Dead app</li>
-                <li>Built using React Native, Node.js, Express.js, Postgres, interfacing with Ethereum blockchain</li>
-                <li>Pioneered REST request scheduling system using Node.js, Express, Redis, and Socket.io</li>
-                <li>Built JavaScript SDK for third-party integration with Verizon APIs</li>
-              </ul>
-            </div>
-
-            {/* Self-Employed Solutions Architect */}
-            <div className="project-card">
-              <div className="project-card-header">
-                <div className="flex-1">
-                  <h3 className="text-xl" style={{ fontFamily: 'var(--font-headline)' }}>SOLUTIONS ARCHITECT</h3>
-                  <p className="text-[var(--text-secondary)]" style={{ fontFamily: 'var(--font-mono)', fontSize: '0.875rem' }}>Self-Employed</p>
-                </div>
-                <span className="tag-pop">Apr 2015 - Oct 2021</span>
-              </div>
-              <ul className="list-disc list-inside space-y-2 text-[var(--text-secondary)] ml-2" style={{ fontFamily: 'var(--font-body)' }}>
-                <li>Completed 30+ software development projects for various clients across different verticals</li>
-                <li>Developed full-stack web and mobile applications using React, React Native, Node.js, Next.js</li>
-                <li>Technologies: Express, MongoDB, MySQL, PostgreSQL, AWS</li>
-              </ul>
-            </div>
-
-            {/* Key Energy Services */}
-            <div className="project-card">
-              <div className="project-card-header">
-                <div className="flex-1">
-                  <h3 className="text-xl" style={{ fontFamily: 'var(--font-headline)' }}>SENIOR SOFTWARE ENGINEER</h3>
-                  <p className="text-[var(--text-secondary)]" style={{ fontFamily: 'var(--font-mono)', fontSize: '0.875rem' }}>Key Energy Services</p>
-                </div>
-                <span className="tag-pop">Feb 2012 - Apr 2015</span>
-              </div>
-              <ul className="list-disc list-inside space-y-2 text-[var(--text-secondary)] ml-2" style={{ fontFamily: 'var(--font-body)' }}>
-                <li>Led team of developers building large-scale ERP solution</li>
-                <li>Used Ruby on Rails, Meteor, and Backbone.js</li>
-                <li>Implemented offline access for limited connectivity scenarios</li>
-              </ul>
-            </div>
-
-            {/* Earlier Experience */}
-            <div className="card-pop p-6">
-              <h3 className="text-xl mb-4" style={{ fontFamily: 'var(--font-headline)' }}>EARLIER EXPERIENCE</h3>
-              <div className="space-y-4 text-[var(--text-secondary)]" style={{ fontFamily: 'var(--font-body)' }}>
-                <p><strong>Warren Equipment Company</strong> - Senior Software Engineer (2011-2012)</p>
-                <p><strong>Enertia Software</strong> - Senior Software Engineer (2007-2011)</p>
-                <p><strong>Self-Employed</strong> - Web/Mobile Solutions Architect (2000-2007)</p>
-                <p><strong>OneTravel.com</strong> - Web Developer (1999-2000)</p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Download Button */}
-        <div className="mt-12 pt-8 border-t-4 border-[var(--pop-black)]">
-          <a
-            href="/Jason-Cochran-Resume.pdf"
-            download
-            className="btn-pop btn-pop-primary inline-flex items-center gap-2"
-          >
-            <Download className="w-5 h-5" />
-            Download PDF Resume
-          </a>
-        </div>
+    <div className="max-w-[820px] mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      {/* Download link — hidden in print */}
+      <div className="no-print mb-10 flex flex-wrap gap-3">
+        <a
+          href="/jason-cochran-resume.pdf"
+          download
+          className="inline-flex items-center gap-2 text-sm bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 rounded-md font-semibold transition-colors"
+        >
+          <Download className="w-4 h-4" />
+          Download PDF
+        </a>
       </div>
+
+      {/* Header */}
+      <header className="mb-10 pb-6 border-b border-border">
+        <h1 className="text-4xl md:text-5xl font-semibold tracking-tight mb-2">
+          Jason Cochran
+        </h1>
+        <p className="text-lg text-foreground mb-4">Production AI Agent Infrastructure</p>
+        <div className="flex flex-wrap gap-x-5 gap-y-1 text-sm text-muted-foreground">
+          <a
+            href="mailto:jlcochran2013@gmail.com"
+            className="inline-flex items-center gap-1.5 hover:text-primary transition-colors"
+          >
+            <Mail className="w-3.5 h-3.5 no-print-icon" />
+            jlcochran2013@gmail.com
+          </a>
+          <a
+            href="https://jasoncochran.io"
+            className="hover:text-primary transition-colors"
+          >
+            jasoncochran.io
+          </a>
+          <a
+            href="https://linkedin.com/in/cochranjason"
+            className="inline-flex items-center gap-1.5 hover:text-primary transition-colors"
+          >
+            <Linkedin className="w-3.5 h-3.5 no-print-icon" />
+            linkedin.com/in/cochranjason
+          </a>
+          <span>Midland, TX (remote, US)</span>
+        </div>
+      </header>
+
+      {/* Projects */}
+      <section className="mb-10">
+        <h2 className="text-sm font-semibold uppercase tracking-[0.08em] mb-4">Projects</h2>
+
+        <article className="mb-6">
+          <h3 className="text-base font-semibold mb-1">
+            OpenClaw VPS — Managed AI Agent Hosting
+          </h3>
+          <p className="text-sm text-muted-foreground mb-3">
+            Strataga LLC · Q4 2025–Q1 2026 ·{' '}
+            <a
+              href="https://openclawvps.com"
+              className="text-primary hover:underline underline-offset-2"
+            >
+              openclawvps.com
+            </a>{' '}
+            · Live with ~3 paying customers, $120 MRR
+          </p>
+          <ul className="list-disc list-outside ml-5 space-y-1.5 text-sm">
+            <li>
+              Multi-tenant agent hosting: BYOK model, multi-channel delivery (web / Telegram /
+              Tailscale-wired), per-tenant cost and latency observability, SLO-gated deploys,
+              incident lifecycle tracking, and a customer-health scoring pipeline.
+            </li>
+            <li>
+              Tech: Next.js 16, React 19, Convex, Stripe, Tailscale, Sentry, PostHog, Claude Code,
+              MCP.
+            </li>
+            <li>
+              Featured: Product Hunt · Hacker News (item 47507993) · Indie Hackers · Fazier ·
+              Dev.to.
+            </li>
+          </ul>
+        </article>
+      </section>
+
+      {/* Experience */}
+      <section className="mb-10">
+        <h2 className="text-sm font-semibold uppercase tracking-[0.08em] mb-4">Experience</h2>
+
+        <article className="mb-5">
+          <h3 className="text-base font-semibold mb-1">
+            Senior Full-Stack Engineer — Servant
+          </h3>
+          <p className="text-sm text-muted-foreground mb-2">2025/02–2025/09</p>
+          <ul className="list-disc list-outside ml-5 space-y-1.5 text-sm">
+            <li>
+              Shipped EMA onboarding flow on NestJS + Next.js + Prisma + React Query with
+              AWS-hosted services; reduced new-team-member activation friction on the platform.
+            </li>
+            <li>
+              Owned the production migration from the legacy onboarding path to the new NestJS
+              flow; handed off with documentation and runbooks before role ended.
+            </li>
+          </ul>
+        </article>
+
+        <article className="mb-5">
+          <h3 className="text-base font-semibold mb-1">
+            Senior Software Engineer — Big D Companies
+          </h3>
+          <p className="text-sm text-muted-foreground mb-2">2024/03–2024/09</p>
+          <ul className="list-disc list-outside ml-5 space-y-1.5 text-sm">
+            <li>
+              Led the legacy PHP → React / Next.js conversion of a SCADA-connected ERP used across
+              oil/gas field operations; migrated the primary operator-facing screens off PHP
+              without downtime.
+            </li>
+            <li>
+              Integrated the new stack with existing SCADA data feeds and ERP tables; kept the
+              on-call operator workflow continuous during the cutover.
+            </li>
+          </ul>
+        </article>
+
+        <article className="mb-5">
+          <h3 className="text-base font-semibold mb-1">
+            Senior React Native Engineer — Nutrien
+          </h3>
+          <p className="text-sm text-muted-foreground mb-2">2023/09–2024/02</p>
+          <ul className="list-disc list-outside ml-5 space-y-1.5 text-sm">
+            <li>
+              Shipped cross-platform features on the Nutrien mobile app (iOS + Android) used
+              offline-first by field reps in agriculture operations.
+            </li>
+          </ul>
+        </article>
+
+        <article className="mb-5">
+          <h3 className="text-base font-semibold mb-1">
+            Senior Software Engineer — TxMQ
+          </h3>
+          <p className="text-sm text-muted-foreground mb-2">2022/10–2023/06</p>
+          <ul className="list-disc list-outside ml-5 space-y-1.5 text-sm">
+            <li>
+              Led an AI research initiative with OpenAI: prototyped LLM-assisted internal tooling
+              on Angular / Ionic client surfaces. Early applied-LLM production work — two years
+              before the current agent wave.
+            </li>
+          </ul>
+        </article>
+
+        <article className="mb-5">
+          <h3 className="text-base font-semibold mb-1">
+            Senior Mobile Engineer — Verizon
+          </h3>
+          <p className="text-sm text-muted-foreground mb-2">2021/10–2022/11</p>
+          <ul className="list-disc list-outside ml-5 space-y-1.5 text-sm">
+            <li>
+              Shipped the AMC Walking Dead NFT experience: custom blockchain + JS SDK inside the
+              Verizon mobile app, production-grade for a tier-1 carrier launch.
+            </li>
+          </ul>
+        </article>
+      </section>
+
+      {/* Earlier Experience */}
+      <section className="mb-10">
+        <h2 className="text-sm font-semibold uppercase tracking-[0.08em] mb-4">
+          Earlier Experience
+        </h2>
+        <p className="text-sm">
+          <span className="font-semibold">2015–2021</span> Solutions Architect (self-employed, 30+
+          shipped projects across oil/gas, travel, and enterprise; Key Energy, Warren Equipment,
+          Enertia, OneTravel.com).
+        </p>
+      </section>
+
+      {/* Skills */}
+      <section>
+        <h2 className="text-sm font-semibold uppercase tracking-[0.08em] mb-4">Skills</h2>
+        <dl className="space-y-2 text-sm">
+          <div>
+            <dt className="inline font-semibold">Languages: </dt>
+            <dd className="inline">TypeScript, Python, Rust, JavaScript</dd>
+          </div>
+          <div>
+            <dt className="inline font-semibold">AI / Agents: </dt>
+            <dd className="inline">
+              Claude Code, Cursor, MCP servers, OpenAI SDK, Anthropic SDK, agent infrastructure,
+              RAG
+            </dd>
+          </div>
+          <div>
+            <dt className="inline font-semibold">Frameworks: </dt>
+            <dd className="inline">Next.js 16, React 19, NestJS, React Native</dd>
+          </div>
+          <div>
+            <dt className="inline font-semibold">Backend: </dt>
+            <dd className="inline">Node.js, Convex, PostgreSQL, Redis</dd>
+          </div>
+          <div>
+            <dt className="inline font-semibold">Infrastructure / Ops: </dt>
+            <dd className="inline">Railway, Docker, Cloudflare, Sentry, PostHog, Stripe, Resend</dd>
+          </div>
+        </dl>
+      </section>
     </div>
   )
 }

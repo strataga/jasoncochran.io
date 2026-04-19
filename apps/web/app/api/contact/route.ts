@@ -1,5 +1,8 @@
+// Contact form backend — Gmail SMTP via nodemailer (swapped from Resend 2026-04-19).
+// Railway env vars required: GMAIL_USER, GMAIL_APP_PASSWORD, CONTACT_TO_EMAIL.
+// Generate an App Password at https://myaccount.google.com/apppasswords (2FA required).
 import { NextRequest, NextResponse } from 'next/server'
-import { Resend } from 'resend'
+import nodemailer from 'nodemailer'
 
 const MAX_NAME_LENGTH = 100
 const MIN_NAME_LENGTH = 2
@@ -21,8 +24,8 @@ function escapeHtml(value: string) {
 }
 
 function validateEnv() {
-  const { RESEND_API_KEY, RESEND_TO_EMAIL } = process.env
-  if (!RESEND_API_KEY || !RESEND_TO_EMAIL) {
+  const { GMAIL_USER, GMAIL_APP_PASSWORD, CONTACT_TO_EMAIL } = process.env
+  if (!GMAIL_USER || !GMAIL_APP_PASSWORD || !CONTACT_TO_EMAIL) {
     return false
   }
   return true
@@ -121,112 +124,141 @@ export async function POST(request: NextRequest) {
   const safeEmail = escapeHtml(trimmedEmail)
   const safeMessage = escapeHtml(trimmedMessage)
 
-  const resend = new Resend(process.env.RESEND_API_KEY)
+  const transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+      user: process.env.GMAIL_USER,
+      pass: process.env.GMAIL_APP_PASSWORD,
+    },
+  })
+
+  const notificationHtml = `
+    <!DOCTYPE html>
+    <html>
+      <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Contact Form Submission</title>
+      </head>
+      <body style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; line-height: 1.6; color: #333; max-width: 600px; margin: 0 auto; padding: 20px;">
+        <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 30px; border-radius: 10px 10px 0 0;">
+          <h1 style="color: white; margin: 0; font-size: 24px;">New Contact Form Submission</h1>
+        </div>
+
+        <div style="background: #f9fafb; padding: 30px; border-radius: 0 0 10px 10px; border: 1px solid #e5e7eb; border-top: none;">
+          <div style="margin-bottom: 20px;">
+            <h2 style="color: #1f2937; font-size: 18px; margin: 0 0 10px 0;">Contact Details</h2>
+          </div>
+
+          <div style="background: white; padding: 20px; border-radius: 8px; margin-bottom: 20px; border: 1px solid #e5e7eb;">
+            <p style="margin: 0 0 10px 0;"><strong style="color: #4b5563;">Name:</strong></p>
+            <p style="margin: 0 0 20px 0; color: #1f2937;">${safeName}</p>
+
+            <p style="margin: 0 0 10px 0;"><strong style="color: #4b5563;">Email:</strong></p>
+            <p style="margin: 0 0 20px 0;"><a href="mailto:${safeEmail}" style="color: #2563eb; text-decoration: none;">${safeEmail}</a></p>
+
+            <p style="margin: 0 0 10px 0;"><strong style="color: #4b5563;">Message:</strong></p>
+            <div style="background: #f9fafb; padding: 15px; border-radius: 6px; border-left: 4px solid #667eea;">
+              <p style="margin: 0; color: #1f2937; white-space: pre-wrap;">${safeMessage}</p>
+            </div>
+          </div>
+
+          <div style="margin-top: 20px; padding-top: 20px; border-top: 1px solid #e5e7eb;">
+            <p style="margin: 0; color: #6b7280; font-size: 14px;">
+              Reply directly to <a href="mailto:${safeEmail}" style="color: #2563eb; text-decoration: none;">${safeEmail}</a> to respond to this inquiry.
+            </p>
+          </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 20px; color: #9ca3af; font-size: 12px;">
+          <p style="margin: 0;">Sent from jasoncochran.io contact form</p>
+        </div>
+      </body>
+    </html>
+  `
+
+  const notificationText = `New Contact Form Submission
+
+Name: ${trimmedName}
+Email: ${trimmedEmail}
+
+Message:
+${trimmedMessage}
+
+---
+Reply to ${trimmedEmail} to respond. Sent from jasoncochran.io contact form.`
+
+  const thankYouHtml = `
+    <!DOCTYPE html>
+    <html>
+      <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Thank You</title>
+      </head>
+      <body style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; line-height: 1.6; color: #333; max-width: 600px; margin: 0 auto; padding: 20px;">
+        <div style="background: #000; padding: 30px; border-radius: 10px 10px 0 0;">
+          <h1 style="color: #FFD600; margin: 0; font-size: 24px;">Thanks for reaching out!</h1>
+        </div>
+
+        <div style="background: #f9fafb; padding: 30px; border-radius: 0 0 10px 10px; border: 1px solid #e5e7eb; border-top: none;">
+          <p style="margin: 0 0 20px 0; color: #1f2937;">
+            Hi ${safeName},
+          </p>
+
+          <p style="margin: 0 0 20px 0; color: #1f2937;">
+            I received your message and will get back to you within one business day.
+          </p>
+
+          <div style="background: white; padding: 20px; border-radius: 8px; margin-bottom: 20px; border: 1px solid #e5e7eb; border-left: 4px solid #FFD600;">
+            <p style="margin: 0 0 10px 0;"><strong style="color: #4b5563;">Your message:</strong></p>
+            <p style="margin: 0; color: #6b7280; white-space: pre-wrap;">${safeMessage}</p>
+          </div>
+
+          <p style="margin: 0; color: #1f2937;">
+            Talk soon,<br>
+            <strong>Jason Cochran</strong>
+          </p>
+        </div>
+
+        <div style="text-align: center; margin-top: 20px; color: #9ca3af; font-size: 12px;">
+          <p style="margin: 0;">jasoncochran.io</p>
+        </div>
+      </body>
+    </html>
+  `
+
+  const thankYouText = `Hi ${trimmedName},
+
+I received your message and will get back to you within one business day.
+
+Your message:
+${trimmedMessage}
+
+Talk soon,
+Jason Cochran
+jasoncochran.io`
 
   try {
-    const { data, error } = await resend.emails.send({
-      from: 'Jason Cochran Contact Form <onboarding@resend.dev>',
-      to: process.env.RESEND_TO_EMAIL as string,
-      subject: `New Contact from ${safeName}`,
-      html: `
-        <!DOCTYPE html>
-        <html>
-          <head>
-            <meta charset="utf-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <title>Contact Form Submission</title>
-          </head>
-          <body style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; line-height: 1.6; color: #333; max-width: 600px; margin: 0 auto; padding: 20px;">
-            <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 30px; border-radius: 10px 10px 0 0;">
-              <h1 style="color: white; margin: 0; font-size: 24px;">New Contact Form Submission</h1>
-            </div>
-
-            <div style="background: #f9fafb; padding: 30px; border-radius: 0 0 10px 10px; border: 1px solid #e5e7eb; border-top: none;">
-              <div style="margin-bottom: 20px;">
-                <h2 style="color: #1f2937; font-size: 18px; margin: 0 0 10px 0;">Contact Details</h2>
-              </div>
-
-              <div style="background: white; padding: 20px; border-radius: 8px; margin-bottom: 20px; border: 1px solid #e5e7eb;">
-                <p style="margin: 0 0 10px 0;"><strong style="color: #4b5563;">Name:</strong></p>
-                <p style="margin: 0 0 20px 0; color: #1f2937;">${safeName}</p>
-
-                <p style="margin: 0 0 10px 0;"><strong style="color: #4b5563;">Email:</strong></p>
-                <p style="margin: 0 0 20px 0;"><a href="mailto:${safeEmail}" style="color: #2563eb; text-decoration: none;">${safeEmail}</a></p>
-
-                <p style="margin: 0 0 10px 0;"><strong style="color: #4b5563;">Message:</strong></p>
-                <div style="background: #f9fafb; padding: 15px; border-radius: 6px; border-left: 4px solid #667eea;">
-                  <p style="margin: 0; color: #1f2937; white-space: pre-wrap;">${safeMessage}</p>
-                </div>
-              </div>
-
-              <div style="margin-top: 20px; padding-top: 20px; border-top: 1px solid #e5e7eb;">
-                <p style="margin: 0; color: #6b7280; font-size: 14px;">
-                  Reply directly to <a href="mailto:${safeEmail}" style="color: #2563eb; text-decoration: none;">${safeEmail}</a> to respond to this inquiry.
-                </p>
-              </div>
-            </div>
-
-            <div style="text-align: center; margin-top: 20px; color: #9ca3af; font-size: 12px;">
-              <p style="margin: 0;">Sent from jasoncochran.io contact form</p>
-            </div>
-          </body>
-        </html>
-      `,
-      replyTo: safeEmail,
+    const info = await transporter.sendMail({
+      from: `"Jason Cochran Contact Form" <${process.env.GMAIL_USER}>`,
+      to: process.env.CONTACT_TO_EMAIL as string,
+      replyTo: trimmedEmail,
+      subject: `New Contact from ${trimmedName}`,
+      html: notificationHtml,
+      text: notificationText,
     })
-
-    if (error) {
-      console.error('Resend error:', error)
-      return NextResponse.json({ error: 'Failed to send email' }, { status: 500 })
-    }
 
     // Send thank you email to the sender
-    await resend.emails.send({
-      from: 'Jason Cochran <no-reply@jasoncochran.io>',
+    await transporter.sendMail({
+      from: `"Jason Cochran" <${process.env.GMAIL_USER}>`,
       to: trimmedEmail,
       subject: 'Thanks for reaching out!',
-      html: `
-        <!DOCTYPE html>
-        <html>
-          <head>
-            <meta charset="utf-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <title>Thank You</title>
-          </head>
-          <body style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; line-height: 1.6; color: #333; max-width: 600px; margin: 0 auto; padding: 20px;">
-            <div style="background: #000; padding: 30px; border-radius: 10px 10px 0 0;">
-              <h1 style="color: #FFD600; margin: 0; font-size: 24px;">Thanks for reaching out!</h1>
-            </div>
-
-            <div style="background: #f9fafb; padding: 30px; border-radius: 0 0 10px 10px; border: 1px solid #e5e7eb; border-top: none;">
-              <p style="margin: 0 0 20px 0; color: #1f2937;">
-                Hi ${safeName},
-              </p>
-
-              <p style="margin: 0 0 20px 0; color: #1f2937;">
-                I received your message and will get back to you within one business day.
-              </p>
-
-              <div style="background: white; padding: 20px; border-radius: 8px; margin-bottom: 20px; border: 1px solid #e5e7eb; border-left: 4px solid #FFD600;">
-                <p style="margin: 0 0 10px 0;"><strong style="color: #4b5563;">Your message:</strong></p>
-                <p style="margin: 0; color: #6b7280; white-space: pre-wrap;">${safeMessage}</p>
-              </div>
-
-              <p style="margin: 0; color: #1f2937;">
-                Talk soon,<br>
-                <strong>Jason Cochran</strong>
-              </p>
-            </div>
-
-            <div style="text-align: center; margin-top: 20px; color: #9ca3af; font-size: 12px;">
-              <p style="margin: 0;">jasoncochran.io</p>
-            </div>
-          </body>
-        </html>
-      `,
+      html: thankYouHtml,
+      text: thankYouText,
     })
 
-    return NextResponse.json({ success: true, messageId: data?.id }, { status: 200 })
+    return NextResponse.json({ success: true, messageId: info.messageId }, { status: 200 })
   } catch (error) {
     console.error('Contact form error:', error)
     return NextResponse.json({ error: 'Internal server error' }, { status: 500 })

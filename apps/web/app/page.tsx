@@ -301,7 +301,7 @@ export default function Home() {
                       <span className="absolute inline-flex w-full h-full rounded-full bg-primary opacity-60 animate-[pulse_2s_ease-in-out_infinite]" />
                       <span className="relative inline-flex w-2 h-2 rounded-full bg-primary" />
                     </span>
-                    Live · $120 MRR · ~3 paying customers
+                    Live · Multi-tenant agent hosting
                   </span>
                 </div>
                 <CardTitle className="text-xl">OpenClaw VPS</CardTitle>

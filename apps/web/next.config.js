@@ -8,6 +8,14 @@ const nextConfig = {
   turbopack: {
     root: path.join(__dirname, '..', '..'),
   },
+  async redirects() {
+    return [
+      { source: '/resume', destination: '/#experience', permanent: true },
+      { source: '/contact', destination: '/#contact', permanent: true },
+      { source: '/projects', destination: '/#projects', permanent: true },
+      { source: '/projects/:slug', destination: '/#projects', permanent: true },
+    ]
+  },
 }
 
 module.exports = nextConfig

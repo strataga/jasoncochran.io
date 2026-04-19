@@ -219,13 +219,13 @@ export default function CertificationsPage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
-                href="/contact"
+                href="/#contact"
                 className="btn-pop btn-pop-primary"
               >
                 START A PROJECT
               </Link>
               <Link
-                href="/resume"
+                href="/#experience"
                 className="btn-pop btn-pop-secondary"
               >
                 VIEW RESUME

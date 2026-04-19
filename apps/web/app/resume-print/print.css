@@ -1,0 +1,173 @@
+/*
+ * Resume PDF print stylesheet.
+ *
+ * Typography spec (per 01-RESUME-DRAFT.md):
+ *   - Name:              22pt Inter 600
+ *   - Section headings:  12pt Inter 600 UPPERCASE
+ *   - Body:              10.5pt Inter 400
+ *   - Margins:           0.5in (handled by puppeteer page.pdf margin)
+ *
+ * This file is loaded via app/resume-print/layout.tsx and scoped to
+ * the .resume-print-root element only. When puppeteer prints the
+ * route, @media print kicks in and hides the site nav + any chrome
+ * that isn't the resume body.
+ */
+
+/* Hide site nav + all non-resume content when this route is rendered */
+.resume-print-root ~ *,
+nav {
+  /* handled by :has + print queries below */
+}
+
+/* Whole-document overrides when the resume-print-root is on the page */
+body:has(.resume-print-root) {
+  background: #ffffff !important;
+  color: #000000 !important;
+}
+
+body:has(.resume-print-root) nav {
+  display: none !important;
+}
+
+/* Print-specific overrides (puppeteer page.pdf triggers this) */
+@media print {
+  @page {
+    size: Letter;
+    /* puppeteer page.pdf sets 0.5in margins; @page is a safety net */
+    margin: 0.5in;
+  }
+
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+  }
+
+  nav,
+  header,
+  footer {
+    display: none !important;
+  }
+}
+
+/* ============================================================ */
+/* Resume content styles                                         */
+/* ============================================================ */
+
+.resume-print-root {
+  font-family:
+    'Inter',
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    sans-serif;
+  color: #000000;
+  background: #ffffff;
+  max-width: 7.5in; /* Letter - 0.5" * 2 margins */
+  margin: 0 auto;
+  padding: 0;
+  font-size: 9.5pt;
+  line-height: 1.32;
+}
+
+.resume-print-root h1,
+.resume-print-root h2,
+.resume-print-root h3,
+.resume-print-root p,
+.resume-print-root ul,
+.resume-print-root li {
+  margin: 0;
+  padding: 0;
+  color: #000000;
+}
+
+.resume-print-root .name {
+  font-size: 20pt;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  line-height: 1.05;
+  margin-bottom: 2pt;
+}
+
+.resume-print-root .tagline {
+  font-size: 10.5pt;
+  font-weight: 600;
+  margin-bottom: 3pt;
+}
+
+.resume-print-root .contact {
+  font-size: 9pt;
+  color: #222;
+  margin-bottom: 6pt;
+}
+
+.resume-print-root hr {
+  border: 0;
+  border-top: 0.5pt solid #000;
+  margin: 4pt 0;
+}
+
+.resume-print-root h2.section {
+  font-size: 11pt;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-top: 6pt;
+  margin-bottom: 3pt;
+}
+
+.resume-print-root h3.role {
+  font-size: 10pt;
+  font-weight: 600;
+  margin-top: 4pt;
+  margin-bottom: 1pt;
+}
+
+.resume-print-root .role-meta {
+  font-size: 9pt;
+  font-weight: 400;
+  margin-bottom: 2pt;
+}
+
+.resume-print-root .project-meta {
+  font-size: 9pt;
+  font-weight: 600;
+  margin-bottom: 2pt;
+}
+
+.resume-print-root p.summary,
+.resume-print-root p.desc {
+  font-size: 9.5pt;
+  line-height: 1.32;
+  margin-bottom: 2pt;
+}
+
+.resume-print-root .featured {
+  font-size: 9pt;
+  margin-top: 2pt;
+  font-style: italic;
+}
+
+.resume-print-root .skills-row {
+  font-size: 9.5pt;
+  line-height: 1.38;
+  margin-bottom: 1pt;
+}
+
+.resume-print-root .skills-label {
+  font-weight: 600;
+}
+
+.resume-print-root .earlier {
+  font-size: 9pt;
+}
+
+/* Page break hardening — avoid widows in role/project blocks */
+.resume-print-root section {
+  page-break-inside: avoid;
+  break-inside: avoid;
+}
+
+.resume-print-root h3.role {
+  page-break-after: avoid;
+  break-after: avoid;
+}

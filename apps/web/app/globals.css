@@ -107,7 +107,10 @@
     font-feature-settings: 'rlig' 1, 'calt' 1;
   }
 
-  /* UI-SPEC: headings are weight 600 only (no 500 or 700) */
+  /* UI-SPEC: headings are weight 600 only (no 500 or 700).
+     No color declaration — headings inherit from their parent (body's
+     --foreground for light sections, text-hero-foreground on dark bands).
+     Pinning color here breaks dark-band sections. */
   h1,
   h2,
   h3,
@@ -116,7 +119,6 @@
   h6 {
     font-weight: 600;
     font-family: var(--font-sans);
-    color: rgb(var(--foreground));
   }
 
   /* Focus ring per UI-SPEC Accessibility */

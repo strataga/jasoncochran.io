@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import './print.css'
 
 export const metadata: Metadata = {
-  title: 'Jason Cochran — Resume (Print)',
+  title: 'Jason Cochran · Resume (Print)',
   description:
     'Print-optimized resume source page for Jason Cochran. Used internally to generate the resume PDF; not intended for human browsing.',
   robots: { index: false, follow: false },

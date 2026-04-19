@@ -161,7 +161,7 @@ body:has(.resume-print-root) nav {
   font-size: 9pt;
 }
 
-/* Page break hardening — avoid widows in role/project blocks */
+/* Page break hardening , avoid widows in role/project blocks */
 .resume-print-root section {
   page-break-inside: avoid;
   break-inside: avoid;

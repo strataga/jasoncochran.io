@@ -28,7 +28,7 @@ export default function ResumePrint() {
       <section>
         <h2 className="section">Projects</h2>
 
-        <h3 className="role">OpenClaw VPS — Managed AI Agent Hosting</h3>
+        <h3 className="role">OpenClaw VPS · Managed AI Agent Hosting</h3>
         <p className="project-meta">
           Strataga LLC · Q4 2025–Q1 2026 · openclawvps.com · Live
         </p>
@@ -52,7 +52,7 @@ export default function ResumePrint() {
         <h2 className="section">Experience</h2>
 
         <h3 className="role">
-          Senior Full-Stack Engineer — Servant · 2025/02–2025/09
+          Senior Full-Stack Engineer · Servant · 2025/02–2025/09
         </h3>
         <p className="desc">
           Shipped EMA onboarding flow on NestJS + Next.js + Prisma + React Query
@@ -62,7 +62,7 @@ export default function ResumePrint() {
         </p>
 
         <h3 className="role">
-          Senior Software Engineer — Big D Companies · 2024/03–2024/09
+          Senior Software Engineer · Big D Companies · 2024/03–2024/09
         </h3>
         <p className="desc">
           Led the legacy PHP → React / Next.js conversion of a SCADA-connected
@@ -73,7 +73,7 @@ export default function ResumePrint() {
         </p>
 
         <h3 className="role">
-          Senior React Native Engineer — Nutrien · 2023/09–2024/02
+          Senior React Native Engineer · Nutrien · 2023/09–2024/02
         </h3>
         <p className="desc">
           Built cross-platform features on the Nutrien mobile app (iOS +
@@ -83,18 +83,18 @@ export default function ResumePrint() {
         </p>
 
         <h3 className="role">
-          Senior Software Engineer — TxMQ · 2022/10–2023/06
+          Senior Software Engineer · TxMQ · 2022/10–2023/06
         </h3>
         <p className="desc">
           Led an AI research initiative with OpenAI: prototyped LLM-assisted
           internal tooling on top of existing AngularJS / Ionic client
-          surfaces — early applied-LLM production work, two years before the
+          surfaces. Early applied-LLM production work, two years before the
           current agent wave. Delivered production client features in the
           AngularJS + Ionic stack alongside the research track.
         </p>
 
         <h3 className="role">
-          Senior Mobile Engineer — Verizon · 2021/10–2022/11
+          Senior Mobile Engineer · Verizon · 2021/10–2022/11
         </h3>
         <p className="desc">
           Shipped the AMC Walking Dead NFT experience: custom blockchain + JS

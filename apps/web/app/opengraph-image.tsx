@@ -1,7 +1,7 @@
 import { ImageResponse } from 'next/og'
 
 export const runtime = 'nodejs'
-export const alt = 'Jason Cochran — Senior Full-Stack Engineer · Agent Infrastructure'
+export const alt = 'Jason Cochran · Senior Full-Stack Engineer · Agent Infrastructure'
 export const size = { width: 1200, height: 630 }
 export const contentType = 'image/png'
 
@@ -86,8 +86,8 @@ export default async function OpengraphImage() {
               maxWidth: '900px',
             }}
           >
-            Shipped OpenClaw VPS — live multi-tenant agent hosting with per-tenant observability,
-            SLO-gated deploys, 337 tests.
+            OpenClaw VPS: managed hosting for OpenClaw with 30 prebuilt AI assistants,
+            private and always-on.
           </div>
         </div>
 

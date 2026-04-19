@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import Link from 'next/link'
 import Script from 'next/script'
 import type { Metadata } from 'next'
@@ -15,9 +16,9 @@ import { Badge } from '@/components/ui/badge'
 import ContactForm from '@/components/ContactForm'
 
 export const metadata: Metadata = {
-  title: 'Jason Cochran — Senior Full-Stack Engineer · Agent Infrastructure',
+  title: 'Jason Cochran · Senior Full-Stack Engineer · Agent Infrastructure',
   description:
-    'Senior full-stack engineer. 28 years shipping production software; currently building agent infrastructure. OpenClaw VPS: live multi-tenant agent hosting with per-tenant observability and SLO-gated deploys.',
+    'Senior full-stack engineer. 28 years shipping production software. Currently building agent infrastructure. OpenClaw VPS is my product: managed hosting for OpenClaw (the AI assistant platform), with 30 prebuilt assistants ready to run in minutes.',
   alternates: {
     canonical: 'https://jasoncochran.io',
   },
@@ -29,7 +30,7 @@ const jsonLd = {
   name: 'Jason Cochran',
   jobTitle: 'Senior Full-Stack Engineer',
   description:
-    'Senior full-stack engineer. 28 years shipping production software; current focus is agent infrastructure. Shipped OpenClaw VPS — live multi-tenant agent hosting with per-tenant observability and SLO-gated deploys.',
+    'Senior full-stack engineer. 28 years shipping production software. Current focus is agent infrastructure. Shipped OpenClaw VPS: managed hosting for OpenClaw with 30 prebuilt AI assistants, private and always-on.',
   url: 'https://jasoncochran.io',
   sameAs: [
     'https://www.linkedin.com/in/cochranjason/',
@@ -39,8 +40,8 @@ const jsonLd = {
 }
 
 // UI-SPEC: Primary CTA target.
-// Loom URL is DEFERRED per .planning/phases/01-positioning-asset-rewrite/01-LOOM-URL.md —
-// until Jason records and uploads, the hero primary CTA links to the live product
+// Loom URL is DEFERRED per .planning/phases/01-positioning-asset-rewrite/01-LOOM-URL.md.
+// Until Jason records and uploads, the hero primary CTA links to the live product
 // (honesty constraint: no dead links).
 const PRIMARY_CTA_HREF = 'https://openclawvps.com'
 const PRIMARY_CTA_LABEL = 'See the live product'
@@ -81,22 +82,22 @@ const offerings: Offering[] = [
     tag: "Shipping and it's breaking",
     title: 'Production Hardening',
     body: 'For founders whose agent works in demo and breaks in prod. I audit, harden, and hand you back a system you can run on-call: auth, per-request cost and latency, test coverage, runbook. Works whether you built it with Cursor, Lovable, Bolt, or a founding engineer who moved on.',
-    meta: '2-week audit + 4-week fix · Audit from $5,000 · Typical $15–30K full engagement',
+    meta: '2-week audit + 4-week fix · Audit from $5,000 · Typical $20–40K full engagement',
     deliverable:
       'Hardened system · observability in place · runbook · handoff walkthrough',
   },
   {
     tag: "Need to ship and the clock's ticking",
     title: 'Production Agent Sprint',
-    body: 'For teams shipping a greenfield agent system in weeks. I design, build, and deploy — same eval + tracing stack I use in OpenClaw VPS (per-tenant latency, cost accrual, SLO-gated deploys). Production-ready means it holds under load, not a demo that dies.',
-    meta: '4 weeks · Starting at $5,000 scope-limited · Typical $20–30K',
+    body: 'For teams shipping a greenfield agent system in weeks. I design, build, and deploy with the same eval and tracing stack I use in OpenClaw VPS (per-tenant latency, cost accrual, SLO-gated deploys). Production-ready means it holds under load, not a demo that dies.',
+    meta: '4 weeks · Typical $25–40K',
     deliverable: 'Running code in your stack or mine · not a deck',
   },
   {
     tag: 'Need a senior on the team for a quarter',
     title: 'Embedded Senior AI Engineer',
-    body: "For eng managers and heads of AI who need senior hands on evals, observability, incident ownership, or the agent platform — without adding FTE. I own what you don't have capacity for. Your team owns the product.",
-    meta: '3-month minimum · 15–25 hrs/week · $150–200/hr · $6,000/mo minimum',
+    body: "For eng managers and heads of AI who need senior hands on evals, observability, incident ownership, or the agent platform, without adding FTE. I own what you don't have capacity for. Your team owns the product.",
+    meta: '3-month minimum · 15–25 hrs/week · $150–200/hr · $10,000/mo minimum',
     deliverable:
       "Eval harness · tracing · production rigor your team doesn't have time for",
   },
@@ -136,7 +137,7 @@ const experience: ExperienceEntry[] = [
     company: 'TxMQ',
     dates: '2022/10–2023/06',
     summary:
-      'Led an AI research initiative with OpenAI: prototyped LLM-assisted internal tooling on Angular / Ionic client surfaces — early applied-LLM production work, two years before the current agent wave.',
+      'Led an AI research initiative with OpenAI: prototyped LLM-assisted internal tooling on Angular / Ionic client surfaces. Early applied-LLM production work, two years before the current agent wave.',
   },
   {
     title: 'Senior Mobile Engineer',
@@ -192,7 +193,7 @@ export default function Home() {
       {/* Top anchor for nav Home link */}
       <span id="top" className="sr-only" aria-hidden="true" />
 
-      {/* Hero — single dark band */}
+      {/* Hero (single dark band) */}
       <section className="bg-hero-bg text-hero-foreground py-20 lg:py-32">
         <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-[minmax(0,1fr)_auto] gap-12 lg:gap-20 items-start">
@@ -206,9 +207,9 @@ export default function Home() {
                 className="text-lg md:text-xl leading-relaxed mb-10 text-hero-muted"
                 style={{ maxWidth: '580px' }}
               >
-                I shipped OpenClaw VPS — a live multi-tenant agent hosting platform at Strataga
-                LLC with per-tenant cost and latency observability, SLO-gated deploys, and 337
-                tests backing it.
+                OpenClaw VPS is my product. It&apos;s where OpenClaw (the AI assistant platform)
+                meets managed hosting: private, always-on, with 30 prebuilt assistants ready to
+                run in minutes.
               </p>
 
               <div>
@@ -224,11 +225,21 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Hero right half intentionally empty — the fabricated
-                observability log previously here violated the honesty
-                constraint (labeled "LIVE TRACE" but was mock data). Any
-                replacement must be real: actual openclawvps.com
-                screenshot, real proof numbers, or nothing. */}
+            {/* Hero right half: real headshot. Replaces earlier fabricated
+                observability log (removed because it violated the honesty
+                constraint). A face is a stronger anchor than fake telemetry. */}
+            <div className="hidden lg:block flex-shrink-0">
+              <div className="relative w-[360px] aspect-square rounded-lg overflow-hidden ring-1 ring-white/10 shadow-xl">
+                <Image
+                  src="/jason-cochran.jpg"
+                  alt="Jason Cochran"
+                  fill
+                  priority
+                  sizes="360px"
+                  className="object-cover"
+                />
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -255,7 +266,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* How I work — 3 buyer-intent offerings */}
+      {/* How I work (3 buyer-intent offerings) */}
       <section id="services" className="py-16 lg:py-24">
         <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-2xl md:text-3xl tracking-tight mb-10">How I work</h2>
@@ -286,7 +297,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Featured Projects — equal-weight 3-col */}
+      {/* Featured Projects (equal-weight 3-col) */}
       <section id="projects" className="py-16 lg:py-24 bg-white border-y border-border">
         <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-2xl md:text-3xl tracking-tight mb-10">Featured projects</h2>
@@ -396,7 +407,7 @@ export default function Home() {
               </CardHeader>
               <CardContent className="flex flex-col flex-1">
                 <p className="text-muted-foreground leading-relaxed text-sm mb-6">
-                  Strataga&apos;s freelancer marketplace — the platform I would want to use to
+                  Strataga&apos;s freelancer marketplace. The platform I would want to use to
                   find work.
                 </p>
 
@@ -427,7 +438,7 @@ export default function Home() {
               <CardContent className="flex flex-col flex-1">
                 <p className="text-muted-foreground leading-relaxed text-sm mb-6">
                   First-person grid-based dungeon crawler in the spirit of{' '}
-                  <em>Eye of the Beholder</em> — D&amp;D on the surface, cosmic horror underneath.
+                  <em>Eye of the Beholder</em>. D&amp;D on the surface, cosmic horror underneath.
                 </p>
 
                 <div className="mt-auto flex flex-wrap gap-2">
@@ -447,7 +458,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Experience — folded resume */}
+      {/* Experience (folded resume) */}
       <section id="experience" className="py-16 lg:py-24">
         <div className="max-w-[820px] mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-2xl md:text-3xl tracking-tight mb-4">Experience</h2>
@@ -464,7 +475,7 @@ export default function Home() {
             {experience.map((entry) => (
               <article key={`${entry.company}-${entry.dates}`}>
                 <h3 className="text-base font-semibold">
-                  {entry.title} — {entry.company}
+                  {entry.title} · {entry.company}
                 </h3>
                 <p className="text-sm text-muted-foreground mb-2">{entry.dates}</p>
                 <p className="text-sm text-muted-foreground leading-relaxed">
@@ -548,9 +559,10 @@ export default function Home() {
         <div className="max-w-[680px] mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-2xl md:text-3xl tracking-tight mb-6">About</h2>
           <p className="text-muted-foreground leading-relaxed">
-            I&apos;m a senior full-stack engineer. 28 years of production software behind me;
-            my current focus is agent infrastructure at Strataga LLC. I shipped OpenClaw VPS —
-            live, per-tenant observability, SLO gates. I work remote from Midland, TX. I take
+            I&apos;m a senior full-stack engineer. 28 years of production software behind me.
+            My current focus is agent infrastructure at Strataga LLC. OpenClaw VPS is my
+            product there: managed hosting for OpenClaw with 30 prebuilt AI assistants for
+            support, sales, ops, and engineering teams. I work remote from Midland, TX. I take
             sprint contracts, production-hardening engagements, and part-time embedded roles
             with teams running agents in production.
           </p>
@@ -569,7 +581,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Bottom CTA — echo of hero */}
+      {/* Bottom CTA (echo of hero) */}
       <section className="py-16 lg:py-24 bg-hero-bg text-hero-foreground border-t border-border">
         <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl tracking-tight mb-6">

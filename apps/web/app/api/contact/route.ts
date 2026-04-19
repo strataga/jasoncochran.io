@@ -1,4 +1,4 @@
-// Contact form backend — Gmail SMTP via nodemailer (swapped from Resend 2026-04-19).
+// Contact form backend , Gmail SMTP via nodemailer (swapped from Resend 2026-04-19).
 // Railway env vars required: GMAIL_USER, GMAIL_APP_PASSWORD, CONTACT_TO_EMAIL.
 // Generate an App Password at https://myaccount.google.com/apppasswords (2FA required).
 import { NextRequest, NextResponse } from 'next/server'

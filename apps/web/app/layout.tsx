@@ -19,11 +19,11 @@ const jetbrainsMono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: 'Jason Cochran — Senior Full-Stack Engineer · Agent Infrastructure',
+    default: 'Jason Cochran · Senior Full-Stack Engineer · Agent Infrastructure',
     template: '%s | Jason Cochran',
   },
   description:
-    'Senior full-stack engineer. 28 years shipping production software; currently building agent infrastructure. OpenClaw VPS: live multi-tenant agent hosting with per-tenant observability and SLO-gated deploys.',
+    'Senior full-stack engineer. 28 years shipping production software. Currently building agent infrastructure. OpenClaw VPS is my product: managed hosting for OpenClaw with 30 prebuilt AI assistants, private and always-on.',
   keywords: [
     'Senior Full-Stack Engineer',
     'AI Agent Infrastructure',
@@ -44,24 +44,24 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_US',
     url: 'https://jasoncochran.io',
-    title: 'Jason Cochran — Senior Full-Stack Engineer · Agent Infrastructure',
+    title: 'Jason Cochran · Senior Full-Stack Engineer · Agent Infrastructure',
     description:
-      'Senior full-stack engineer. 28 years shipping production software; currently building agent infrastructure. Shipped OpenClaw VPS — live multi-tenant agent hosting.',
+      'Senior full-stack engineer. 28 years shipping production software. Currently building agent infrastructure. OpenClaw VPS: managed hosting for OpenClaw with 30 prebuilt AI assistants.',
     siteName: 'Jason Cochran',
     images: [
       {
         url: '/opengraph-image',
         width: 1200,
         height: 630,
-        alt: 'Jason Cochran — Senior Full-Stack Engineer · Agent Infrastructure',
+        alt: 'Jason Cochran · Senior Full-Stack Engineer · Agent Infrastructure',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Jason Cochran — Senior Full-Stack Engineer · Agent Infrastructure',
+    title: 'Jason Cochran · Senior Full-Stack Engineer · Agent Infrastructure',
     description:
-      'Senior full-stack engineer. 28 years shipping production software; currently building agent infrastructure. Shipped OpenClaw VPS — live multi-tenant agent hosting.',
+      'Senior full-stack engineer. 28 years shipping production software. Currently building agent infrastructure. OpenClaw VPS: managed hosting for OpenClaw with 30 prebuilt AI assistants.',
     images: ['/opengraph-image'],
   },
 }

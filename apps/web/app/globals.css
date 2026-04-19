@@ -1,7 +1,7 @@
 @import 'tailwindcss';
 @plugin "@tailwindcss/typography";
 
-/* UI-SPEC Design System — slate-50 / white / coral (red-500) / Inter 400+600 */
+/* UI-SPEC Design System , slate-50 / white / coral (red-500) / Inter 400+600 */
 
 :root {
   /* Core surface colors (UI-SPEC Color section) */
@@ -11,14 +11,14 @@
   --card-foreground: 24 24 27;
   --popover: 255 255 255;
   --popover-foreground: 24 24 27;
-  --muted: 241 245 249; /* slate-100 — muted surface */
-  --muted-foreground: 99 102 110; /* zinc-500+ — muted text */
+  --muted: 241 245 249; /* slate-100 , muted surface */
+  --muted-foreground: 99 102 110; /* zinc-500+ , muted text */
   --border: 228 233 240;
   --input: 228 233 240;
-  --ring: 239 68 68; /* red-500 — focus ring */
+  --ring: 239 68 68; /* red-500 , focus ring */
 
   /* Coral accent */
-  --primary: 239 68 68; /* red-500 — coral */
+  --primary: 239 68 68; /* red-500 , coral */
   --primary-foreground: 255 255 255;
   --accent: 239 68 68; /* coral */
   --accent-foreground: 255 255 255;
@@ -34,7 +34,7 @@
   --destructive: 220 38 38;
   --destructive-foreground: 255 255 255;
 
-  /* Chart colors (shadcn default — unused but declared for completeness) */
+  /* Chart colors (shadcn default , unused but declared for completeness) */
   --chart-1: 239 68 68;
   --chart-2: 15 23 42;
   --chart-3: 99 102 110;
@@ -108,7 +108,7 @@
   }
 
   /* UI-SPEC: headings are weight 600 only (no 500 or 700).
-     No color declaration — headings inherit from their parent (body's
+     No color declaration , headings inherit from their parent (body's
      --foreground for light sections, text-hero-foreground on dark bands).
      Pinning color here breaks dark-band sections. */
   h1,
@@ -227,7 +227,7 @@
   font-style: normal;
 }
 
-/* Resume print styles — UI-SPEC Resume PDF typography
+/* Resume print styles , UI-SPEC Resume PDF typography
    (22pt name / 12pt headings / 10.5pt body / 0.5in margins) */
 @media print {
   @page {
@@ -253,7 +253,7 @@
     display: none !important;
   }
 
-  /* Reset Tailwind screen-size spacing for print — resume is density-critical */
+  /* Reset Tailwind screen-size spacing for print , resume is density-critical */
   .max-w-\[820px\] {
     max-width: 100% !important;
   }
@@ -345,5 +345,5 @@
   }
 
   /* Link text reads as URL already (e.g. "openclawvps.com"), so no ::after
-     URL suffix — keeps the resume dense and ATS-parseable. */
+     URL suffix , keeps the resume dense and ATS-parseable. */
 }

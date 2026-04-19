@@ -68,74 +68,6 @@ const bigGigTechStack = ['Next.js', 'React', 'TypeScript']
 
 const fathomlessTechStack = ['Rust', 'SDL3']
 
-// Observability log snippet (faux but plausible). Shape mirrors what the live
-// OpenClaw VPS trace pipeline emits: per-request, per-agent, per-tenant,
-// token + cost + latency, with an SLO tag. The one `slo=warn` row is the
-// visual rhythm hook — coral accents it below.
-type TraceRow = {
-  ts: string
-  req: string
-  agent: string
-  tenant: string
-  tokens: string
-  cost: string
-  latency: string
-  slo: 'ok' | 'warn'
-}
-
-const traceRows: TraceRow[] = [
-  {
-    ts: '2026-04-19T11:23:08.142Z',
-    req: 'a1f2',
-    agent: 'intake',
-    tenant: 't_29',
-    tokens: '1,847',
-    cost: '$0.021',
-    latency: '1.42s',
-    slo: 'ok',
-  },
-  {
-    ts: '2026-04-19T11:23:11.007Z',
-    req: 'a1f3',
-    agent: 'followup',
-    tenant: 't_11',
-    tokens: '942',
-    cost: '$0.011',
-    latency: '0.89s',
-    slo: 'ok',
-  },
-  {
-    ts: '2026-04-19T11:23:14.301Z',
-    req: 'a1f4',
-    agent: 'intake',
-    tenant: 't_29',
-    tokens: '3,204',
-    cost: '$0.036',
-    latency: '2.81s',
-    slo: 'warn',
-  },
-  {
-    ts: '2026-04-19T11:23:17.992Z',
-    req: 'a1f5',
-    agent: 'summarize',
-    tenant: 't_07',
-    tokens: '1,118',
-    cost: '$0.013',
-    latency: '1.02s',
-    slo: 'ok',
-  },
-  {
-    ts: '2026-04-19T11:23:21.440Z',
-    req: 'a1f6',
-    agent: 'intake',
-    tenant: 't_29',
-    tokens: '2,046',
-    cost: '$0.023',
-    latency: '1.67s',
-    slo: 'ok',
-  },
-]
-
 type Offering = {
   tag: string
   title: string
@@ -292,28 +224,11 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Observability log snippet — desktop only */}
-            <aside
-              aria-label="Observability live trace sample"
-              className="hidden lg:block w-[480px] rounded-lg border border-white/10 bg-white/[0.04] p-6"
-            >
-              <p className="text-[11px] uppercase tracking-[0.14em] text-hero-muted mb-4">
-                Observability · Live trace
-              </p>
-              <pre className="font-mono text-[11px] leading-[1.75] whitespace-pre overflow-x-auto">
-                {traceRows.map((row) => {
-                  const line = `[${row.ts}] req=${row.req} agent=${row.agent.padEnd(10)} tenant=${row.tenant}  tokens=${row.tokens.padStart(5)}  cost=${row.cost}  latency=${row.latency}  slo=${row.slo}`
-                  return (
-                    <code
-                      key={row.req}
-                      className={`block ${row.slo === 'warn' ? 'text-primary' : 'text-hero-muted'}`}
-                    >
-                      {line}
-                    </code>
-                  )
-                })}
-              </pre>
-            </aside>
+            {/* Hero right half intentionally empty — the fabricated
+                observability log previously here violated the honesty
+                constraint (labeled "LIVE TRACE" but was mock data). Any
+                replacement must be real: actual openclawvps.com
+                screenshot, real proof numbers, or nothing. */}
           </div>
         </div>
       </section>

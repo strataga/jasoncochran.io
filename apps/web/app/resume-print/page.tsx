@@ -30,8 +30,7 @@ export default function ResumePrint() {
 
         <h3 className="role">OpenClaw VPS — Managed AI Agent Hosting</h3>
         <p className="project-meta">
-          Strataga LLC · Q4 2025–Q1 2026 · openclawvps.com · Live with ~3
-          paying customers, $120 MRR
+          Strataga LLC · Q4 2025–Q1 2026 · openclawvps.com · Live
         </p>
         <p className="desc">
           Multi-tenant agent hosting: BYOK model, multi-channel delivery

@@ -86,8 +86,8 @@ export default async function OpengraphImage() {
               maxWidth: '900px',
             }}
           >
-            Shipped OpenClaw VPS — live multi-tenant agent hosting with paying customers, per-tenant
-            observability, SLO-gated deploys, 337 tests.
+            Shipped OpenClaw VPS — live multi-tenant agent hosting with per-tenant observability,
+            SLO-gated deploys, 337 tests.
           </div>
         </div>
 

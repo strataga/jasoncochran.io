@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     template: '%s | Jason Cochran',
   },
   description:
-    'Senior full-stack engineer. 28 years shipping production software; currently building agent infrastructure. OpenClaw VPS: live multi-tenant agent hosting with paying customers, per-tenant observability, SLO-gated deploys.',
+    'Senior full-stack engineer. 28 years shipping production software; currently building agent infrastructure. OpenClaw VPS: live multi-tenant agent hosting with per-tenant observability and SLO-gated deploys.',
   keywords: [
     'Senior Full-Stack Engineer',
     'AI Agent Infrastructure',
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
     url: 'https://jasoncochran.io',
     title: 'Jason Cochran — Senior Full-Stack Engineer · Agent Infrastructure',
     description:
-      'Senior full-stack engineer. 28 years shipping production software; currently building agent infrastructure. Shipped OpenClaw VPS — live multi-tenant agent hosting with paying customers.',
+      'Senior full-stack engineer. 28 years shipping production software; currently building agent infrastructure. Shipped OpenClaw VPS — live multi-tenant agent hosting.',
     siteName: 'Jason Cochran',
     images: [
       {
@@ -61,7 +61,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Jason Cochran — Senior Full-Stack Engineer · Agent Infrastructure',
     description:
-      'Senior full-stack engineer. 28 years shipping production software; currently building agent infrastructure. Shipped OpenClaw VPS — live with paying customers.',
+      'Senior full-stack engineer. 28 years shipping production software; currently building agent infrastructure. Shipped OpenClaw VPS — live multi-tenant agent hosting.',
     images: ['/opengraph-image'],
   },
 }

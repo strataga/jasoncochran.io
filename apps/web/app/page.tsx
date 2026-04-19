@@ -17,7 +17,7 @@ import ContactForm from '@/components/ContactForm'
 export const metadata: Metadata = {
   title: 'Jason Cochran — Senior Full-Stack Engineer · Agent Infrastructure',
   description:
-    'Senior full-stack engineer. 28 years shipping production software; currently building agent infrastructure. OpenClaw VPS: live multi-tenant agent hosting with paying customers, per-tenant observability, SLO-gated deploys.',
+    'Senior full-stack engineer. 28 years shipping production software; currently building agent infrastructure. OpenClaw VPS: live multi-tenant agent hosting with per-tenant observability and SLO-gated deploys.',
   alternates: {
     canonical: 'https://jasoncochran.io',
   },
@@ -29,7 +29,7 @@ const jsonLd = {
   name: 'Jason Cochran',
   jobTitle: 'Senior Full-Stack Engineer',
   description:
-    'Senior full-stack engineer. 28 years shipping production software; current focus is agent infrastructure. Shipped OpenClaw VPS — live multi-tenant agent hosting with paying customers, per-tenant observability, SLO-gated deploys.',
+    'Senior full-stack engineer. 28 years shipping production software; current focus is agent infrastructure. Shipped OpenClaw VPS — live multi-tenant agent hosting with per-tenant observability and SLO-gated deploys.',
   url: 'https://jasoncochran.io',
   sameAs: [
     'https://www.linkedin.com/in/cochranjason/',
@@ -207,8 +207,8 @@ export default function Home() {
                 style={{ maxWidth: '580px' }}
               >
                 I shipped OpenClaw VPS — a live multi-tenant agent hosting platform at Strataga
-                LLC with paying customers, per-tenant cost and latency observability, SLO-gated
-                deploys, and 337 tests backing it.
+                LLC with per-tenant cost and latency observability, SLO-gated deploys, and 337
+                tests backing it.
               </p>
 
               <div>
@@ -550,9 +550,9 @@ export default function Home() {
           <p className="text-muted-foreground leading-relaxed">
             I&apos;m a senior full-stack engineer. 28 years of production software behind me;
             my current focus is agent infrastructure at Strataga LLC. I shipped OpenClaw VPS —
-            live, paying customers, per-tenant observability, SLO gates. I work remote from
-            Midland, TX. I take sprint contracts, production-hardening engagements, and
-            part-time embedded roles with teams running agents in production.
+            live, per-tenant observability, SLO gates. I work remote from Midland, TX. I take
+            sprint contracts, production-hardening engagements, and part-time embedded roles
+            with teams running agents in production.
           </p>
         </div>
       </section>
@@ -576,8 +576,8 @@ export default function Home() {
             Want to see how it ships?
           </h2>
           <p className="text-hero-muted mb-10 max-w-[540px] mx-auto">
-            OpenClaw VPS is live with paying customers. Walk through the dashboard, billing, and
-            multi-channel delivery yourself.
+            OpenClaw VPS is live. Walk through the dashboard, billing, and multi-channel
+            delivery yourself.
           </p>
           <Button
             asChild

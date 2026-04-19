@@ -1,15 +1,23 @@
 import Link from 'next/link'
 import Script from 'next/script'
 import type { Metadata } from 'next'
-import { ArrowRight, ExternalLink, Linkedin, Github, Mail } from 'lucide-react'
+import {
+  ArrowRight,
+  ExternalLink,
+  Linkedin,
+  Github,
+  Mail,
+  Download,
+} from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
+import ContactForm from '@/components/ContactForm'
 
 export const metadata: Metadata = {
-  title: 'Jason Cochran — Production AI Agent Infrastructure',
+  title: 'Jason Cochran — Senior Full-Stack Engineer · Agent Infrastructure',
   description:
-    'I build production agent infrastructure that does not break in prod. Built OpenClaw VPS — live multi-tenant agent hosting with paying customers.',
+    'Senior full-stack engineer. 28 years shipping production software; currently building agent infrastructure. OpenClaw VPS: live multi-tenant agent hosting with paying customers, per-tenant observability, SLO-gated deploys.',
   alternates: {
     canonical: 'https://jasoncochran.io',
   },
@@ -19,9 +27,9 @@ const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Person',
   name: 'Jason Cochran',
-  jobTitle: 'Production AI Agent Infrastructure Engineer',
+  jobTitle: 'Senior Full-Stack Engineer',
   description:
-    'Builds production agent infrastructure. Shipped OpenClaw VPS — live multi-tenant agent hosting platform with paying customers, per-tenant cost and latency observability, SLO-gated deploys.',
+    'Senior full-stack engineer. 28 years shipping production software; current focus is agent infrastructure. Shipped OpenClaw VPS — live multi-tenant agent hosting with paying customers, per-tenant observability, SLO-gated deploys.',
   url: 'https://jasoncochran.io',
   sameAs: [
     'https://www.linkedin.com/in/cochranjason/',
@@ -60,13 +68,183 @@ const bigGigTechStack = ['Next.js', 'React', 'TypeScript']
 
 const fathomlessTechStack = ['Rust', 'SDL3']
 
-// Hero stat panel is disabled for now — markup kept in a JSX comment below.
-// const heroStats: Array<{ value: string; label: string }> = [
-//   { value: '$120', label: 'MRR' },
-//   { value: '~3', label: 'Paying customers' },
-//   { value: '337', label: 'Tests' },
-//   { value: '5', label: 'Launch venues' },
-// ]
+// Observability log snippet (faux but plausible). Shape mirrors what the live
+// OpenClaw VPS trace pipeline emits: per-request, per-agent, per-tenant,
+// token + cost + latency, with an SLO tag. The one `slo=warn` row is the
+// visual rhythm hook — coral accents it below.
+type TraceRow = {
+  ts: string
+  req: string
+  agent: string
+  tenant: string
+  tokens: string
+  cost: string
+  latency: string
+  slo: 'ok' | 'warn'
+}
+
+const traceRows: TraceRow[] = [
+  {
+    ts: '2026-04-19T11:23:08.142Z',
+    req: 'a1f2',
+    agent: 'intake',
+    tenant: 't_29',
+    tokens: '1,847',
+    cost: '$0.021',
+    latency: '1.42s',
+    slo: 'ok',
+  },
+  {
+    ts: '2026-04-19T11:23:11.007Z',
+    req: 'a1f3',
+    agent: 'followup',
+    tenant: 't_11',
+    tokens: '942',
+    cost: '$0.011',
+    latency: '0.89s',
+    slo: 'ok',
+  },
+  {
+    ts: '2026-04-19T11:23:14.301Z',
+    req: 'a1f4',
+    agent: 'intake',
+    tenant: 't_29',
+    tokens: '3,204',
+    cost: '$0.036',
+    latency: '2.81s',
+    slo: 'warn',
+  },
+  {
+    ts: '2026-04-19T11:23:17.992Z',
+    req: 'a1f5',
+    agent: 'summarize',
+    tenant: 't_07',
+    tokens: '1,118',
+    cost: '$0.013',
+    latency: '1.02s',
+    slo: 'ok',
+  },
+  {
+    ts: '2026-04-19T11:23:21.440Z',
+    req: 'a1f6',
+    agent: 'intake',
+    tenant: 't_29',
+    tokens: '2,046',
+    cost: '$0.023',
+    latency: '1.67s',
+    slo: 'ok',
+  },
+]
+
+type Offering = {
+  tag: string
+  title: string
+  body: string
+  meta: string
+  deliverable: string
+}
+
+const offerings: Offering[] = [
+  {
+    tag: "Shipping and it's breaking",
+    title: 'Production Hardening',
+    body: 'For founders whose agent works in demo and breaks in prod. I audit, harden, and hand you back a system you can run on-call: auth, per-request cost and latency, test coverage, runbook. Works whether you built it with Cursor, Lovable, Bolt, or a founding engineer who moved on.',
+    meta: '2-week audit + 4-week fix · Audit from $5,000 · Typical $15–30K full engagement',
+    deliverable:
+      'Hardened system · observability in place · runbook · handoff walkthrough',
+  },
+  {
+    tag: "Need to ship and the clock's ticking",
+    title: 'Production Agent Sprint',
+    body: 'For teams shipping a greenfield agent system in weeks. I design, build, and deploy — same eval + tracing stack I use in OpenClaw VPS (per-tenant latency, cost accrual, SLO-gated deploys). Production-ready means it holds under load, not a demo that dies.',
+    meta: '4 weeks · Starting at $5,000 scope-limited · Typical $20–30K',
+    deliverable: 'Running code in your stack or mine · not a deck',
+  },
+  {
+    tag: 'Need a senior on the team for a quarter',
+    title: 'Embedded Senior AI Engineer',
+    body: "For eng managers and heads of AI who need senior hands on evals, observability, incident ownership, or the agent platform — without adding FTE. I own what you don't have capacity for. Your team owns the product.",
+    meta: '3-month minimum · 15–25 hrs/week · $150–200/hr · $6,000/mo minimum',
+    deliverable:
+      "Eval harness · tracing · production rigor your team doesn't have time for",
+  },
+]
+
+type ExperienceEntry = {
+  title: string
+  company: string
+  dates: string
+  summary: string
+}
+
+const experience: ExperienceEntry[] = [
+  {
+    title: 'Senior Full-Stack Engineer',
+    company: 'Servant',
+    dates: '2025/02–2025/09',
+    summary:
+      'Shipped EMA onboarding flow on NestJS + Next.js + Prisma + React Query with AWS-hosted services; owned the production migration from the legacy path with documentation and runbooks.',
+  },
+  {
+    title: 'Senior Software Engineer',
+    company: 'Big D Companies',
+    dates: '2024/03–2024/09',
+    summary:
+      'Led the legacy PHP → React / Next.js conversion of a SCADA-connected ERP used across oil/gas field operations; migrated operator-facing screens without downtime.',
+  },
+  {
+    title: 'Senior React Native Engineer',
+    company: 'Nutrien',
+    dates: '2023/09–2024/02',
+    summary:
+      'Shipped cross-platform features on the Nutrien mobile app (iOS + Android) used offline-first by field reps in agriculture operations.',
+  },
+  {
+    title: 'Senior Software Engineer',
+    company: 'TxMQ',
+    dates: '2022/10–2023/06',
+    summary:
+      'Led an AI research initiative with OpenAI: prototyped LLM-assisted internal tooling on Angular / Ionic client surfaces — early applied-LLM production work, two years before the current agent wave.',
+  },
+  {
+    title: 'Senior Mobile Engineer',
+    company: 'Verizon',
+    dates: '2021/10–2022/11',
+    summary:
+      'Shipped the AMC Walking Dead NFT experience: custom blockchain + JS SDK inside the Verizon mobile app, production-grade for a tier-1 carrier launch.',
+  },
+]
+
+const skillGroups: Array<{ label: string; items: string[] }> = [
+  {
+    label: 'Languages',
+    items: ['TypeScript', 'Python', 'Rust', 'JavaScript'],
+  },
+  {
+    label: 'AI / Agents',
+    items: [
+      'Claude Code',
+      'Cursor',
+      'MCP servers',
+      'OpenAI SDK',
+      'Anthropic SDK',
+      'Agent infrastructure',
+      'RAG',
+    ],
+  },
+  {
+    label: 'Frameworks',
+    items: ['Next.js 16', 'React 19', 'NestJS', 'React Native'],
+  },
+  {
+    label: 'Backend',
+    items: ['Node.js', 'Convex', 'PostgreSQL', 'Redis'],
+  },
+  {
+    label: 'Infrastructure',
+    items: ['Railway', 'Docker', 'Cloudflare', 'Sentry', 'PostHog', 'Stripe', 'Resend'],
+  },
+]
 
 export default function Home() {
   return (
@@ -79,13 +257,17 @@ export default function Home() {
         {JSON.stringify(jsonLd)}
       </Script>
 
+      {/* Top anchor for nav Home link */}
+      <span id="top" className="sr-only" aria-hidden="true" />
+
       {/* Hero — single dark band */}
       <section className="bg-hero-bg text-hero-foreground py-20 lg:py-32">
         <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-[minmax(0,1fr)_auto] gap-12 lg:gap-20 items-start">
             <div className="max-w-[820px]">
               <h1 className="text-5xl md:text-6xl lg:text-[56px] leading-[1.05] tracking-tight font-semibold mb-6">
-                I build production agent infrastructure that{' '}
+                I&apos;m a senior full-stack engineer. Right now I&apos;m building
+                agent infrastructure that{' '}
                 <span className="text-primary">doesn&apos;t break</span>.
               </h1>
               <p
@@ -110,28 +292,28 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Proof-bundle stat panel — disabled for now, keep markup for later reinstatement.
+            {/* Observability log snippet — desktop only */}
             <aside
-              aria-label="OpenClaw VPS at a glance"
-              className="hidden lg:block w-[300px] rounded-lg border border-white/10 bg-white/[0.04] p-8"
+              aria-label="Observability live trace sample"
+              className="hidden lg:block w-[480px] rounded-lg border border-white/10 bg-white/[0.04] p-6"
             >
-              <p className="text-xs uppercase tracking-[0.14em] text-hero-muted mb-6">
-                OpenClaw VPS at a glance
+              <p className="text-[11px] uppercase tracking-[0.14em] text-hero-muted mb-4">
+                Observability · Live trace
               </p>
-              <div className="grid grid-cols-2 gap-x-6 gap-y-6">
-                {heroStats.map((stat) => (
-                  <div key={stat.label}>
-                    <div className="text-3xl font-semibold tracking-tight leading-none">
-                      {stat.value}
-                    </div>
-                    <div className="text-[11px] uppercase tracking-[0.1em] text-hero-muted mt-2">
-                      {stat.label}
-                    </div>
-                  </div>
-                ))}
-              </div>
+              <pre className="font-mono text-[11px] leading-[1.75] whitespace-pre overflow-x-auto">
+                {traceRows.map((row) => {
+                  const line = `[${row.ts}] req=${row.req} agent=${row.agent.padEnd(10)} tenant=${row.tenant}  tokens=${row.tokens.padStart(5)}  cost=${row.cost}  latency=${row.latency}  slo=${row.slo}`
+                  return (
+                    <code
+                      key={row.req}
+                      className={`block ${row.slo === 'warn' ? 'text-primary' : 'text-hero-muted'}`}
+                    >
+                      {line}
+                    </code>
+                  )
+                })}
+              </pre>
             </aside>
-            */}
           </div>
         </div>
       </section>
@@ -158,53 +340,45 @@ export default function Home() {
         </div>
       </section>
 
-      {/* What I do — ≤2 offerings */}
-      <section className="py-16 lg:py-24">
+      {/* How I work — 3 buyer-intent offerings */}
+      <section id="services" className="py-16 lg:py-24">
         <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl md:text-3xl tracking-tight mb-10">What I do</h2>
+          <h2 className="text-2xl md:text-3xl tracking-tight mb-10">How I work</h2>
 
-          <div className="grid md:grid-cols-2 gap-6 lg:gap-8">
-            <Card className="border-border">
-              <CardHeader>
-                <CardTitle className="text-xl">Production Agent Sprint</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground leading-relaxed mb-6">
-                  Four weeks. I ship a production-ready agent system — observability, budget
-                  controls, SLO gates, runbooks — on your stack or mine. You get working code, not
-                  a deck.
-                </p>
-                <p className="text-sm text-foreground">Starting at $5,000</p>
-              </CardContent>
-            </Card>
-
-            <Card className="border-border">
-              <CardHeader>
-                <CardTitle className="text-xl">Part-time IC</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground leading-relaxed mb-6">
-                  15–25 hours a week inside your team. I take the agent work no one else owns — the
-                  reliability, the latency budget, the on-call — and I ship.
-                </p>
-                <p className="text-sm text-foreground">Contract starting at $150/hr</p>
-              </CardContent>
-            </Card>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 items-stretch">
+            {offerings.map((o) => (
+              <Card key={o.title} className="border-border flex flex-col h-full">
+                <CardHeader>
+                  <span className="text-xs uppercase tracking-[0.08em] text-muted-foreground mb-3">
+                    {o.tag}
+                  </span>
+                  <CardTitle className="text-xl">{o.title}</CardTitle>
+                </CardHeader>
+                <CardContent className="flex flex-col flex-1">
+                  <p className="text-muted-foreground leading-relaxed mb-6">
+                    {o.body}
+                  </p>
+                  <div className="mt-auto space-y-3 pt-4 border-t border-border/60">
+                    <p className="text-sm font-medium text-foreground">{o.meta}</p>
+                    <p className="text-xs italic text-muted-foreground">
+                      {o.deliverable}
+                    </p>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Featured Projects */}
-      <section className="py-16 lg:py-24 bg-white border-y border-border">
+      {/* Featured Projects — equal-weight 3-col */}
+      <section id="projects" className="py-16 lg:py-24 bg-white border-y border-border">
         <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-2xl md:text-3xl tracking-tight mb-10">Featured projects</h2>
 
-          <div className="grid lg:grid-cols-3 gap-6 lg:gap-8">
-            {/* OpenClaw VPS — lead, spans 2 columns on desktop */}
-            <Card
-              className="lg:col-span-2 border-border"
-              style={{ boxShadow: 'var(--shadow-xl)' }}
-            >
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 items-stretch">
+            {/* OpenClaw VPS */}
+            <Card className="border-border flex flex-col h-full">
               <CardHeader>
                 <div className="flex flex-wrap items-center gap-3 mb-3">
                   <span className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.08em] text-muted-foreground">
@@ -212,19 +386,15 @@ export default function Home() {
                       <span className="absolute inline-flex w-full h-full rounded-full bg-primary opacity-60 animate-[pulse_2s_ease-in-out_infinite]" />
                       <span className="relative inline-flex w-2 h-2 rounded-full bg-primary" />
                     </span>
-                    Live
-                  </span>
-                  <span className="text-xs text-muted-foreground">
-                    $120 MRR · ~3 paying customers
+                    Live · $120 MRR · ~3 paying customers
                   </span>
                 </div>
-                <CardTitle className="text-2xl md:text-3xl">OpenClaw VPS</CardTitle>
+                <CardTitle className="text-xl">OpenClaw VPS</CardTitle>
               </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground leading-relaxed mb-6">
+              <CardContent className="flex flex-col flex-1">
+                <p className="text-muted-foreground leading-relaxed text-sm mb-6">
                   Managed AI agent hosting at Strataga LLC: multi-tenant, BYOK, multi-channel
-                  delivery (web / Telegram / Tailscale), per-tenant cost and latency observability,
-                  SLO-gated deploys, incident lifecycle tracking, and 337 Vitest tests backing it.
+                  delivery, per-tenant cost and latency observability, SLO-gated deploys.
                 </p>
 
                 <div className="flex flex-wrap gap-2 mb-6">
@@ -239,66 +409,68 @@ export default function Home() {
                   ))}
                 </div>
 
-                <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm mb-6 items-center">
-                  <span className="text-xs uppercase tracking-[0.08em] text-muted-foreground">
-                    Launched on
-                  </span>
+                <div className="mt-auto space-y-3">
+                  <div className="flex flex-wrap gap-x-4 gap-y-1.5 text-xs items-center">
+                    <span className="uppercase tracking-[0.08em] text-muted-foreground">
+                      Launched on
+                    </span>
+                    <a
+                      href="https://www.producthunt.com/products/openclaw-vps"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-muted-foreground hover:text-primary transition-colors"
+                    >
+                      Product Hunt
+                    </a>
+                    <a
+                      href="https://news.ycombinator.com/item?id=47507993"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-muted-foreground hover:text-primary transition-colors"
+                    >
+                      Hacker News
+                    </a>
+                    <a
+                      href="https://www.indiehackers.com/product/openclaw-vps"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-muted-foreground hover:text-primary transition-colors"
+                    >
+                      Indie Hackers
+                    </a>
+                    <a
+                      href="https://fazier.com/launches/openclawvps.com"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-muted-foreground hover:text-primary transition-colors"
+                    >
+                      Fazier
+                    </a>
+                    <a
+                      href="https://dev.to/jcochranio"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-muted-foreground hover:text-primary transition-colors"
+                    >
+                      Dev.to
+                    </a>
+                  </div>
+
                   <a
-                    href="https://www.producthunt.com/products/openclaw-vps"
+                    href="https://openclawvps.com"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                    className="inline-flex items-center gap-1.5 text-sm text-primary hover:underline underline-offset-4"
                   >
-                    Product Hunt
-                  </a>
-                  <a
-                    href="https://news.ycombinator.com/item?id=47507993"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-sm text-muted-foreground hover:text-primary transition-colors"
-                  >
-                    Hacker News
-                  </a>
-                  <a
-                    href="https://www.indiehackers.com/product/openclaw-vps"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-sm text-muted-foreground hover:text-primary transition-colors"
-                  >
-                    Indie Hackers
-                  </a>
-                  <a
-                    href="https://fazier.com/launches/openclawvps.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-sm text-muted-foreground hover:text-primary transition-colors"
-                  >
-                    Fazier
-                  </a>
-                  <a
-                    href="https://dev.to/jcochranio"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-sm text-muted-foreground hover:text-primary transition-colors"
-                  >
-                    Dev.to
+                    openclawvps.com
+                    <ExternalLink className="w-3.5 h-3.5" />
                   </a>
                 </div>
-
-                <a
-                  href="https://openclawvps.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 text-sm text-primary hover:underline underline-offset-4"
-                >
-                  openclawvps.com
-                  <ExternalLink className="w-3.5 h-3.5" />
-                </a>
               </CardContent>
             </Card>
 
-            {/* BigGig.io — second */}
-            <Card className="border-border">
+            {/* BigGig.io */}
+            <Card className="border-border flex flex-col h-full">
               <CardHeader>
                 <div className="mb-3">
                   <span className="inline-flex items-center text-xs uppercase tracking-[0.08em] text-muted-foreground">
@@ -307,13 +479,13 @@ export default function Home() {
                 </div>
                 <CardTitle className="text-xl">BigGig.io</CardTitle>
               </CardHeader>
-              <CardContent>
+              <CardContent className="flex flex-col flex-1">
                 <p className="text-muted-foreground leading-relaxed text-sm mb-6">
                   Strataga&apos;s freelancer marketplace — the platform I would want to use to
                   find work.
                 </p>
 
-                <div className="flex flex-wrap gap-2">
+                <div className="mt-auto flex flex-wrap gap-2">
                   {bigGigTechStack.map((tech) => (
                     <Badge
                       key={tech}
@@ -327,8 +499,8 @@ export default function Home() {
               </CardContent>
             </Card>
 
-            {/* Fathomless — third */}
-            <Card className="border-border lg:col-start-3">
+            {/* Fathomless */}
+            <Card className="border-border flex flex-col h-full">
               <CardHeader>
                 <div className="mb-3">
                   <span className="inline-flex items-center text-xs uppercase tracking-[0.08em] text-muted-foreground">
@@ -337,13 +509,13 @@ export default function Home() {
                 </div>
                 <CardTitle className="text-xl">Fathomless: The Descent</CardTitle>
               </CardHeader>
-              <CardContent>
+              <CardContent className="flex flex-col flex-1">
                 <p className="text-muted-foreground leading-relaxed text-sm mb-6">
                   First-person grid-based dungeon crawler in the spirit of{' '}
                   <em>Eye of the Beholder</em> — D&amp;D on the surface, cosmic horror underneath.
                 </p>
 
-                <div className="flex flex-wrap gap-2">
+                <div className="mt-auto flex flex-wrap gap-2">
                   {fathomlessTechStack.map((tech) => (
                     <Badge
                       key={tech}
@@ -360,16 +532,125 @@ export default function Home() {
         </div>
       </section>
 
-      {/* About paragraph */}
-      <section className="py-16 lg:py-24">
+      {/* Experience — folded resume */}
+      <section id="experience" className="py-16 lg:py-24">
+        <div className="max-w-[820px] mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-2xl md:text-3xl tracking-tight mb-4">Experience</h2>
+          <p className="text-muted-foreground leading-relaxed mb-10">
+            28 years shipping production software across agriculture, energy, healthcare
+            adjacent, fintech, and mobile. Recent focus: agent infrastructure.
+          </p>
+
+          <p className="text-sm text-muted-foreground mb-10">
+            Senior Full-Stack Engineer · Agent Infrastructure
+          </p>
+
+          <div className="space-y-8 mb-12">
+            {experience.map((entry) => (
+              <article key={`${entry.company}-${entry.dates}`}>
+                <h3 className="text-base font-semibold">
+                  {entry.title} — {entry.company}
+                </h3>
+                <p className="text-sm text-muted-foreground mb-2">{entry.dates}</p>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  {entry.summary}
+                </p>
+              </article>
+            ))}
+          </div>
+
+          <div className="mb-12">
+            <h3 className="text-sm font-semibold uppercase tracking-[0.08em] mb-3">
+              Earlier Experience
+            </h3>
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              <span className="font-semibold text-foreground">2015–2021</span> Solutions
+              Architect (self-employed, 30+ shipped projects across oil/gas, travel, and
+              enterprise; Key Energy, Warren Equipment, Enertia, OneTravel.com).
+            </p>
+          </div>
+
+          <div className="mb-12">
+            <h3 className="text-sm font-semibold uppercase tracking-[0.08em] mb-4">Skills</h3>
+            <div className="space-y-4">
+              {skillGroups.map((group) => (
+                <div key={group.label}>
+                  <p className="text-xs font-semibold uppercase tracking-[0.08em] text-muted-foreground mb-2">
+                    {group.label}
+                  </p>
+                  <div className="flex flex-wrap gap-2">
+                    {group.items.map((item) => (
+                      <Badge
+                        key={item}
+                        variant="secondary"
+                        className="font-normal bg-muted text-muted-foreground hover:bg-muted"
+                      >
+                        {item}
+                      </Badge>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="flex flex-wrap items-center gap-4 mb-10">
+            <a
+              href="/jason-cochran-resume.pdf"
+              download
+              className="inline-flex items-center gap-2 text-sm bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 rounded-md font-semibold transition-colors"
+            >
+              <Download className="w-4 h-4" />
+              Download full resume (PDF)
+            </a>
+          </div>
+
+          <div className="flex flex-wrap gap-x-5 gap-y-2 text-sm text-muted-foreground">
+            <a
+              href="mailto:jlcochran2013@gmail.com"
+              className="inline-flex items-center gap-1.5 hover:text-primary transition-colors"
+            >
+              <Mail className="w-3.5 h-3.5" />
+              jlcochran2013@gmail.com
+            </a>
+            <a href="https://jasoncochran.io" className="hover:text-primary transition-colors">
+              jasoncochran.io
+            </a>
+            <a
+              href="https://linkedin.com/in/cochranjason"
+              className="inline-flex items-center gap-1.5 hover:text-primary transition-colors"
+            >
+              <Linkedin className="w-3.5 h-3.5" />
+              linkedin.com/in/cochranjason
+            </a>
+            <span>Midland, TX (remote, US)</span>
+          </div>
+        </div>
+      </section>
+
+      {/* About */}
+      <section id="about" className="py-16 lg:py-24 bg-white border-y border-border">
         <div className="max-w-[680px] mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-2xl md:text-3xl tracking-tight mb-6">About</h2>
           <p className="text-muted-foreground leading-relaxed">
-            I&apos;m a software engineer who builds production agent systems. I shipped OpenClaw
-            VPS at Strataga LLC: live, paying customers, per-tenant observability, SLO gates. I
-            work remote from Midland, TX. I take sprint contracts and part-time IC roles with
-            teams running agents in production.
+            I&apos;m a senior full-stack engineer. 28 years of production software behind me;
+            my current focus is agent infrastructure at Strataga LLC. I shipped OpenClaw VPS —
+            live, paying customers, per-tenant observability, SLO gates. I work remote from
+            Midland, TX. I take sprint contracts, production-hardening engagements, and
+            part-time embedded roles with teams running agents in production.
           </p>
+        </div>
+      </section>
+
+      {/* Contact */}
+      <section id="contact" className="py-16 lg:py-24">
+        <div className="max-w-[680px] mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-2xl md:text-3xl tracking-tight mb-4">Talk to me</h2>
+          <p className="text-muted-foreground leading-relaxed mb-10">
+            If any of the cards above sound like you, send a note. One-sentence reply within
+            24 hours.
+          </p>
+          <ContactForm />
         </div>
       </section>
 
@@ -406,19 +687,19 @@ export default function Home() {
 
             <div className="flex flex-wrap gap-x-6 gap-y-2">
               <Link
-                href="/resume"
+                href="/#experience"
                 className="text-sm text-muted-foreground hover:text-foreground transition-colors"
               >
                 Resume
               </Link>
               <Link
-                href="/projects"
+                href="/#projects"
                 className="text-sm text-muted-foreground hover:text-foreground transition-colors"
               >
                 Projects
               </Link>
               <Link
-                href="/contact"
+                href="/#contact"
                 className="text-sm text-muted-foreground hover:text-foreground transition-colors"
               >
                 Contact

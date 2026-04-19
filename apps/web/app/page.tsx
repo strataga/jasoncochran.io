@@ -1,648 +1,425 @@
 import Link from 'next/link'
-import Image from 'next/image'
+import Script from 'next/script'
 import type { Metadata } from 'next'
-import { ArrowRight, Layers, Code2, ExternalLink } from 'lucide-react'
-import { SOCIAL_LINKS } from '@/lib/social'
+import { ArrowRight, ExternalLink, Linkedin, Github, Mail } from 'lucide-react'
+import { Button } from '@/components/ui/button'
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+import { Badge } from '@/components/ui/badge'
 
 export const metadata: Metadata = {
-  title: 'Jason Cochran - Software Engineer | AI & Automation Specialist',
-  description: 'Software Engineer with 28 years experience. Specializing in AI-assisted development, automation, and modern software architecture. Ship production-ready software in weeks, not months.',
-  keywords: ['Jason Cochran', 'Software Engineer', 'AI Development', 'Automation', 'React', 'Next.js', 'NestJS', 'TypeScript', 'Full Stack Developer'],
-  openGraph: {
-    title: 'Jason Cochran - Software Engineer | AI & Automation Specialist',
-    description: '28 years experience building enterprise applications. AI-enhanced workflows for rapid development.',
-    type: 'website',
-    url: 'https://jasoncochran.io',
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Jason Cochran - Software Engineer | AI & Automation Specialist',
-    description: 'AI-Powered Software Development workflows. Ship faster with modern tooling.',
-  },
+  title: 'Jason Cochran — Production AI Agent Infrastructure',
+  description:
+    'I build production agent infrastructure that does not break in prod. Built OpenClaw VPS — live multi-tenant agent hosting with paying customers.',
   alternates: {
     canonical: 'https://jasoncochran.io',
   },
 }
 
-export default function Home() {
-  const jsonLd = {
-    '@context': 'https://schema.org',
-    '@type': 'Person',
-    name: 'Jason Cochran',
-    jobTitle: 'Software Engineer | AI & Automation Specialist',
-    description: 'Software Engineer with 28 years of experience. Specializes in AI-assisted development, automation workflows, and modern software architecture for rapid application delivery.',
-    url: 'https://jasoncochran.io',
-    sameAs: [
-      'https://www.linkedin.com/in/cochranjason/',
-      'https://x.com/jcochranio',
-    ],
-    knowsAbout: [
-      'JavaScript',
-      'TypeScript',
-      'React',
-      'React Native',
-      'Next.js',
-      'Node.js',
-      'NestJS',
-      'Rust',
-      'PostgreSQL',
-      'MongoDB',
-      'Azure',
-      'AWS',
-      'AI-Assisted Development',
-      'Automation',
-      'Full-Stack Development',
-      'Enterprise Architecture',
-      'Multi-tenant SaaS',
-    ],
-    alumniOf: 'Self-taught Software Engineer',
-    award: [
-      'Microsoft Azure Fundamentals (AZ-900)',
-      'Microsoft Azure AI Fundamentals (AI-900)',
-    ],
-  }
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: 'Jason Cochran',
+  jobTitle: 'Production AI Agent Infrastructure Engineer',
+  description:
+    'Builds production agent infrastructure. Shipped OpenClaw VPS — live multi-tenant agent hosting platform with paying customers, per-tenant cost and latency observability, SLO-gated deploys.',
+  url: 'https://jasoncochran.io',
+  sameAs: [
+    'https://www.linkedin.com/in/cochranjason/',
+    'https://x.com/jcochranio',
+    'https://github.com/jcochranio',
+  ],
+}
 
+// UI-SPEC: Primary CTA target.
+// Loom URL is DEFERRED per .planning/phases/01-positioning-asset-rewrite/01-LOOM-URL.md —
+// until Jason records and uploads, the hero primary CTA links to the live product
+// (honesty constraint: no dead links).
+const PRIMARY_CTA_HREF = 'https://openclawvps.com'
+const PRIMARY_CTA_LABEL = 'See the live product'
+
+const featuredOn = [
+  { label: 'Product Hunt', href: 'https://www.producthunt.com/products/openclaw-vps' },
+  { label: 'Hacker News', href: 'https://news.ycombinator.com/item?id=47507993' },
+  { label: 'Indie Hackers', href: 'https://www.indiehackers.com/product/openclaw-vps' },
+  { label: 'Fazier', href: 'https://fazier.com/launches/openclawvps.com' },
+  { label: 'Dev.to', href: 'https://dev.to/jcochranio' },
+]
+
+const openClawTechStack = [
+  'Next.js 16',
+  'React 19',
+  'Convex',
+  'Stripe',
+  'Sentry',
+  'PostHog',
+  'Claude Code',
+  'MCP',
+]
+
+export default function Home() {
   return (
     <>
-      <script
+      <Script
+        id="jsonld-home"
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
-      <div className="relative">
-        {/* Hero Section */}
-        <section className="py-16 md:py-24" style={{ background: 'var(--pop-cream)' }}>
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
-              {/* Left Column - Text Content */}
-              <div className="animate-slide-up text-center lg:text-left">
-                <div className="badge-pop mb-8 inline-block">
-                  AI-Powered Software Development
-                </div>
+        strategy="beforeInteractive"
+      >
+        {JSON.stringify(jsonLd)}
+      </Script>
 
-                <h1 className="text-5xl md:text-6xl lg:text-7xl mb-4" style={{
-                  fontFamily: 'var(--font-headline)',
-                  color: 'var(--pop-black)',
-                  lineHeight: '0.95'
-                }}>
-                  Jason Cochran
-                </h1>
+      {/* Hero — single dark band */}
+      <section className="bg-hero-bg text-hero-foreground py-20 lg:py-32">
+        <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-[820px]">
+            <h1 className="text-5xl md:text-6xl lg:text-[56px] leading-[1.05] tracking-tight font-semibold mb-6">
+              I build production agent infrastructure that{' '}
+              <span className="text-primary">doesn&apos;t break</span>.
+            </h1>
+            <p
+              className="text-lg md:text-xl leading-relaxed mb-10 text-hero-muted"
+              style={{ maxWidth: '580px' }}
+            >
+              I shipped OpenClaw VPS — a live multi-tenant agent hosting platform at Strataga LLC
+              with paying customers, per-tenant cost and latency observability, SLO-gated deploys,
+              and 337 tests backing it.
+            </p>
 
-                <h2 className="text-3xl md:text-4xl mb-2" style={{
-                  fontFamily: 'var(--font-headline)',
-                  color: 'var(--pop-red)'
-                }}>
-                  Software Engineer & AI Specialist
-                </h2>
-
-                <p className="text-lg mb-8 leading-relaxed mx-auto lg:mx-0" style={{
-                  fontFamily: 'var(--font-body)',
-                  color: 'var(--text-secondary)',
-                  maxWidth: '540px'
-                }}>
-                  Building the future with AI-assisted development and automation.
-                  28 years of engineering experience combined with cutting-edge AI tooling
-                  means shipping production-ready software in weeks, not months.
-                  From complex enterprise systems to rapid MVPs.
-                </p>
-
-                <div className="flex flex-col sm:flex-row gap-4 mb-8 justify-center lg:justify-start">
-                  <Link href="/contact" className="btn-pop btn-pop-primary">
-                    Let's Work Together
-                  </Link>
-                  <Link href="/resume" className="btn-pop btn-pop-secondary">
-                    View Resume
-                  </Link>
-                </div>
-
-                {/* Social Links */}
-                <div className="flex flex-wrap gap-4 justify-center lg:justify-start">
-                  {SOCIAL_LINKS.map((link) => {
-                    const Icon = link.icon
-                    return (
-                      <a
-                        key={link.key}
-                        href={link.href}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="btn-pop btn-pop-primary w-full sm:w-auto justify-center"
-                        style={{ padding: '0.75rem 1.25rem' }}
-                        aria-label={`Connect with Jason Cochran on ${link.label}`}
-                      >
-                        <Icon className="w-5 h-5" />
-                        <span>{link.handle || link.label}</span>
-                      </a>
-                    )
-                  })}
-                </div>
-              </div>
-
-              {/* Right Column - Photo & Stats */}
-              <div className="animate-pop-in" style={{ animationDelay: '0.2s' }}>
-                <div
-                  className="relative w-full h-[70vh] sm:h-auto sm:aspect-square max-w-md mx-auto overflow-hidden"
-                  style={{ minHeight: '360px' }}
-                >
-                  {/* Photo Container */}
-                  <div className="frame-pop w-full h-full overflow-hidden">
-                    <Image
-                      src="/jason_cochran_photo.webp"
-                      alt="Jason Cochran - Software Engineer | AI & Automation Specialist"
-                      fill
-                      className="object-cover rounded-xl border-4 border-[var(--pop-black)]"
-                      priority
-                    />
-                  </div>
-                </div>
-
-                {/* Stats */}
-                <div className="grid grid-cols-2 gap-4 mt-8">
-                  <div className="stat-pop">
-                    <div className="stat-pop-number">28+</div>
-                    <div className="stat-pop-label">Years Exp</div>
-                  </div>
-                  <div className="stat-pop">
-                    <div className="stat-pop-number">100+</div>
-                    <div className="stat-pop-label">Projects</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* AI & Automation Section */}
-        <section className="py-20" style={{ background: 'var(--pop-white)', borderTop: '4px solid var(--pop-black)' }}>
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-16">
-              <h2 className="section-header text-4xl md:text-5xl mb-4">
-                AI-Powered Software Development
-              </h2>
-              <p className="text-lg mt-8" style={{ color: 'var(--text-secondary)', maxWidth: '600px', margin: '2rem auto 0' }}>
-                Leveraging AI tools to ship faster without sacrificing quality
-              </p>
-            </div>
-
-            <div className="grid md:grid-cols-3 gap-8">
-              <div className="card-pop p-8">
-                <div className="text-4xl mb-4">🤖</div>
-                <h3 className="text-xl mb-4" style={{ fontFamily: 'var(--font-headline)' }}>Claude Code & Cursor</h3>
-                <p style={{ color: 'var(--text-secondary)', lineHeight: '1.7' }}>
-                  AI handles boilerplate, refactoring, and test generation while I focus on architecture,
-                  business logic, and system design. 10x development velocity.
-                </p>
-              </div>
-
-              <div className="card-pop p-8">
-                <div className="text-4xl mb-4">⚡</div>
-                <h3 className="text-xl mb-4" style={{ fontFamily: 'var(--font-headline)' }}>Automation First</h3>
-                <p style={{ color: 'var(--text-secondary)', lineHeight: '1.7' }}>
-                  CI/CD pipelines, automated testing, infrastructure as code, and deployment automation.
-                  Ship with confidence multiple times a day.
-                </p>
-              </div>
-
-              <div className="card-pop p-8">
-                <div className="text-4xl mb-4">🎯</div>
-                <h3 className="text-xl mb-4" style={{ fontFamily: 'var(--font-headline)' }}>Rapid Prototyping</h3>
-                <p style={{ color: 'var(--text-secondary)', lineHeight: '1.7' }}>
-                  From concept to working prototype in days, not weeks.
-                  Modern frameworks + AI tooling = unprecedented development speed.
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Services & Engagements */}
-        <section className="py-20" style={{ background: 'var(--pop-cream)', borderTop: '4px solid var(--pop-black)' }}>
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-12">
-              <h2 className="section-header text-4xl md:text-5xl mb-4">Services & Engagements</h2>
-              <p
-                className="text-lg"
-                style={{ color: 'var(--text-secondary)', maxWidth: '720px', margin: '0 auto' }}
+            <div className="flex flex-col sm:flex-row gap-4 items-start sm:items-center">
+              <Button
+                asChild
+                className="bg-primary text-primary-foreground hover:bg-primary/90 font-semibold h-11 px-6"
               >
-                Practical, time-boxed engagements that get you to production fast. Clear scope, clear
-                timelines, rapid delivery.
-              </p>
-            </div>
-
-            <div className="grid md:grid-cols-2 xl:grid-cols-4 gap-6">
-              <div className="card-pop p-6 h-full">
-                <div className="flex items-center justify-between mb-4">
-                  <h3 className="text-xl font-bold" style={{ fontFamily: 'var(--font-headline)' }}>
-                    AI MVP Sprint
-                  </h3>
-                  <span className="tag-pop">2-4 weeks</span>
-                </div>
-                <p className="text-[var(--text-secondary)] mb-4" style={{ fontFamily: 'var(--font-body)' }}>
-                  Ship a working prototype with AI features, auth, payments, and telemetry baked in.
-                </p>
-                <ul className="space-y-2 text-sm" style={{ fontFamily: 'var(--font-body)' }}>
-                  <li className="flex items-start gap-2">
-                    <span className="text-[var(--pop-red)]">•</span>
-                    Clickable UI + hosted preview
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-[var(--pop-red)]">•</span>
-                    Clean API layer + tests
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-[var(--pop-red)]">•</span>
-                    Handoff docs & next steps
-                  </li>
-                </ul>
-              </div>
-
-              <div className="card-pop p-6 h-full">
-                <div className="flex items-center justify-between mb-4">
-                  <h3 className="text-xl font-bold" style={{ fontFamily: 'var(--font-headline)' }}>
-                    Automation & Agents
-                  </h3>
-                  <span className="tag-pop">2-6 weeks</span>
-                </div>
-                <p className="text-[var(--text-secondary)] mb-4" style={{ fontFamily: 'var(--font-body)' }}>
-                  Design and ship agentic workflows that plug into your stack and cut manual effort.
-                </p>
-                <ul className="space-y-2 text-sm" style={{ fontFamily: 'var(--font-body)' }}>
-                  <li className="flex items-start gap-2">
-                    <span className="text-[var(--pop-red)]">•</span>
-                    Integrations with CRMs, data stores, and APIs
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-[var(--pop-red)]">•</span>
-                    Guardrails, monitoring, and human-in-the-loop
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-[var(--pop-red)]">•</span>
-                    ROI-driven playbooks & dashboards
-                  </li>
-                </ul>
-              </div>
-
-              <div className="card-pop p-6 h-full">
-                <div className="flex items-center justify-between mb-4">
-                  <h3 className="text-xl font-bold" style={{ fontFamily: 'var(--font-headline)' }}>
-                    Platform Modernization
-                  </h3>
-                  <span className="tag-pop">3-8 weeks</span>
-                </div>
-                <p className="text-[var(--text-secondary)] mb-4" style={{ fontFamily: 'var(--font-body)' }}>
-                  Architecture reviews, performance tuning, and pragmatic refactors without downtime.
-                </p>
-                <ul className="space-y-2 text-sm" style={{ fontFamily: 'var(--font-body)' }}>
-                  <li className="flex items-start gap-2">
-                    <span className="text-[var(--pop-red)]">•</span>
-                    Modular boundaries & DX upgrades
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-[var(--pop-red)]">•</span>
-                    CI/CD hardening & observability
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-[var(--pop-red)]">•</span>
-                    Security & cost optimization checklist
-                  </li>
-                </ul>
-              </div>
-
-              <div className="card-pop p-6 h-full">
-                <div className="flex items-center justify-between mb-4">
-                  <h3 className="text-xl font-bold" style={{ fontFamily: 'var(--font-headline)' }}>
-                    Advisory & Fractional CTO
-                  </h3>
-                  <span className="tag-pop">Monthly</span>
-                </div>
-                <p className="text-[var(--text-secondary)] mb-4" style={{ fontFamily: 'var(--font-body)' }}>
-                  Ongoing partnership for roadmap shaping, hiring, vendor evals, and technical due diligence.
-                </p>
-                <ul className="space-y-2 text-sm" style={{ fontFamily: 'var(--font-body)' }}>
-                  <li className="flex items-start gap-2">
-                    <span className="text-[var(--pop-red)]">•</span>
-                    Weekly check-ins & async support
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-[var(--pop-red)]">•</span>
-                    Architecture reviews & risk mapping
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-[var(--pop-red)]">•</span>
-                    Hiring & vendor selection support
-                  </li>
-                </ul>
-              </div>
-            </div>
-
-            <div className="grid md:grid-cols-3 gap-6 mt-10">
-              <div className="stat-pop">
-                <div className="stat-pop-number">28+</div>
-                <div className="stat-pop-label">Years Engineering</div>
-              </div>
-              <div className="stat-pop">
-                <div className="stat-pop-number">100+</div>
-                <div className="stat-pop-label">Projects Shipped</div>
-              </div>
-              <div className="stat-pop">
-                <div className="stat-pop-number">2-6</div>
-                <div className="stat-pop-label">Week delivery windows</div>
-              </div>
+                <a href={PRIMARY_CTA_HREF} target="_blank" rel="noopener noreferrer">
+                  {PRIMARY_CTA_LABEL}
+                  <ArrowRight className="w-4 h-4" />
+                </a>
+              </Button>
+              <a
+                href="https://openclawvps.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm text-hero-muted hover:text-hero-foreground transition-colors inline-flex items-center gap-1.5"
+              >
+                See OpenClaw VPS
+                <ArrowRight className="w-3.5 h-3.5" />
+              </a>
             </div>
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* Featured Projects Section */}
-        <section className="py-20" style={{ background: 'var(--pop-gray)', borderTop: '4px solid var(--pop-black)' }}>
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-16">
-              <h2 className="section-header text-4xl md:text-5xl mb-4">
-                Featured Projects
-              </h2>
-              <p className="text-lg mt-8" style={{ color: 'var(--text-secondary)', maxWidth: '600px', margin: '2rem auto 0' }}>
-                Production software shipped for real users and real businesses
-              </p>
-            </div>
+      {/* Featured On row */}
+      <section className="py-12 border-b border-border">
+        <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
+          <p className="text-xs tracking-[0.12em] uppercase text-muted-foreground mb-6">
+            Featured on
+          </p>
+          <div className="flex flex-wrap gap-x-8 gap-y-3">
+            {featuredOn.map((mark) => (
+              <a
+                key={mark.label}
+                href={mark.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm text-muted-foreground hover:text-primary transition-colors"
+              >
+                {mark.label}
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
 
-            <div className="grid md:grid-cols-2 gap-8">
-              {/* OpenClaw VPS */}
-              <article className="project-card group relative">
-                <div className="absolute top-0 left-0 w-full h-2 bg-[var(--pop-blue)]"></div>
+      {/* What I do — ≤2 offerings */}
+      <section className="py-16 lg:py-24">
+        <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-2xl md:text-3xl tracking-tight mb-10">What I do</h2>
 
-                <div className="mb-6 pt-4">
-                  <h3 className="text-3xl text-[var(--pop-black)] mb-2" style={{ fontFamily: 'var(--font-headline)' }}>
-                    OpenClaw VPS
-                  </h3>
-                  <span className="tag-pop">
-                    Service • AI Hosting
+          <div className="grid md:grid-cols-2 gap-6 lg:gap-8">
+            <Card className="border-border">
+              <CardHeader>
+                <CardTitle className="text-xl">Production Agent Sprint</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-muted-foreground leading-relaxed mb-6">
+                  Four weeks. I ship a production-ready agent system — observability, budget
+                  controls, SLO gates, runbooks — on your stack or mine. You get working code, not
+                  a deck.
+                </p>
+                <p className="text-sm text-foreground">Starting at $5,000</p>
+              </CardContent>
+            </Card>
+
+            <Card className="border-border">
+              <CardHeader>
+                <CardTitle className="text-xl">Part-time IC</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-muted-foreground leading-relaxed mb-6">
+                  15–25 hours a week inside your team. I take the agent work no one else owns — the
+                  reliability, the latency budget, the on-call — and I ship.
+                </p>
+                <p className="text-sm text-foreground">Contract starting at $150/hr</p>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Featured Projects */}
+      <section className="py-16 lg:py-24 bg-white border-y border-border">
+        <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-2xl md:text-3xl tracking-tight mb-10">Featured projects</h2>
+
+          <div className="grid lg:grid-cols-3 gap-6 lg:gap-8">
+            {/* OpenClaw VPS — lead, spans 2 columns on desktop */}
+            <Card
+              className="lg:col-span-2 border-border"
+              style={{ boxShadow: 'var(--shadow-xl)' }}
+            >
+              <CardHeader>
+                <div className="flex flex-wrap items-center gap-3 mb-3">
+                  <span className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.08em] text-muted-foreground">
+                    <span className="relative inline-flex w-2 h-2">
+                      <span className="absolute inline-flex w-full h-full rounded-full bg-primary opacity-60 animate-[pulse_2s_ease-in-out_infinite]" />
+                      <span className="relative inline-flex w-2 h-2 rounded-full bg-primary" />
+                    </span>
+                    Live
+                  </span>
+                  <span className="text-xs text-muted-foreground">
+                    $120 MRR · ~3 paying customers
                   </span>
                 </div>
-
-                <p className="text-[var(--text-secondary)] mb-6 leading-relaxed" style={{ fontFamily: 'var(--font-body)' }}>
-                  Managed hosting platform for OpenClaw AI assistants. Zero-DevOps deployment with done-for-you setup
-                  packages and predictable monthly hosting plans.
+                <CardTitle className="text-2xl md:text-3xl">OpenClaw VPS</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-muted-foreground leading-relaxed mb-6">
+                  Managed AI agent hosting at Strataga LLC: multi-tenant, BYOK, multi-channel
+                  delivery (web / Telegram / Tailscale), per-tenant cost and latency observability,
+                  SLO-gated deploys, incident lifecycle tracking, and 337 Vitest tests backing it.
                 </p>
 
-                <div className="mb-6">
-                  <h4 className="font-bold text-[var(--pop-black)] mb-3 flex items-center gap-2" style={{ fontFamily: 'var(--font-headline)' }}>
-                    <Layers className="w-5 h-5 text-[var(--pop-red)]" />
-                    ARCHITECTURE HIGHLIGHTS
-                  </h4>
-                  <ul className="space-y-2 text-sm text-[var(--text-secondary)]" style={{ fontFamily: 'var(--font-body)' }}>
-                    <li className="flex items-start">
-                      <span className="text-[var(--pop-red)] mr-2 font-bold">•</span>
-                      <span>White-glove onboarding with discovery calls and training</span>
-                    </li>
-                    <li className="flex items-start">
-                      <span className="text-[var(--pop-red)] mr-2 font-bold">•</span>
-                      <span>Polar integration for one-time and recurring payments</span>
-                    </li>
-                    <li className="flex items-start">
-                      <span className="text-[var(--pop-red)] mr-2 font-bold">•</span>
-                      <span>Real-time booking and survey tracking with Convex</span>
-                    </li>
-                    <li className="flex items-start">
-                      <span className="text-[var(--pop-red)] mr-2 font-bold">•</span>
-                      <span>Turnstile bot protection and rate limiting</span>
-                    </li>
-                  </ul>
+                <div className="flex flex-wrap gap-2 mb-6">
+                  {openClawTechStack.map((tech) => (
+                    <Badge
+                      key={tech}
+                      variant="secondary"
+                      className="font-normal bg-muted text-muted-foreground hover:bg-muted"
+                    >
+                      {tech}
+                    </Badge>
+                  ))}
                 </div>
 
-                <div className="mb-6">
-                  <h4 className="font-bold text-[var(--pop-black)] mb-3 flex items-center gap-2" style={{ fontFamily: 'var(--font-headline)' }}>
-                    <Code2 className="w-5 h-5 text-[var(--pop-blue)]" />
-                    TECH STACK
-                  </h4>
-                  <div className="flex flex-wrap gap-2">
-                    <span className="tag-pop">Next.js</span>
-                    <span className="tag-pop">TypeScript</span>
-                    <span className="tag-pop">Convex</span>
-                    <span className="tag-pop">Polar</span>
-                    <span className="tag-pop">Turnstile</span>
-                  </div>
-                </div>
-
-                <div className="flex flex-wrap gap-4">
+                <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm mb-6 items-center">
+                  <span className="text-xs uppercase tracking-[0.08em] text-muted-foreground">
+                    Launched on
+                  </span>
                   <a
-                    href="https://openclawvps.com"
-                    className="inline-flex items-center text-[var(--pop-blue)] font-bold hover:underline underline-offset-4"
-                    style={{ fontFamily: 'var(--font-headline)', fontSize: '1.1rem' }}
+                    href="https://www.producthunt.com/products/openclaw-vps"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-sm text-muted-foreground hover:text-primary transition-colors"
                   >
-                    VISIT SITE
-                    <ExternalLink className="w-5 h-5 ml-2" />
+                    Product Hunt
                   </a>
-                  <Link
-                    href="/projects/openclaw-vps"
-                    className="inline-flex items-center text-[var(--pop-red)] font-bold hover:underline underline-offset-4"
-                    style={{ fontFamily: 'var(--font-headline)', fontSize: '1.1rem' }}
+                  <a
+                    href="https://news.ycombinator.com/item?id=47507993"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-sm text-muted-foreground hover:text-primary transition-colors"
                   >
-                    VIEW CASE STUDY
-                    <ArrowRight className="w-5 h-5 ml-2" />
-                  </Link>
+                    Hacker News
+                  </a>
+                  <a
+                    href="https://www.indiehackers.com/product/openclaw-vps"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                  >
+                    Indie Hackers
+                  </a>
+                  <a
+                    href="https://fazier.com/launches/openclawvps.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                  >
+                    Fazier
+                  </a>
+                  <a
+                    href="https://dev.to/jcochranio"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                  >
+                    Dev.to
+                  </a>
                 </div>
-              </article>
 
-              {/* WellOS */}
-              <article className="project-card group relative">
-                <div className="absolute top-0 left-0 w-full h-2 bg-[var(--pop-red)]"></div>
+                <a
+                  href="https://openclawvps.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 text-sm text-primary hover:underline underline-offset-4"
+                >
+                  openclawvps.com
+                  <ExternalLink className="w-3.5 h-3.5" />
+                </a>
+              </CardContent>
+            </Card>
 
-                <div className="mb-6 pt-4">
-                  <h3 className="text-3xl text-[var(--pop-black)] mb-2" style={{ fontFamily: 'var(--font-headline)' }}>
-                    WellOS
-                  </h3>
-                  <span className="tag-pop">
-                    Platform Suite • Oil & Gas
+            {/* BigGig.io — second */}
+            <Card className="border-border">
+              <CardHeader>
+                <div className="mb-3">
+                  <span className="inline-flex items-center text-xs uppercase tracking-[0.08em] text-muted-foreground">
+                    In development · ETA Q2 2026
                   </span>
                 </div>
-
-                <p className="text-[var(--text-secondary)] mb-6 leading-relaxed" style={{ fontFamily: 'var(--font-body)' }}>
-                  The Operating System for Upstream Oil &amp; Gas Operators — real-time SCADA, production tracking,
-                  predictive maintenance, ESG compliance, and offline-first field data capture.
+                <CardTitle className="text-xl">BigGig.io</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-muted-foreground leading-relaxed text-sm">
+                  Strataga&apos;s freelancer marketplace — the platform I would want to use to find
+                  work. Pre-launch; shipping in Q2.
                 </p>
+              </CardContent>
+            </Card>
 
-                <div className="mb-6">
-                  <h4 className="font-bold text-[var(--pop-black)] mb-3 flex items-center gap-2" style={{ fontFamily: 'var(--font-headline)' }}>
-                    <Layers className="w-5 h-5 text-[var(--pop-red)]" />
-                    ARCHITECTURE HIGHLIGHTS
-                  </h4>
-                  <ul className="space-y-2 text-sm text-[var(--text-secondary)]" style={{ fontFamily: 'var(--font-body)' }}>
-                    <li className="flex items-start">
-                      <span className="text-[var(--pop-red)] mr-2 font-bold">•</span>
-                      <span>Six integrated applications across web, mobile, and desktop</span>
-                    </li>
-                    <li className="flex items-start">
-                      <span className="text-[var(--pop-red)] mr-2 font-bold">•</span>
-                      <span>Multi-tenant SaaS with database-per-tenant isolation</span>
-                    </li>
-                    <li className="flex items-start">
-                      <span className="text-[var(--pop-red)] mr-2 font-bold">•</span>
-                      <span>Offline-first field data capture with conflict resolution</span>
-                    </li>
-                    <li className="flex items-start">
-                      <span className="text-[var(--pop-red)] mr-2 font-bold">•</span>
-                      <span>Real-time SCADA integration and predictive maintenance</span>
-                    </li>
-                  </ul>
+            {/* Fathomless — third */}
+            <Card className="border-border lg:col-start-3">
+              <CardHeader>
+                <div className="mb-3">
+                  <span className="inline-flex items-center text-xs uppercase tracking-[0.08em] text-muted-foreground">
+                    Indie game · passion project
+                  </span>
                 </div>
+                <CardTitle className="text-xl">Fathomless: The Descent</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-muted-foreground leading-relaxed text-sm">
+                  First-person grid-based dungeon crawler in C++23 / SDL3. Lovecraftian, cosmic
+                  horror.
+                </p>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
 
-                <div className="mb-6">
-                  <h4 className="font-bold text-[var(--pop-black)] mb-3 flex items-center gap-2" style={{ fontFamily: 'var(--font-headline)' }}>
-                    <Code2 className="w-5 h-5 text-[var(--pop-blue)]" />
-                    TECH STACK
-                  </h4>
-                  <div className="flex flex-wrap gap-2">
-                    <span className="tag-pop">Rust</span>
-                    <span className="tag-pop">Next.js 15</span>
-                    <span className="tag-pop">React Native</span>
-                    <span className="tag-pop">Electron</span>
-                    <span className="tag-pop">PostgreSQL</span>
-                    <span className="tag-pop">Redis</span>
-                  </div>
-                </div>
+      {/* About paragraph */}
+      <section className="py-16 lg:py-24">
+        <div className="max-w-[680px] mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-2xl md:text-3xl tracking-tight mb-6">About</h2>
+          <p className="text-muted-foreground leading-relaxed">
+            I&apos;m a software engineer who builds production agent systems. I shipped OpenClaw
+            VPS at Strataga LLC: live, paying customers, per-tenant observability, SLO gates. I
+            work remote from Midland, TX. I take sprint contracts and part-time IC roles with
+            teams running agents in production.
+          </p>
+        </div>
+      </section>
 
-                <div className="flex flex-wrap gap-4">
-                  <Link
-                    href="/projects/wellos"
-                    className="inline-flex items-center text-[var(--pop-red)] font-bold hover:underline underline-offset-4"
-                    style={{ fontFamily: 'var(--font-headline)', fontSize: '1.1rem' }}
-                  >
-                    VIEW CASE STUDY
-                    <ArrowRight className="w-5 h-5 ml-2" />
-                  </Link>
-                </div>
-              </article>
+      {/* Bottom CTA — echo of hero */}
+      <section className="py-16 lg:py-24 bg-hero-bg text-hero-foreground border-t border-border">
+        <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-3xl md:text-4xl tracking-tight mb-6">
+            Want to see how it ships?
+          </h2>
+          <p className="text-hero-muted mb-10 max-w-[540px] mx-auto">
+            OpenClaw VPS is live with paying customers. Walk through the dashboard, billing, and
+            multi-channel delivery yourself.
+          </p>
+          <Button
+            asChild
+            className="bg-primary text-primary-foreground hover:bg-primary/90 font-semibold h-11 px-6"
+          >
+            <a href={PRIMARY_CTA_HREF} target="_blank" rel="noopener noreferrer">
+              {PRIMARY_CTA_LABEL}
+              <ArrowRight className="w-4 h-4" />
+            </a>
+          </Button>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="border-t border-border py-12">
+        <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+            <div className="text-sm text-muted-foreground">
+              <p className="text-foreground mb-1">Jason Cochran</p>
+              <p>Strataga LLC · Remote, US</p>
             </div>
 
-            <div className="text-center mt-12">
-              <Link href="/projects" className="btn-pop btn-pop-secondary">
-                View All Projects
-                <ArrowRight className="w-5 h-5" />
+            <div className="flex flex-wrap gap-x-6 gap-y-2">
+              <Link
+                href="/resume"
+                className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+              >
+                Resume
               </Link>
+              <Link
+                href="/projects"
+                className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+              >
+                Projects
+              </Link>
+              <Link
+                href="/contact"
+                className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+              >
+                Contact
+              </Link>
+              <a
+                href="https://blog.jasoncochran.io"
+                className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+              >
+                Blog
+              </a>
+            </div>
+
+            <div className="flex items-center gap-4 text-muted-foreground">
+              <a
+                href="https://www.linkedin.com/in/cochranjason/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LinkedIn"
+                className="hover:text-primary transition-colors"
+              >
+                <Linkedin className="w-5 h-5" />
+              </a>
+              <a
+                href="https://github.com/jcochranio"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="GitHub"
+                className="hover:text-primary transition-colors"
+              >
+                <Github className="w-5 h-5" />
+              </a>
+              <a
+                href="https://x.com/jcochranio"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="X (Twitter)"
+                className="hover:text-primary transition-colors"
+              >
+                <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                </svg>
+              </a>
+              <a
+                href="mailto:jlcochran2013@gmail.com"
+                aria-label="Email"
+                className="hover:text-primary transition-colors"
+              >
+                <Mail className="w-5 h-5" />
+              </a>
             </div>
           </div>
-        </section>
-
-        {/* Skills Overview */}
-        <section className="py-20" style={{ background: 'var(--pop-white)', borderTop: '4px solid var(--pop-black)' }}>
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-16">
-              <h2 className="section-header text-4xl md:text-5xl mb-4">
-                Core Expertise
-              </h2>
-              <p className="text-lg mt-8" style={{ color: 'var(--text-secondary)', maxWidth: '600px', margin: '2rem auto 0' }}>
-                Comprehensive full-stack capabilities across modern web and mobile technologies
-              </p>
-            </div>
-
-            <div className="grid md:grid-cols-3 gap-8">
-              <div className="skill-card">
-                <div className="text-4xl mb-4">⚛️</div>
-                <h3 className="text-xl mb-4" style={{ fontFamily: 'var(--font-headline)' }}>Frontend</h3>
-                <ul className="space-y-2" style={{ color: 'var(--text-secondary)' }}>
-                  <li>React & Next.js</li>
-                  <li>React Native</li>
-                  <li>TypeScript</li>
-                  <li>Tailwind CSS</li>
-                  <li>State Management</li>
-                </ul>
-              </div>
-
-              <div className="skill-card skill-card-alt">
-                <div className="text-4xl mb-4">🔧</div>
-                <h3 className="text-xl mb-4" style={{ fontFamily: 'var(--font-headline)' }}>Backend</h3>
-                <ul className="space-y-2" style={{ color: 'var(--text-secondary)' }}>
-                  <li>Node.js & NestJS</li>
-                  <li>RESTful APIs</li>
-                  <li>GraphQL</li>
-                  <li>Microservices</li>
-                  <li>Event-Driven Architecture</li>
-                </ul>
-              </div>
-
-              <div className="skill-card skill-card-blue">
-                <div className="text-4xl mb-4">💾</div>
-                <h3 className="text-xl mb-4" style={{ fontFamily: 'var(--font-headline)' }}>Data & DevOps</h3>
-                <ul className="space-y-2" style={{ color: 'var(--text-secondary)' }}>
-                  <li>PostgreSQL & MongoDB</li>
-                  <li>Prisma & Drizzle ORM</li>
-                  <li>AWS & Cloud Services</li>
-                  <li>Docker & CI/CD</li>
-                  <li>Testing & Quality</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* How I Work Section */}
-        <section className="py-20" style={{ background: 'var(--pop-gray)', borderTop: '4px solid var(--pop-black)' }}>
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-16">
-              <h2 className="section-header text-4xl md:text-5xl mb-4">
-                How I Ship Faster
-              </h2>
-              <p className="text-lg mt-8" style={{ color: 'var(--text-secondary)', maxWidth: '600px', margin: '2rem auto 0' }}>
-                Combining deep expertise with cutting-edge AI development tools for maximum velocity
-              </p>
-            </div>
-
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              <div className="card-pop p-8">
-                <div className="text-4xl mb-4">🚀</div>
-                <h3 className="text-xl mb-4" style={{ fontFamily: 'var(--font-headline)' }}>AI-Augmented Development</h3>
-                <p style={{ color: 'var(--text-secondary)', lineHeight: '1.7' }}>
-                  Leveraging Claude Code and Cursor to accelerate development without sacrificing code quality.
-                  AI handles boilerplate while I focus on architecture and business logic.
-                </p>
-              </div>
-
-              <div className="card-pop p-8">
-                <div className="text-4xl mb-4">🎯</div>
-                <h3 className="text-xl mb-4" style={{ fontFamily: 'var(--font-headline)' }}>Rapid Prototyping</h3>
-                <p style={{ color: 'var(--text-secondary)', lineHeight: '1.7' }}>
-                  Using modern frameworks like Next.js and NestJS with pre-built patterns to go from concept to working prototype in days.
-                  Real progress, real fast.
-                </p>
-              </div>
-
-              <div className="card-pop p-8">
-                <div className="text-4xl mb-4">🏗️</div>
-                <h3 className="text-xl mb-4" style={{ fontFamily: 'var(--font-headline)' }}>Enterprise Patterns</h3>
-                <p style={{ color: 'var(--text-secondary)', lineHeight: '1.7' }}>
-                  28 years of architectural experience means your MVP is built on solid foundations. Scale from prototype to production
-                  without rewrites.
-                </p>
-              </div>
-
-              <div className="card-pop p-8">
-                <div className="text-4xl mb-4">🔄</div>
-                <h3 className="text-xl mb-4" style={{ fontFamily: 'var(--font-headline)' }}>Agile Iteration</h3>
-                <p style={{ color: 'var(--text-secondary)', lineHeight: '1.7' }}>
-                  Ship fast, get feedback, iterate. Modern development workflows with continuous deployment mean features go live
-                  in hours, not weeks.
-                </p>
-              </div>
-
-              <div className="card-pop p-8">
-                <div className="text-4xl mb-4">🧪</div>
-                <h3 className="text-xl mb-4" style={{ fontFamily: 'var(--font-headline)' }}>Quality at Speed</h3>
-                <p style={{ color: 'var(--text-secondary)', lineHeight: '1.7' }}>
-                  AI-assisted testing and code review catch issues early. TypeScript end-to-end ensures type safety.
-                  Fast doesn't mean fragile.
-                </p>
-              </div>
-
-              <div className="card-pop p-8">
-                <div className="text-4xl mb-4">📚</div>
-                <h3 className="text-xl mb-4" style={{ fontFamily: 'var(--font-headline)' }}>Modern Stack Expertise</h3>
-                <p style={{ color: 'var(--text-secondary)', lineHeight: '1.7' }}>
-                  Deep knowledge of React, Next.js, NestJS, PostgreSQL, and modern DevOps.
-                  The right tools for rapid, scalable development.
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-      </div>
+        </div>
+      </footer>
     </>
   )
 }

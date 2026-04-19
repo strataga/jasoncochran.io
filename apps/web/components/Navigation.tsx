@@ -3,176 +3,77 @@
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useState } from 'react'
-import { SOCIAL_LINKS } from '@/lib/social'
+import { Menu, X } from 'lucide-react'
+
+const links = [
+  { href: '/', label: 'Home' },
+  { href: '/resume', label: 'Resume' },
+  { href: '/projects', label: 'Projects' },
+  { href: '/contact', label: 'Contact' },
+]
 
 export default function Navigation() {
   const pathname = usePathname()
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
-  const links = [
-    { href: '/', label: 'Home' },
-    { href: '/resume', label: 'Resume' },
-    { href: '/projects', label: 'Projects' },
-    { href: '/certifications', label: 'Certifications' },
-    { href: 'https://blog.jasoncochran.io', label: 'Blog', external: true },
-    { href: '/contact', label: 'Contact' },
-  ]
-
   return (
-    <nav
-      className="sticky top-0 z-50"
-      style={{
-        background: 'var(--pop-red)',
-        borderBottom: '4px solid var(--pop-black)',
-        boxShadow: '0 4px 0 var(--pop-black)',
-      }}
-    >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <nav className="sticky top-0 z-50 bg-background/90 backdrop-blur border-b border-border">
+      <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
-          {/* Logo */}
           <Link
             href="/"
-            className="text-2xl font-bold text-white hover:text-yellow-300 transition-colors"
-            style={{ fontFamily: 'var(--font-headline)', letterSpacing: '0.02em' }}
+            className="text-base font-semibold tracking-tight text-foreground hover:text-primary transition-colors"
           >
             Jason Cochran
           </Link>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-6">
+          {/* Desktop nav */}
+          <div className="hidden md:flex items-center gap-8">
             {links.map((link) => {
-              const isActive = !link.external && pathname === link.href
-              const className = `transition-all font-semibold text-sm uppercase tracking-wide ${
-                isActive ? 'text-yellow-300' : 'text-white hover:text-yellow-300'
-              }`
-
-              if (link.external) {
-                return (
-                  <a
-                    key={link.href}
-                    href={link.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={className}
-                    style={{ fontFamily: 'var(--font-mono)' }}
-                  >
-                    {link.label}
-                  </a>
-                )
-              }
-
+              const isActive = pathname === link.href
               return (
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={className}
-                  style={{ fontFamily: 'var(--font-mono)' }}
+                  className={`text-sm transition-colors ${
+                    isActive
+                      ? 'text-foreground border-b-2 border-primary pb-0.5'
+                      : 'text-muted-foreground hover:text-foreground'
+                  }`}
                 >
                   {link.label}
                 </Link>
-              )
-            })}
-            {SOCIAL_LINKS.map((link) => {
-              const Icon = link.icon
-              return (
-                <a
-                  key={link.key}
-                  href={link.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-white hover:text-[var(--pop-yellow)] transition-colors p-1"
-                  aria-label={`Visit Jason Cochran on ${link.label}`}
-                >
-                  <Icon className="w-5 h-5" />
-                </a>
               )
             })}
           </div>
 
           {/* Mobile menu button */}
           <button
-            className="md:hidden p-2 text-white"
+            className="md:hidden p-2 text-foreground"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label="Toggle menu"
           >
-            <svg
-              className="w-6 h-6"
-              fill="none"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="3"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              {mobileMenuOpen ? (
-                <path d="M6 18L18 6M6 6l12 12" />
-              ) : (
-                <path d="M4 6h16M4 12h16M4 18h16" />
-              )}
-            </svg>
+            {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
         </div>
 
-        {/* Mobile Navigation */}
         {mobileMenuOpen && (
-          <div
-            className="md:hidden py-4 space-y-2"
-            style={{ borderTop: '3px solid var(--pop-black)' }}
-          >
+          <div className="md:hidden py-4 space-y-1 border-t border-border">
             {links.map((link) => {
-              const isActive = !link.external && pathname === link.href
-              const className = `block py-2 font-semibold uppercase tracking-wide ${
-                isActive ? 'text-yellow-300' : 'text-white'
-              }`
-
-              if (link.external) {
-                return (
-                  <a
-                    key={link.href}
-                    href={link.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    onClick={() => setMobileMenuOpen(false)}
-                    className={className}
-                    style={{ fontFamily: 'var(--font-mono)' }}
-                  >
-                    {link.label}
-                  </a>
-                )
-              }
-
+              const isActive = pathname === link.href
               return (
                 <Link
                   key={link.href}
                   href={link.href}
                   onClick={() => setMobileMenuOpen(false)}
-                  className={className}
-                  style={{ fontFamily: 'var(--font-mono)' }}
+                  className={`block py-2 text-sm ${
+                    isActive ? 'text-foreground' : 'text-muted-foreground'
+                  }`}
                 >
                   {link.label}
                 </Link>
               )
             })}
-            <div className="flex flex-wrap gap-4 mt-4">
-              {SOCIAL_LINKS.map((link) => {
-                const Icon = link.icon
-                return (
-                  <a
-                    key={link.key}
-                    href={link.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2 text-white hover:text-[var(--pop-yellow)] transition-colors"
-                    aria-label={`Visit Jason Cochran on ${link.label}`}
-                  >
-                    <Icon className="w-5 h-5" />
-                    <span className="font-semibold text-sm" style={{ fontFamily: 'var(--font-mono)' }}>
-                      {link.handle || link.label}
-                    </span>
-                  </a>
-                )
-              })}
-            </div>
           </div>
         )}
       </div>

@@ -33,10 +33,11 @@ export default function ResumePrint() {
           Strataga LLC · Q4 2025–Q1 2026 · openclawvps.com · Live
         </p>
         <p className="desc">
-          Multi-tenant agent hosting: BYOK model, multi-channel delivery
-          (web / Telegram / Tailscale-wired), per-tenant cost and latency
-          observability, SLO-gated deploys, incident lifecycle tracking, and a
-          customer-health scoring pipeline.
+          Managed hosting for OpenClaw with 30 prebuilt AI assistants. Multi-tenant
+          by design: BYOK model, multi-channel delivery (web / Telegram /
+          Tailscale-wired), per-tenant cost and latency observability, SLO-gated
+          deploys, incident lifecycle tracking, and a customer-health scoring
+          pipeline.
         </p>
         <p className="desc">
           Tech: Next.js 16, React 19, Convex, Stripe, Tailscale, Sentry,

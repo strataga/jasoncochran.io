@@ -64,4 +64,12 @@ From `apps/web/` directly: `npm run dev | build | start | lint | lint:fix | type
 
 ## Issue Tracking
 
-Uses **bd (beads)** — `.beads/` directory at repo root. `bd ready`, `bd show <id>`, `bd update <id> --status in_progress`, `bd close <id>`, `bd sync`.
+Uses **bd (Beads)** with `.beads/` at repo root. The global Beads inbox and
+hook policy in `~/.codex/AGENTS.md` applies; keep local entries project-specific.
+
+## Project Skill Overlay
+
+Global skill policy lives in `~/.codex/AGENTS.md`. Project-specific best
+matches are:
+
+- **Best matches for this repo:** `$nextjs-app-router-patterns`, `$react-dev`, `$tailwind-design-system`, `$resend`, `$use-railway`, `$webapp-testing`, `$accessibility`.

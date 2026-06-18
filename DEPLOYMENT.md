@@ -26,7 +26,8 @@ Railway installs with `cd apps/web && npm ci` from `nixpacks.toml`, then builds
 with `cd apps/web && npm run build` from `railway.json`. Keep
 `apps/web/package-lock.json` in sync whenever `apps/web/package.json` changes.
 The app uses `output: 'standalone'`, so `npm start` runs
-`.next/standalone/apps/web/server.js`; do not change it back to `next start`.
+`.next/standalone/apps/web/server.js` with `HOSTNAME=0.0.0.0`; do not change it
+back to `next start` or let Docker's container hostname control the bind host.
 
 For environment variables, custom domains, and rollback steps, see [`RAILWAY.md`](./RAILWAY.md).
 

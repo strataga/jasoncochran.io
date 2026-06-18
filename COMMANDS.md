@@ -24,7 +24,7 @@ cd apps/web
 
 npm run dev        # Start development server (localhost:3000)
 npm run build      # Build for production
-npm start          # Start standalone production server after npm run build
+npm start          # Start standalone production server bound to 0.0.0.0 after npm run build
 npm run lint       # Lint the code
 npm run lint:fix   # Auto-fix linting issues
 npm run type-check # Check TypeScript types

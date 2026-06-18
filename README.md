@@ -31,14 +31,15 @@ pnpm clean        # Clean all build artifacts and node_modules
 
 ```bash
 cd apps/web
-pnpm dev          # Start just the web app
-pnpm build        # Build just the web app
-pnpm lint         # Lint just the web app
-pnpm type-check   # Type check just the web app
-pnpm clean        # Clean web app build artifacts
+npm run dev        # Start just the web app
+npm run build      # Build just the web app
+npm run lint       # Lint just the web app
+npm run type-check # Type check just the web app
+npm run clean      # Clean web app build artifacts
 ```
 
-> **Note**: This project uses **pnpm** for package management. If you don't have pnpm installed, run `npm install -g pnpm` first.
+> **Note**: Root monorepo commands use **pnpm**. The deployable web app has its
+> own `package-lock.json`, and Railway uses `npm ci` inside `apps/web`.
 
 ## 📁 Project Structure
 
@@ -56,13 +57,13 @@ jason-cochran/
 
 ## 🛠️ Tech Stack
 
-- **Package Manager**: pnpm (fast, efficient, disk-space friendly)
+- **Package Manager**: pnpm at the repo root; npm lockfile for `apps/web` deploys
 - **Monorepo**: Turborepo (for fast builds and caching)
 - **Framework**: Next.js 16 (App Router)
 - **React**: 19
 - **Language**: TypeScript
 - **Styling**: Tailwind CSS 4
-- **Blog**: MDX with next-mdx-remote
+- **Content**: Markdown via `gray-matter`; MDX loader support is configured but no MDX route is wired yet
 - **Code Quality**: ESLint v9 (flat config), Prettier
 - **Deployment**: Railway (Nixpacks, `output: 'standalone'`)
 
@@ -118,8 +119,9 @@ Deployed to Railway via Nixpacks. See `railway.json` for config. The web app use
 
 ```bash
 cd apps/web
-pnpm build
-pnpm start
+npm ci
+npm run build
+npm start
 ```
 
 ## 🏗️ Monorepo Structure

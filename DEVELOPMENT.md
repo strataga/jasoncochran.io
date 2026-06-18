@@ -51,10 +51,14 @@ If you only want to work on one app:
 
 ```bash
 cd apps/web
-pnpm dev        # Only runs the web app
-pnpm lint       # Only lints the web app
-pnpm type-check # Only type-checks the web app
+npm run dev        # Only runs the web app
+npm run lint       # Only lints the web app
+npm run type-check # Only type-checks the web app
 ```
+
+Railway also installs from `apps/web/package-lock.json` with `npm ci`, so run
+`npm install` from `apps/web` whenever app dependencies change and commit the
+updated lockfile.
 
 ### Debugging Turbo
 
@@ -157,7 +161,7 @@ pnpm lint
 Fix auto-fixable issues:
 
 ```bash
-cd apps/web && pnpm lint:fix
+cd apps/web && npm run lint:fix
 ```
 
 ## CI/CD Pipeline
@@ -245,12 +249,12 @@ Ensure `type-check` script exists and runs:
 
 ```bash
 cd apps/web
-pnpm type-check
+npm run type-check
 ```
 
 ### Port Already in Use
 
-If `pnpm dev` fails because port 3000 is in use:
+If the web dev server fails because port 3000 is in use:
 
 ```bash
 # Kill process on port 3000
@@ -258,7 +262,7 @@ lsof -ti:3000 | xargs kill -9
 
 # Or use a different port
 cd apps/web
-PORT=3001 pnpm dev
+PORT=3001 npm run dev
 ```
 
 ## Quick Reference
@@ -296,7 +300,7 @@ pnpm clean
 **Work on just web app:**
 
 ```bash
-cd apps/web && pnpm dev
+cd apps/web && npm run dev
 ```
 
 ---

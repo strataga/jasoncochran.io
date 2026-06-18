@@ -9,10 +9,10 @@ Jason Cochran's personal site: homepage, resume, projects portfolio, contact for
 - **Framework**: Next.js 16 (App Router, `output: 'standalone'`, Turbopack with monorepo root set to repo root).
 - **Language**: TypeScript 5.9, React 19.2.
 - **Styling**: Tailwind CSS v4 (`@tailwindcss/postcss`) + `@tailwindcss/typography`. Tokens/theme in `apps/web/app/globals.css`.
-- **Content**: Markdown via `gray-matter` (filesystem reads in `lib/`). MDX deps are installed (`@next/mdx`, `next-mdx-remote`) and `pageExtensions` includes `.mdx`, but no MDX pages exist yet.
+- **Content**: Markdown via `gray-matter` (filesystem reads in `lib/`). MDX loader deps are installed (`@next/mdx`) and `pageExtensions` includes `.mdx`, but no MDX pages exist yet.
 - **Code highlighting**: `shiki` + `rehype-pretty-code`, plus `components/code-block.tsx`.
-- **Email**: Resend (contact form).
-- **Deploy**: Railway via Nixpacks (`railway.json`, `nixpacks.toml`). Build: `cd apps/web && npm install && npm run build`. Start: `cd apps/web && npm start`.
+- **Email**: Gmail SMTP via `nodemailer` (contact form).
+- **Deploy**: Railway via Nixpacks (`railway.json`, `nixpacks.toml`). Install: `cd apps/web && npm ci`. Build: `cd apps/web && npm run build`. Start: `cd apps/web && npm start`.
 
 ## Project Layout
 
@@ -24,7 +24,7 @@ apps/web/
     resume/ contact/ certifications/ ralph-video/
     projects/page.tsx        # Project grid
     projects/[slug]/         # Dynamic project detail + opengraph-image
-    api/contact/route.ts     # Resend-backed contact endpoint
+    api/contact/route.ts     # Gmail SMTP-backed contact endpoint
     api/video/ralph/         # Video API route
     sitemap.ts               # Hand-maintained URL list — update when adding routes
     opengraph-image.tsx icon.tsx apple-icon.tsx manifest.ts

@@ -6,8 +6,9 @@ This site deploys to **Railway** (Nixpacks builder, `output: 'standalone'`). See
 
 ```bash
 cd apps/web
-pnpm build    # verify it builds locally
-pnpm start    # verify it runs
+npm ci        # verify package-lock.json is in sync
+npm run build # verify it builds locally
+npm start     # verify it runs
 
 git push      # Railway auto-deploys from main
 ```
@@ -16,9 +17,14 @@ git push      # Railway auto-deploys from main
 
 ```bash
 cd apps/web
-pnpm build
-pnpm start    # http://localhost:3000
+npm ci
+npm run build
+npm start    # http://localhost:3000
 ```
+
+Railway installs with `cd apps/web && npm ci` from `nixpacks.toml`, then builds
+with `cd apps/web && npm run build` from `railway.json`. Keep
+`apps/web/package-lock.json` in sync whenever `apps/web/package.json` changes.
 
 For environment variables, custom domains, and rollback steps, see [`RAILWAY.md`](./RAILWAY.md).
 

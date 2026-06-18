@@ -4,16 +4,16 @@
 
 - [Railway account](https://railway.app)
 - [Railway CLI](https://docs.railway.app/develop/cli) (optional)
-- Resend account with API key
+- Gmail account with 2FA enabled and an App Password
 
 ## Environment Variables
 
 Set these in Railway dashboard under "Variables":
 
 ```
-RESEND_API_KEY=re_your_api_key_here
-RESEND_FROM_EMAIL=contact@yourdomain.com
-RESEND_TO_EMAIL=me@jasoncochran.io
+GMAIL_USER=your-gmail-address@example.com
+GMAIL_APP_PASSWORD=your_16_character_app_password
+CONTACT_TO_EMAIL=me@jasoncochran.io
 ```
 
 ## Deployment Methods
@@ -64,16 +64,16 @@ RESEND_TO_EMAIL=me@jasoncochran.io
 3. **Initialize Project**
 
    ```bash
-   cd apps/web
+   # From the repo root
    railway init
    ```
 
 4. **Add Environment Variables**
 
    ```bash
-   railway variables set RESEND_API_KEY=re_your_api_key_here
-   railway variables set RESEND_FROM_EMAIL=contact@yourdomain.com
-   railway variables set RESEND_TO_EMAIL=me@jasoncochran.io
+   railway variable set GMAIL_USER=your-gmail-address@example.com
+   railway variable set GMAIL_APP_PASSWORD=your_16_character_app_password
+   railway variable set CONTACT_TO_EMAIL=me@jasoncochran.io
    ```
 
 5. **Deploy**
@@ -86,12 +86,14 @@ RESEND_TO_EMAIL=me@jasoncochran.io
 
 Railway auto-detects Next.js. Default settings:
 
-- **Build Command**: `npm run build`
-- **Start Command**: `npm start`
-- **Install Command**: `npm install`
-- **Root Directory**: `apps/web`
+- **Install Command**: `cd apps/web && npm ci`
+- **Build Command**: `cd apps/web && npm run build`
+- **Start Command**: `cd apps/web && npm start`
+- **Root Directory**: repo root
 
-If needed, customize in `railway.json` or railway.toml.
+These are customized in root `railway.json` and `nixpacks.toml`. Keep
+`apps/web/package-lock.json` in sync with `apps/web/package.json`; Railway's
+clean install fails closed when they drift.
 
 ## Custom Domain
 
@@ -109,18 +111,17 @@ If needed, customize in `railway.json` or railway.toml.
    - Update `metadataBase` in `apps/web/app/layout.tsx`
    - Update URLs in `apps/web/app/sitemap.ts`
 
-## Resend Configuration
+## Gmail SMTP Configuration
 
-1. **Get API Key**
-   - Go to [Resend Dashboard](https://resend.com/api-keys)
-   - Create new API key
-   - Copy and add to Railway environment variables
+1. **Generate an App Password**
+   - Enable 2FA on the Gmail account.
+   - Go to <https://myaccount.google.com/apppasswords>.
+   - Generate a 16-character App Password for the site.
 
-2. **Verify Domain** (for production)
-   - Go to [Resend Domains](https://resend.com/domains)
-   - Add your domain
-   - Add DNS records as instructed
-   - Update `RESEND_FROM_EMAIL` to use your verified domain
+2. **Set Railway variables**
+   - `GMAIL_USER`: Gmail account address.
+   - `GMAIL_APP_PASSWORD`: 16-character App Password, stored only in Railway.
+   - `CONTACT_TO_EMAIL`: recipient for contact-form notifications.
 
 ## Health Check
 
@@ -169,9 +170,9 @@ For staging/production environments:
 
 **Contact Form Not Working:**
 
-- Verify `RESEND_API_KEY` is set correctly
-- Check Resend dashboard for delivery status
-- Verify `RESEND_FROM_EMAIL` domain is verified in Resend
+- Verify `GMAIL_USER`, `GMAIL_APP_PASSWORD`, and `CONTACT_TO_EMAIL` are set
+- Confirm the Gmail account has 2FA enabled and the App Password has not been revoked
+- Check Railway runtime logs for `/api/contact` mailer errors without printing secrets
 
 **Styles Not Loading:**
 

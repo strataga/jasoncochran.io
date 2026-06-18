@@ -17,8 +17,7 @@
     "@mdx-js/react": "^3.1.1",
     "@next/mdx": "^16.0.0",
     "@types/mdx": "^2.0.13",
-    "gray-matter": "^4.0.3",
-    "next-mdx-remote": "^5.0.0"
+    "gray-matter": "^4.0.3"
   },
   "devDependencies": {
     "prettier": "^3.3.3",

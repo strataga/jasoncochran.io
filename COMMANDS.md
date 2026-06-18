@@ -22,13 +22,13 @@ Run these from `apps/web`:
 ```bash
 cd apps/web
 
-pnpm dev          # Start development server (localhost:3000)
-pnpm build        # Build for production
-pnpm start        # Start production server
-pnpm lint         # Lint the code
-pnpm lint:fix     # Auto-fix linting issues
-pnpm type-check   # Check TypeScript types
-pnpm clean        # Clean build artifacts
+npm run dev        # Start development server (localhost:3000)
+npm run build      # Build for production
+npm start          # Start production server
+npm run lint       # Lint the code
+npm run lint:fix   # Auto-fix linting issues
+npm run type-check # Check TypeScript types
+npm run clean      # Clean build artifacts
 ```
 
 ## Git Workflow
@@ -72,7 +72,9 @@ pnpm dev
 ### Deploy to production
 
 ```bash
-pnpm build    # Build and test locally
+cd apps/web
+npm ci        # Verify package-lock.json is in sync
+npm run build # Build and test locally
 git push      # Auto-deploys on Railway (see RAILWAY.md)
 ```
 
@@ -80,8 +82,9 @@ git push      # Auto-deploys on Railway (see RAILWAY.md)
 
 ```bash
 pnpm clean    # Clean everything
-pnpm install  # Reinstall dependencies
-pnpm build    # Try building again
+pnpm install  # Reinstall root workspace dependencies
+cd apps/web && npm ci
+npm run build # Try building again
 ```
 
 ## Turbo Features
@@ -129,7 +132,7 @@ To change the port:
 
 ```bash
 cd apps/web
-PORT=3001 pnpm dev
+PORT=3001 npm run dev
 ```
 
 ## Quick Start for New Developers

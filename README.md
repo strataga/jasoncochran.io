@@ -121,7 +121,7 @@ Deployed to Railway via Nixpacks. See `railway.json` for config. The web app use
 cd apps/web
 npm ci
 npm run build
-npm start
+npm start          # runs the standalone server
 ```
 
 ## 🏗️ Monorepo Structure

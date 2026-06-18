@@ -88,7 +88,7 @@ Railway auto-detects Next.js. Default settings:
 
 - **Install Command**: `cd apps/web && npm ci`
 - **Build Command**: `cd apps/web && npm run build`
-- **Start Command**: `cd apps/web && npm start`
+- **Start Command**: `cd apps/web && npm start` (runs the standalone server)
 - **Root Directory**: repo root
 
 These are customized in root `railway.json` and `nixpacks.toml`. Keep

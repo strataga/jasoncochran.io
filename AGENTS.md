@@ -12,7 +12,7 @@ Jason Cochran's personal site: homepage, resume, projects portfolio, contact for
 - **Content**: Markdown via `gray-matter` (filesystem reads in `lib/`). MDX loader deps are installed (`@next/mdx`) and `pageExtensions` includes `.mdx`, but no MDX pages exist yet.
 - **Code highlighting**: `shiki` + `rehype-pretty-code`, plus `components/code-block.tsx`.
 - **Email**: Gmail SMTP via `nodemailer` (contact form).
-- **Deploy**: Railway via Nixpacks (`railway.json`, `nixpacks.toml`). Install: `cd apps/web && npm ci`. Build: `cd apps/web && npm run build`. Start: `cd apps/web && npm start`.
+- **Deploy**: Railway via Nixpacks (`railway.json`, `nixpacks.toml`). Install: `cd apps/web && npm ci`. Build: `cd apps/web && npm run build`. Start: `cd apps/web && npm start` (runs the Next standalone server).
 
 ## Project Layout
 

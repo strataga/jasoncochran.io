@@ -4,7 +4,8 @@
   "main": "index.js",
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "next build && npm run prepare:standalone",
+    "prepare:standalone": "node scripts/prepare-standalone.mjs",
     "start": "HOSTNAME=0.0.0.0 node .next/standalone/apps/web/server.js",
     "lint": "eslint . --ext .ts,.tsx,.js,.jsx --max-warnings 5",
     "lint:fix": "eslint . --ext .ts,.tsx,.js,.jsx --fix",

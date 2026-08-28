@@ -18,4 +18,3 @@ export async function renderProjectMarkdown(markdown: string): Promise<string> {
   const html = await marked.parse(markdown)
   return sanitizeHtml(html, sanitizeOptions)
 }
-

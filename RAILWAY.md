@@ -14,6 +14,9 @@ Set these in Railway dashboard under "Variables":
 GMAIL_USER=your-gmail-address@example.com
 GMAIL_APP_PASSWORD=your_16_character_app_password
 CONTACT_TO_EMAIL=me@jasoncochran.io
+ALLOWED_ORIGINS=https://jasoncochran.io
+CONTACT_RATE_LIMIT_WINDOW_MS=60000
+CONTACT_RATE_LIMIT_MAX=5
 ```
 
 ## Deployment Methods
@@ -122,6 +125,11 @@ clean install fails closed when they drift.
    - `GMAIL_USER`: Gmail account address.
    - `GMAIL_APP_PASSWORD`: 16-character App Password, stored only in Railway.
    - `CONTACT_TO_EMAIL`: recipient for contact-form notifications.
+   - `ALLOWED_ORIGINS`: comma-separated exact origins allowed to submit the form.
+   - `CONTACT_RATE_LIMIT_WINDOW_MS`: optional rate-limit window; defaults to 60 seconds.
+   - `CONTACT_RATE_LIMIT_MAX`: optional requests per client in the window; defaults to 5.
+
+   The contact endpoint's bounded rate limiter is local to one app instance. Keep the service at one replica or move the limiter to a shared store before scaling horizontally.
 
 ## Health Check
 
@@ -170,7 +178,7 @@ For staging/production environments:
 
 **Contact Form Not Working:**
 
-- Verify `GMAIL_USER`, `GMAIL_APP_PASSWORD`, and `CONTACT_TO_EMAIL` are set
+- Verify `GMAIL_USER`, `GMAIL_APP_PASSWORD`, `CONTACT_TO_EMAIL`, and `ALLOWED_ORIGINS` are set
 - Confirm the Gmail account has 2FA enabled and the App Password has not been revoked
 - Check Railway runtime logs for `/api/contact` mailer errors without printing secrets
 

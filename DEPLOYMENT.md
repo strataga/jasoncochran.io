@@ -40,5 +40,10 @@ The `/api/contact` endpoint now sends via Gmail SMTP using nodemailer + a Gmail 
 - `GMAIL_USER` — Gmail account address (e.g. `jlcochran2013@gmail.com`)
 - `GMAIL_APP_PASSWORD` — 16-char App Password (no spaces) generated at <https://myaccount.google.com/apppasswords> (2FA must be on)
 - `CONTACT_TO_EMAIL` — recipient of contact-form notifications (usually same as `GMAIL_USER`)
+- `ALLOWED_ORIGINS` — comma-separated exact browser origins allowed to submit the form (for example, `https://jasoncochran.io`)
+- `CONTACT_RATE_LIMIT_WINDOW_MS` — optional per-instance rate-limit window (defaults to `60000`)
+- `CONTACT_RATE_LIMIT_MAX` — optional requests allowed per client in the window (defaults to `5`)
+
+Railway overwrites `X-Real-IP` at its edge, and the endpoint uses that header for its bounded, in-memory abuse limit. The production service currently runs one replica. Move this limit to a shared store before scaling the web service to multiple replicas.
 
 Remove the old `RESEND_API_KEY` / `RESEND_FROM_EMAIL` / `RESEND_TO_EMAIL` env vars from Railway once the new ones are in place. The endpoint returns 500 until the new vars are set.

@@ -1,8 +1,16 @@
 // Contact form backend , Gmail SMTP via nodemailer (swapped from Resend 2026-04-19).
-// Railway env vars required: GMAIL_USER, GMAIL_APP_PASSWORD, CONTACT_TO_EMAIL.
+// Railway env vars required: GMAIL_USER, GMAIL_APP_PASSWORD, CONTACT_TO_EMAIL, ALLOWED_ORIGINS.
 // Generate an App Password at https://myaccount.google.com/apppasswords (2FA required).
 import { NextRequest, NextResponse } from 'next/server'
 import nodemailer from 'nodemailer'
+
+import {
+  getRailwayClientId,
+  isAllowedOrigin,
+  MemoryRateLimiter,
+  parseAllowedOrigins,
+  parseContactRequest,
+} from './contact-policy'
 
 const MAX_NAME_LENGTH = 100
 const MIN_NAME_LENGTH = 2
@@ -10,9 +18,15 @@ const MAX_MESSAGE_LENGTH = 2000
 const MIN_MESSAGE_LENGTH = 10
 const MAX_BODY_BYTES = 10 * 1024 // 10KB
 
-const rateLimitWindowMs = Number(process.env.CONTACT_RATE_LIMIT_WINDOW_MS || 60_000)
-const rateLimitMax = Number(process.env.CONTACT_RATE_LIMIT_MAX || 5)
-const requests = new Map<string, number[]>()
+function positiveNumber(value: string | undefined, fallback: number) {
+  const parsed = Number(value)
+  return Number.isFinite(parsed) && parsed > 0 ? parsed : fallback
+}
+
+const rateLimiter = new MemoryRateLimiter(
+  positiveNumber(process.env.CONTACT_RATE_LIMIT_WINDOW_MS, 60_000),
+  positiveNumber(process.env.CONTACT_RATE_LIMIT_MAX, 5),
+)
 
 function escapeHtml(value: string) {
   return value
@@ -24,33 +38,15 @@ function escapeHtml(value: string) {
 }
 
 function validateEnv() {
-  const { GMAIL_USER, GMAIL_APP_PASSWORD, CONTACT_TO_EMAIL } = process.env
-  if (!GMAIL_USER || !GMAIL_APP_PASSWORD || !CONTACT_TO_EMAIL) {
+  const { GMAIL_USER, GMAIL_APP_PASSWORD, CONTACT_TO_EMAIL, ALLOWED_ORIGINS } = process.env
+  if (!GMAIL_USER || !GMAIL_APP_PASSWORD || !CONTACT_TO_EMAIL || !ALLOWED_ORIGINS) {
     return false
   }
   return true
 }
 
-function getClientId(request: NextRequest) {
-  const xfwd = request.headers.get('x-forwarded-for')
-  if (xfwd) return xfwd.split(',')[0]?.trim()
-  return 'unknown'
-}
-
-function isRateLimited(clientId: string) {
-  const now = Date.now()
-  const windowStart = now - rateLimitWindowMs
-  const timestamps = (requests.get(clientId) || []).filter((ts) => ts > windowStart)
-  timestamps.push(now)
-  requests.set(clientId, timestamps)
-  return timestamps.length > rateLimitMax
-}
-
 function isOriginAllowed(request: NextRequest) {
-  const origin = request.headers.get('origin') || ''
-  if (!origin) return false
-  const allowedOrigins = (process.env.ALLOWED_ORIGINS || '').split(',').map((o) => o.trim()).filter(Boolean)
-  return allowedOrigins.length === 0 ? false : allowedOrigins.includes(origin)
+  return isAllowedOrigin(request.headers.get('origin'), parseAllowedOrigins(process.env.ALLOWED_ORIGINS))
 }
 
 function isContentTypeJson(request: NextRequest) {
@@ -76,8 +72,8 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ error: 'Payload too large' }, { status: 413 })
   }
 
-  const clientId = getClientId(request)
-  if (isRateLimited(clientId)) {
+  const clientId = getRailwayClientId(request.headers)
+  if (rateLimiter.isLimited(clientId)) {
     return NextResponse.json({ error: 'Too many requests' }, { status: 429 })
   }
 
@@ -92,11 +88,12 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ error: 'Invalid JSON' }, { status: 400 })
   }
 
-  const { name, email, message } = (body ?? {}) as Record<string, string>
+  const contact = parseContactRequest(body)
+  if (!contact) {
+    return NextResponse.json({ error: 'Invalid request fields' }, { status: 400 })
+  }
 
-  const trimmedName = (name || '').trim()
-  const trimmedEmail = (email || '').trim()
-  const trimmedMessage = (message || '').trim()
+  const { name: trimmedName, email: trimmedEmail, message: trimmedMessage } = contact
 
   if (!trimmedName || !trimmedEmail || !trimmedMessage) {
     return NextResponse.json({ error: 'Missing required fields' }, { status: 400 })
@@ -239,8 +236,9 @@ Talk soon,
 Jason Cochran
 jasoncochran.io`
 
+  let info
   try {
-    const info = await transporter.sendMail({
+    info = await transporter.sendMail({
       from: `"Jason Cochran Contact Form" <${process.env.GMAIL_USER}>`,
       to: process.env.CONTACT_TO_EMAIL as string,
       replyTo: trimmedEmail,
@@ -248,8 +246,13 @@ jasoncochran.io`
       html: notificationHtml,
       text: notificationText,
     })
+  } catch {
+    console.error('Contact form notification email failed')
+    return NextResponse.json({ error: 'Internal server error' }, { status: 500 })
+  }
 
-    // Send thank you email to the sender
+  let confirmationEmailSent = true
+  try {
     await transporter.sendMail({
       from: `"Jason Cochran" <${process.env.GMAIL_USER}>`,
       to: trimmedEmail,
@@ -257,10 +260,13 @@ jasoncochran.io`
       html: thankYouHtml,
       text: thankYouText,
     })
-
-    return NextResponse.json({ success: true, messageId: info.messageId }, { status: 200 })
-  } catch (error) {
-    console.error('Contact form error:', error)
-    return NextResponse.json({ error: 'Internal server error' }, { status: 500 })
+  } catch {
+    confirmationEmailSent = false
+    console.warn('Contact form confirmation email failed after notification succeeded')
   }
+
+  return NextResponse.json(
+    { success: true, messageId: info.messageId, confirmationEmailSent },
+    { status: 200 },
+  )
 }

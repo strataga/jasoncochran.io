@@ -1,10 +1,12 @@
 import { spawnSync } from 'node:child_process'
+import { createRequire } from 'node:module'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 
 const scriptDirectory = path.dirname(fileURLToPath(import.meta.url))
 const webDirectory = path.resolve(scriptDirectory, '..')
-const nextCli = path.resolve(webDirectory, '../../node_modules/next/dist/bin/next')
+const require = createRequire(import.meta.url)
+const nextCli = require.resolve('next/dist/bin/next')
 
 const build = spawnSync(process.execPath, [nextCli, 'build'], {
   cwd: webDirectory,

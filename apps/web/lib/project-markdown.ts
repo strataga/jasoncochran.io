@@ -1,7 +1,7 @@
 import { marked } from 'marked'
-import sanitizeHtml from 'sanitize-html'
+import sanitizeHtml, { type IOptions } from 'sanitize-html'
 
-const sanitizeOptions: sanitizeHtml.IOptions = {
+const sanitizeOptions: IOptions = {
   allowedTags: [
     'a', 'blockquote', 'code', 'del', 'em', 'h2', 'h3', 'h4', 'hr', 'li',
     'ol', 'p', 'pre', 'strong', 'ul',

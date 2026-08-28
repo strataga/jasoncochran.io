@@ -148,7 +148,7 @@ export default function CertificationsPage() {
             </p>
             <p className="text-lg text-gray-300 leading-relaxed" style={{ fontFamily: 'var(--font-body)' }}>
               My current work applies that foundation through architecture decisions, hands-on
-              delivery, operational proof, and a public ReadyRay case study.
+              delivery, operational proof, and a public ArchGauge case study.
             </p>
           </div>
         </div>

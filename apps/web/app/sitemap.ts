@@ -15,7 +15,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     },
     {
-      url: 'https://jasoncochran.io/projects/readyray',
+      url: 'https://jasoncochran.io/projects/archgauge',
       lastModified: new Date(),
       changeFrequency: 'weekly',
       priority: 0.9,

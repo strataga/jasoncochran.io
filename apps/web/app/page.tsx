@@ -37,10 +37,10 @@ const jsonLd = {
   ],
 }
 
-const PRIMARY_CTA_HREF = '/projects/readyray'
-const PRIMARY_CTA_LABEL = 'Follow the ReadyRay case study'
+const PRIMARY_CTA_HREF = '/projects/archgauge'
+const PRIMARY_CTA_LABEL = 'Follow the ArchGauge case study'
 
-const readyRayTechStack = ['TypeScript', 'React', 'Node.js', 'PostgreSQL', 'OpenTelemetry']
+const archGaugeTechStack = ['TypeScript', 'React', 'Node.js', 'PostgreSQL', 'OpenTelemetry']
 
 const openClawTechStack = [
   'Next.js 16',
@@ -185,7 +185,7 @@ export default function Home() {
               >
                 I&apos;m a software architect and hands-on principal engineer with 28 years of
                 experience across enterprise web, mobile, cloud, integrations, and applied AI.
-                ReadyRay is my open-source case study in evidence-based architecture and
+                ArchGauge is my open-source case study in evidence-based architecture and
                 production-readiness reviews. It is currently in development.
               </p>
 
@@ -268,7 +268,7 @@ export default function Home() {
           <h2 className="text-2xl md:text-3xl tracking-tight mb-10">Featured projects</h2>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 items-stretch">
-            {/* ReadyRay */}
+            {/* ArchGauge */}
             <Card className="border-border flex flex-col h-full">
               <CardHeader>
                 <div className="flex flex-wrap items-center gap-3 mb-3">
@@ -279,7 +279,7 @@ export default function Home() {
                     In development · Open source
                   </span>
                 </div>
-                <CardTitle className="text-xl">ReadyRay</CardTitle>
+                <CardTitle className="text-xl">ArchGauge</CardTitle>
               </CardHeader>
               <CardContent className="flex flex-col flex-1">
                 <p className="text-muted-foreground leading-relaxed text-sm mb-6">
@@ -289,7 +289,7 @@ export default function Home() {
                 </p>
 
                 <div className="flex flex-wrap gap-2 mb-6">
-                  {readyRayTechStack.map((tech) => (
+                  {archGaugeTechStack.map((tech) => (
                     <Badge
                       key={tech}
                       variant="secondary"
@@ -300,7 +300,7 @@ export default function Home() {
                   ))}
                 </div>
 
-                <Link href="/projects/readyray" className="mt-auto inline-flex items-center gap-1.5 text-sm text-primary hover:underline underline-offset-4">
+                <Link href="/projects/archgauge" className="mt-auto inline-flex items-center gap-1.5 text-sm text-primary hover:underline underline-offset-4">
                   Read the case study
                   <ArrowRight className="w-3.5 h-3.5" />
                 </Link>
@@ -503,7 +503,7 @@ export default function Home() {
             Want to see the architecture work?
           </h2>
           <p className="text-hero-muted mb-10 max-w-[540px] mx-auto">
-            ReadyRay is being built in public as a complete case study. See the current scope,
+            ArchGauge is being built in public as a complete case study. See the current scope,
             constraints, decisions, and honest limitations.
           </p>
           <Button

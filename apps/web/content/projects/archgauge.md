@@ -9,11 +9,11 @@ techStack:
   - 'OpenTelemetry'
 ---
 
-# ReadyRay
+# ArchGauge
 
 ## Current status
 
-ReadyRay is in development. It is not yet presented as production-ready, broadly deployable, or adopted by customers.
+ArchGauge is in development. It is not yet presented as production-ready, broadly deployable, or adopted by customers.
 
 The project is designed to become an Apache-2.0 architecture and production-readiness review platform. Its purpose is to help a team turn repository evidence into cited findings, reproducible scores, explicit risks, and a human-approved report.
 
@@ -21,7 +21,7 @@ The project is designed to become an Apache-2.0 architecture and production-read
 
 Architecture reviews often mix facts, assumptions, preferences, and sales language. Teams may receive a polished document without a reproducible path back to the code, tests, deployment configuration, security controls, or operating evidence that informed it.
 
-ReadyRay is being designed around a stricter question: **What can the available evidence actually support?**
+ArchGauge is being designed around a stricter question: **What can the available evidence actually support?**
 
 ## Planned review flow
 
@@ -36,7 +36,7 @@ These are design commitments, not claims that every step is implemented today.
 
 ## Architecture direction
 
-ReadyRay starts as a modular monolith. Domain-driven design defines the language and boundaries; clean, hexagonal architecture keeps the web interface, API, jobs, persistence, and external providers behind explicit ports.
+ArchGauge starts as a modular monolith. Domain-driven design defines the language and boundaries; clean, hexagonal architecture keeps the web interface, API, jobs, persistence, and external providers behind explicit ports.
 
 This keeps the system understandable and testable without paying the operational cost of premature microservices.
 
@@ -52,9 +52,11 @@ AI may propose cited findings, but it will not control deterministic scores or p
 - Semantic Versioning and human-readable release notes
 - Signed release artifacts, checksums, software bills of materials, and build attestations before stable release
 
+The public source is [github.com/strataga/archgauge](https://github.com/strataga/archgauge).
+
 ## Benchmark
 
-Acme FieldOps will be a separate fictional but runnable enterprise application used to test ReadyRay. Clean, flawed, remediated, and insufficient-evidence revisions will provide known scenarios without presenting invented business outcomes as customer proof.
+Acme FieldOps will be a separate fictional but runnable enterprise application used to test ArchGauge. Clean, flawed, remediated, and insufficient-evidence revisions will provide known scenarios without presenting invented business outcomes as customer proof.
 
 ## What evidence will be added
 

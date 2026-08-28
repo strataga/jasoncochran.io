@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     'Principal Engineer',
     'Architecture Consulting',
     'Production Readiness',
-    'ReadyRay',
+    'ArchGauge',
     'Next.js',
     'React',
     'TypeScript',

@@ -72,7 +72,7 @@ jason-cochran/
 - **Homepage** (`/`) - Hero section with animated background, featured case studies
 - **Resume** (`/resume`) - Professional experience, skills, certifications
 - **Projects** (`/projects`) - Portfolio showcase
-- **ReadyRay case study** (`/projects/readyray`) - Current architecture decisions, status, and limitations
+- **ArchGauge case study** (`/projects/archgauge`) - Current architecture decisions, status, and limitations
 
 ## 🎨 Features
 
@@ -81,7 +81,7 @@ jason-cochran/
 - 🌓 Dark mode support
 - 📱 Fully responsive design
 - 🚀 Optimized performance
-- 📊 Evidence-bounded project case studies, including ReadyRay and archived work
+- 📊 Evidence-bounded project case studies, including ArchGauge and archived work
 
 ## 📝 Customization
 

@@ -30,4 +30,4 @@ This page preserves the engineering questions the project explored. It does not 
 
 The most important lesson was that an AI product needs much more than a successful model call. Trust depends on bounded access, visible cost, evaluation, failure recovery, support procedures, and clear claims about what the system can and cannot do.
 
-Those lessons now inform ReadyRay, my open-source architecture and production-readiness case study.
+Those lessons now inform ArchGauge, my open-source architecture and production-readiness case study.

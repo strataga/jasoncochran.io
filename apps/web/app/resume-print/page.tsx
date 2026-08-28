@@ -19,7 +19,7 @@ export default function ResumePrint() {
       <section>
         <h2 className="section">Projects</h2>
 
-        <h3 className="role">ReadyRay · In development</h3>
+        <h3 className="role">ArchGauge · In development</h3>
         <p className="project-meta">
           Open-source architecture and production-readiness case study
         </p>

@@ -86,7 +86,7 @@ export default async function OpengraphImage() {
               maxWidth: '900px',
             }}
           >
-            ReadyRay is an open-source architecture and production-readiness case study,
+            ArchGauge is an open-source architecture and production-readiness case study,
             currently in development.
           </div>
         </div>

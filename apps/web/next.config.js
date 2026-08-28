@@ -13,6 +13,7 @@ const nextConfig = {
       { source: '/resume', destination: '/#experience', permanent: true },
       { source: '/contact', destination: '/#contact', permanent: true },
       { source: '/projects', destination: '/#projects', permanent: true },
+      { source: '/projects/readyray', destination: '/projects/archgauge', permanent: true },
     ]
   },
 }

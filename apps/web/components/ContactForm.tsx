@@ -128,7 +128,7 @@ export default function ContactForm() {
               maxLength: { value: 2000, message: 'Message must be less than 2000 characters' },
             })}
             className={`${inputClasses} resize-none`}
-            placeholder="Which offering above sounds like you, and what's the context?"
+            placeholder="How can I help you?"
           />
           {errors.message && (
             <p className="mt-2 text-sm text-destructive">{errors.message.message}</p>

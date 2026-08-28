@@ -128,6 +128,7 @@ export async function POST(request: NextRequest) {
       pass: process.env.GMAIL_APP_PASSWORD,
     },
   })
+  const sendEmail = (mail: Parameters<typeof transporter.sendMail>[0]) => transporter.sendMail(mail)
 
   const notificationHtml = `
     <!DOCTYPE html>
@@ -238,7 +239,7 @@ jasoncochran.io`
 
   let info
   try {
-    info = await transporter.sendMail({
+    info = await sendEmail({
       from: `"Jason Cochran Contact Form" <${process.env.GMAIL_USER}>`,
       to: process.env.CONTACT_TO_EMAIL as string,
       replyTo: trimmedEmail,
@@ -253,7 +254,7 @@ jasoncochran.io`
 
   let confirmationEmailSent = true
   try {
-    await transporter.sendMail({
+    await sendEmail({
       from: `"Jason Cochran" <${process.env.GMAIL_USER}>`,
       to: trimmedEmail,
       subject: 'Thanks for reaching out!',

@@ -4,8 +4,8 @@ import { notFound } from 'next/navigation'
 import { readFile, readdir } from 'node:fs/promises'
 import path from 'node:path'
 import matter from 'gray-matter'
-import { marked } from 'marked'
 import { ArrowLeft } from 'lucide-react'
+import { renderProjectMarkdown } from '@/lib/project-markdown'
 
 type ProjectFrontmatter = {
   subtitle?: string
@@ -58,7 +58,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
   if (!project) notFound()
 
   const body = project.content.replace(/^#\s+.+$/m, '').trim()
-  const html = await marked.parse(body)
+  const html = await renderProjectMarkdown(body)
 
   return (
     <article className="min-h-screen py-16 lg:py-24">

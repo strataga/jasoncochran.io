@@ -62,7 +62,7 @@ export default async function OpengraphImage() {
               maxWidth: '900px',
             }}
           >
-            Senior full-stack engineer building
+            Software architect + principal engineer
           </div>
           <div
             style={{
@@ -75,7 +75,7 @@ export default async function OpengraphImage() {
               maxWidth: '900px',
             }}
           >
-            agent infrastructure that doesn&apos;t break.
+            turning hard problems into systems teams can trust.
           </div>
 
           <div
@@ -86,8 +86,8 @@ export default async function OpengraphImage() {
               maxWidth: '900px',
             }}
           >
-            OpenClaw VPS: managed hosting for OpenClaw with 30 prebuilt AI assistants,
-            private and always-on.
+            ReadyRay is an open-source architecture and production-readiness case study,
+            currently in development.
           </div>
         </div>
 

@@ -1,6 +1,6 @@
 # Jason Cochran - Personal Website
 
-A modern, professional portfolio website showcasing 27 years of software engineering experience.
+A professional portfolio for software architect and principal engineer Jason Cochran, backed by 28 years of software engineering experience.
 
 ## 🚀 Quick Start
 
@@ -72,7 +72,7 @@ jason-cochran/
 - **Homepage** (`/`) - Hero section with animated background, featured case studies
 - **Resume** (`/resume`) - Professional experience, skills, certifications
 - **Projects** (`/projects`) - Portfolio showcase
-- **Blog** (`/blog`) - Technical writing and insights
+- **ReadyRay case study** (`/projects/readyray`) - Current architecture decisions, status, and limitations
 
 ## 🎨 Features
 
@@ -81,10 +81,7 @@ jason-cochran/
 - 🌓 Dark mode support
 - 📱 Fully responsive design
 - 🚀 Optimized performance
-- 📊 Featured case studies:
-  - **Rook** - PSA Platform (320K+ LOC, hexagonal architecture)
-  - **WellOS** - The Operating System for Oil & Gas Operations (Rust + Next.js, SCADA integration, offline-first)
-  - NFT Collectibles Platform
+- 📊 Evidence-bounded project case studies, including ReadyRay and archived work
 
 ## 📝 Customization
 

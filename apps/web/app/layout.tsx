@@ -19,18 +19,17 @@ const jetbrainsMono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: 'Jason Cochran · Senior Full-Stack Engineer · Agent Infrastructure',
+    default: 'Jason Cochran · Software Architect + Principal Engineer',
     template: '%s | Jason Cochran',
   },
   description:
-    'Senior full-stack engineer. 28 years shipping production software. Currently building agent infrastructure. OpenClaw VPS is my product: managed hosting for OpenClaw with 30 prebuilt AI assistants, private and always-on.',
+    'Software architect and hands-on principal engineer with 28 years of experience across enterprise web, mobile, cloud, integrations, and applied AI.',
   keywords: [
-    'Senior Full-Stack Engineer',
-    'AI Agent Infrastructure',
-    'Production Agents',
-    'OpenClaw VPS',
-    'Multi-tenant Agent Hosting',
-    'Agent Observability',
+    'Software Architect',
+    'Principal Engineer',
+    'Architecture Consulting',
+    'Production Readiness',
+    'ReadyRay',
     'Next.js',
     'React',
     'TypeScript',
@@ -44,24 +43,24 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_US',
     url: 'https://jasoncochran.io',
-    title: 'Jason Cochran · Senior Full-Stack Engineer · Agent Infrastructure',
+    title: 'Jason Cochran · Software Architect + Principal Engineer',
     description:
-      'Senior full-stack engineer. 28 years shipping production software. Currently building agent infrastructure. OpenClaw VPS: managed hosting for OpenClaw with 30 prebuilt AI assistants.',
+      'Software architect and hands-on principal engineer with 28 years of experience translating business needs into maintainable systems.',
     siteName: 'Jason Cochran',
     images: [
       {
         url: '/opengraph-image',
         width: 1200,
         height: 630,
-        alt: 'Jason Cochran · Senior Full-Stack Engineer · Agent Infrastructure',
+        alt: 'Jason Cochran · Software Architect + Principal Engineer',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Jason Cochran · Senior Full-Stack Engineer · Agent Infrastructure',
+    title: 'Jason Cochran · Software Architect + Principal Engineer',
     description:
-      'Senior full-stack engineer. 28 years shipping production software. Currently building agent infrastructure. OpenClaw VPS: managed hosting for OpenClaw with 30 prebuilt AI assistants.',
+      'Software architect and hands-on principal engineer with 28 years of experience translating business needs into maintainable systems.',
     images: ['/opengraph-image'],
   },
 }

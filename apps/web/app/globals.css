@@ -344,6 +344,5 @@
     text-decoration: none;
   }
 
-  /* Link text reads as URL already (e.g. "openclawvps.com"), so no ::after
-     URL suffix , keeps the resume dense and ATS-parseable. */
+  /* Link text already reads as a URL, so no printed suffix is needed. */
 }

@@ -36,24 +36,6 @@ const certifications = [
   },
 ]
 
-const upcomingCertifications = [
-  {
-    name: 'Microsoft Azure Administrator Associate',
-    code: 'AZ-104',
-    description: 'Azure infrastructure and administration',
-  },
-  {
-    name: 'Microsoft Azure Developer Associate',
-    code: 'AZ-204',
-    description: 'Advanced Azure development skills',
-  },
-  {
-    name: 'Microsoft Azure Solutions Architect Expert',
-    code: 'AZ-305',
-    description: 'Enterprise architecture on Azure',
-  },
-]
-
 const colorClasses = {
   red: 'bg-[var(--pop-red)]',
   yellow: 'bg-[var(--pop-yellow)]',
@@ -71,7 +53,7 @@ export default function CertificationsPage() {
           </h1>
 
           <p className="text-xl text-[var(--text-secondary)] max-w-2xl mx-auto leading-relaxed" style={{ fontFamily: 'var(--font-body)' }}>
-            Validating expertise in AI, cloud platforms, and modern software development through continuous learning
+            Earned Microsoft credentials in Azure cloud and AI fundamentals
           </p>
         </div>
       </section>
@@ -84,7 +66,7 @@ export default function CertificationsPage() {
               CURRENT CERTIFICATIONS
             </h2>
             <p className="text-lg text-[var(--text-secondary)]" style={{ fontFamily: 'var(--font-body)' }}>
-              Verified credentials demonstrating expertise in cloud and AI technologies
+              Verified foundational credentials in cloud and AI technologies
             </p>
           </div>
 
@@ -150,40 +132,6 @@ export default function CertificationsPage() {
         </div>
       </section>
 
-      {/* Upcoming Certifications */}
-      <section className="mb-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="mb-12">
-            <h2 className="section-header text-3xl md:text-4xl mb-4">
-              IN PROGRESS
-            </h2>
-            <p className="text-lg text-[var(--text-secondary)]" style={{ fontFamily: 'var(--font-body)' }}>
-              Currently pursuing additional certifications to expand expertise
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {upcomingCertifications.map((cert) => (
-              <div
-                key={cert.code}
-                className="card-pop p-6"
-                style={{ borderStyle: 'dashed' }}
-              >
-                <span className="tag-pop mb-3 inline-block">
-                  {cert.code}
-                </span>
-                <h3 className="text-xl text-[var(--pop-black)] mb-2" style={{ fontFamily: 'var(--font-headline)' }}>
-                  {cert.name}
-                </h3>
-                <p className="text-[var(--text-secondary)] text-sm" style={{ fontFamily: 'var(--font-body)' }}>
-                  {cert.description}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Why Certifications Matter */}
       <section className="mb-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -194,13 +142,13 @@ export default function CertificationsPage() {
             </h2>
             <p className="text-lg text-gray-300 mb-6 leading-relaxed" style={{ fontFamily: 'var(--font-body)' }}>
               With 28 years in the industry, I've learned that staying current is non-negotiable.
-              These certifications complement my real-world experience with validated knowledge of
-              the latest cloud and AI technologies.
+              These certifications add verified foundation knowledge to practical enterprise
+              experience. Advanced AWS and Azure architect credentials will appear here only after
+              they are earned.
             </p>
             <p className="text-lg text-gray-300 leading-relaxed" style={{ fontFamily: 'var(--font-body)' }}>
-              Combining practical enterprise experience with cutting-edge platform knowledge means
-              I can architect solutions that leverage the best of both worlds: proven patterns and
-              modern capabilities.
+              My current work applies that foundation through architecture decisions, hands-on
+              delivery, operational proof, and a public ReadyRay case study.
             </p>
           </div>
         </div>
@@ -212,10 +160,10 @@ export default function CertificationsPage() {
           <div className="card-pop p-12">
             <Rocket className="w-12 h-12 text-[var(--pop-red)] mx-auto mb-4" />
             <h2 className="text-3xl md:text-4xl text-[var(--pop-black)] mb-6" style={{ fontFamily: 'var(--font-headline)' }}>
-              LET'S BUILD WITH AI
+              NEED ARCHITECTURE HELP?
             </h2>
             <p className="text-xl text-[var(--text-secondary)] mb-8" style={{ fontFamily: 'var(--font-body)' }}>
-              Need AI-powered applications or automation solutions? Let's discuss your project.
+              Let&apos;s make the business goal, tradeoffs, and safest delivery path clear.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link

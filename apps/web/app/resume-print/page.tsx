@@ -1,22 +1,13 @@
-// Resume print source page.
-//
-// Renders the resume content with print-optimized typography. Source of
-// truth for the content is `.planning/phases/01-positioning-asset-rewrite/
-// 01-RESUME-DRAFT.md` in the career-makeover repo; the tagline on the
-// rendered page is updated to the 2026-04-19 hybrid-wedge phrasing.
-//
-// The Puppeteer script `scripts/generate-resume-pdf.mjs` navigates to
-// /resume-print in a local dev server and calls page.pdf() to produce
-// `apps/web/public/jason-cochran-resume.pdf`.
-//
-// noindex set via metadata in ./layout.tsx.
+// Public HTML snapshot of the private evidence-backed resume source.
+// Downloadable PDFs are generated and verified in the private career-plan
+// repository before they are copied into public assets.
 
 export default function ResumePrint() {
   return (
     <>
       <h1 className="name">JASON COCHRAN</h1>
       <p className="tagline">
-        Senior Full-Stack Engineer · Agent Infrastructure
+        Software Architect + Principal Engineer
       </p>
       <p className="contact">
         jlcochran2013@gmail.com · jasoncochran.io ·
@@ -28,24 +19,21 @@ export default function ResumePrint() {
       <section>
         <h2 className="section">Projects</h2>
 
-        <h3 className="role">OpenClaw VPS · Managed AI Agent Hosting</h3>
+        <h3 className="role">ReadyRay · In development</h3>
         <p className="project-meta">
-          Strataga LLC · Q4 2025–Q1 2026 · openclawvps.com · Live
+          Open-source architecture and production-readiness case study
         </p>
         <p className="desc">
-          Managed hosting for OpenClaw with 30 prebuilt AI assistants. Multi-tenant
-          by design: BYOK model, multi-channel delivery (web / Telegram /
-          Tailscale-wired), per-tenant cost and latency observability, SLO-gated
-          deploys, incident lifecycle tracking, and a customer-health scoring
-          pipeline.
+          Designed to combine deterministic evidence checks, cited AI-assisted
+          findings, reproducible scoring, and human approval. Capabilities are
+          published only as they are implemented and verified.
         </p>
+
+        <h3 className="role">OpenClaw VPS · Archived personal project</h3>
+        <p className="project-meta">No longer online</p>
         <p className="desc">
-          Tech: Next.js 16, React 19, Convex, Stripe, Tailscale, Sentry,
-          PostHog, Claude Code, MCP.
-        </p>
-        <p className="featured">
-          Featured: Product Hunt · Hacker News (item 47507993) · Indie Hackers ·
-          Fazier · Dev.to.
+          Explored managed deployment and operational controls for private AI
+          assistants. Retained as engineering history, not a live service.
         </p>
       </section>
 
@@ -60,17 +48,6 @@ export default function ResumePrint() {
           with AWS-hosted services. Owned the production migration from the
           legacy onboarding path to the new NestJS flow; handed off with
           documentation and runbooks before role ended.
-        </p>
-
-        <h3 className="role">
-          Senior Software Engineer · Big D Companies · 2024/03–2024/09
-        </h3>
-        <p className="desc">
-          Led the legacy PHP → React / Next.js conversion of a SCADA-connected
-          ERP used across oil/gas field operations; migrated the primary
-          operator-facing screens off PHP without downtime. Integrated the new
-          stack with existing SCADA data feeds and ERP tables; kept the on-call
-          operator workflow continuous during the cutover.
         </p>
 
         <h3 className="role">
@@ -89,9 +66,8 @@ export default function ResumePrint() {
         <p className="desc">
           Led an AI research initiative with OpenAI: prototyped LLM-assisted
           internal tooling on top of existing AngularJS / Ionic client
-          surfaces. Early applied-LLM production work, two years before the
-          current agent wave. Delivered production client features in the
-          AngularJS + Ionic stack alongside the research track.
+          surfaces. Delivered production client features in the AngularJS +
+          Ionic stack alongside the research track.
         </p>
 
         <h3 className="role">
@@ -136,6 +112,14 @@ export default function ResumePrint() {
         <p className="skills-row">
           <span className="skills-label">Infrastructure / Ops:</span> Railway,
           Docker, Cloudflare, Sentry, PostHog, Stripe, Resend
+        </p>
+      </section>
+
+      <section>
+        <h2 className="section">Certifications</h2>
+        <p className="skills-row">
+          Microsoft Certified: Azure Fundamentals (AZ-900) · Microsoft
+          Certified: Azure AI Fundamentals (AI-900)
         </p>
       </section>
     </>

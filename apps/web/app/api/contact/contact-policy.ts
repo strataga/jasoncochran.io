@@ -59,8 +59,10 @@ export class MemoryRateLimiter {
     const windowStart = now - this.windowMs
     this.sweepExpired(windowStart, now)
 
-    const timestamps = (this.requests.get(clientId) ?? []).filter((timestamp) => timestamp > windowStart)
-    timestamps.push(now)
+    const timestamps = (this.requests.get(clientId) ?? [])
+      .filter((timestamp) => timestamp > windowStart)
+      .slice(-this.maxRequests)
+    const updatedTimestamps = [...timestamps, now]
 
     if (!this.requests.has(clientId) && this.requests.size >= this.maxClients) {
       const oldestClient = this.requests.keys().next().value
@@ -70,12 +72,16 @@ export class MemoryRateLimiter {
     // Refresh insertion order so capacity eviction removes the least-recently
     // active client rather than an arbitrary address.
     this.requests.delete(clientId)
-    this.requests.set(clientId, timestamps)
-    return timestamps.length > this.maxRequests
+    this.requests.set(clientId, updatedTimestamps)
+    return updatedTimestamps.length > this.maxRequests
   }
 
   get clientCount(): number {
     return this.requests.size
+  }
+
+  get storedRequestCount(): number {
+    return [...this.requests.values()].reduce((total, timestamps) => total + timestamps.length, 0)
   }
 
   private sweepExpired(windowStart: number, now: number) {

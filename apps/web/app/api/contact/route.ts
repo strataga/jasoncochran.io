@@ -186,60 +186,8 @@ ${trimmedMessage}
 ---
 Reply to ${trimmedEmail} to respond. Sent from jasoncochran.io contact form.`
 
-  const thankYouHtml = `
-    <!DOCTYPE html>
-    <html>
-      <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Thank You</title>
-      </head>
-      <body style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; line-height: 1.6; color: #333; max-width: 600px; margin: 0 auto; padding: 20px;">
-        <div style="background: #000; padding: 30px; border-radius: 10px 10px 0 0;">
-          <h1 style="color: #FFD600; margin: 0; font-size: 24px;">Thanks for reaching out!</h1>
-        </div>
-
-        <div style="background: #f9fafb; padding: 30px; border-radius: 0 0 10px 10px; border: 1px solid #e5e7eb; border-top: none;">
-          <p style="margin: 0 0 20px 0; color: #1f2937;">
-            Hi ${safeName},
-          </p>
-
-          <p style="margin: 0 0 20px 0; color: #1f2937;">
-            I received your message and will get back to you within one business day.
-          </p>
-
-          <div style="background: white; padding: 20px; border-radius: 8px; margin-bottom: 20px; border: 1px solid #e5e7eb; border-left: 4px solid #FFD600;">
-            <p style="margin: 0 0 10px 0;"><strong style="color: #4b5563;">Your message:</strong></p>
-            <p style="margin: 0; color: #6b7280; white-space: pre-wrap;">${safeMessage}</p>
-          </div>
-
-          <p style="margin: 0; color: #1f2937;">
-            Talk soon,<br>
-            <strong>Jason Cochran</strong>
-          </p>
-        </div>
-
-        <div style="text-align: center; margin-top: 20px; color: #9ca3af; font-size: 12px;">
-          <p style="margin: 0;">jasoncochran.io</p>
-        </div>
-      </body>
-    </html>
-  `
-
-  const thankYouText = `Hi ${trimmedName},
-
-I received your message and will get back to you within one business day.
-
-Your message:
-${trimmedMessage}
-
-Talk soon,
-Jason Cochran
-jasoncochran.io`
-
-  let info
   try {
-    info = await sendEmail({
+    const info = await sendEmail({
       from: `"Jason Cochran Contact Form" <${process.env.GMAIL_USER}>`,
       to: process.env.CONTACT_TO_EMAIL as string,
       replyTo: trimmedEmail,
@@ -247,27 +195,9 @@ jasoncochran.io`
       html: notificationHtml,
       text: notificationText,
     })
+    return NextResponse.json({ success: true, messageId: info.messageId }, { status: 200 })
   } catch {
     console.error('Contact form notification email failed')
     return NextResponse.json({ error: 'Internal server error' }, { status: 500 })
   }
-
-  let confirmationEmailSent = true
-  try {
-    await sendEmail({
-      from: `"Jason Cochran" <${process.env.GMAIL_USER}>`,
-      to: trimmedEmail,
-      subject: 'Thanks for reaching out!',
-      html: thankYouHtml,
-      text: thankYouText,
-    })
-  } catch {
-    confirmationEmailSent = false
-    console.warn('Contact form confirmation email failed after notification succeeded')
-  }
-
-  return NextResponse.json(
-    { success: true, messageId: info.messageId, confirmationEmailSent },
-    { status: 200 },
-  )
 }

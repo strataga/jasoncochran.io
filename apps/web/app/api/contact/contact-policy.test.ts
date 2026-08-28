@@ -43,6 +43,10 @@ test('rate limiter blocks after the configured count and bounds client storage',
   assert.equal(limiter.isLimited('one', 100), false)
   assert.equal(limiter.isLimited('one', 200), false)
   assert.equal(limiter.isLimited('one', 300), true)
+  for (let request = 0; request < 100; request += 1) {
+    assert.equal(limiter.isLimited('one', 301 + request), true)
+  }
+  assert.equal(limiter.storedRequestCount, 3)
   assert.equal(limiter.isLimited('two', 300), false)
   assert.equal(limiter.isLimited('three', 300), false)
   assert.equal(limiter.clientCount, 2)

@@ -121,7 +121,7 @@ const experience: ExperienceEntry[] = [
     company: 'Verizon',
     dates: '2021/10–2022/11',
     summary:
-      'Shipped the AMC Walking Dead NFT experience: custom blockchain + JS SDK inside the Verizon mobile app, production-grade for a tier-1 carrier launch.',
+      'Shipped the AMC Walking Dead NFT experience: custom blockchain + JS SDK integration inside the Verizon mobile app.',
   },
 ]
 

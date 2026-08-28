@@ -75,8 +75,8 @@ export default function ResumePrint() {
         </h3>
         <p className="desc">
           Shipped the AMC Walking Dead NFT experience: custom blockchain + JS
-          SDK integration inside the Verizon mobile app, production-grade for a
-          tier-1 carrier launch. Built and documented the JS SDK handoff used
+          SDK integration inside the Verizon mobile app. Built and documented
+          the JS SDK handoff used
           by downstream teams consuming the NFT integration.
         </p>
       </section>

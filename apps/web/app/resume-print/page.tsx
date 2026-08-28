@@ -7,7 +7,7 @@ export default function ResumePrint() {
     <>
       <h1 className="name">JASON COCHRAN</h1>
       <p className="tagline">
-        Software Architect + Principal Engineer
+        Hands-On Software + Application Architect
       </p>
       <p className="contact">
         jlcochran2013@gmail.com · jasoncochran.io ·

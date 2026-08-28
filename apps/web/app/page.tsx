@@ -15,9 +15,9 @@ import { Badge } from '@/components/ui/badge'
 import ContactForm from '@/components/ContactForm'
 
 export const metadata: Metadata = {
-  title: 'Jason Cochran · Software Architect + Principal Engineer',
+  title: 'Jason Cochran · Hands-On Software + Application Architect',
   description:
-    'Software architect and hands-on principal engineer with 28 years of experience across enterprise web, mobile, cloud, integrations, and applied AI.',
+    'Hands-on software and application architect with 28 years of experience across enterprise applications, web, mobile, integrations, cloud-hosted delivery, and applied AI.',
   alternates: {
     canonical: 'https://jasoncochran.io',
   },
@@ -27,9 +27,9 @@ const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Person',
   name: 'Jason Cochran',
-  jobTitle: 'Software Architect and Principal Engineer',
+  jobTitle: 'Software and Application Architect',
   description:
-    'Software architect and hands-on principal engineer with 28 years of experience translating business workflows into maintainable software systems.',
+    'Hands-on software and application architect with 28 years of experience translating business workflows into maintainable systems and leading principal-level engineering work.',
   url: 'https://jasoncochran.io',
   sameAs: [
     'https://www.linkedin.com/in/cochranjason/',
@@ -127,32 +127,32 @@ const experience: ExperienceEntry[] = [
 
 const skillGroups: Array<{ label: string; items: string[] }> = [
   {
-    label: 'Languages',
-    items: ['TypeScript', 'Python', 'Rust', 'JavaScript'],
-  },
-  {
-    label: 'AI / Agents',
+    label: 'Architecture',
     items: [
-      'Claude Code',
-      'Cursor',
-      'MCP servers',
-      'OpenAI SDK',
-      'Anthropic SDK',
-      'Agent infrastructure',
-      'RAG',
+      'Application Architecture',
+      'System Design',
+      'Domain-Driven Design',
+      'API & Integration Design',
+      'Modernization & Migration',
     ],
   },
   {
-    label: 'Frameworks',
-    items: ['Next.js 16', 'React 19', 'NestJS', 'React Native'],
+    label: 'Application Delivery',
+    items: ['TypeScript', 'React', 'Next.js', 'Node.js', 'NestJS', 'React Native'],
   },
   {
-    label: 'Backend',
-    items: ['Node.js', 'Convex', 'PostgreSQL', 'Redis'],
+    label: 'Data & Operations',
+    items: ['PostgreSQL', 'AWS-hosted systems', 'Azure foundations', 'CI/CD', 'Observability'],
   },
   {
-    label: 'Infrastructure',
-    items: ['Railway', 'Docker', 'Cloudflare', 'Sentry', 'PostHog', 'Stripe', 'Resend'],
+    label: 'Leadership & Applied AI',
+    items: [
+      'Technical Discovery',
+      'Tradeoff Communication',
+      'Mentoring',
+      'OpenAI SDK',
+      'Human Approval Controls',
+    ],
   },
 ]
 
@@ -183,10 +183,10 @@ export default function Home() {
                 className="text-lg md:text-xl leading-relaxed mb-10 text-hero-muted"
                 style={{ maxWidth: '580px' }}
               >
-                I&apos;m a software architect and hands-on principal engineer with 28 years of
-                experience across enterprise web, mobile, cloud, integrations, and applied AI.
-                ArchGauge is my open-source case study in evidence-based architecture and
-                production-readiness reviews. It is currently in development.
+                I&apos;m a hands-on software and application architect with 28 years of experience
+                across enterprise applications, web, mobile, integrations, cloud-hosted delivery,
+                and applied AI. I bring principal-level engineering to ambiguous problems while
+                staying close enough to the code to make the architecture real.
               </p>
 
               <div>
@@ -385,7 +385,7 @@ export default function Home() {
           </p>
 
           <p className="text-sm text-muted-foreground mb-10">
-            Target role: Software Architect + Principal Engineer
+            Target roles: Software Architect · Application Architect · selective Principal Engineer
           </p>
 
           <div className="space-y-8 mb-12">
@@ -476,11 +476,12 @@ export default function Home() {
         <div className="max-w-[680px] mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-2xl md:text-3xl tracking-tight mb-6">About</h2>
           <p className="text-muted-foreground leading-relaxed">
-            I&apos;m a software architect and hands-on principal engineer. Over 28 years, I&apos;ve
-            worked across enterprise web, mobile, cloud, integrations, and applied AI. I work
-            directly with teams to understand the real business problem, make architecture
-            tradeoffs visible, deliver software, and leave behind clear decisions and operating
-            guidance. I work remotely from Midland, Texas.
+            I&apos;m a hands-on software and application architect. Over 28 years, I&apos;ve worked
+            across enterprise applications, web, mobile, integrations, cloud-hosted delivery,
+            and applied AI. I work directly with teams to understand the real business problem,
+            make architecture tradeoffs visible, deliver software, and leave behind clear
+            decisions and operating guidance. That combination is the principal-level value I
+            bring. I work remotely from Midland, Texas.
           </p>
         </div>
       </section>

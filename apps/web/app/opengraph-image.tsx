@@ -1,7 +1,7 @@
 import { ImageResponse } from 'next/og'
 
 export const runtime = 'nodejs'
-export const alt = 'Jason Cochran · Senior Full-Stack Engineer · Agent Infrastructure'
+export const alt = 'Jason Cochran · Hands-On Software and Application Architect'
 export const size = { width: 1200, height: 630 }
 export const contentType = 'image/png'
 
@@ -62,7 +62,7 @@ export default async function OpengraphImage() {
               maxWidth: '900px',
             }}
           >
-            Software architect + principal engineer
+            Hands-on software + application architect
           </div>
           <div
             style={{
@@ -101,7 +101,7 @@ export default async function OpengraphImage() {
             fontWeight: 500,
           }}
         >
-          <div>28 years shipping production software</div>
+          <div>28 years delivering production software</div>
           <div style={{ color: '#475569' }}>·</div>
           <div>Remote · Midland, TX</div>
         </div>

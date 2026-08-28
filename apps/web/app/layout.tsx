@@ -19,11 +19,11 @@ const jetbrainsMono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: 'Jason Cochran · Software Architect + Principal Engineer',
+    default: 'Jason Cochran · Hands-On Software + Application Architect',
     template: '%s | Jason Cochran',
   },
   description:
-    'Software architect and hands-on principal engineer with 28 years of experience across enterprise web, mobile, cloud, integrations, and applied AI.',
+    'Hands-on software and application architect with 28 years of experience across enterprise applications, web, mobile, integrations, cloud-hosted delivery, and applied AI.',
   keywords: [
     'Software Architect',
     'Principal Engineer',
@@ -43,24 +43,24 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_US',
     url: 'https://jasoncochran.io',
-    title: 'Jason Cochran · Software Architect + Principal Engineer',
+    title: 'Jason Cochran · Hands-On Software + Application Architect',
     description:
-      'Software architect and hands-on principal engineer with 28 years of experience translating business needs into maintainable systems.',
+      'Hands-on software and application architect with 28 years of experience translating business needs into maintainable systems and leading principal-level engineering work.',
     siteName: 'Jason Cochran',
     images: [
       {
         url: '/opengraph-image',
         width: 1200,
         height: 630,
-        alt: 'Jason Cochran · Software Architect + Principal Engineer',
+        alt: 'Jason Cochran · Hands-On Software + Application Architect',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Jason Cochran · Software Architect + Principal Engineer',
+    title: 'Jason Cochran · Hands-On Software + Application Architect',
     description:
-      'Software architect and hands-on principal engineer with 28 years of experience translating business needs into maintainable systems.',
+      'Hands-on software and application architect with 28 years of experience translating business needs into maintainable systems and leading principal-level engineering work.',
     images: ['/opengraph-image'],
   },
 }

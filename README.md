@@ -1,6 +1,6 @@
 # Jason Cochran - Personal Website
 
-A professional portfolio for software architect and principal engineer Jason Cochran, backed by 28 years of software engineering experience.
+A professional portfolio for hands-on software and application architect Jason Cochran, backed by 28 years of software engineering experience and principal-level engineering work.
 
 ## 🚀 Quick Start
 

@@ -249,6 +249,16 @@ export default function Home() {
               </Card>
             ))}
           </div>
+
+          <p className="mt-8 text-sm text-muted-foreground">
+            Considering consulting support?{' '}
+            <a
+              href="/jason-cochran-principal-consulting-resume.pdf"
+              className="font-semibold text-foreground underline decoration-border underline-offset-4 transition-colors hover:text-primary hover:decoration-primary"
+            >
+              View the consulting profile (PDF)
+            </a>
+          </p>
         </div>
       </section>
 
@@ -434,15 +444,7 @@ export default function Home() {
               className="inline-flex items-center gap-2 text-sm bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 rounded-md font-semibold transition-colors"
             >
               <Download className="w-4 h-4" />
-              Download architect resume (PDF)
-            </a>
-            <a
-              href="/jason-cochran-principal-consulting-resume.pdf"
-              download
-              className="inline-flex items-center gap-2 text-sm border border-border hover:border-primary h-10 px-4 rounded-md font-semibold transition-colors"
-            >
-              <Download className="w-4 h-4" />
-              Download principal/consulting resume
+              Download résumé (PDF)
             </a>
           </div>
 
@@ -486,10 +488,9 @@ export default function Home() {
       {/* Contact */}
       <section id="contact" className="py-16 lg:py-24">
         <div className="max-w-[680px] mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl md:text-3xl tracking-tight mb-4">Talk to me</h2>
+          <h2 className="text-2xl md:text-3xl tracking-tight mb-4">Message me</h2>
           <p className="text-muted-foreground leading-relaxed mb-10">
-            If any of the cards above sound like you, send a note. One-sentence reply within
-            24 hours.
+            I&apos;ll reply within 24 hours.
           </p>
           <ContactForm />
         </div>

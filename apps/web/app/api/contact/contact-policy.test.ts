@@ -7,6 +7,7 @@ import {
   MemoryRateLimiter,
   parseAllowedOrigins,
   parseContactRequest,
+  readBoundedBody,
 } from './contact-policy'
 
 test('parseContactRequest accepts and trims string fields', () => {
@@ -36,6 +37,22 @@ test('client identity uses only a valid Railway X-Real-IP header', () => {
     getRailwayClientId(new Headers({ 'x-forwarded-for': '198.51.100.9', 'x-real-ip': 'attacker' })),
     'unknown',
   )
+})
+
+test('bounded body reader accepts small payloads and stops oversized streams', async () => {
+  const smallBody = new Request('https://example.com', { method: 'POST', body: 'hello' }).body
+  assert.deepEqual(await readBoundedBody(smallBody, 5), { ok: true, text: 'hello' })
+
+  let chunksRead = 0
+  const oversizedBody = new ReadableStream<Uint8Array>({
+    pull(controller) {
+      chunksRead += 1
+      controller.enqueue(new Uint8Array(6))
+      if (chunksRead === 3) controller.close()
+    },
+  })
+  assert.deepEqual(await readBoundedBody(oversizedBody, 10), { ok: false, reason: 'too-large' })
+  assert.equal(chunksRead, 2)
 })
 
 test('rate limiter blocks after the configured count and bounds client storage', () => {

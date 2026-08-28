@@ -45,6 +45,41 @@ export function getRailwayClientId(headers: Headers): string {
   return isIP(realIp) ? realIp : 'unknown'
 }
 
+export type BoundedBodyResult =
+  | { ok: true; text: string }
+  | { ok: false; reason: 'too-large' }
+
+export async function readBoundedBody(
+  body: ReadableStream<Uint8Array> | null,
+  maxBytes: number,
+): Promise<BoundedBodyResult> {
+  if (!body) return { ok: true, text: '' }
+
+  const reader = body.getReader()
+  const decoder = new TextDecoder()
+  let byteCount = 0
+  let text = ''
+
+  try {
+    while (true) {
+      const { done, value } = await reader.read()
+      if (done) break
+
+      byteCount += value.byteLength
+      if (byteCount > maxBytes) {
+        await reader.cancel()
+        return { ok: false, reason: 'too-large' }
+      }
+      text += decoder.decode(value, { stream: true })
+    }
+
+    text += decoder.decode()
+    return { ok: true, text }
+  } finally {
+    reader.releaseLock()
+  }
+}
+
 export class MemoryRateLimiter {
   private readonly requests = new Map<string, number[]>()
   private lastSweepAt = 0

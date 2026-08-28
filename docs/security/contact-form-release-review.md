@@ -24,6 +24,8 @@ No open critical, high, or medium findings remain in this release candidate.
 - `ALLOWED_ORIGINS` is required, documented, and matched exactly.
 - The endpoint sends only the site-owner notification, so it cannot be used to relay confirmation email to attacker-selected recipients.
 - Rate-limit client and per-client timestamp storage are bounded and periodically pruned.
+- Chunked request bodies are read incrementally and canceled as soon as they exceed 10 KB.
+- The reused Gmail transport has explicit connection, greeting, and socket timeouts.
 
 ## Non-findings checked
 

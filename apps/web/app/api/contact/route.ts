@@ -10,6 +10,7 @@ import {
   MemoryRateLimiter,
   parseAllowedOrigins,
   parseContactRequest,
+  readBoundedBody,
 } from './contact-policy'
 
 const MAX_NAME_LENGTH = 100
@@ -27,6 +28,16 @@ const rateLimiter = new MemoryRateLimiter(
   positiveNumber(process.env.CONTACT_RATE_LIMIT_WINDOW_MS, 60_000),
   positiveNumber(process.env.CONTACT_RATE_LIMIT_MAX, 5),
 )
+const smtpTransport = nodemailer.createTransport({
+  service: 'gmail',
+  auth: {
+    user: process.env.GMAIL_USER,
+    pass: process.env.GMAIL_APP_PASSWORD,
+  },
+  connectionTimeout: 10_000,
+  greetingTimeout: 10_000,
+  socketTimeout: 20_000,
+})
 
 function escapeHtml(value: string) {
   return value
@@ -79,11 +90,11 @@ export async function POST(request: NextRequest) {
 
   let body: unknown
   try {
-    const raw = await request.text()
-    if (raw.length > MAX_BODY_BYTES) {
+    const raw = await readBoundedBody(request.body, MAX_BODY_BYTES)
+    if (!raw.ok) {
       return NextResponse.json({ error: 'Payload too large' }, { status: 413 })
     }
-    body = JSON.parse(raw)
+    body = JSON.parse(raw.text)
   } catch {
     return NextResponse.json({ error: 'Invalid JSON' }, { status: 400 })
   }
@@ -121,14 +132,7 @@ export async function POST(request: NextRequest) {
   const safeEmail = escapeHtml(trimmedEmail)
   const safeMessage = escapeHtml(trimmedMessage)
 
-  const transporter = nodemailer.createTransport({
-    service: 'gmail',
-    auth: {
-      user: process.env.GMAIL_USER,
-      pass: process.env.GMAIL_APP_PASSWORD,
-    },
-  })
-  const sendEmail = (mail: Parameters<typeof transporter.sendMail>[0]) => transporter.sendMail(mail)
+  const sendEmail = (mail: Parameters<typeof smtpTransport.sendMail>[0]) => smtpTransport.sendMail(mail)
 
   const notificationHtml = `
     <!DOCTYPE html>

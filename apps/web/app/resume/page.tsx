@@ -5,9 +5,9 @@ import { Download, Mail, Phone } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 
 const canonicalUrl = 'https://jasoncochran.io/resume'
-const pageTitle = 'Architect Resume and Cover Letter'
+const pageTitle = 'Software Architect Resume and Cover Letter'
 const pageDescription =
-  'Jason Cochran is a hands-on Software and Application Architect with 28 years of experience across enterprise, web, mobile, cloud, integration, and applied-AI systems.'
+  'Jason Cochran is a hands-on Software Architect with 28 years of experience across enterprise applications, integrations, mobile, cloud, and applied AI.'
 
 export const metadata: Metadata = {
   title: pageTitle,
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
         url: '/opengraph-image',
         width: 1200,
         height: 630,
-        alt: 'Jason Cochran · Hands-On Software & Application Architect',
+        alt: 'Jason Cochran · Hands-On Software Architect',
       },
     ],
   },
@@ -39,12 +39,12 @@ export const metadata: Metadata = {
 const profileJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'ProfilePage',
-  name: 'Jason Cochran architect resume and cover letter',
+  name: 'Jason Cochran software architect resume and cover letter',
   url: canonicalUrl,
   mainEntity: {
     '@type': 'Person',
     name: 'Jason Cochran',
-    jobTitle: 'Software and Application Architect',
+    jobTitle: 'Software Architect',
     description: pageDescription,
     url: 'https://jasoncochran.io',
     email: 'mailto:jlcochran2013@gmail.com',
@@ -160,8 +160,11 @@ export default function ResumePage() {
             <h1 className="mb-4 text-4xl tracking-tight sm:text-5xl lg:text-6xl">
               Jason Cochran
             </h1>
-            <p className="mb-7 max-w-[760px] text-xl leading-relaxed text-hero-muted">
-              Hands-On Software &amp; Application Architect | Principal-Level Engineering
+            <p className="mb-2 max-w-[760px] text-xl font-semibold leading-relaxed text-hero-foreground">
+              Hands-On Software Architect
+            </p>
+            <p className="mb-7 max-w-[760px] text-sm font-semibold uppercase tracking-[0.1em] text-primary sm:text-base">
+              Enterprise Applications · Integrations · Mobile · Cloud · Applied AI
             </p>
 
             <address className="mb-7 flex max-w-[920px] flex-wrap gap-x-5 gap-y-3 text-sm not-italic text-hero-muted">
@@ -271,7 +274,7 @@ export default function ResumePage() {
                 <section aria-labelledby="profile-heading">
                   <h3 id="profile-heading" className="mb-3 text-xl">Profile</h3>
                   <p className="leading-relaxed text-muted-foreground">
-                    Hands-on software and application architect with 28 years of experience
+                    Hands-on software architect with 28 years of experience
                     translating business workflows into secure, maintainable enterprise
                     applications. Leads discovery, system design, web and mobile delivery,
                     integrations, modernization, migration, and technical handoff while staying

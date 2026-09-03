@@ -19,11 +19,11 @@ const jetbrainsMono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: 'Jason Cochran · Hands-On Software & Application Architect',
+    default: 'Jason Cochran · Hands-On Software Architect',
     template: '%s | Jason Cochran',
   },
   description:
-    'Hands-on Software and Application Architect with 28 years of experience delivering enterprise, web, mobile, integration, cloud-hosted, and applied-AI systems.',
+    'Hands-on Software Architect with 28 years of experience delivering enterprise applications, integrations, mobile products, cloud-hosted systems, and applied-AI solutions.',
   keywords: [
     'Software Architect',
     'Application Architect',
@@ -45,24 +45,24 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_US',
     url: 'https://jasoncochran.io',
-    title: 'Jason Cochran · Hands-On Software & Application Architect',
+    title: 'Jason Cochran · Hands-On Software Architect',
     description:
-      'Hands-on Software and Application Architect with 28 years of experience delivering enterprise, web, mobile, cloud-hosted, and applied-AI systems.',
+      'Hands-on Software Architect with 28 years of experience delivering enterprise applications, integrations, mobile products, cloud-hosted systems, and applied-AI solutions.',
     siteName: 'Jason Cochran',
     images: [
       {
         url: '/opengraph-image',
         width: 1200,
         height: 630,
-        alt: 'Jason Cochran · Hands-On Software & Application Architect',
+        alt: 'Jason Cochran · Hands-On Software Architect',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Jason Cochran · Hands-On Software & Application Architect',
+    title: 'Jason Cochran · Hands-On Software Architect',
     description:
-      'Hands-on Software and Application Architect with 28 years of experience delivering enterprise, web, mobile, cloud-hosted, and applied-AI systems.',
+      'Hands-on Software Architect with 28 years of experience delivering enterprise applications, integrations, mobile products, cloud-hosted systems, and applied-AI solutions.',
     images: ['/opengraph-image'],
   },
 }

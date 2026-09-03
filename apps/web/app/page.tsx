@@ -14,9 +14,9 @@ import { Badge } from '@/components/ui/badge'
 import ContactForm from '@/components/ContactForm'
 
 export const metadata: Metadata = {
-  title: 'Jason Cochran · Hands-On Software & Application Architect',
+  title: 'Jason Cochran · Hands-On Software Architect',
   description:
-    'Hands-on Software and Application Architect with 28 years of experience delivering enterprise, web, mobile, integration, cloud-hosted, and applied-AI systems.',
+    'Hands-on Software Architect with 28 years of experience delivering enterprise applications, integrations, mobile products, cloud-hosted systems, and applied-AI solutions.',
   alternates: {
     canonical: 'https://jasoncochran.io',
   },
@@ -26,9 +26,9 @@ const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Person',
   name: 'Jason Cochran',
-  jobTitle: 'Software and Application Architect',
+  jobTitle: 'Software Architect',
   description:
-    'Hands-on Software and Application Architect with 28 years of experience translating business needs into maintainable enterprise, web, mobile, cloud-hosted, and applied-AI systems.',
+    'Hands-on Software Architect with 28 years of experience translating business needs into maintainable enterprise applications, integrations, mobile products, cloud-hosted systems, and applied-AI solutions.',
   url: 'https://jasoncochran.io',
   email: 'jlcochran2013@gmail.com',
   telephone: '+1-432-260-7580',
@@ -144,9 +144,11 @@ export default function Home() {
           <div className="grid lg:grid-cols-[minmax(0,1fr)_auto] gap-12 lg:gap-20 items-start">
             <div className="max-w-[820px]">
               <h1 className="text-5xl md:text-6xl lg:text-[56px] leading-[1.05] tracking-tight font-semibold mb-6">
-                Hands-On{' '}
-                <span className="text-primary">Software &amp; Application Architect</span>
+                Hands-On <span className="text-primary">Software Architect</span>
               </h1>
+              <p className="mb-5 text-sm font-semibold uppercase tracking-[0.1em] text-primary sm:text-base">
+                Enterprise Applications · Integrations · Mobile · Cloud · Applied AI
+              </p>
               <p
                 className="text-lg md:text-xl leading-relaxed mb-6 text-hero-muted"
                 style={{ maxWidth: '660px' }}
@@ -422,10 +424,10 @@ export default function Home() {
             <h2 className="text-2xl md:text-3xl tracking-tight mb-6">About</h2>
             <div className="space-y-5 text-muted-foreground leading-relaxed">
             <p>
-              I&apos;m looking for architecture work where the job does not stop at a diagram. I
-              want to understand how the business operates, make the important tradeoffs clear,
-              and stay close enough to implementation that the architecture works in production
-              and remains understandable after handoff.
+              I&apos;m looking for software architecture work where the job does not stop at a
+              diagram. I want to understand how the business operates, make the important
+              tradeoffs clear, and stay close enough to implementation that the architecture
+              works in production and remains understandable after handoff.
             </p>
             <p>
               I bring 28 years of experience across enterprise web, mobile, cloud, integration,

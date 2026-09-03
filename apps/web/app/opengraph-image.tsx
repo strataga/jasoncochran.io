@@ -1,7 +1,7 @@
 import { ImageResponse } from 'next/og'
 
 export const runtime = 'nodejs'
-export const alt = 'Jason Cochran · Hands-On Software and Application Architect'
+export const alt = 'Jason Cochran · Hands-On Software Architect'
 export const size = { width: 1200, height: 630 }
 export const contentType = 'image/png'
 
@@ -62,7 +62,7 @@ export default async function OpengraphImage() {
               maxWidth: '900px',
             }}
           >
-            Hands-on software + application architect
+            Hands-on software architect
           </div>
           <div
             style={{

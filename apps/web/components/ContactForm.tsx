@@ -57,7 +57,9 @@ export default function ContactForm() {
       {submitStatus === 'success' && (
         <div className="mb-6 p-5 rounded-md bg-green-50 border border-green-200">
           <h3 className="font-semibold text-green-900 mb-1">Thanks for reaching out.</h3>
-          <p className="text-sm text-green-900/80">I&apos;ll reply within 24 hours.</p>
+          <p className="text-sm text-green-900/80">
+            I&apos;ll get back to you as soon as I can.
+          </p>
         </div>
       )}
 

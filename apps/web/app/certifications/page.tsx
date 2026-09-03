@@ -173,7 +173,7 @@ export default function CertificationsPage() {
                 START A PROJECT
               </Link>
               <Link
-                href="/#experience"
+                href="/resume"
                 className="btn-pop btn-pop-secondary"
               >
                 VIEW RESUME

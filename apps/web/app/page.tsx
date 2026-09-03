@@ -562,14 +562,34 @@ export default function Home() {
       <section id="about" className="py-16 lg:py-24 bg-white border-y border-border">
         <div className="max-w-[680px] mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-2xl md:text-3xl tracking-tight mb-6">About</h2>
-          <p className="text-muted-foreground leading-relaxed">
-            I&apos;m a hands-on software and application architect. Over 28 years, I&apos;ve worked
-            across enterprise applications, web, mobile, integrations, cloud-hosted delivery,
-            and applied AI. I work directly with teams to understand the real business problem,
-            make architecture tradeoffs visible, deliver software, and leave behind clear
-            decisions and operating guidance. That combination is the principal-level value I
-            bring. I am based in Midland, Texas.
-          </p>
+          <div className="space-y-5 text-muted-foreground leading-relaxed">
+            <p>
+              I&apos;m looking for architecture work where the job does not stop at a diagram. I
+              want to understand how the business operates, make the important tradeoffs clear,
+              and stay close enough to implementation that the architecture works in production
+              and remains understandable after handoff.
+            </p>
+            <p>
+              I bring 28 years of experience across enterprise web, mobile, cloud, integration,
+              and applied-AI systems. At Key Energy, I led a six-person team building mobile and
+              web-based oil-and-gas ERP software with Ruby on Rails while remaining hands-on. More
+              recently, my work at Servant, Nutrien, TxMQ, and Verizon has covered production
+              migrations, offline-first field workflows, OpenAI research, and reusable SDK
+              integration.
+            </p>
+            <p>
+              I value architecture that helps teams make better decisions and deliver dependable
+              software—not an approval process that slows them down.{' '}
+              <Link href="/resume" className="font-semibold text-foreground underline decoration-border underline-offset-4 transition-colors hover:text-primary hover:decoration-primary">
+                Read my résumé and cover letter
+              </Link>{' '}
+              or{' '}
+              <Link href="/#contact" className="font-semibold text-foreground underline decoration-border underline-offset-4 transition-colors hover:text-primary hover:decoration-primary">
+                tell me about the work
+              </Link>
+              .
+            </p>
+          </div>
         </div>
       </section>
 

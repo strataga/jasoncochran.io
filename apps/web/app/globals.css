@@ -268,9 +268,14 @@
   header nav,
   footer,
   nav,
+  .skip-link,
   .no-print,
   .no-print-icon {
     display: none !important;
+  }
+
+  .resume-document {
+    break-before: page;
   }
 
   /* Reset Tailwind screen-size spacing for print , resume is density-critical */

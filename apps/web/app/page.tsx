@@ -265,7 +265,7 @@ export default function Home() {
             {/* Hero right half: real headshot. Replaces earlier fabricated
                 observability log (removed because it violated the honesty
                 constraint). A face is a stronger anchor than fake telemetry. */}
-            <div className="flex-shrink-0">
+            <div className="w-full flex-shrink-0 sm:w-[360px]">
               <div className="relative w-full max-w-[360px] mx-auto lg:mx-0 aspect-square rounded-lg overflow-hidden ring-1 ring-white/10 shadow-xl">
                 <Image
                   src="/jason-cochran.jpg"

@@ -264,7 +264,7 @@ export default function ResumePage() {
             </div>
           </section>
 
-          <section aria-labelledby="resume-heading">
+          <section aria-labelledby="resume-heading" className="resume-document">
             <p className="mb-3 text-sm font-semibold uppercase tracking-[0.12em] text-primary">
               Experience and capabilities
             </p>

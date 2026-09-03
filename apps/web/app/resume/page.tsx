@@ -183,12 +183,6 @@ export default function ResumePage() {
               </a>
             </address>
 
-            <p className="mb-8 text-sm font-semibold tracking-wide">
-              Available now <span aria-hidden="true">·</span> Remote or relocation{' '}
-              <span aria-hidden="true">·</span> U.S. citizen{' '}
-              <span aria-hidden="true">·</span> No sponsorship required
-            </p>
-
             <Button asChild className="no-print h-11 bg-primary px-6 font-semibold text-primary-foreground hover:bg-primary/90">
               <a href="/jason-cochran-architect-application.pdf" download>
                 <Download className="h-4 w-4" aria-hidden="true" />
@@ -360,7 +354,7 @@ export default function ResumePage() {
             <h2 id="next-step-heading" className="mb-3 text-2xl">Let&apos;s talk about the work</h2>
             <p className="mb-6 max-w-[700px] leading-relaxed text-muted-foreground">
               If your team needs an architect who can connect business needs, technical decisions,
-              and hands-on delivery, I am available now for remote opportunities or relocation.
+              and hands-on delivery, I would welcome a conversation about the work.
             </p>
             <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
               <Button asChild>

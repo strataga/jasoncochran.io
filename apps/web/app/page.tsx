@@ -226,13 +226,7 @@ export default function Home() {
                 architecture works in production, not only on paper.
               </p>
 
-              <p className="mb-8 text-sm font-semibold tracking-wide text-hero-foreground">
-                Available now <span aria-hidden="true">·</span> Remote or relocation{' '}
-                <span aria-hidden="true">·</span> U.S. citizen{' '}
-                <span aria-hidden="true">·</span> No sponsorship required
-              </p>
-
-              <div className="flex flex-col sm:flex-row sm:flex-wrap gap-3">
+              <div className="mt-8 flex flex-col sm:flex-row sm:flex-wrap gap-3">
                 <Button
                   asChild
                   className="w-full sm:w-auto bg-primary text-primary-foreground hover:bg-primary/90 font-semibold h-11 px-6 focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-hero-bg"
@@ -330,7 +324,7 @@ export default function Home() {
               <div>
                 <h3 className="text-xl font-semibold mb-2">Connect with Jason</h3>
                 <p className="text-sm text-muted-foreground">
-                  Available for architect and principal-level engineering opportunities.
+                  Hiring for an architect or principal-level engineering role? Let&apos;s talk.
                 </p>
               </div>
               <address className="not-italic flex flex-wrap gap-x-5 gap-y-3 text-sm text-muted-foreground">
@@ -574,8 +568,7 @@ export default function Home() {
             and applied AI. I work directly with teams to understand the real business problem,
             make architecture tradeoffs visible, deliver software, and leave behind clear
             decisions and operating guidance. That combination is the principal-level value I
-            bring. I am based in Midland, Texas, and available for remote opportunities or
-            relocation.
+            bring. I am based in Midland, Texas.
           </p>
         </div>
       </section>
@@ -666,7 +659,7 @@ export default function Home() {
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
             <div className="text-sm text-muted-foreground">
               <p className="text-foreground mb-1">Jason Cochran</p>
-              <p>Midland, Texas · Remote or relocation</p>
+              <p>Midland, Texas</p>
             </div>
 
             <div className="flex flex-wrap gap-x-6 gap-y-2">

@@ -87,6 +87,36 @@ const offerings: Offering[] = [
   },
 ]
 
+const careerProof = [
+  { value: '28 years', label: 'Designing and delivering software' },
+  { value: '30+ projects', label: 'Independent architecture engagements' },
+  { value: 'Web + mobile', label: 'Enterprise and field applications' },
+  { value: 'Architecture + code', label: 'Hands-on from discovery through handoff' },
+]
+
+const selectedResults = [
+  {
+    company: 'Key Energy',
+    title: 'Oil-and-gas ERP delivery',
+    body: 'During a three-and-a-half-year engagement, I built and maintained Ruby on Rails software for Key Energy\'s mobile and web ERP workflows. I also provided hands-on technical guidance within a six-person delivery team.',
+  },
+  {
+    company: 'Servant',
+    title: 'Production onboarding migration',
+    body: 'I delivered an EMA onboarding flow with NestJS, Next.js, Prisma, React Query, and AWS-hosted services, then owned the production migration from the legacy path, documentation, runbooks, and operational handoff.',
+  },
+  {
+    company: 'Verizon',
+    title: 'Mobile experience and SDK integration',
+    body: 'I delivered the AMC Walking Dead experience through a custom blockchain and JavaScript SDK integration in the Verizon mobile application, including the documented SDK handoff for downstream teams.',
+  },
+  {
+    company: 'Independent consulting',
+    title: 'More than 30 client projects',
+    body: 'Across more than 30 projects as a self-employed Solutions Architect, I worked directly with clients to define workflows, choose practical architecture, build software, and support delivery in oil and gas, travel, and enterprise environments.',
+  },
+]
+
 type ExperienceEntry = {
   title: string
   company: string
@@ -247,44 +277,97 @@ export default function Home() {
         </div>
       </section>
 
-      {/* How I work (3 buyer-intent offerings) */}
-      <section id="services" className="py-16 lg:py-24">
+      {/* Recruiter proof strip */}
+      <section aria-label="Career highlights" className="border-b border-border bg-white">
         <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl md:text-3xl tracking-tight mb-10">How I work</h2>
+          <dl className="grid sm:grid-cols-2 lg:grid-cols-4 gap-px bg-border">
+            {careerProof.map((item) => (
+              <div key={item.value} className="flex flex-col bg-white px-6 py-7">
+                <dt className="text-sm text-muted-foreground leading-relaxed">{item.label}</dt>
+                <dd className="text-lg font-semibold text-foreground mb-1 order-first">
+                  {item.value}
+                </dd>
+              </div>
+            ))}
+          </dl>
+        </div>
+      </section>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 items-stretch">
-            {offerings.map((o) => (
-              <Card key={o.title} className="border-border flex flex-col h-full">
+      {/* Evidence-backed career results */}
+      <section className="py-16 lg:py-24">
+        <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-[720px] mb-10">
+            <h2 className="text-2xl md:text-3xl tracking-tight mb-4">Selected results</h2>
+            <p className="text-muted-foreground leading-relaxed">
+              I&apos;ve spent my career working where business workflows, architecture decisions,
+              and production delivery meet. These examples show how I contribute when the work
+              has to move from an idea into software people can use and support.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-6 lg:gap-8 items-stretch">
+            {selectedResults.map((result) => (
+              <Card key={result.company} className="border-border flex flex-col h-full">
                 <CardHeader>
-                  <span className="text-xs uppercase tracking-[0.08em] text-muted-foreground mb-3">
-                    {o.tag}
+                  <span className="text-xs uppercase tracking-[0.08em] text-primary mb-3">
+                    {result.company}
                   </span>
-                  <CardTitle className="text-xl">{o.title}</CardTitle>
+                  <CardTitle className="text-xl">{result.title}</CardTitle>
                 </CardHeader>
-                <CardContent className="flex flex-col flex-1">
-                  <p className="text-muted-foreground leading-relaxed mb-6">
-                    {o.body}
-                  </p>
-                  <div className="mt-auto space-y-3 pt-4 border-t border-border/60">
-                    <p className="text-sm font-medium text-foreground">{o.meta}</p>
-                    <p className="text-xs italic text-muted-foreground">
-                      {o.deliverable}
-                    </p>
-                  </div>
+                <CardContent>
+                  <p className="text-muted-foreground leading-relaxed">{result.body}</p>
                 </CardContent>
               </Card>
             ))}
           </div>
 
-          <p className="mt-8 text-sm text-muted-foreground">
-            Considering consulting support?{' '}
-            <a
-              href="/jason-cochran-principal-consulting-resume.pdf"
-              className="font-semibold text-foreground underline decoration-border underline-offset-4 transition-colors hover:text-primary hover:decoration-primary"
-            >
-              View the consulting profile (PDF)
-            </a>
-          </p>
+          <div className="mt-10 rounded-lg border border-border bg-muted/40 p-6 lg:p-8">
+            <div className="grid lg:grid-cols-[minmax(0,1fr)_minmax(0,2fr)] gap-6 lg:items-center">
+              <div>
+                <h2 className="text-xl font-semibold mb-2">Connect with Jason</h2>
+                <p className="text-sm text-muted-foreground">
+                  Available for architect and principal-level engineering opportunities.
+                </p>
+              </div>
+              <address className="not-italic flex flex-wrap gap-x-5 gap-y-3 text-sm text-muted-foreground">
+                <span className="font-medium text-foreground">Jason Cochran · Midland, Texas</span>
+                <a
+                  href="tel:+14322607580"
+                  className="hover:text-primary underline-offset-4 hover:underline transition-colors"
+                >
+                  (432) 260-7580
+                </a>
+                <a
+                  href="mailto:jlcochran2013@gmail.com"
+                  className="hover:text-primary underline-offset-4 hover:underline transition-colors"
+                >
+                  jlcochran2013@gmail.com
+                </a>
+                <a
+                  href="https://www.linkedin.com/in/cochranjason/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-primary underline-offset-4 hover:underline transition-colors"
+                >
+                  linkedin.com/in/cochranjason
+                </a>
+                <a
+                  href="https://github.com/strataga"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-primary underline-offset-4 hover:underline transition-colors"
+                >
+                  github.com/strataga
+                </a>
+                <a
+                  href="https://jasoncochran.io"
+                  className="hover:text-primary underline-offset-4 hover:underline transition-colors"
+                >
+                  jasoncochran.io
+                </a>
+              </address>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -474,26 +557,6 @@ export default function Home() {
             </a>
           </div>
 
-          <div className="flex flex-wrap gap-x-5 gap-y-2 text-sm text-muted-foreground">
-            <a
-              href="mailto:jlcochran2013@gmail.com"
-              className="inline-flex items-center gap-1.5 hover:text-primary transition-colors"
-            >
-              <Mail className="w-3.5 h-3.5" />
-              jlcochran2013@gmail.com
-            </a>
-            <a href="https://jasoncochran.io" className="hover:text-primary transition-colors">
-              jasoncochran.io
-            </a>
-            <a
-              href="https://linkedin.com/in/cochranjason"
-              className="inline-flex items-center gap-1.5 hover:text-primary transition-colors"
-            >
-              <Linkedin className="w-3.5 h-3.5" />
-              linkedin.com/in/cochranjason
-            </a>
-            <span>Midland, TX (remote, US)</span>
-          </div>
         </div>
       </section>
 
@@ -508,6 +571,52 @@ export default function Home() {
             make architecture tradeoffs visible, deliver software, and leave behind clear
             decisions and operating guidance. That combination is the principal-level value I
             bring. I work remotely from Midland, Texas.
+          </p>
+        </div>
+      </section>
+
+      {/* Alternate consulting path */}
+      <section id="services" className="py-16 lg:py-24">
+        <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-[720px] mb-10">
+            <h2 className="text-2xl md:text-3xl tracking-tight mb-4">
+              Fractional consulting, when that fits
+            </h2>
+            <p className="text-muted-foreground leading-relaxed">
+              I&apos;m primarily pursuing a full-time architect or principal-level engineering
+              role. For teams that need focused help instead, I also offer practical,
+              hands-on architecture support.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 items-stretch">
+            {offerings.map((o) => (
+              <Card key={o.title} className="border-border flex flex-col h-full">
+                <CardHeader>
+                  <span className="text-xs uppercase tracking-[0.08em] text-muted-foreground mb-3">
+                    {o.tag}
+                  </span>
+                  <CardTitle className="text-xl">{o.title}</CardTitle>
+                </CardHeader>
+                <CardContent className="flex flex-col flex-1">
+                  <p className="text-muted-foreground leading-relaxed mb-6">{o.body}</p>
+                  <div className="mt-auto space-y-3 pt-4 border-t border-border/60">
+                    <p className="text-sm font-medium text-foreground">{o.meta}</p>
+                    <p className="text-xs italic text-muted-foreground">{o.deliverable}</p>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+
+          <p className="mt-8 text-sm text-muted-foreground">
+            Considering consulting support?{' '}
+            <a
+              href="/jason-cochran-principal-consulting-resume.pdf"
+              className="font-semibold text-foreground underline decoration-border underline-offset-4 transition-colors hover:text-primary hover:decoration-primary"
+            >
+              View the consulting profile (PDF)
+            </a>
           </p>
         </div>
       </section>

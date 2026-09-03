@@ -37,8 +37,8 @@ const jsonLd = {
   ],
 }
 
-const PRIMARY_CTA_HREF = '/projects/archgauge'
-const PRIMARY_CTA_LABEL = 'Follow the ArchGauge case study'
+const ARCHITECTURE_CTA_HREF = '/projects/archgauge'
+const ARCHITECTURE_CTA_LABEL = 'View architecture work'
 
 const archGaugeTechStack = ['TypeScript', 'React', 'Node.js', 'PostgreSQL', 'OpenTelemetry']
 
@@ -176,27 +176,53 @@ export default function Home() {
           <div className="grid lg:grid-cols-[minmax(0,1fr)_auto] gap-12 lg:gap-20 items-start">
             <div className="max-w-[820px]">
               <h1 className="text-5xl md:text-6xl lg:text-[56px] leading-[1.05] tracking-tight font-semibold mb-6">
-                I turn hard business problems into{' '}
-                <span className="text-primary">systems teams can trust</span>.
+                Hands-On{' '}
+                <span className="text-primary">Software &amp; Application Architect</span>
               </h1>
               <p
-                className="text-lg md:text-xl leading-relaxed mb-10 text-hero-muted"
-                style={{ maxWidth: '580px' }}
+                className="text-lg md:text-xl leading-relaxed mb-6 text-hero-muted"
+                style={{ maxWidth: '660px' }}
               >
-                I&apos;m a hands-on software and application architect with 28 years of experience
-                across enterprise applications, web, mobile, integrations, cloud-hosted delivery,
-                and applied AI. I bring principal-level engineering to ambiguous problems while
-                staying close enough to the code to make the architecture real.
+                I bring 28 years of experience turning business needs into enterprise
+                applications, web and mobile products, integrations, cloud-hosted systems, and
+                applied-AI solutions. I stay hands-on through design and delivery so the
+                architecture works in production, not only on paper.
               </p>
 
-              <div>
+              <p className="mb-8 text-sm font-semibold tracking-wide text-hero-foreground">
+                Available now <span aria-hidden="true">·</span> Remote or relocation{' '}
+                <span aria-hidden="true">·</span> U.S. citizen{' '}
+                <span aria-hidden="true">·</span> No sponsorship required
+              </p>
+
+              <div className="flex flex-col sm:flex-row sm:flex-wrap gap-3">
                 <Button
                   asChild
-                  className="bg-primary text-primary-foreground hover:bg-primary/90 font-semibold h-11 px-6"
+                  className="w-full sm:w-auto bg-primary text-primary-foreground hover:bg-primary/90 font-semibold h-11 px-6 focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-hero-bg"
                 >
-                  <Link href={PRIMARY_CTA_HREF}>
-                    {PRIMARY_CTA_LABEL}
+                  <a href="/jason-cochran-architect-resume.pdf" download>
+                    <Download className="w-4 h-4" />
+                    Download architect résumé
+                  </a>
+                </Button>
+                <Button
+                  asChild
+                  variant="outline"
+                  className="w-full sm:w-auto h-11 px-6 border-white/30 bg-transparent text-hero-foreground hover:bg-white/10 hover:text-hero-foreground focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-hero-bg"
+                >
+                  <Link href={ARCHITECTURE_CTA_HREF}>
+                    {ARCHITECTURE_CTA_LABEL}
                     <ArrowRight className="w-4 h-4" />
+                  </Link>
+                </Button>
+                <Button
+                  asChild
+                  variant="ghost"
+                  className="w-full sm:w-auto h-11 px-6 text-hero-foreground hover:bg-white/10 hover:text-hero-foreground focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-hero-bg"
+                >
+                  <Link href="/#contact">
+                    <Mail className="w-4 h-4" />
+                    Contact Jason
                   </Link>
                 </Button>
               </div>
@@ -205,8 +231,8 @@ export default function Home() {
             {/* Hero right half: real headshot. Replaces earlier fabricated
                 observability log (removed because it violated the honesty
                 constraint). A face is a stronger anchor than fake telemetry. */}
-            <div className="hidden lg:block flex-shrink-0">
-              <div className="relative w-[360px] aspect-square rounded-lg overflow-hidden ring-1 ring-white/10 shadow-xl">
+            <div className="flex-shrink-0">
+              <div className="relative w-full max-w-[360px] mx-auto lg:mx-0 aspect-square rounded-lg overflow-hidden ring-1 ring-white/10 shadow-xl">
                 <Image
                   src="/jason-cochran.jpg"
                   alt="Jason Cochran"
@@ -511,8 +537,8 @@ export default function Home() {
             asChild
             className="bg-primary text-primary-foreground hover:bg-primary/90 font-semibold h-11 px-6"
           >
-            <Link href={PRIMARY_CTA_HREF}>
-              {PRIMARY_CTA_LABEL}
+            <Link href={ARCHITECTURE_CTA_HREF}>
+              {ARCHITECTURE_CTA_LABEL}
               <ArrowRight className="w-4 h-4" />
             </Link>
           </Button>

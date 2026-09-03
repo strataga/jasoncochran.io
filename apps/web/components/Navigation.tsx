@@ -6,7 +6,7 @@ import { Menu, X } from 'lucide-react'
 
 const links = [
   { href: '/#top', label: 'Home' },
-  { href: '/#experience', label: 'Resume' },
+  { href: '/resume', label: 'Resume' },
   { href: '/#projects', label: 'Projects' },
   { href: '/#contact', label: 'Contact' },
 ]
@@ -42,14 +42,23 @@ export default function Navigation() {
           <button
             className="md:hidden p-2 text-foreground"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            aria-label="Toggle menu"
+            aria-label={mobileMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
+            aria-controls="mobile-navigation-menu"
+            aria-expanded={mobileMenuOpen}
           >
-            {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            {mobileMenuOpen ? (
+              <X className="w-6 h-6" aria-hidden="true" />
+            ) : (
+              <Menu className="w-6 h-6" aria-hidden="true" />
+            )}
           </button>
         </div>
 
         {mobileMenuOpen && (
-          <div className="md:hidden py-4 space-y-1 border-t border-border">
+          <div
+            id="mobile-navigation-menu"
+            className="md:hidden py-4 space-y-1 border-t border-border"
+          >
             {links.map((link) => (
               <Link
                 key={link.href}

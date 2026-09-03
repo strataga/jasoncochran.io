@@ -15,6 +15,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     },
     {
+      url: 'https://jasoncochran.io/resume',
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.9,
+    },
+    {
       url: 'https://jasoncochran.io/projects/archgauge',
       lastModified: new Date(),
       changeFrequency: 'weekly',

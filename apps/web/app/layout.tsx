@@ -71,8 +71,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={`${inter.variable} ${jetbrainsMono.variable}`}>
       <body className="antialiased min-h-screen bg-background text-foreground">
+        <a href="#main-content" className="skip-link">
+          Skip to main content
+        </a>
         <Navigation />
-        <main className="min-h-screen">{children}</main>
+        <main id="main-content" tabIndex={-1} className="min-h-screen">
+          {children}
+        </main>
       </body>
     </html>
   )

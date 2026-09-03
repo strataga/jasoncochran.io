@@ -7,7 +7,6 @@ import {
   Linkedin,
   Github,
   Mail,
-  Download,
 } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
@@ -97,7 +96,7 @@ const offerings: Offering[] = [
 
 const careerProof = [
   { value: '28 years', label: 'Designing and delivering software' },
-  { value: '30+ projects', label: 'Independent architecture engagements' },
+  { value: '30+ projects', label: 'Independent client projects delivered' },
   { value: 'Web + mobile', label: 'Enterprise and field applications' },
   { value: 'Architecture + code', label: 'Hands-on from discovery through handoff' },
 ]
@@ -106,7 +105,7 @@ const selectedResults = [
   {
     company: 'Key Energy',
     title: 'Oil-and-gas ERP delivery',
-    body: 'During a three-and-a-half-year engagement, I built and maintained Ruby on Rails software for Key Energy\'s mobile and web ERP workflows. I also provided hands-on technical guidance within a six-person delivery team.',
+    body: 'I led a six-person team building and supporting mobile and web-based oil-and-gas ERP software with Ruby on Rails while remaining hands-on with the delivery.',
   },
   {
     company: 'Servant',
@@ -238,10 +237,7 @@ export default function Home() {
                   asChild
                   className="w-full sm:w-auto bg-primary text-primary-foreground hover:bg-primary/90 font-semibold h-11 px-6 focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-hero-bg"
                 >
-                  <a href="/jason-cochran-architect-resume.pdf" download>
-                    <Download className="w-4 h-4" />
-                    Download architect résumé
-                  </a>
+                  <Link href="/resume">View résumé and cover letter</Link>
                 </Button>
                 <Button
                   asChild
@@ -557,14 +553,12 @@ export default function Home() {
           </div>
 
           <div className="flex flex-wrap items-center gap-4 mb-10">
-            <a
-              href="/jason-cochran-architect-resume.pdf"
-              download
+            <Link
+              href="/resume"
               className="inline-flex items-center gap-2 text-sm bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 rounded-md font-semibold transition-colors"
             >
-              <Download className="w-4 h-4" />
-              Download résumé (PDF)
-            </a>
+              View résumé and cover letter
+            </Link>
           </div>
 
         </div>
@@ -580,7 +574,8 @@ export default function Home() {
             and applied AI. I work directly with teams to understand the real business problem,
             make architecture tradeoffs visible, deliver software, and leave behind clear
             decisions and operating guidance. That combination is the principal-level value I
-            bring. I work remotely from Midland, Texas.
+            bring. I am based in Midland, Texas, and available for remote opportunities or
+            relocation.
           </p>
         </div>
       </section>
@@ -636,7 +631,8 @@ export default function Home() {
         <div className="max-w-[680px] mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-2xl md:text-3xl tracking-tight mb-4">Message me</h2>
           <p className="text-muted-foreground leading-relaxed mb-10">
-            I&apos;ll reply within 24 hours.
+            Tell me what your team is building, where the work is stuck, or what you need from
+            your next architect.
           </p>
           <ContactForm />
         </div>
@@ -670,12 +666,12 @@ export default function Home() {
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
             <div className="text-sm text-muted-foreground">
               <p className="text-foreground mb-1">Jason Cochran</p>
-              <p>Strataga LLC · Remote, US</p>
+              <p>Midland, Texas · Remote or relocation</p>
             </div>
 
             <div className="flex flex-wrap gap-x-6 gap-y-2">
               <Link
-                href="/#experience"
+                href="/resume"
                 className="text-sm text-muted-foreground hover:text-foreground transition-colors"
               >
                 Resume

@@ -141,9 +141,9 @@ export default function Home() {
       {/* Hero (single dark band) */}
       <section className="bg-hero-bg text-hero-foreground py-20 lg:py-32">
         <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-[minmax(0,1fr)_auto] gap-12 lg:gap-20 items-start">
+          <div className="grid lg:grid-cols-[minmax(0,1fr)_auto] gap-12 items-start">
             <div className="max-w-[820px]">
-              <h1 className="text-5xl md:text-6xl lg:text-[56px] leading-[1.05] tracking-tight font-semibold mb-6">
+              <h1 className="text-5xl md:text-6xl lg:text-[52px] xl:whitespace-nowrap leading-[1.05] tracking-tight font-semibold mb-6">
                 Hands-On <span className="text-primary">Software Architect</span>
               </h1>
               <p className="mb-5 text-sm font-semibold uppercase tracking-[0.1em] text-primary sm:text-base">

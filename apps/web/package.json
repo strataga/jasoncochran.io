@@ -10,6 +10,7 @@
     "lint": "eslint . --ext .ts,.tsx,.js,.jsx --max-warnings 5",
     "lint:fix": "eslint . --ext .ts,.tsx,.js,.jsx --fix",
     "test:contact": "tsx --test app/api/contact/contact-policy.test.ts",
+    "test:blog": "tsx --test lib/blog.test.ts",
     "test:project-markdown": "tsx --test lib/project-markdown.test.ts",
     "type-check": "tsc --noEmit",
     "clean": "rm -rf .next"

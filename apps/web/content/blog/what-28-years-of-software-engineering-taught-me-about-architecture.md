@@ -16,7 +16,7 @@ After 28 years in software engineering, I don't think architecture is mainly abo
 
 The job is making good decisions when the answer isn't obvious. It is understanding what the business actually needs, recognizing the risks that matter, and shaping a system that people can build, operate, change, and eventually hand to someone else.
 
-I have worked across enterprise applications, web and mobile products, integrations, oil and gas, travel, field operations, and applied AI. From 2015 to 2021, I worked independently as a solutions architect and delivered more than 30 projects. The technologies changed from one job to another. The questions that determined whether the work would hold up were much more consistent.
+I have worked across enterprise applications, web and mobile products, integrations, oil and gas, travel, field operations, and applied AI. From 2015 to 2021, I worked independently as a solutions architect and delivered more than 30 projects. In 2025, I started Strataga to continue that kind of hands-on architecture and software delivery. The technologies changed from one job to another. The questions that determined whether the work would hold up were much more consistent.
 
 What problem are we solving? Where should responsibility live? What happens when part of the system fails? How will we move from the old system to the new one? Can another engineer understand why we made these choices? Are we buying complexity that the business doesn't need?
 

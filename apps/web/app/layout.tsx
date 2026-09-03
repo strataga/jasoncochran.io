@@ -19,13 +19,15 @@ const jetbrainsMono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: 'Jason Cochran · Hands-On Software + Application Architect',
+    default: 'Jason Cochran · Hands-On Software & Application Architect',
     template: '%s | Jason Cochran',
   },
   description:
-    'Hands-on software and application architect with 28 years of experience across enterprise applications, web, mobile, integrations, cloud-hosted delivery, and applied AI.',
+    'Hands-on Software and Application Architect with 28 years of experience delivering enterprise, web, mobile, integration, cloud-hosted, and applied-AI systems.',
   keywords: [
     'Software Architect',
+    'Application Architect',
+    'AI Solutions Architect',
     'Principal Engineer',
     'Architecture Consulting',
     'Production Readiness',
@@ -43,24 +45,24 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_US',
     url: 'https://jasoncochran.io',
-    title: 'Jason Cochran · Hands-On Software + Application Architect',
+    title: 'Jason Cochran · Hands-On Software & Application Architect',
     description:
-      'Hands-on software and application architect with 28 years of experience translating business needs into maintainable systems and leading principal-level engineering work.',
+      'Hands-on Software and Application Architect with 28 years of experience delivering enterprise, web, mobile, cloud-hosted, and applied-AI systems.',
     siteName: 'Jason Cochran',
     images: [
       {
         url: '/opengraph-image',
         width: 1200,
         height: 630,
-        alt: 'Jason Cochran · Hands-On Software + Application Architect',
+        alt: 'Jason Cochran · Hands-On Software & Application Architect',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Jason Cochran · Hands-On Software + Application Architect',
+    title: 'Jason Cochran · Hands-On Software & Application Architect',
     description:
-      'Hands-on software and application architect with 28 years of experience translating business needs into maintainable systems and leading principal-level engineering work.',
+      'Hands-on Software and Application Architect with 28 years of experience delivering enterprise, web, mobile, cloud-hosted, and applied-AI systems.',
     images: ['/opengraph-image'],
   },
 }

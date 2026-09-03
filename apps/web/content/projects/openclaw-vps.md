@@ -1,5 +1,5 @@
 ---
-subtitle: 'Archived personal project • No longer online'
+subtitle: 'Managed AI-assistant hosting project • Not currently online'
 accentColor: 'blue'
 techStack:
   - 'Next.js'
@@ -13,18 +13,24 @@ techStack:
 
 ## Status
 
-OpenClaw VPS was a personal project exploring managed deployment and operational controls for private AI assistants. It is archived and no longer online.
+OpenClaw VPS was a managed hosting and control-plane product for private, always-on OpenClaw AI assistants. It gave people a way to run and manage a useful assistant without taking responsibility for the underlying server, updates, monitoring, and recovery. The service is not currently online.
 
-This page preserves the engineering questions the project explored. It does not describe a live service, active pricing, customer adoption, or current production availability.
+This page describes what I built and learned. It does not describe a live service, active pricing, customer adoption, or current production availability.
 
-## What I explored
+## What a user could do
 
-- Tenant-aware application and configuration boundaries
-- Bring-your-own-provider-key flows
-- Deployment and health-check workflows
-- Cost, latency, and error visibility
-- Authentication, abuse controls, and operational support paths
-- The tradeoffs between self-hosted software and a managed service
+- Provision and manage a hosted OpenClaw bot
+- Choose and connect an AI provider
+- Use web chat or a supported messaging channel
+- Configure the assistant and manage its files and integrations
+- Monitor health, usage, and cost information
+- Request operational support without administering the server
+
+## How I built it
+
+It was built with a Bun monorepo, Next.js, React, TypeScript, Convex, authentication, billing, infrastructure provisioning, operational documentation, and automated quality gates. The work covered both the user-facing product and the operational systems needed to provision, observe, support, and recover hosted assistants.
+
+I enjoy learning by building real systems, especially when a new technology changes where the hard engineering problems live. OpenClaw VPS gave me a practical way to explore AI product design, managed infrastructure, operational boundaries, and the tradeoffs between giving users control and removing unnecessary complexity.
 
 ## Lessons carried forward
 

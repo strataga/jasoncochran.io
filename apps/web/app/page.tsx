@@ -15,9 +15,9 @@ import { Badge } from '@/components/ui/badge'
 import ContactForm from '@/components/ContactForm'
 
 export const metadata: Metadata = {
-  title: 'Jason Cochran · Hands-On Software + Application Architect',
+  title: 'Jason Cochran · Hands-On Software & Application Architect',
   description:
-    'Hands-on software and application architect with 28 years of experience across enterprise applications, web, mobile, integrations, cloud-hosted delivery, and applied AI.',
+    'Hands-on Software and Application Architect with 28 years of experience delivering enterprise, web, mobile, integration, cloud-hosted, and applied-AI systems.',
   alternates: {
     canonical: 'https://jasoncochran.io',
   },
@@ -29,8 +29,16 @@ const jsonLd = {
   name: 'Jason Cochran',
   jobTitle: 'Software and Application Architect',
   description:
-    'Hands-on software and application architect with 28 years of experience translating business workflows into maintainable systems and leading principal-level engineering work.',
+    'Hands-on Software and Application Architect with 28 years of experience translating business needs into maintainable enterprise, web, mobile, cloud-hosted, and applied-AI systems.',
   url: 'https://jasoncochran.io',
+  email: 'jlcochran2013@gmail.com',
+  telephone: '+1-432-260-7580',
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: 'Midland',
+    addressRegion: 'Texas',
+    addressCountry: 'US',
+  },
   sameAs: [
     'https://www.linkedin.com/in/cochranjason/',
     'https://github.com/strataga',
@@ -282,11 +290,9 @@ export default function Home() {
         <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
           <dl className="grid sm:grid-cols-2 lg:grid-cols-4 gap-px bg-border">
             {careerProof.map((item) => (
-              <div key={item.value} className="flex flex-col bg-white px-6 py-7">
-                <dt className="text-sm text-muted-foreground leading-relaxed">{item.label}</dt>
-                <dd className="text-lg font-semibold text-foreground mb-1 order-first">
-                  {item.value}
-                </dd>
+              <div key={item.value} className="bg-white px-6 py-7">
+                <dt className="text-lg font-semibold text-foreground mb-1">{item.value}</dt>
+                <dd className="text-sm text-muted-foreground leading-relaxed">{item.label}</dd>
               </div>
             ))}
           </dl>
@@ -312,7 +318,9 @@ export default function Home() {
                   <span className="text-xs uppercase tracking-[0.08em] text-primary mb-3">
                     {result.company}
                   </span>
-                  <CardTitle className="text-xl">{result.title}</CardTitle>
+                  <h3 className="text-xl font-semibold leading-none tracking-tight">
+                    {result.title}
+                  </h3>
                 </CardHeader>
                 <CardContent>
                   <p className="text-muted-foreground leading-relaxed">{result.body}</p>
@@ -324,7 +332,7 @@ export default function Home() {
           <div className="mt-10 rounded-lg border border-border bg-muted/40 p-6 lg:p-8">
             <div className="grid lg:grid-cols-[minmax(0,1fr)_minmax(0,2fr)] gap-6 lg:items-center">
               <div>
-                <h2 className="text-xl font-semibold mb-2">Connect with Jason</h2>
+                <h3 className="text-xl font-semibold mb-2">Connect with Jason</h3>
                 <p className="text-sm text-muted-foreground">
                   Available for architect and principal-level engineering opportunities.
                 </p>
@@ -421,16 +429,18 @@ export default function Home() {
               <CardHeader>
                 <div className="mb-3">
                   <span className="inline-flex items-center text-xs uppercase tracking-[0.08em] text-muted-foreground">
-                    Archived personal project · Offline
+                    Personal project · Not currently online
                   </span>
                 </div>
                 <CardTitle className="text-xl">OpenClaw VPS</CardTitle>
               </CardHeader>
               <CardContent className="flex flex-col flex-1">
                 <p className="text-muted-foreground leading-relaxed text-sm mb-6">
-                  An archived exploration of managed deployment and operational controls for
-                  private AI assistants. It is retained as engineering history, not presented as
-                  a live service.
+                  OpenClaw VPS was a managed hosting and control-plane product for private,
+                  always-on AI assistants. A user could provision and manage a hosted bot, connect
+                  an AI provider, chat through the web or a supported messaging channel, and
+                  monitor the service without administering the underlying server. The service is
+                  not currently online.
                 </p>
 
                 <div className="flex flex-wrap gap-2 mb-6">
@@ -445,7 +455,7 @@ export default function Home() {
                   ))}
                 </div>
                 <Link href="/projects/openclaw-vps" className="mt-auto inline-flex items-center gap-1.5 text-sm text-primary hover:underline underline-offset-4">
-                  Read the archived project notes
+                  Read the project story
                   <ArrowRight className="w-3.5 h-3.5" />
                 </Link>
               </CardContent>

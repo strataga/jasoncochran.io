@@ -11,7 +11,7 @@ export default function ResumePrint() {
       </p>
       <p className="contact">
         jlcochran2013@gmail.com · jasoncochran.io ·
-        linkedin.com/in/cochranjason · Midland, TX (remote, US)
+        linkedin.com/in/cochranjason · Midland, TX
       </p>
 
       <hr />

@@ -62,7 +62,7 @@ export default async function OpengraphImage() {
               maxWidth: '900px',
             }}
           >
-            Hands-on software architect
+            Hands-On Software Architect
           </div>
           <div
             style={{
@@ -103,7 +103,7 @@ export default async function OpengraphImage() {
         >
           <div>28 years delivering production software</div>
           <div style={{ color: '#475569' }}>·</div>
-          <div>Remote · Midland, TX</div>
+          <div>Midland, TX</div>
         </div>
       </div>
     ),

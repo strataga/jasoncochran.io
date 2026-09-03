@@ -500,13 +500,15 @@ export default function Home() {
 
       {/* Contact */}
       <section id="contact" className="py-16 lg:py-24">
-        <div className="max-w-[680px] mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl md:text-3xl tracking-tight mb-4">Message me</h2>
-          <p className="text-muted-foreground leading-relaxed mb-10">
-            Tell me what your team is building, where the work is stuck, or what you need from
-            your next architect.
-          </p>
-          <ContactForm />
+        <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-[680px]">
+            <h2 className="text-2xl md:text-3xl tracking-tight mb-4">Message me</h2>
+            <p className="text-muted-foreground leading-relaxed mb-10">
+              Tell me what your team is building, where the work is stuck, or what you need from
+              your next architect.
+            </p>
+            <ContactForm />
+          </div>
         </div>
       </section>
 

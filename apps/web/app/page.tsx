@@ -560,9 +560,10 @@ export default function Home() {
 
       {/* About */}
       <section id="about" className="py-16 lg:py-24 bg-white border-y border-border">
-        <div className="max-w-[680px] mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl md:text-3xl tracking-tight mb-6">About</h2>
-          <div className="space-y-5 text-muted-foreground leading-relaxed">
+        <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-[760px]">
+            <h2 className="text-2xl md:text-3xl tracking-tight mb-6">About</h2>
+            <div className="space-y-5 text-muted-foreground leading-relaxed">
             <p>
               I&apos;m looking for architecture work where the job does not stop at a diagram. I
               want to understand how the business operates, make the important tradeoffs clear,
@@ -585,10 +586,11 @@ export default function Home() {
               </Link>{' '}
               or{' '}
               <Link href="/#contact" className="font-semibold text-foreground underline decoration-border underline-offset-4 transition-colors hover:text-primary hover:decoration-primary">
-                tell me about the work
+                Message me
               </Link>
               .
             </p>
+            </div>
           </div>
         </div>
       </section>
@@ -598,7 +600,7 @@ export default function Home() {
         <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-[720px] mb-10">
             <h2 className="text-2xl md:text-3xl tracking-tight mb-4">
-              Fractional consulting, when that fits
+              Fractional consulting
             </h2>
             <p className="text-muted-foreground leading-relaxed">
               I&apos;m primarily pursuing a full-time architect or principal-level engineering

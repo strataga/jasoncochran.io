@@ -5,14 +5,14 @@ import { ArrowRight, Clock3 } from 'lucide-react'
 import { getAllBlogPosts, type BlogPostSummary } from '@/lib/blog'
 
 export const metadata: Metadata = {
-  title: 'Architecture & Engineering Notes',
+  title: 'Architecture in Practice',
   description:
     'Practical writing from Jason Cochran on software architecture, production engineering, applied AI, and lessons from 28 years of building systems.',
   alternates: { canonical: 'https://jasoncochran.io/blog' },
   openGraph: {
     type: 'website',
     url: 'https://jasoncochran.io/blog',
-    title: 'Architecture & Engineering Notes | Jason Cochran',
+    title: 'Architecture in Practice | Jason Cochran',
     description:
       'Practical writing on software architecture, production engineering, applied AI, and building systems that hold up in production.',
   },
@@ -46,7 +46,7 @@ export default async function BlogPage() {
   const collectionData = {
     '@context': 'https://schema.org',
     '@type': 'CollectionPage',
-    name: 'Architecture & Engineering Notes',
+    name: 'Architecture in Practice',
     url: 'https://jasoncochran.io/blog',
     description:
       'Practical writing from Jason Cochran on architecture, engineering, and applied AI.',
@@ -73,7 +73,7 @@ export default async function BlogPage() {
             Architecture &amp; engineering notes
           </p>
           <h1 className="max-w-4xl text-4xl tracking-tight sm:text-5xl lg:text-6xl">
-            What holds up after the diagram is done
+            Architecture in Practice
           </h1>
           <p className="mt-6 max-w-2xl text-lg leading-8 text-hero-muted">
             Practical lessons on architecture, production engineering, and applied AI from 28 years

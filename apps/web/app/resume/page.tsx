@@ -1,6 +1,5 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import Script from 'next/script'
 import { Download, Mail, Phone } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 
@@ -55,10 +54,7 @@ const profileJsonLd = {
       addressRegion: 'Texas',
       addressCountry: 'US',
     },
-    sameAs: [
-      'https://www.linkedin.com/in/cochranjason/',
-      'https://github.com/strataga',
-    ],
+    sameAs: ['https://www.linkedin.com/in/cochranjason/', 'https://github.com/strataga'],
   },
 }
 
@@ -147,9 +143,13 @@ const architectureStrengths = [
 export default function ResumePage() {
   return (
     <>
-      <Script id="jsonld-resume" type="application/ld+json" strategy="beforeInteractive">
-        {JSON.stringify(profileJsonLd)}
-      </Script>
+      <script
+        id="jsonld-resume"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(profileJsonLd).replace(/</g, '\\u003c'),
+        }}
+      />
 
       <article className="min-h-screen bg-background">
         <header className="border-b border-border bg-hero-bg py-14 text-hero-foreground lg:py-20">
@@ -157,9 +157,7 @@ export default function ResumePage() {
             <p className="mb-3 text-sm font-semibold uppercase tracking-[0.12em] text-primary">
               Cover letter and résumé
             </p>
-            <h1 className="mb-4 text-4xl tracking-tight sm:text-5xl lg:text-6xl">
-              Jason Cochran
-            </h1>
+            <h1 className="mb-4 text-4xl tracking-tight sm:text-5xl lg:text-6xl">Jason Cochran</h1>
             <p className="mb-2 max-w-[760px] text-xl font-semibold leading-relaxed text-hero-foreground">
               Hands-On Software Architect
             </p>
@@ -175,10 +173,20 @@ export default function ResumePage() {
               <a className="hover:text-white hover:underline" href="mailto:jlcochran2013@gmail.com">
                 jlcochran2013@gmail.com
               </a>
-              <a className="hover:text-white hover:underline" href="https://www.linkedin.com/in/cochranjason/" target="_blank" rel="noopener noreferrer">
+              <a
+                className="hover:text-white hover:underline"
+                href="https://www.linkedin.com/in/cochranjason/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 linkedin.com/in/cochranjason
               </a>
-              <a className="hover:text-white hover:underline" href="https://github.com/strataga" target="_blank" rel="noopener noreferrer">
+              <a
+                className="hover:text-white hover:underline"
+                href="https://github.com/strataga"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 github.com/strataga
               </a>
               <a className="hover:text-white hover:underline" href="https://jasoncochran.io">
@@ -186,7 +194,10 @@ export default function ResumePage() {
               </a>
             </address>
 
-            <Button asChild className="no-print h-11 bg-primary px-6 font-semibold text-primary-foreground hover:bg-primary/90">
+            <Button
+              asChild
+              className="no-print h-11 bg-primary px-6 font-semibold text-primary-foreground hover:bg-primary/90"
+            >
               <a href="/jason-cochran-architect-application.pdf" download>
                 <Download className="h-4 w-4" aria-hidden="true" />
                 Download cover letter and résumé (PDF)
@@ -196,7 +207,10 @@ export default function ResumePage() {
         </header>
 
         <div className="mx-auto max-w-[1100px] px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
-          <section aria-labelledby="cover-letter-heading" className="mb-16 border-b border-border pb-16">
+          <section
+            aria-labelledby="cover-letter-heading"
+            className="mb-16 border-b border-border pb-16"
+          >
             <p className="mb-3 text-sm font-semibold uppercase tracking-[0.12em] text-primary">
               Introduction
             </p>
@@ -212,24 +226,24 @@ export default function ResumePage() {
                 production.
               </p>
               <p>
-                I bring 28 years of software engineering experience across enterprise web,
-                mobile, cloud, integration, architecture, and production delivery. At Key Energy,
-                I led a six-person team building and supporting mobile and web-based oil-and-gas
-                ERP software with Ruby on Rails while remaining hands-on. That work called for
-                practical decisions about field connectivity, operational data, system
-                integration, and software used across the organization.
+                I bring 28 years of software engineering experience across enterprise web, mobile,
+                cloud, integration, architecture, and production delivery. At Key Energy, I led a
+                six-person team building and supporting mobile and web-based oil-and-gas ERP
+                software with Ruby on Rails while remaining hands-on. That work called for practical
+                decisions about field connectivity, operational data, system integration, and
+                software used across the organization.
               </p>
               <p>
                 More recently at Servant, I delivered a NestJS and Next.js onboarding platform,
-                moved production traffic from the legacy path, and completed the documentation
-                and operational handoff. At Nutrien, I built offline-first React Native workflows
-                for field representatives. At TxMQ, I delivered AngularJS and Ionic features and
-                led an OpenAI research initiative. At Verizon, I built a custom blockchain and
-                JavaScript SDK integration for the AMC Walking Dead NFT experience.
+                moved production traffic from the legacy path, and completed the documentation and
+                operational handoff. At Nutrien, I built offline-first React Native workflows for
+                field representatives. At TxMQ, I delivered AngularJS and Ionic features and led an
+                OpenAI research initiative. At Verizon, I built a custom blockchain and JavaScript
+                SDK integration for the AMC Walking Dead NFT experience.
               </p>
               <p>
-                From 2015 to 2021, my work as a self-employed Solutions Architect included more
-                than 30 projects across oil and gas, travel, and enterprise environments. I worked
+                From 2015 to 2021, my work as a self-employed Solutions Architect included more than
+                30 projects across oil and gas, travel, and enterprise environments. I worked
                 directly with clients to understand the workflow, choose a practical architecture,
                 build the software, communicate tradeoffs, and leave behind a maintainable handoff.
               </p>
@@ -238,20 +252,20 @@ export default function ResumePage() {
                 control platform that let users provision and manage an OpenClaw AI assistant
                 through a web dashboard. It was built with Bun, Next.js, React, TypeScript, and
                 Convex and included authentication, billing, infrastructure provisioning,
-                operational documentation, and automated quality checks. Work like this lets me
-                test ideas across product, platform, security, and operations instead of staying
-                inside one layer of the stack.
+                operational documentation, and automated quality checks. Work like this lets me test
+                ideas across product, platform, security, and operations instead of staying inside
+                one layer of the stack.
               </p>
               <p>
-                I bring a calm, hands-on architecture style. I can lead discovery, write the
-                design, review the implementation, troubleshoot production issues, mentor
-                engineers, and update the runbook afterward. My goal is architecture that helps
-                people make better decisions and deliver dependable software—not an approval
-                process that slows them down.
+                I bring a calm, hands-on architecture style. I can lead discovery, write the design,
+                review the implementation, troubleshoot production issues, mentor engineers, and
+                update the runbook afterward. My goal is architecture that helps people make better
+                decisions and deliver dependable software—not an approval process that slows them
+                down.
               </p>
               <p>
-                I would welcome a conversation about the problems your team is solving and where
-                my experience can help.
+                I would welcome a conversation about the problems your team is solving and where my
+                experience can help.
               </p>
               <p className="pt-2 text-foreground">
                 Sincerely,
@@ -272,25 +286,32 @@ export default function ResumePage() {
             <div className="grid gap-12 lg:grid-cols-[minmax(240px,0.8fr)_minmax(0,2fr)]">
               <aside className="space-y-10">
                 <section aria-labelledby="profile-heading">
-                  <h3 id="profile-heading" className="mb-3 text-xl">Profile</h3>
+                  <h3 id="profile-heading" className="mb-3 text-xl">
+                    Profile
+                  </h3>
                   <p className="leading-relaxed text-muted-foreground">
-                    Hands-on software architect with 28 years of experience
-                    translating business workflows into secure, maintainable enterprise
-                    applications. Leads discovery, system design, web and mobile delivery,
-                    integrations, modernization, migration, and technical handoff while staying
-                    close to the code.
+                    Hands-on software architect with 28 years of experience translating business
+                    workflows into secure, maintainable enterprise applications. Leads discovery,
+                    system design, web and mobile delivery, integrations, modernization, migration,
+                    and technical handoff while staying close to the code.
                   </p>
                 </section>
 
                 <section aria-labelledby="strengths-heading">
-                  <h3 id="strengths-heading" className="mb-3 text-xl">Architecture strengths</h3>
+                  <h3 id="strengths-heading" className="mb-3 text-xl">
+                    Architecture strengths
+                  </h3>
                   <ul className="space-y-2 pl-5 text-sm leading-relaxed text-muted-foreground marker:text-primary">
-                    {architectureStrengths.map((strength) => <li key={strength}>{strength}</li>)}
+                    {architectureStrengths.map((strength) => (
+                      <li key={strength}>{strength}</li>
+                    ))}
                   </ul>
                 </section>
 
                 <section aria-labelledby="credentials-heading">
-                  <h3 id="credentials-heading" className="mb-3 text-xl">Credentials</h3>
+                  <h3 id="credentials-heading" className="mb-3 text-xl">
+                    Credentials
+                  </h3>
                   <ul className="space-y-2 text-sm leading-relaxed text-muted-foreground">
                     <li>Microsoft Certified: Azure Fundamentals (AZ-900)</li>
                     <li>Microsoft Certified: Azure AI Fundamentals (AI-900)</li>
@@ -298,50 +319,72 @@ export default function ResumePage() {
                 </section>
 
                 <section aria-labelledby="working-style-heading">
-                  <h3 id="working-style-heading" className="mb-3 text-xl">How I work</h3>
+                  <h3 id="working-style-heading" className="mb-3 text-xl">
+                    How I work
+                  </h3>
                   <p className="text-sm leading-relaxed text-muted-foreground">
-                    Start with the real workflow. Make boundaries and tradeoffs explicit. Stay
-                    close to implementation, testing, delivery, documentation, and the people who
-                    will operate the result.
+                    Start with the real workflow. Make boundaries and tradeoffs explicit. Stay close
+                    to implementation, testing, delivery, documentation, and the people who will
+                    operate the result.
                   </p>
                 </section>
               </aside>
 
               <div>
                 <section aria-labelledby="career-heading">
-                  <h3 id="career-heading" className="mb-6 text-xl">Career history</h3>
+                  <h3 id="career-heading" className="mb-6 text-xl">
+                    Career history
+                  </h3>
                   <div className="space-y-8">
                     {experience.map((entry) => (
-                      <article key={`${entry.company}-${entry.dates}`} className="border-l-2 border-border pl-5">
+                      <article
+                        key={`${entry.company}-${entry.dates}`}
+                        className="border-l-2 border-border pl-5"
+                      >
                         <div className="mb-2 flex flex-col gap-1 sm:flex-row sm:items-start sm:justify-between sm:gap-5">
                           <h4 className="text-base leading-snug">
-                            {entry.role} · {entry.company}{entry.location ? ` · ${entry.location}` : ''}
+                            {entry.role} · {entry.company}
+                            {entry.location ? ` · ${entry.location}` : ''}
                           </h4>
-                          <p className="shrink-0 text-sm font-semibold text-primary">{entry.dates}</p>
+                          <p className="shrink-0 text-sm font-semibold text-primary">
+                            {entry.dates}
+                          </p>
                         </div>
                         <ul className="space-y-1.5 pl-5 text-sm leading-relaxed text-muted-foreground marker:text-primary">
-                          {entry.highlights.map((highlight) => <li key={highlight}>{highlight}</li>)}
+                          {entry.highlights.map((highlight) => (
+                            <li key={highlight}>{highlight}</li>
+                          ))}
                         </ul>
                       </article>
                     ))}
                   </div>
                 </section>
 
-                <section aria-labelledby="project-heading" className="mt-10 rounded-lg border border-border bg-white p-6">
-                  <h3 id="project-heading" className="mb-2 text-xl">OpenClaw VPS · Personal project</h3>
+                <section
+                  aria-labelledby="project-heading"
+                  className="mt-10 rounded-lg border border-border bg-white p-6"
+                >
+                  <h3 id="project-heading" className="mb-2 text-xl">
+                    OpenClaw VPS · Personal project
+                  </h3>
                   <p className="leading-relaxed text-muted-foreground">
-                    Built a hosted control platform that let users provision and manage an
-                    OpenClaw AI assistant through a web dashboard. It was built with Bun, Next.js,
-                    React, TypeScript, and Convex and included authentication, billing,
-                    infrastructure provisioning, documentation, and automated quality checks.
+                    Built a hosted control platform that let users provision and manage an OpenClaw
+                    AI assistant through a web dashboard. It was built with Bun, Next.js, React,
+                    TypeScript, and Convex and included authentication, billing, infrastructure
+                    provisioning, documentation, and automated quality checks.
                   </p>
-                  <Link className="no-print mt-4 inline-block text-sm font-semibold text-primary underline-offset-4 hover:underline" href="/projects/openclaw-vps">
+                  <Link
+                    className="no-print mt-4 inline-block text-sm font-semibold text-primary underline-offset-4 hover:underline"
+                    href="/projects/openclaw-vps"
+                  >
                     Read the OpenClaw VPS project story
                   </Link>
                 </section>
 
                 <section aria-labelledby="foundation-heading" className="mt-10">
-                  <h3 id="foundation-heading" className="mb-3 text-xl">Technical foundation</h3>
+                  <h3 id="foundation-heading" className="mb-3 text-xl">
+                    Technical foundation
+                  </h3>
                   <p className="leading-relaxed text-muted-foreground">
                     TypeScript, JavaScript, React, Next.js, React Native, Node.js, NestJS, Ruby on
                     Rails, C#, SQL, PostgreSQL, REST APIs, AWS-hosted delivery, Azure foundations,
@@ -353,8 +396,13 @@ export default function ResumePage() {
             </div>
           </section>
 
-          <section className="no-print mt-16 border-t border-border pt-10" aria-labelledby="next-step-heading">
-            <h2 id="next-step-heading" className="mb-3 text-2xl">Let&apos;s talk about the work</h2>
+          <section
+            className="no-print mt-16 border-t border-border pt-10"
+            aria-labelledby="next-step-heading"
+          >
+            <h2 id="next-step-heading" className="mb-3 text-2xl">
+              Let&apos;s talk about the work
+            </h2>
             <p className="mb-6 max-w-[700px] leading-relaxed text-muted-foreground">
               If your team needs an architect who can connect business needs, technical decisions,
               and hands-on delivery, I would welcome a conversation about the work.

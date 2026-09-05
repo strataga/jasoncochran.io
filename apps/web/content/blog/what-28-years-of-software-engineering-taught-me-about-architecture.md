@@ -1,15 +1,18 @@
 ---
-title: "What 28 Years of Software Engineering Taught Me About Architecture"
-date: "2026-09-03"
+title: 'What 28 Years of Software Engineering Taught Me About Architecture'
+seoTitle: '28 Years of Software Engineering Lessons for Architects'
+seoDescription: 'Practical architecture lessons from 28 years of building software: understand the work, expose tradeoffs, design for failure, and stay accountable in production.'
+date: '2026-09-03'
+updated: '2026-09-04'
 summary: "The tools keep changing. The architect's responsibility does not: understand the real problem, make the important tradeoffs visible, and stay accountable until the system works in production."
 tags:
   - architecture
   - software engineering
   - technical leadership
   - applied AI
-heroImage: "/blog/what-28-years-of-software-engineering-taught-me-about-architecture/architecture-evolution.webp"
-heroAlt: "A continuous illuminated system path connecting enterprise software, mobile field workflows, cloud infrastructure, and an applied AI network."
-infographic: "architecture-accountability-loop"
+heroImage: '/blog/what-28-years-of-software-engineering-taught-me-about-architecture/header-1200x630.webp'
+heroAlt: 'Jason Cochran reviewing a production architecture with another engineer using a system diagram, runbook, deployment checklist, and mobile workflow.'
+infographic: 'architecture-accountability-loop'
 ---
 
 After 28 years in software engineering, I don't think architecture is mainly about drawing diagrams or knowing the names of every pattern. Those things can help, but they aren't the job.
@@ -60,7 +63,7 @@ Fowler's discussion of [evolutionary architecture](https://martinfowler.com/arti
 
 This does not require the architect to write every feature. It does require staying close to the code, tests, delivery pipeline, and operational behavior. I want to know whether the decisions are helping the team or merely giving the system a tidy description.
 
-<!-- infographic:architecture-accountability-loop -->
+<!-- infographic -->
 
 ## Migration is part of the architecture
 
@@ -141,5 +144,5 @@ After 28 years, that is what architecture means to me: translate the need, expos
 - [Architecture styles — Microsoft Azure Architecture Center](https://learn.microsoft.com/en-us/azure/architecture/guide/architecture-styles/)
 - [The pillars of the AWS Well-Architected Framework](https://docs.aws.amazon.com/wellarchitected/latest/framework/the-pillars-of-the-framework.html)
 - [Architecture Decision Record — Martin Fowler](https://martinfowler.com/bliki/ArchitectureDecisionRecord.html)
-- [Foreword to *Building Evolutionary Architectures* — Martin Fowler](https://martinfowler.com/articles/evo-arch-forward.html)
+- [Foreword to _Building Evolutionary Architectures_ — Martin Fowler](https://martinfowler.com/articles/evo-arch-forward.html)
 - [Secure Software Development Framework, SP 800-218 — NIST](https://csrc.nist.gov/pubs/sp/800/218/final)

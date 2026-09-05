@@ -2,7 +2,7 @@ import { readFile, readdir } from 'node:fs/promises'
 import path from 'node:path'
 import matter from 'gray-matter'
 
-export const BLOG_INFOGRAPHIC_MARKER = '<!-- infographic:architecture-accountability-loop -->'
+export const BLOG_INFOGRAPHIC_MARKER = '<!-- infographic -->'
 
 export type BlogPostSummary = {
   slug: string
@@ -14,6 +14,9 @@ export type BlogPostSummary = {
   heroImage?: string
   heroAlt?: string
   infographic?: string
+  seoTitle?: string
+  seoDescription?: string
+  updated?: string
 }
 
 export type BlogPost = BlogPostSummary & {
@@ -28,6 +31,9 @@ type BlogFrontmatter = {
   heroImage?: unknown
   heroAlt?: unknown
   infographic?: unknown
+  seoTitle?: unknown
+  seoDescription?: unknown
+  updated?: unknown
 }
 
 const blogDirectory = path.join(process.cwd(), 'content', 'blog')
@@ -66,6 +72,7 @@ export function parseBlogSource(slug: string, source: string): BlogPost {
   const date = requireString(frontmatter.date, 'date', slug)
   const heroImage = optionalString(frontmatter.heroImage)
   const heroAlt = optionalString(frontmatter.heroAlt)
+  const updated = optionalString(frontmatter.updated)
   const parsedDate = new Date(`${date}T00:00:00Z`)
 
   if (
@@ -96,6 +103,18 @@ export function parseBlogSource(slug: string, source: string): BlogPost {
     throw new Error(`Blog post "${slug}" requires heroAlt when heroImage is set.`)
   }
 
+  if (updated) {
+    const parsedUpdated = new Date(`${updated}T00:00:00Z`)
+    if (
+      !/^\d{4}-\d{2}-\d{2}$/.test(updated) ||
+      Number.isNaN(parsedUpdated.getTime()) ||
+      parsedUpdated.toISOString().slice(0, 10) !== updated ||
+      parsedUpdated < parsedDate
+    ) {
+      throw new Error(`Blog post "${slug}" has an invalid updated date.`)
+    }
+  }
+
   return {
     slug,
     title: requireString(frontmatter.title, 'title', slug),
@@ -106,6 +125,9 @@ export function parseBlogSource(slug: string, source: string): BlogPost {
     heroImage,
     heroAlt,
     infographic: optionalString(frontmatter.infographic),
+    seoTitle: optionalString(frontmatter.seoTitle),
+    seoDescription: optionalString(frontmatter.seoDescription),
+    updated,
     content: content.trim(),
   }
 }
@@ -151,6 +173,9 @@ export async function getAllBlogPosts(): Promise<BlogPostSummary[]> {
           heroImage: post.heroImage,
           heroAlt: post.heroAlt,
           infographic: post.infographic,
+          seoTitle: post.seoTitle,
+          seoDescription: post.seoDescription,
+          updated: post.updated,
         }
       })
   )

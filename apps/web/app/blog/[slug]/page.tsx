@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { ArrowLeft, ArrowRight, Clock3 } from 'lucide-react'
 import { ArchitectureAccountabilityLoop } from '@/components/architecture-accountability-loop'
+import { BlogInfographic } from '@/components/blog-infographic'
 import { ShareButtons } from '@/components/share-buttons'
 import { BLOG_INFOGRAPHIC_MARKER, getAllBlogPosts, getBlogPost, getRelatedPosts } from '@/lib/blog'
 import { renderProjectMarkdown } from '@/lib/project-markdown'
@@ -34,28 +35,31 @@ export async function generateMetadata({
   if (!post) return {}
 
   const canonical = `${siteUrl}/blog/${post.slug}`
+  const metadataTitle = post.seoTitle ?? post.title
+  const metadataDescription = post.seoDescription ?? post.summary
 
   return {
-    title: post.title,
-    description: post.summary,
+    title: metadataTitle,
+    description: metadataDescription,
     alternates: { canonical },
     authors: [{ name: 'Jason Cochran', url: siteUrl }],
     openGraph: {
       type: 'article',
       url: canonical,
-      title: post.title,
-      description: post.summary,
+      title: metadataTitle,
+      description: metadataDescription,
       publishedTime: post.date,
+      modifiedTime: post.updated ?? post.date,
       authors: [siteUrl],
       tags: post.tags,
       images: post.heroImage
-        ? [{ url: post.heroImage, width: 1774, height: 887, alt: post.heroAlt ?? post.title }]
+        ? [{ url: post.heroImage, width: 1200, height: 630, alt: post.heroAlt ?? post.title }]
         : undefined,
     },
     twitter: {
       card: 'summary_large_image',
-      title: post.title,
-      description: post.summary,
+      title: metadataTitle,
+      description: metadataDescription,
       images: post.heroImage ? [post.heroImage] : undefined,
     },
   }
@@ -77,7 +81,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
     headline: post.title,
     description: post.summary,
     datePublished: post.date,
-    dateModified: post.date,
+    dateModified: post.updated ?? post.date,
     mainEntityOfPage: canonical,
     url: canonical,
     image: post.heroImage ? `${siteUrl}${post.heroImage}` : undefined,
@@ -168,7 +172,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
           </div>
         ) : null}
 
-        <div className="mx-auto max-w-[780px] px-4 py-14 sm:px-6 lg:px-8 lg:py-20">
+        <div className="mx-auto max-w-[1200px] px-4 py-14 sm:px-6 lg:px-8 lg:py-20">
           {renderedSections.map((html, index) => (
             <div key={index}>
               <div
@@ -178,6 +182,8 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
               {index < renderedSections.length - 1 &&
               post.infographic === 'architecture-accountability-loop' ? (
                 <ArchitectureAccountabilityLoop />
+              ) : index < renderedSections.length - 1 && post.infographic ? (
+                <BlogInfographic id={post.infographic} />
               ) : null}
             </div>
           ))}

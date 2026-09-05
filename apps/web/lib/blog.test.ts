@@ -25,6 +25,9 @@ test('parses complete frontmatter and derives reading time', () => {
       'title: Architecture Decisions',
       'date: "2026-09-03"',
       'summary: A practical guide.',
+      'seoTitle: Architecture Decisions That Hold Up',
+      'seoDescription: A practical guide to architecture decisions, tradeoffs, and evidence.',
+      'updated: "2026-09-04"',
       'tags: [architecture, delivery]',
       '---',
       '',
@@ -33,8 +36,30 @@ test('parses complete frontmatter and derives reading time', () => {
   )
 
   assert.equal(post.title, 'Architecture Decisions')
+  assert.equal(post.seoTitle, 'Architecture Decisions That Hold Up')
+  assert.equal(post.updated, '2026-09-04')
   assert.deepEqual(post.tags, ['architecture', 'delivery'])
   assert.equal(post.readingTimeMinutes, 1)
+})
+
+test('rejects an updated date before the publication date', () => {
+  assert.throws(
+    () =>
+      parseBlogSource(
+        'invalid-update',
+        [
+          '---',
+          'title: Invalid update',
+          'date: "2026-09-03"',
+          'updated: "2026-09-02"',
+          'summary: Invalid update date.',
+          'tags: [architecture]',
+          '---',
+          'Article body.',
+        ].join('\n')
+      ),
+    /updated date/
+  )
 })
 
 test('rejects incomplete blog metadata', () => {

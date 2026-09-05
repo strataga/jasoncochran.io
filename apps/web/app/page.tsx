@@ -1,17 +1,12 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import Script from 'next/script'
 import type { Metadata } from 'next'
-import {
-  ArrowRight,
-  Linkedin,
-  Github,
-  Mail,
-} from 'lucide-react'
+import { ArrowRight, Clock3, Linkedin, Github, Mail } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import ContactForm from '@/components/ContactForm'
+import { getAllBlogPosts } from '@/lib/blog'
 
 export const metadata: Metadata = {
   title: 'Jason Cochran · Hands-On Software Architect',
@@ -38,10 +33,7 @@ const jsonLd = {
     addressRegion: 'Texas',
     addressCountry: 'US',
   },
-  sameAs: [
-    'https://www.linkedin.com/in/cochranjason/',
-    'https://github.com/strataga',
-  ],
+  sameAs: ['https://www.linkedin.com/in/cochranjason/', 'https://github.com/strataga'],
 }
 
 const ARCHITECTURE_CTA_HREF = '/projects/archgauge'
@@ -124,16 +116,26 @@ const selectedResults = [
   },
 ]
 
-export default function Home() {
+function formatPostDate(date: string) {
+  return new Intl.DateTimeFormat('en-US', {
+    month: 'long',
+    day: 'numeric',
+    year: 'numeric',
+    timeZone: 'UTC',
+  }).format(new Date(date))
+}
+
+export default async function Home() {
+  const [latestPost, ...remainingPosts] = await getAllBlogPosts()
+  const nextPosts = remainingPosts.slice(0, 3)
+
   return (
     <>
-      <Script
+      <script
         id="jsonld-home"
         type="application/ld+json"
-        strategy="beforeInteractive"
-      >
-        {JSON.stringify(jsonLd)}
-      </Script>
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, '\\u003c') }}
+      />
 
       {/* Top anchor for nav Home link */}
       <span id="top" className="sr-only" aria-hidden="true" />
@@ -153,10 +155,10 @@ export default function Home() {
                 className="text-lg md:text-xl leading-relaxed mb-6 text-hero-muted"
                 style={{ maxWidth: '660px' }}
               >
-                I bring 28 years of experience turning business needs into enterprise
-                applications, web and mobile products, integrations, cloud-hosted systems, and
-                applied-AI solutions. I stay hands-on through design and delivery so the
-                architecture works in production, not only on paper.
+                I bring 28 years of experience turning business needs into enterprise applications,
+                web and mobile products, integrations, cloud-hosted systems, and applied-AI
+                solutions. I stay hands-on through design and delivery so the architecture works in
+                production, not only on paper.
               </p>
 
               <div className="mt-8 flex flex-col sm:flex-row sm:flex-wrap gap-3">
@@ -229,8 +231,8 @@ export default function Home() {
             <h2 className="text-2xl md:text-3xl tracking-tight mb-4">Selected results</h2>
             <p className="text-muted-foreground leading-relaxed">
               I&apos;ve spent my career working where business workflows, architecture decisions,
-              and production delivery meet. These examples show how I contribute when the work
-              has to move from an idea into software people can use and support.
+              and production delivery meet. These examples show how I contribute when the work has
+              to move from an idea into software people can use and support.
             </p>
           </div>
 
@@ -340,7 +342,10 @@ export default function Home() {
                   ))}
                 </div>
 
-                <Link href="/projects/archgauge" className="mt-auto inline-flex items-center gap-1.5 text-sm text-primary hover:underline underline-offset-4">
+                <Link
+                  href="/projects/archgauge"
+                  className="mt-auto inline-flex items-center gap-1.5 text-sm text-primary hover:underline underline-offset-4"
+                >
                   Read the case study
                   <ArrowRight className="w-3.5 h-3.5" />
                 </Link>
@@ -361,9 +366,9 @@ export default function Home() {
                 <p className="text-muted-foreground leading-relaxed text-sm mb-6">
                   OpenClaw VPS was a managed hosting and control-plane product for private,
                   always-on AI assistants. A user could provision and manage a hosted bot, connect
-                  an AI provider, chat through the web or a supported messaging channel, and
-                  monitor the service without administering the underlying server. The service is
-                  not currently online.
+                  an AI provider, chat through the web or a supported messaging channel, and monitor
+                  the service without administering the underlying server. The service is not
+                  currently online.
                 </p>
 
                 <div className="flex flex-wrap gap-2 mb-6">
@@ -377,7 +382,10 @@ export default function Home() {
                     </Badge>
                   ))}
                 </div>
-                <Link href="/projects/openclaw-vps" className="mt-auto inline-flex items-center gap-1.5 text-sm text-primary hover:underline underline-offset-4">
+                <Link
+                  href="/projects/openclaw-vps"
+                  className="mt-auto inline-flex items-center gap-1.5 text-sm text-primary hover:underline underline-offset-4"
+                >
                   Read the project story
                   <ArrowRight className="w-3.5 h-3.5" />
                 </Link>
@@ -420,51 +428,174 @@ export default function Home() {
       {/* About */}
       <section id="about" className="py-16 lg:py-24 bg-white border-y border-border">
         <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-[760px]">
-            <h2 className="text-2xl md:text-3xl tracking-tight mb-6">About</h2>
-            <div className="space-y-5 text-muted-foreground leading-relaxed">
-            <p>
-              I&apos;m looking for software architecture work where the job does not stop at a
-              diagram. I want to understand how the business operates, make the important
-              tradeoffs clear, and stay close enough to implementation that the architecture
-              works in production and remains understandable after handoff.
-            </p>
-            <p>
-              I bring 28 years of experience across enterprise web, mobile, cloud, integration,
-              and applied-AI systems. At Key Energy, I led a six-person team building mobile and
-              web-based oil-and-gas ERP software with Ruby on Rails while remaining hands-on. More
-              recently, my work at Servant, Nutrien, TxMQ, and Verizon has covered production
-              migrations, offline-first field workflows, OpenAI research, and reusable SDK
-              integration.
-            </p>
-            <p>
-              I value architecture that helps teams make better decisions and deliver dependable
-              software—not an approval process that slows them down.{' '}
-              <Link href="/resume" className="font-semibold text-foreground underline decoration-border underline-offset-4 transition-colors hover:text-primary hover:decoration-primary">
-                Read my résumé and cover letter
-              </Link>{' '}
-              or{' '}
-              <Link href="/#contact" className="font-semibold text-foreground underline decoration-border underline-offset-4 transition-colors hover:text-primary hover:decoration-primary">
-                Message me
-              </Link>
-              .
-            </p>
+          <div className="grid gap-6 lg:grid-cols-[220px_minmax(0,1fr)] lg:gap-12">
+            <h2 className="text-2xl md:text-3xl tracking-tight">About</h2>
+            <div className="space-y-5 text-muted-foreground leading-relaxed lg:text-lg">
+              <p>
+                I&apos;m looking for software architecture work where the job does not stop at a
+                diagram. I want to understand how the business operates, make the important
+                tradeoffs clear, and stay close enough to implementation that the architecture works
+                in production and remains understandable after handoff.
+              </p>
+              <p>
+                I bring 28 years of experience across enterprise web, mobile, cloud, integration,
+                and applied-AI systems. At Key Energy, I led a six-person team building mobile and
+                web-based oil-and-gas ERP software with Ruby on Rails while remaining hands-on. More
+                recently, my work at Servant, Nutrien, TxMQ, and Verizon has covered production
+                migrations, offline-first field workflows, OpenAI research, and reusable SDK
+                integration.
+              </p>
+              <p>
+                I value architecture that helps teams make better decisions and deliver dependable
+                software—not an approval process that slows them down.{' '}
+                <Link
+                  href="/resume"
+                  className="font-semibold text-foreground underline decoration-border underline-offset-4 transition-colors hover:text-primary hover:decoration-primary"
+                >
+                  Read my résumé and cover letter
+                </Link>{' '}
+                or{' '}
+                <Link
+                  href="/#contact"
+                  className="font-semibold text-foreground underline decoration-border underline-offset-4 transition-colors hover:text-primary hover:decoration-primary"
+                >
+                  Message me
+                </Link>
+                .
+              </p>
             </div>
           </div>
         </div>
       </section>
 
+      {/* Latest writing */}
+      {latestPost ? (
+        <section id="writing" className="border-b border-border bg-background py-16 lg:py-24">
+          <div className="mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-8">
+            <div className="mb-10 flex flex-wrap items-end justify-between gap-5">
+              <div>
+                <p className="mb-3 font-mono text-xs uppercase tracking-[0.18em] text-primary">
+                  Latest writing
+                </p>
+                <h2 className="text-2xl tracking-tight md:text-3xl">
+                  Architecture and engineering notes
+                </h2>
+              </div>
+              <Link
+                href="/blog"
+                className="inline-flex items-center gap-2 text-sm font-semibold text-foreground transition-colors hover:text-primary"
+              >
+                View all articles
+                <ArrowRight className="h-4 w-4" aria-hidden="true" />
+              </Link>
+            </div>
+
+            <article className="grid overflow-hidden rounded-2xl border border-border bg-white shadow-[var(--shadow-lg)] lg:grid-cols-[1.1fr_0.9fr]">
+              {latestPost.heroImage ? (
+                <Link
+                  href={`/blog/${latestPost.slug}`}
+                  className="relative block min-h-72 overflow-hidden bg-muted lg:min-h-[420px]"
+                  aria-label={`Read ${latestPost.title}`}
+                >
+                  <Image
+                    src={latestPost.heroImage}
+                    alt={latestPost.heroAlt ?? ''}
+                    fill
+                    sizes="(min-width: 1024px) 55vw, 100vw"
+                    className="object-cover transition-transform duration-300 hover:scale-[1.015]"
+                  />
+                </Link>
+              ) : null}
+              <div className="flex flex-col justify-center p-6 sm:p-8 lg:p-10">
+                <div className="mb-4 flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-muted-foreground">
+                  <time dateTime={latestPost.date}>{formatPostDate(latestPost.date)}</time>
+                  <span aria-hidden="true">·</span>
+                  <span className="inline-flex items-center gap-1.5">
+                    <Clock3 className="h-4 w-4" aria-hidden="true" />
+                    {latestPost.readingTimeMinutes} min read
+                  </span>
+                </div>
+                <h3 className="text-2xl leading-tight tracking-tight sm:text-3xl">
+                  <Link
+                    href={`/blog/${latestPost.slug}`}
+                    className="transition-colors hover:text-primary"
+                  >
+                    {latestPost.title}
+                  </Link>
+                </h3>
+                <p className="mt-4 leading-7 text-muted-foreground">{latestPost.summary}</p>
+                <Link
+                  href={`/blog/${latestPost.slug}`}
+                  className="mt-7 inline-flex items-center gap-2 text-sm font-semibold text-foreground transition-colors hover:text-primary"
+                >
+                  Read the latest article
+                  <ArrowRight className="h-4 w-4" aria-hidden="true" />
+                </Link>
+              </div>
+            </article>
+
+            {nextPosts.length > 0 ? (
+              <div className="mt-6 grid gap-6 md:grid-cols-3">
+                {nextPosts.map((post) => (
+                  <article
+                    key={post.slug}
+                    className="flex h-full flex-col overflow-hidden rounded-2xl border border-border bg-white shadow-[var(--shadow-sm)]"
+                  >
+                    {post.heroImage ? (
+                      <Link
+                        href={`/blog/${post.slug}`}
+                        className="relative block aspect-[2/1] overflow-hidden bg-muted"
+                        aria-label={`Read ${post.title}`}
+                      >
+                        <Image
+                          src={post.heroImage}
+                          alt={post.heroAlt ?? ''}
+                          fill
+                          sizes="(min-width: 768px) 33vw, 100vw"
+                          className="object-cover transition-transform duration-300 hover:scale-[1.02]"
+                        />
+                      </Link>
+                    ) : null}
+                    <div className="flex flex-1 flex-col p-6">
+                      <p className="text-sm text-muted-foreground">
+                        <time dateTime={post.date}>{formatPostDate(post.date)}</time>
+                        <span aria-hidden="true"> · </span>
+                        {post.readingTimeMinutes} min read
+                      </p>
+                      <h3 className="mt-3 text-xl leading-snug tracking-tight">
+                        <Link
+                          href={`/blog/${post.slug}`}
+                          className="transition-colors hover:text-primary"
+                        >
+                          {post.title}
+                        </Link>
+                      </h3>
+                      <p className="mt-3 text-sm leading-6 text-muted-foreground">{post.summary}</p>
+                      <Link
+                        href={`/blog/${post.slug}`}
+                        className="mt-auto inline-flex items-center gap-2 pt-6 text-sm font-semibold text-foreground transition-colors hover:text-primary"
+                      >
+                        Read article
+                        <ArrowRight className="h-4 w-4" aria-hidden="true" />
+                      </Link>
+                    </div>
+                  </article>
+                ))}
+              </div>
+            ) : null}
+          </div>
+        </section>
+      ) : null}
+
       {/* Alternate consulting path */}
       <section id="services" className="py-16 lg:py-24">
         <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-[720px] mb-10">
-            <h2 className="text-2xl md:text-3xl tracking-tight mb-4">
-              Fractional consulting
-            </h2>
+            <h2 className="text-2xl md:text-3xl tracking-tight mb-4">Fractional consulting</h2>
             <p className="text-muted-foreground leading-relaxed">
-              I&apos;m primarily pursuing a full-time architect or principal-level engineering
-              role. For teams that need focused help instead, I also offer practical,
-              hands-on architecture support.
+              I&apos;m primarily pursuing a full-time architect or principal-level engineering role.
+              For teams that need focused help instead, I also offer practical, hands-on
+              architecture support.
             </p>
           </div>
 

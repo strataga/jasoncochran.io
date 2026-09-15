@@ -4,20 +4,20 @@ seoTitle: 'Why I Started WellOS, an Oil and Gas Software Project'
 seoDescription: 'The origin and architecture of WellOS, a personal project exploring field operations, SCADA data, multi-tenant software, and cloud delivery for upstream oil and gas.'
 date: '2025-12-17'
 updated: '2026-09-04'
-summary: 'WellOS began as a practical question: could field work, operational data, and business workflows feel connected without erasing the boundaries that make them trustworthy?'
+summary: 'WellOS began with a practical question: how can field work, operational data, and business workflows connect while preserving trustworthy boundaries?'
 tags: [WellOS, oil and gas, product architecture, field operations, cloud software]
 heroImage: '/blog/why-i-started-building-wellos/header-1200x630.webp'
 heroAlt: 'Jason Cochran sketches an early WellOS workflow beside an operations dashboard in his home office.'
 infographic: 'wellos-platform-map'
 ---
 
-In November 2025, I earned Microsoft Certified: Azure Fundamentals and Microsoft Certified: Azure AI Fundamentals. I pursued both certifications for a practical reason: I wanted to help local oil and gas companies modernize their software and make responsible use of the cloud, AI, and the newer capabilities available in Azure.
+I earned Microsoft Certified: Azure Fundamentals and Microsoft Certified: Azure AI Fundamentals for a practical reason: I wanted to help local oil and gas companies modernize their software and make responsible use of the cloud, AI, and the newer capabilities available in Azure.
 
 That learning led directly to WellOS.
 
 I started the personal project around a problem I understood from years of oil and gas software work: field operations, production information, equipment data, work management, and business systems often belong to the same real-world workflow but feel disconnected to the people doing the work.
 
-The project asked a broad question: what would an operating platform for an upstream company look like if it began with those workflows instead of beginning with the boundaries of existing products?
+The project asked a broad question: what would an upstream operating platform look like if it began with those workflows rather than the boundaries of existing products?
 
 I was especially interested in smaller and midsize oil and gas companies. Large operators can buy and implement expensive enterprise platforms. Smaller organizations still need reliable field, production, maintenance, accounting, and compliance workflows, but the cost and complexity of the established systems can put an integrated operating platform out of reach.
 
@@ -31,9 +31,9 @@ Oilfield teams do not need another dashboard merely because data exists.
 
 They need to complete work, understand what is happening, respond to exceptions, and trust the information in front of them. The difficulty is that the relevant context may live in several places: a field application, SCADA or a historian, production records, maintenance systems, an ERP, email, a spreadsheet, or someone’s experience.
 
-The product idea was to create a connected operating experience around that work. That did not mean WellOS should replace every authoritative system. It meant the user should not have to reconstruct one decision by manually navigating five products and reconciling their differences.
+The product idea was to create a connected operating experience around that work. WellOS would coordinate the workflow while authoritative systems kept their responsibilities. Users should not have to reconstruct one decision by manually navigating five products and reconciling their differences.
 
-That distinction shaped the architecture. The central challenge was not “How do I put all the data in one database?” It was “How do I connect the workflow while preserving the meaning, ownership, security, and failure behavior of each source?”
+That distinction shaped the architecture. The central challenge was connecting the workflow while preserving the meaning, ownership, security, and failure behavior of each source.
 
 ## Who I was designing for
 

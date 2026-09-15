@@ -13,9 +13,9 @@ infographic: 'observability-question-map'
 
 An organization can collect millions of telemetry events and still be unable to explain why a customer’s work failed.
 
-Observability is not the number of dashboards, agents, or log indexes. It is the ability to understand the system well enough to answer new questions, make a safe decision, and verify that recovery worked.
+Observability is the ability to understand the system well enough to answer new questions, make a safe decision, and verify that recovery worked. Dashboards, agents, and log indexes are means to that end.
 
-I design observability by starting with the support conversation: what will someone need to know when the workflow is slow, stuck, wrong, or missing?
+Start observability with the support conversation: what will someone need to know when the workflow is slow, stuck, wrong, or missing?
 
 ## Begin with user-visible success
 
@@ -31,7 +31,7 @@ Technical signals explain those outcomes. They should not replace them.
 
 Map the business workflow to application components and dependencies. For each stage, define success, delay, failure, saturation, and ownership.
 
-The model should expose customer impact and blast radius. “Database CPU is high” may be useful. “Production-entry acceptance is falling for two sites because writes are waiting on the database” is actionable.
+The model should expose customer impact and blast radius. “Database CPU is high” is a clue. “Production-entry acceptance is falling for two sites because writes are waiting on the database” gives someone a next action.
 
 Azure’s Well-Architected guidance recommends workload health models that combine application, infrastructure, and user perspectives. The point is correlation: one operational picture instead of unrelated green and red widgets.
 
@@ -51,7 +51,7 @@ Do not log entire requests by default. Sensitive data, credentials, prompts, and
 
 Queues and events break the visible request chain. Carry correlation and causation identifiers, record enqueue and dequeue time, expose retries and dead-letter state, and measure the age of work—not only queue length.
 
-A backlog of ten messages can be harmless or critical depending on their age and business meaning. A completed handler is not a completed workflow if the downstream record failed.
+A backlog of ten messages can be harmless or critical depending on their age and business meaning. A completed handler does not prove a completed workflow if the downstream record failed.
 
 ## Alert on decisions someone can make
 

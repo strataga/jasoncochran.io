@@ -57,16 +57,14 @@ export default function ContactForm() {
       {submitStatus === 'success' && (
         <div className="mb-6 p-5 rounded-md bg-green-50 border border-green-200">
           <h3 className="font-semibold text-green-900 mb-1">Thanks for reaching out.</h3>
-          <p className="text-sm text-green-900/80">
-            I&apos;ll get back to you as soon as I can.
-          </p>
+          <p className="text-sm text-green-900/80">Your message was sent successfully.</p>
         </div>
       )}
 
       {submitStatus === 'error' && (
         <div className="mb-6 p-5 rounded-md bg-red-50 border border-red-200">
           <h3 className="font-semibold text-red-900 mb-1">Something went wrong.</h3>
-          <p className="text-sm text-red-900/80">Please try again in a moment.</p>
+          <p className="text-sm text-red-900/80">Please try again, or use the email address listed on the page.</p>
         </div>
       )}
 

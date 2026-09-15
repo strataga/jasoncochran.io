@@ -4,14 +4,14 @@ seoTitle: 'Why I Earned AZ-900 and AI-900 for Oil and Gas Consulting'
 seoDescription: 'Why a 28-year software engineer earned Azure Fundamentals and Azure AI Fundamentals to help oil and gas companies modernize responsibly.'
 date: '2025-11-19'
 updated: '2026-09-04'
-summary: 'I earned AZ-900 and AI-900 to connect 28 years of software delivery with the cloud and AI direction local oil and gas companies were taking.'
+summary: 'I earned AZ-900 and AI-900 to connect 28 years of software delivery with the cloud and AI choices facing local oil and gas companies.'
 tags: [Azure, AZ-900, AI-900, oil and gas, continuous learning]
 heroImage: '/blog/why-i-earned-azure-fundamentals-certifications/header-1200x630.webp'
 heroAlt: 'An experienced software architect studying Azure cloud and AI architecture beside notes about oilfield operations and modernization.'
 infographic: 'azure-learning-path'
 ---
 
-In November 2025, I earned Microsoft Certified: Azure Fundamentals (AZ-900) and Microsoft Certified: Azure AI Fundamentals (AI-900).
+I earned Microsoft Certified: Azure Fundamentals (AZ-900) and Microsoft Certified: Azure AI Fundamentals (AI-900) to strengthen the cloud and AI foundations behind my engineering work.
 
 After 28 years in software engineering, I did not pursue fundamentals certifications to prove that I had just discovered cloud computing or artificial intelligence. I pursued them because I wanted a current, structured understanding of Microsoft’s platform and vocabulary before offering modernization and AI consulting to oil and gas companies in the Permian Basin.
 
@@ -70,7 +70,7 @@ AZ-900 did not make me an Azure platform engineer. AI-900 did not make me an ent
 
 I say that plainly because certification claims lose value when they are stretched beyond their level. My deeper evidence comes from software architecture, application delivery, integration, cloud-hosted systems, infrastructure as code, CI/CD, and oil and gas work. The certifications show that I deliberately connected that experience to Microsoft’s current cloud and AI foundation.
 
-The next step had to involve building.
+The next step was to build.
 
 ## How the learning led to WellOS
 
@@ -94,7 +94,7 @@ I want study to produce five things:
 4. **Honest limits:** I know which responsibilities still require deeper expertise.
 5. **A learning path:** I can identify the next capability that matters for the work I want to do.
 
-That is also why I moved from the fundamentals toward the Azure AI engineering path. The goal is not a longer badge list. It is stronger judgment about secure, governed AI applications in a real enterprise environment.
+That is why I moved from the fundamentals toward the Azure AI engineering path. The goal is stronger judgment about secure, governed AI applications in a real enterprise environment.
 
 ## What I would tell another experienced engineer
 

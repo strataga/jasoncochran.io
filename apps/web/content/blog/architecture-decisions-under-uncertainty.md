@@ -4,7 +4,7 @@ seoTitle: 'How to Make Architecture Decisions Under Uncertainty'
 seoDescription: 'A practical framework for architecture decisions: frame the outcome, expose assumptions, buy evidence, preserve reversibility, and define when to revisit.'
 date: '2026-08-12'
 updated: '2026-09-04'
-summary: 'Architects rarely receive complete information. The job is to make risk visible, gather the evidence that matters, and preserve a safe path to correct the decision.'
+summary: 'Architects rarely receive complete information. A sound decision makes risk visible, gathers useful evidence, and preserves a safe path to correction.'
 tags: [solution architecture, ADR, technical leadership, risk, decision making]
 heroImage: '/blog/architecture-decisions-under-uncertainty/header-1200x630.webp'
 heroAlt: 'Two reviewers comparing architecture options, assumptions, experiment results, consequences, and a decision record on a worktable.'
@@ -13,7 +13,7 @@ infographic: 'architecture-decision-loop'
 
 Architecture decisions rarely arrive with complete requirements, clean data, unlimited time, and unanimous stakeholders. More often, the team must choose while the product is changing, the existing system is only partly understood, and the consequences will outlive the meeting.
 
-I do not believe an architect’s job is to remove all uncertainty. It is to make uncertainty visible, reduce the most consequential part of it, and choose a path the organization can support and correct.
+An architect’s job is to make uncertainty visible, reduce the most consequential part of it, and choose a path the organization can support and correct.
 
 That requires more than a diagram. It requires a decision process.
 
@@ -51,7 +51,7 @@ I like to classify what we know:
 - **Assumed:** necessary for the current design but not yet proven.
 - **Unknown:** important information we do not have.
 
-This language keeps a proposal honest without making it timid. A confident architect can say what is unknown and still recommend a path.
+This language keeps a proposal honest without making it timid. An architect can name what is unknown and still recommend a path.
 
 ## Buy the cheapest useful evidence
 
@@ -63,7 +63,7 @@ A good spike has a question, a time limit, representative conditions, and a reco
 
 Implementation has helped challenge my own plans repeatedly. WellOS exposed the operating and funding cost behind a broad product vision. OpenClaw VPS made provider reconciliation and billing state concrete. ListBlaze showed how quickly AI-assisted preparation becomes an evidence and approval problem. BlazeOS is forcing architectural contracts to survive multiple runtimes and offline state.
 
-The code did not make the decisions automatically. It made weak assumptions harder to ignore.
+The code did not make the decisions automatically. It made weak assumptions visible sooner.
 
 ## Treat reversibility as an architecture attribute
 
@@ -97,7 +97,7 @@ When evidence is weak, keep the first commitment small.
 
 Use a modular monolith before distributing ownership across services. Put a provider behind a narrow adapter before letting its types spread through the domain. Release read-only insight before granting automated write authority. Migrate one bounded workflow before committing the enterprise to a platform-wide replacement.
 
-This is not resistance to innovation. It is how an organization learns without turning every experiment into permanent infrastructure.
+This lets an organization learn without turning every experiment into permanent infrastructure.
 
 ## A decision is complete when ownership is clear
 

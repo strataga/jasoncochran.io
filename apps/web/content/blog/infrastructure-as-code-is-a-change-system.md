@@ -15,7 +15,7 @@ Infrastructure as code is often introduced as a way to create cloud resources fr
 
 The real value is a controlled change system: desired state in version control, reviewable previews, repeatable promotion, policy checks, named deployment identities, drift detection, health verification, and a recovery path.
 
-I have used CloudFormation and infrastructure-as-code practices across projects. The durable lesson transfers across tools: the language is less important than the discipline around change.
+I have used CloudFormation and infrastructure-as-code practices across projects. The lesson has been consistent: review, verification, and recovery matter more than the template language.
 
 ## Start with an ownership model
 
@@ -47,7 +47,7 @@ Use separate identities for preview and apply. Microsoft’s landing-zone guidan
 
 Policy as code can enforce or audit allowed regions, required tags, encryption, private connectivity, diagnostic settings, approved SKUs, and identity configuration.
 
-Not every policy should block immediately. Measure existing violations, assign owners, and understand exceptions. Then move high-confidence, high-consequence rules toward denial. A policy everyone bypasses is not a guardrail.
+Some policies should begin in audit mode. Measure existing violations, assign owners, and understand exceptions. Then move high-confidence, high-consequence rules toward denial. A policy everyone bypasses is not a guardrail.
 
 Security scanning should include source, dependencies, the generated plan, and the deployment workflow. The plan sees changes a source scanner may miss after variables and modules resolve.
 
@@ -69,7 +69,7 @@ Rollback is not always possible. A resource replacement, database migration, or 
 
 For high-risk changes, test in a production-like environment, preserve the last-known-good source and artifacts, verify backups, rehearse restore, and define the health signals that decide whether to continue.
 
-The output of a successful deployment is not “the command exited zero.” It is a healthy workload whose intended infrastructure matches source.
+A successful deployment means more than “the command exited zero.” It leaves a healthy workload whose intended infrastructure matches source.
 
 ## Review checklist
 

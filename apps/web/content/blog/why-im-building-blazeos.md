@@ -4,7 +4,7 @@ seoTitle: 'Why I’m Building BlazeOS as a Clean-Contract Platform'
 seoDescription: 'How ListBlaze led to BlazeOS, a local-first photo-to-cash platform designed around contracts, inventory integrity, recoverable effects, and production evidence.'
 date: '2026-07-18'
 updated: '2026-09-04'
-summary: 'BlazeOS takes the workflow evidence from ListBlaze and rebuilds the system around explicit ownership, local-first operation, immutable evidence, and recoverable marketplace effects.'
+summary: 'BlazeOS carries ListBlaze’s workflow evidence into a rebuild centered on explicit ownership, local-first operation, immutable evidence, and recoverable marketplace effects.'
 tags: [BlazeOS, software architecture, local-first, Rust, platform engineering]
 heroImage: '/blog/why-im-building-blazeos/header-1200x630.webp'
 heroAlt: 'A grounded pencil illustration of a resale operation moving from phone photography through inventory shelves to a desktop publishing workflow.'
@@ -25,7 +25,7 @@ ListBlaze contains valuable working behavior and direct lessons from the owner-l
 
 I did not want BlazeOS to inherit every early implementation decision simply because code already existed. I treated ListBlaze as evidence about customer pain, task flow, failure modes, and measurable value. BlazeOS owns a new production boundary and selectively reuses only what meets that boundary.
 
-“Clean contract” means the new system defines its own domain language, APIs, schemas, events, security rules, and quality expectations. Compatibility with the prototype is not the goal. Preserving the lessons is.
+“Clean contract” means the new system defines its own domain language, APIs, schemas, events, security rules, and quality expectations. The goal is to preserve the lessons while giving the new system a boundary it can own.
 
 That decision costs more upfront than continuing to add features. It also prevents the new architecture from becoming a diagram wrapped around old assumptions.
 
@@ -46,7 +46,7 @@ This creates a useful chain of accountability:
 5. A person reviews the exact revision.
 6. Publication uses an immutable snapshot of the approved intent.
 
-The approach applies beyond resale. Inspection photos, field measurements, invoices, and maintenance records all become more useful to AI when the system preserves provenance and makes derived conclusions reviewable.
+The approach applies beyond resale. Inspection photos, field measurements, invoices, and maintenance records become more useful to AI when the system preserves provenance and makes derived conclusions reviewable.
 
 ## Inventory must remain true under failure
 
@@ -60,7 +60,7 @@ When a sync or publish request has an uncertain result, the system preserves tha
 
 ## Local-first is an authority decision
 
-The desktop and phone need to remain useful when a network is slow, unavailable, or changing state. That does not mean every device gets to declare global truth.
+The desktop and phone need to remain useful when a network is slow, unavailable, or changing state. Each device needs a useful local state, while shared authority remains explicit.
 
 BlazeOS separates local authority from synchronized authority. Local SQLite and files own work that has not yet crossed a synchronization boundary. Shared PostgreSQL services own accepted shared state. Providers own their external resources. Commands and events carry stable identities so retries and replay do not create duplicate effects.
 

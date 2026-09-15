@@ -4,18 +4,18 @@ seoTitle: 'What I’m Studying for Microsoft AI-103'
 seoDescription: 'My study plan for AI-103, Developing AI Apps and Agents on Azure: models, retrieval, tools, agents, evaluation, safety, identity, and operations.'
 date: '2026-08-26'
 updated: '2026-09-04'
-summary: 'AI-103 is useful to me because it connects Azure AI features to the harder work of designing, evaluating, securing, and operating an AI application.'
+summary: 'I am using AI-103 study to connect Azure AI features with the harder work of designing, evaluating, securing, and operating an AI application.'
 tags: [AI-103, Microsoft Azure, Azure AI Foundry, AI agents, certification]
 heroImage: '/blog/what-im-studying-for-ai-103/header-1200x630.webp'
 heroAlt: 'Jason Cochran studies agent, tool, retrieval, and model-evaluation concepts at a laptop in his home office.'
 infographic: 'ai-103-study-map'
 ---
 
-After earning Microsoft Azure Fundamentals and Azure AI Fundamentals in November 2025, I wanted to go deeper than cloud and AI vocabulary. I began studying the applied path now covered by **Exam AI-103: Developing AI Apps and Agents on Azure**.
+After earning Microsoft Azure Fundamentals and Azure AI Fundamentals, I wanted to go deeper than cloud and AI vocabulary. I began studying the applied path now covered by **Exam AI-103: Developing AI Apps and Agents on Azure**.
 
 Microsoft has changed this certification path as the platform has evolved. AI-102 was retired on June 30, 2026. AI-103 is the current exam tied to the Microsoft Certified: Azure AI Cloud Developer Associate certification. That change is a useful reminder that the credential is a checkpoint, not the destination. The services will keep changing; the engineering responsibilities remain.
 
-My goal is to use the material to strengthen how I design real AI workloads: choose the smallest suitable pattern, ground it in approved data, give tools narrow authority, evaluate the behavior, secure the surrounding system, and operate it with honest signals.
+I am using the material to strengthen how I design real AI workloads: choose a suitable pattern, ground it in approved data, give tools narrow authority, evaluate behavior, secure the surrounding system, and operate it with honest signals.
 
 ## The application around the model matters most
 
@@ -23,7 +23,7 @@ A model endpoint can produce an impressive result in a few lines of code. A prod
 
 It needs identity, access control, data boundaries, prompt and configuration versioning, structured inputs and outputs, error handling, timeouts, cost controls, tracing, evaluation, content safety, deployment, and a support model. Retrieval introduces document lifecycle and permission questions. Tools introduce external effects. Agents introduce state, planning, and a larger set of possible behaviors.
 
-I am studying AI-103 through that full-system lens. I want to understand the Azure services, but I also want to know where each one belongs in an architecture and what new responsibility it creates.
+I am studying AI-103 through that full-system lens. I want to understand the Azure services and the responsibilities each one creates in an architecture.
 
 <!-- infographic -->
 
@@ -33,7 +33,7 @@ Model selection involves quality, latency, cost, context limits, data handling, 
 
 Prompts and model configuration should be treated as versioned application artifacts. A temperature change, system instruction, model upgrade, or response-schema change can alter behavior as meaningfully as a code change. Those changes need review, tests, controlled rollout, and traceability.
 
-Structured outputs are valuable because they turn model text into a contract the application can validate. They do not make the content true. Deterministic code still needs to check allowed values, required relationships, authorization, and business invariants before using an output.
+Structured outputs are valuable because they turn model text into a contract the application can validate. The format does not make the content true. Deterministic code still needs to check allowed values, required relationships, authorization, and business invariants before using an output.
 
 ## Retrieval starts with permission and provenance
 

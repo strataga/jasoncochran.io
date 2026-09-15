@@ -13,23 +13,23 @@ infographic: 'agent-authority-ladder'
 
 AI agents are often described by capability: which models they use, how many tools they can call, and whether they can plan across multiple steps.
 
-Enterprise architecture needs a second description: what authority do they have?
+Enterprise architecture needs a second description: what authority does each agent have?
 
 An agent that summarizes approved documents and one that can change production configuration are not variations of the same risk. The system should make that difference structural.
 
 ## Separate four levels of authority
 
-I use a simple ladder: read, recommend, prepare, execute.
+Use a four-rung ladder: read, recommend, prepare, execute.
 
 <!-- infographic -->
 
 **Read** retrieves approved information without durable side effects. **Recommend** interprets evidence and proposes a decision. **Prepare** creates a specific, reversible change for review. **Execute** performs an approved business or technical action.
 
-Each rung requires stronger controls. Do not give execute permission merely because the agent already has a tool.
+Each rung requires stronger controls. An agent having a tool is not evidence that it should receive execute permission.
 
 ## Keep read access permission-aware
 
-Read-only does not mean harmless. An agent can combine information, reveal restricted document titles, or expose data across tenants.
+Read-only still carries risk. An agent can combine information, reveal restricted document titles, or expose data across tenants. Treat retrieval as an authorization decision, not a convenience layer.
 
 Apply the user’s actual permissions during retrieval. Preserve source, sensitivity, and tenant metadata. Test indirect prompt injection in documents and tool responses. Limit what leaves the approved environment and what is retained in traces.
 
@@ -43,7 +43,7 @@ For oil and gas operations, AI can help summarize an exception or locate procedu
 
 At the prepare level, the agent creates an artifact: a pull request, infrastructure plan, draft work order, proposed configuration, or other change set.
 
-The reviewer needs the target, exact change, likely effect, relevant evidence, and recovery approach. Hash or version the proposal and revalidate policy before execution. Otherwise the approved object can differ from the executed one.
+The reviewer needs the target, exact change, likely effect, relevant evidence, and recovery approach. Hash or version the proposal and revalidate policy before execution. Otherwise the approved object can differ from what runs.
 
 ## Constrain execution
 
@@ -61,7 +61,7 @@ Expose partial progress to support. Record tool calls, results, identifiers, and
 
 Read access needs permission and retrieval tests. Recommendations need groundedness and usefulness review. Prepared actions need diff accuracy and policy validation. Execution needs end-to-end safety, idempotency, containment, and recovery tests.
 
-Promotion should be evidence-driven and reversible. A successful pilot does not automatically justify more authority.
+Promote an agent only with evidence, and keep the promotion reversible. A successful pilot alone does not justify more authority.
 
 ## Architecture review questions
 
@@ -76,7 +76,7 @@ Promotion should be evidence-driven and reversible. A successful pilot does not 
 9. Can security and support reconstruct the action?
 10. What evidence would justify the next rung?
 
-Agent architecture improves when authority is explicit. Start low, measure real value, strengthen controls, and move upward only when the task earns it.
+Agent architecture improves when authority is explicit. Start with the lowest rung that can answer the user’s need, measure value and failure modes, strengthen controls, and move upward only when the evidence supports it.
 
 ## Sources and further reading
 

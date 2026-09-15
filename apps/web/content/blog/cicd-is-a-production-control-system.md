@@ -15,13 +15,13 @@ A deployment pipeline is part of the production architecture.
 
 It holds credentials, changes applications and infrastructure, selects artifacts, applies policy, and can affect every user at once. Treating it as a collection of build scripts understates its authority.
 
-A mature CI/CD system reduces uncertainty at each step. It produces evidence, protects production access, exposes changes gradually, and makes recovery an expected path rather than an emergency improvisation.
+A well-run CI/CD system reduces uncertainty at each step. It produces evidence, protects production access, exposes changes gradually, and makes recovery an expected path rather than an emergency improvisation.
 
 ## Optimize for small, understandable change
 
 Large releases combine many assumptions and make failures harder to isolate. Small changes are easier to review, test, deploy, observe, and reverse.
 
-Continuous integration should make frequent merging safe through fast feedback: compilation, linting, unit and integration tests, contract checks, dependency review, security scanning, and reproducible builds. The goal is not a green dashboard. It is evidence that the change still satisfies important contracts.
+Continuous integration should make frequent merging safe through fast feedback: compilation, linting, unit and integration tests, contract checks, dependency review, security scanning, and reproducible builds. The goal is evidence that the change still satisfies the contracts that matter, rather than a green dashboard by itself.
 
 <!-- infographic -->
 
@@ -51,7 +51,7 @@ Rolling, blue-green, canary, feature-flag, and deployment-ring strategies solve 
 - **Feature flags** separate code deployment from behavior exposure.
 - **Rings** promote to groups of users, sites, or workloads in a controlled order.
 
-Microsoft’s safe-deployment guidance recommends progressive exposure, predeployment checks, production-like practice environments, and automated health validation. Choose the simplest method that meaningfully limits blast radius.
+Microsoft’s safe-deployment guidance recommends progressive exposure, predeployment checks, production-like practice environments, and automated health validation. Choose the simplest method that limits the blast radius for this workload.
 
 ## Define health before release
 
@@ -90,7 +90,7 @@ Use measures diagnostically. A team can increase deployment frequency by splitti
 9. Is rollback compatible with data and contracts?
 10. When was recovery last practiced?
 
-The best pipeline is not the one with the most stages. It is the one that helps a team move a useful change into production with clear evidence and a controlled way back to safety.
+The best pipeline helps a team move a useful change into production with clear evidence and a controlled way back to safety. More stages are worthwhile only when they answer a real risk.
 
 ## Sources and further reading
 

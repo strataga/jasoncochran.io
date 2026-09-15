@@ -4,7 +4,7 @@ seoTitle: 'A Practical Production Readiness Review Framework'
 seoDescription: 'Review production readiness across purpose, ownership, security, reliability, change, observability, recovery, data, cost, and support.'
 date: '2026-05-20'
 updated: '2026-09-04'
-summary: 'A feature can work and still be unsafe to operate. Production readiness is accumulated evidence across the whole workload, not a meeting at the end.'
+summary: 'A feature can work and still be unsafe to operate. Production readiness is evidence accumulated across the whole workload, from design through recovery.'
 tags: [production readiness, software architecture, reliability, security, operations]
 heroImage: '/blog/production-readiness-is-an-architecture-discipline/header-1200x630.webp'
 heroAlt: 'A team reviews architecture, service health, recovery steps, backup tests, and a release-readiness checklist around a table.'
@@ -15,13 +15,13 @@ A feature can pass its acceptance test and still be unready for production.
 
 The service may have no clear owner. The deployment may depend on a permanent credential. A retry may duplicate work. Alerts may describe infrastructure while users are failing. A schema migration may make rollback impossible. Support may have no way to reconcile a stuck transaction.
 
-Production readiness is where architecture meets responsibility. It is not a document completed after development. It is evidence accumulated while the system is designed, built, tested, released, and operated.
+Production readiness is where architecture meets responsibility. It is evidence accumulated while the system is designed, built, tested, released, and operated.
 
 ## Start with purpose and ownership
 
 Name the business outcome, users, service owner, operational owner, data owner, and decision maker for risk. If ownership is shared, define the handoffs.
 
-A team cannot design meaningful reliability or recovery without knowing the consequence of failure. “Highly available” is not a requirement. State which workflows must continue, how long interruption is acceptable, how much data loss is tolerable, and who decides that the service is restored.
+A team cannot design reliability or recovery without knowing the consequence of failure. “Highly available” describes an aspiration, not a testable requirement. State which workflows must continue, how long interruption is acceptable, how much data loss is tolerable, and who decides that the service is restored.
 
 <!-- infographic -->
 
@@ -31,7 +31,7 @@ Security, reliability, performance, cost, operability, privacy, and maintainabil
 
 Use concrete scenarios. “When the field link is unavailable for four hours, users can capture approved work locally and reconcile it after reconnection.” “When a downstream ERP is unavailable, accepted requests remain durable and support can see their state.” These statements can be designed and tested.
 
-The Azure Well-Architected Framework organizes reviews around reliability, security, cost optimization, operational excellence, and performance efficiency. Its value is the tradeoff conversation, not a perfect score.
+The Azure Well-Architected Framework organizes reviews around reliability, security, cost optimization, operational excellence, and performance efficiency. Its value is the tradeoff conversation, rather than a perfect score.
 
 ## Review boundaries and authority
 
@@ -84,7 +84,7 @@ Do not let a single average score hide an unacceptable failure category. The eva
 
 Record risks with an owner and due date. A review that produces only “approved” hides the most useful information.
 
-Production readiness is not certainty. It is a disciplined argument, backed by current evidence, that the organization can deliver, support, change, and recover the workload responsibly.
+Production readiness does not promise certainty. It is a disciplined argument, backed by current evidence, that the organization can deliver, support, change, and recover the workload responsibly.
 
 ## Sources and further reading
 

@@ -15,7 +15,7 @@ infographic: 'data-product-contract'
 
 The model needs more than access to files, tables, or embeddings. It needs information whose meaning, source, freshness, quality, permissions, and limitations are understood. If the underlying data is ambiguous, retrieval can return the wrong answer more efficiently. If access is too broad, the AI feature can make an existing governance weakness easier to exploit. If nobody owns the dataset, no one can decide whether a surprising answer is a model defect or a data defect.
 
-That is why I would establish governed data products before treating retrieval or analytics as an AI platform capability.
+Establish governed data products before treating retrieval or analytics as an AI platform capability.
 
 ## A data product is an operating agreement
 
@@ -23,15 +23,15 @@ A data product is not simply a cleaned table. It is an agreement between the peo
 
 For an oil and gas workload, a production data product might need to define the well and completion identifiers, effective date, source system, units, allocation status, correction behavior, late-arriving data policy, freshness objective, quality checks, retention, and accountable owner. A pressure reading might also require source time, ingestion time, equipment identity, quality state, and calibration context.
 
-Those details determine whether a consumer can make a responsible decision. They should be discoverable and versioned rather than carried as tribal knowledge.
+Those details determine whether a consumer can make a responsible decision. Make them discoverable and versioned instead of relying on tribal knowledge.
 
 <!-- infographic -->
 
 ## Stable meaning comes before scale
 
-Cloud platforms make it possible to ingest enormous volumes of structured and unstructured data. That capability is useful, but throughput does not resolve semantics.
+Cloud platforms can ingest enormous volumes of structured and unstructured data. Throughput does not resolve semantics.
 
-Before choosing a pipeline, I would ask:
+Before choosing a pipeline, ask:
 
 - Which system is authoritative for this fact?
 - Which identifier survives acquisitions, renames, and source-system migrations?

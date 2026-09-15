@@ -4,14 +4,14 @@ seoTitle: 'WellOS: Lessons From Building an Oilfield Software Platform'
 seoDescription: 'A candid retrospective on WellOS, a personal oil and gas software project spanning Rust, Next.js, PostgreSQL, SCADA, tenant isolation, and Azure infrastructure.'
 date: '2026-01-28'
 updated: '2026-09-04'
-summary: 'WellOS was an ambitious personal project that let me explore oilfield workflows as one connected platform—and learn where architecture must control scope.'
+summary: 'WellOS was a personal project for exploring connected oilfield workflows. Building it taught me where the product scope needed to narrow.'
 tags: [WellOS, oil and gas, solution architecture, Rust, SCADA]
 heroImage: '/blog/what-building-wellos-taught-me/header-1200x630.webp'
 heroAlt: 'A realistic software engineering workspace showing an oilfield operations dashboard, service architecture notes, and SCADA telemetry under review.'
 infographic: 'wellos-learning-loop'
 ---
 
-WellOS began after I earned Azure Fundamentals and Azure AI Fundamentals in November 2025. I wanted to use that learning, together with my oil and gas software background, to help local companies modernize and take practical advantage of cloud and AI.
+WellOS began after I earned Azure Fundamentals and Azure AI Fundamentals. I wanted to use that learning, together with my oil and gas software background, to help local companies modernize and take practical advantage of cloud and AI.
 
 The product idea centered on a large question: what would a modern operating platform for an upstream oil and gas company look like if field workflows, production data, SCADA, business operations, and cloud delivery were designed together?
 
@@ -19,7 +19,7 @@ I was targeting smaller and midsize oil and gas companies that could not afford 
 
 The repository became substantial: Rust services, Next.js operator and administration portals, PostgreSQL data models, tenant provisioning, authentication, work orders, wells, production and revenue capabilities, SCADA handlers, protocol simulators, automated tests, containers, Terraform, Ansible, Kubernetes definitions, and operational documentation.
 
-It also became a lesson in scope. Trying to model an operating company end to end forces architecture decisions into the open. That was the most valuable part.
+It also became a lesson in scope. Modeling an operating company end to end forces architecture decisions into the open. That was the most valuable part.
 
 ## The original idea
 
@@ -27,7 +27,7 @@ Oilfield work rarely fits inside one clean application boundary. Production info
 
 My initial WellOS vision brought many of those concerns into one platform. The ambition was useful because it exposed the full shape of the problem. It was also dangerous because each capability could become a product of its own.
 
-The first architecture lesson was therefore about product boundaries: a unified experience does not require one system to own every capability.
+The first architecture lesson was about product boundaries: a unified experience can preserve ownership across several systems.
 
 A platform can give users a connected workflow while preserving authoritative systems behind explicit contracts. It can present production context without becoming the production-accounting authority. It can display SCADA data without becoming a control system. It can coordinate work without duplicating every function of an ERP.
 
@@ -49,7 +49,7 @@ That work exposed questions a high-level diagram could hide:
 - How much infrastructure can one small team reasonably operate?
 - Which planned features are valuable enough to justify another service boundary?
 
-Building did not automatically produce the right answers. It produced better evidence for the next decision.
+Building did not produce automatic answers. It produced better evidence for the next decision.
 
 <!-- infographic -->
 
@@ -61,7 +61,7 @@ That forced me to consider isolation across more than storage. A tenant boundary
 
 If a request carries the right tenant ID but a worker can read the wrong queue, the boundary is incomplete. If support can query every tenant without a separately governed role, the boundary is incomplete. If logs mix sensitive identifiers without access controls, the boundary is incomplete.
 
-The project reinforced a principle I now apply broadly: important boundaries should be enforced in several places, and the most consequential failure should not depend on one application check.
+The project reinforced a principle I now apply broadly: enforce important boundaries in several places, so the most consequential failure does not depend on one application check.
 
 ## SCADA data belongs behind a deliberate boundary
 

@@ -29,9 +29,9 @@ type InfographicBoard = {
 const infographics: Record<string, InfographicDefinition> = {
   'wellos-platform-map': {
     eyebrow: 'Original product map',
-    title: 'WellOS connected four kinds of work',
+    title: 'Four areas of the WellOS design',
     introduction:
-      'The project explored a shared operating experience while keeping each kind of authority and data behind a clear boundary.',
+      'The personal project explored how field crews and office teams could share a workflow while preserving each system’s ownership of its data.',
     stages: [
       {
         label: 'Field',
@@ -59,13 +59,13 @@ const infographics: Record<string, InfographicDefinition> = {
       },
     ],
     caption:
-      'The intended value was a connected workflow, not one application claiming authority over every oilfield system.',
+      'The goal was to connect field and office work while leaving control and authoritative records with the systems that owned them.',
   },
   'azure-learning-path': {
     eyebrow: 'Learning path',
     title: 'From cloud vocabulary to architecture judgment',
     introduction:
-      'A certification is useful when each layer of study changes how you frame and test a real design decision.',
+      'Use each stage of study to answer a design question, compare options, and test an assumption in working software.',
     stages: [
       {
         label: '01',
@@ -92,13 +92,13 @@ const infographics: Record<string, InfographicDefinition> = {
       },
     ],
     caption:
-      'The credential marks progress. The durable value is a repeatable way to make better architecture decisions.',
+      'The credential verifies foundational knowledge. Applying that learning to a real workload tests what you can explain and use.',
   },
   'wellos-learning-loop': {
     eyebrow: 'Project retrospective',
-    title: 'What WellOS let me test as one connected system',
+    title: 'What I explored by building WellOS',
     introduction:
-      'The project brought oilfield workflows, software boundaries, cloud infrastructure, and operational controls into the same architecture exercise.',
+      'Building the personal project let me examine how oilfield workflows, service boundaries, infrastructure, and recovery affected one another.',
     stages: [
       {
         label: '01',
@@ -126,19 +126,19 @@ const infographics: Record<string, InfographicDefinition> = {
       },
     ],
     caption:
-      'WellOS was a personal engineering project, not a production customer deployment. Its value was the breadth of architecture questions it made concrete.',
+      'WellOS was a personal engineering project, not a production customer deployment. It gave me a way to test design assumptions through implementation.',
   },
   'openclaw-control-plane': {
-    eyebrow: 'Product architecture',
-    title: 'The customer saw one assistant; the platform carried the operating work',
+    eyebrow: 'Archived personal project',
+    title: 'Behind a hosted assistant: setup, health, and recovery',
     introduction:
-      'OpenClaw VPS separated the simple customer journey from the infrastructure, identity, billing, and recovery responsibilities behind it.',
+      'OpenClaw VPS paired a setup workflow with the infrastructure, identity, billing, and recovery tools needed to manage a hosted assistant.',
     stages: [
       {
         label: '01',
         title: 'Choose and configure',
         description:
-          'The customer selected a hosted assistant, model access, and supported communication channel.',
+          'Setup offered a hosted assistant, model access, and a supported communication channel.',
       },
       {
         label: '02',
@@ -160,13 +160,13 @@ const infographics: Record<string, InfographicDefinition> = {
       },
     ],
     caption:
-      'A managed service is valuable because it absorbs operational complexity without hiding important state from the customer or operator.',
+      'OpenClaw VPS is no longer online. The project explored how to simplify setup while keeping service health and recovery visible.',
   },
   'listblaze-workflow': {
-    eyebrow: 'Owner-local workflow',
-    title: 'ListBlaze turned a folder of photos into reviewed listing intent',
+    eyebrow: 'Desktop workflow',
+    title: 'From item photos to a reviewed marketplace listing',
     introduction:
-      'The desktop workflow kept evidence, AI suggestions, human decisions, inventory state, and marketplace effects visibly separate.',
+      'ListBlaze kept source photos alongside AI suggestions so the operator could check details and approve the listing before publication.',
     stages: [
       {
         label: '01',
@@ -184,7 +184,7 @@ const infographics: Record<string, InfographicDefinition> = {
         label: '03',
         title: 'Review and approve',
         description:
-          'Let the operator correct details, resolve warnings, and bind the exact publishable snapshot.',
+          'Let the operator correct details, resolve warnings, and approve the exact version to publish.',
       },
       {
         label: '04',
@@ -194,23 +194,23 @@ const infographics: Record<string, InfographicDefinition> = {
       },
     ],
     caption:
-      'The central design rule was simple: AI could accelerate preparation, but only the operator could authorize a marketplace effect.',
+      'AI helped prepare the listing. The operator retained authority to approve what would be published.',
   },
   'blazeos-proof-chain': {
     eyebrow: 'Work in progress',
-    title: 'BlazeOS is building a traceable path from photo to cash',
+    title: 'BlazeOS: tracing an item from photo to sale',
     introduction:
-      'The successor architecture treats every important transition as a contract with ownership, evidence, and recovery behavior.',
+      'The design records who owns each step, what evidence it requires, and how to recover when a marketplace request fails.',
     stages: [
       {
         label: 'Capture',
-        title: 'Photo truth',
+        title: 'Original photos',
         description:
           'Preserve immutable originals, item identity, capture quality, and an explicit handoff.',
       },
       {
         label: 'Prepare',
-        title: 'Reviewed intent',
+        title: 'Reviewed listing',
         description:
           'Research and AI produce typed proposals that remain bound to the source revision.',
       },
@@ -222,23 +222,23 @@ const infographics: Record<string, InfographicDefinition> = {
       },
       {
         label: 'Reconcile',
-        title: 'Inventory truth',
+        title: 'Inventory records',
         description:
           'Orders, reservations, movements, and exceptions converge without inventing certainty.',
       },
     ],
     caption:
-      'BlazeOS is active engineering work, not a finished product. Its value today is the explicit system of contracts and verification gates being implemented.',
+      'BlazeOS is in development. These contracts and verification gates describe the system being built, not a finished product.',
   },
   'archgauge-evidence-loop': {
     eyebrow: 'Open-source work in progress',
-    title: 'ArchGauge is designed to make architecture claims answerable',
+    title: 'ArchGauge: connecting each finding to its evidence',
     introduction:
-      'ArchGauge and Acme FieldOps connect repository evidence to findings without letting a model silently become the judge.',
+      'The planned review workflow uses cited repository evidence, reproducible scoring rules, and human review to check AI-assisted findings.',
     stages: [
       {
         label: '01',
-        title: 'Bound evidence',
+        title: 'Set the review scope',
         description:
           'Ingest a safe, explicit repository snapshot without executing submitted code.',
       },
@@ -256,7 +256,7 @@ const infographics: Record<string, InfographicDefinition> = {
       },
       {
         label: '04',
-        title: 'Publish with judgment',
+        title: 'Review before publishing',
         description:
           'A human reviews risks, limitations, and recommendations before a report becomes authoritative.',
       },
@@ -268,7 +268,7 @@ const infographics: Record<string, InfographicDefinition> = {
     eyebrow: 'Architecture lens',
     title: 'Start with the field decision, then move outward',
     introduction:
-      'An oilfield system earns its place by improving a real decision without weakening safety, data ownership, or recovery.',
+      'Start with the decision a field worker needs to make. Then identify the data, safety controls, and recovery paths that support it.',
     stages: [
       {
         label: '01',
@@ -289,19 +289,19 @@ const infographics: Record<string, InfographicDefinition> = {
       },
       {
         label: '04',
-        title: 'Operational proof',
+        title: 'Evidence of success',
         description:
           'Define success, failure, reconciliation, support ownership, and measurable value.',
       },
     ],
     caption:
-      'The architecture follows the workflow. A service belongs in the design only when its role and failure behavior are clear.',
+      'For each service, explain which part of the workflow it supports and what happens when it fails.',
   },
   'offline-state-model': {
     eyebrow: 'State model',
     title: 'Offline work is a sequence of explicit states',
     introduction:
-      'Treating “offline” as a single boolean hides the decisions users and support teams actually need to make.',
+      'Show whether work is saved locally, waiting to send, or accepted by the server so users know what they can rely on.',
     stages: [
       {
         label: '01',
@@ -327,7 +327,7 @@ const infographics: Record<string, InfographicDefinition> = {
       },
     ],
     caption:
-      'Pending, failed, conflicted, and reconciled are product states—not implementation details.',
+      'Make pending, failed, conflicted, and reconciled states visible so users and support teams know what to do next.',
   },
   'ot-cloud-boundary': {
     eyebrow: 'Trust boundary',
@@ -361,11 +361,11 @@ const infographics: Record<string, InfographicDefinition> = {
       },
     ],
     caption:
-      'The important question is not whether data can reach the cloud. It is what authority crosses each boundary, in which direction, and under whose control.',
+      'For every connection, document which data and permissions cross the boundary, in which direction, and who authorizes them.',
   },
   'integration-control-plane': {
     eyebrow: 'Integration model',
-    title: 'Put policy around movement, not inside every connection',
+    title: 'Give integrations a consistent set of controls',
     introduction:
       'A reusable integration layer separates identity, contracts, routing, reliability, and audit from individual systems of record.',
     stages: [
@@ -385,7 +385,7 @@ const infographics: Record<string, InfographicDefinition> = {
         label: '03',
         title: 'Delivery',
         description:
-          'Choose synchronous calls, queues, events, or streams based on semantics—not fashion.',
+          'Choose calls, queues, events, or streams based on timing, ordering, and delivery needs.',
       },
       {
         label: '04',
@@ -395,13 +395,13 @@ const infographics: Record<string, InfographicDefinition> = {
       },
     ],
     caption:
-      'The goal is not one giant integration platform. It is a consistent set of controls that makes each connection understandable and supportable.',
+      'Consistent controls help teams trace each connection, diagnose failures, and change one system without losing track of the others.',
   },
   'build-buy-integrate': {
     eyebrow: 'Decision framework',
-    title: 'Build, buy, or integrate by locating the durable advantage',
+    title: 'Build, buy, or integrate: decide what is worth owning',
     introduction:
-      'Choose where custom engineering creates value and where a supported capability reduces undifferentiated ownership.',
+      'Build where custom behavior matters to the business. Compare supported products and existing systems for the remaining work.',
     stages: [
       {
         label: 'Build',
@@ -428,7 +428,7 @@ const infographics: Record<string, InfographicDefinition> = {
       },
     ],
     caption:
-      'A responsible decision includes lifecycle cost, exit options, security, data ownership, and the operational burden—not only implementation speed.',
+      'Compare the full cost of each option: implementation, support, security, data ownership, and the ability to leave it later.',
   },
   'iac-change-path': {
     eyebrow: 'Infrastructure delivery',
@@ -459,13 +459,13 @@ const infographics: Record<string, InfographicDefinition> = {
       },
     ],
     caption:
-      'The template is only one part of IaC. The delivery and reconciliation loop is what makes infrastructure repeatable.',
+      'Keep the reviewed configuration, deployment result, and running infrastructure aligned. Test how the team will recover when they diverge.',
   },
   'safe-delivery-loop': {
     eyebrow: 'Release system',
     title: 'CI/CD should reduce uncertainty at each step',
     introduction:
-      'A useful pipeline turns a change into progressively stronger evidence before it reaches the full production audience.',
+      'Use tests, staged releases, and production signals to check a change before expanding its reach.',
     stages: [
       {
         label: '01',
@@ -490,13 +490,13 @@ const infographics: Record<string, InfographicDefinition> = {
       },
     ],
     caption:
-      'Deployment frequency matters only when the organization can see bad changes quickly and recover without improvising.',
+      'Practice detecting and recovering from a bad release so the team can respond with a tested procedure.',
   },
   'identity-control-plane': {
     eyebrow: 'Security model',
     title: 'Identity connects users, workloads, data, tools, and audit',
     introduction:
-      'Enterprise AI adds non-human actors, but it does not remove the need for explicit authentication, authorization, and least privilege.',
+      'For each AI request, identify who asked, which service acts, and which data and actions it is allowed to use.',
     stages: [
       {
         label: '01',
@@ -526,9 +526,9 @@ const infographics: Record<string, InfographicDefinition> = {
   },
   'production-readiness-views': {
     eyebrow: 'Review model',
-    title: 'Production readiness is a set of connected views',
+    title: 'Four areas to review before release',
     introduction:
-      'A feature can work and still be unsafe to operate. Review the whole workload, not only its primary code path.',
+      'Check how the workload will be owned, changed, monitored, and recovered as well as whether its features work.',
     stages: [
       {
         label: '01',
@@ -553,13 +553,13 @@ const infographics: Record<string, InfographicDefinition> = {
       },
     ],
     caption:
-      'Readiness is not a meeting at the end. It is accumulated evidence that the workload can be changed and supported responsibly.',
+      'Collect readiness evidence throughout delivery so the release decision rests on tested behavior and known risks.',
   },
   'observability-question-map': {
     eyebrow: 'Health model',
     title: 'Telemetry should answer operational questions',
     introduction:
-      'Collect signals because they help someone decide, diagnose, or recover—not because a dashboard has empty space.',
+      'Choose signals that help someone spot a user problem, diagnose its cause, and check whether recovery worked.',
     stages: [
       {
         label: '01',
@@ -587,11 +587,11 @@ const infographics: Record<string, InfographicDefinition> = {
       },
     ],
     caption:
-      'Good observability shortens the distance between a surprising symptom and a safe decision.',
+      'Connect each signal to a question the team needs to answer during an incident.',
   },
   'ai-pattern-selector': {
     eyebrow: 'AI design choice',
-    title: 'Use the least probabilistic pattern that solves the task',
+    title: 'Choose the simplest AI pattern that meets the need',
     introduction:
       'Start with the decision and acceptable error, then add retrieval, tools, or agents only when each earns its complexity.',
     stages: [
@@ -621,13 +621,13 @@ const infographics: Record<string, InfographicDefinition> = {
       },
     ],
     caption:
-      'More autonomy is not automatically more capable. It expands the system’s state space, permissions, evaluation burden, and failure modes.',
+      'Each increase in autonomy adds behavior, permissions, and failure paths to test. Check that the benefit justifies that work.',
   },
   'ai-evaluation-lifecycle': {
     eyebrow: 'Assurance loop',
     title: 'Evaluate the task before, during, and after release',
     introduction:
-      'AI quality is not one score. It is a versioned set of business, safety, security, cost, and reliability expectations.',
+      'Define acceptable results, unacceptable failures, and limits on cost and latency. Test those expectations as the system changes.',
     stages: [
       {
         label: '01',
@@ -654,7 +654,7 @@ const infographics: Record<string, InfographicDefinition> = {
       },
     ],
     caption:
-      'The evaluation set is a living contract between the business task and the system that attempts it.',
+      'Add observed failures to the evaluation set so future changes are checked against what the team has learned.',
   },
   'agent-authority-ladder': {
     eyebrow: 'Authority ladder',
@@ -690,7 +690,7 @@ const infographics: Record<string, InfographicDefinition> = {
   },
   'data-product-contract': {
     eyebrow: 'Data product',
-    title: 'A useful data product is more than a curated table',
+    title: 'Make data meaning, ownership, and quality explicit',
     introduction:
       'Consumers need a stable meaning, an accountable owner, enforceable access, quality signals, and traceable lineage.',
     stages: [
@@ -719,7 +719,7 @@ const infographics: Record<string, InfographicDefinition> = {
       },
     ],
     caption:
-      'AI cannot repair ambiguous business meaning. It can only make ambiguity easier to distribute.',
+      'Resolve ambiguous definitions and ownership before AI uses the data to answer business questions.',
   },
   'architecture-decision-loop': {
     eyebrow: 'Decision discipline',
@@ -740,7 +740,7 @@ const infographics: Record<string, InfographicDefinition> = {
       },
       {
         label: '03',
-        title: 'Buy evidence',
+        title: 'Test the assumptions',
         description:
           'Use a spike, prototype, measurement, threat model, or customer conversation to reduce the biggest risk.',
       },
@@ -752,11 +752,11 @@ const infographics: Record<string, InfographicDefinition> = {
       },
     ],
     caption:
-      'The goal is not certainty. It is a decision whose risk, evidence, and next correction are understood.',
+      'Record what supports the decision, what remains uncertain, and what would make the team reconsider.',
   },
   'ai-103-study-map': {
     eyebrow: 'Current study map',
-    title: 'AI-103 connects AI features to an operated workload',
+    title: 'My AI-103 study path: from model calls to operations',
     introduction:
       'The useful learning path runs from model access through knowledge, agents, evaluation, security, and production operations.',
     stages: [
@@ -785,7 +785,7 @@ const infographics: Record<string, InfographicDefinition> = {
       },
     ],
     caption:
-      'The exam is a milestone. The goal is the ability to design and operate an AI application whose behavior can be tested and governed.',
+      'This is a study plan, not an earned credential. My goal is to build AI applications whose behavior I can test, explain, and support.',
   },
 }
 
@@ -880,9 +880,9 @@ const boards: Record<string, InfographicBoard> = {
       {
         heading: 'Human control points',
         items: [
-          'Review generated facts',
+          'Check AI-suggested details',
           'Resolve warnings',
-          'Approve the exact publishable snapshot',
+          'Approve the exact listing version',
         ],
       },
       {
@@ -1118,7 +1118,7 @@ const boards: Record<string, InfographicBoard> = {
         items: [
           'Known residual risks',
           'Runbooks and escalation path',
-          'Recovery proof—not only a rollback button',
+          'Evidence from recovery tests',
         ],
       },
     ],
@@ -1148,7 +1148,7 @@ const boards: Record<string, InfographicBoard> = {
     layout: 'decision',
     details: [
       {
-        heading: 'Earn the next layer',
+        heading: 'Before adding complexity',
         items: [
           'Deterministic code cannot solve the task',
           'Expected value exceeds added risk',
@@ -1232,7 +1232,7 @@ const boards: Record<string, InfographicBoard> = {
     layout: 'lifecycle',
     details: [
       {
-        heading: 'Buy evidence cheaply',
+        heading: 'Test before committing',
         items: [
           'Measure the risky assumption',
           'Run a focused spike',

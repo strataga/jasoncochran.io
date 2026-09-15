@@ -4,14 +4,14 @@ seoTitle: 'How to Design Offline-First Software for Field Operations'
 seoDescription: 'Design offline-first field software with explicit states, idempotent synchronization, conflict rules, security controls, and operational evidence.'
 date: '2026-02-11'
 updated: '2026-09-04'
-summary: 'Offline-first design is not a cache feature. It changes product promises, data authority, conflict handling, security, testing, and support.'
+summary: 'Offline-first design changes the product promise: teams must define data authority, conflict handling, security, testing, and support before synchronization.'
 tags: [offline first, field operations, mobile architecture, data synchronization, reliability]
 heroImage: '/blog/offline-first-software-for-field-operations/header-1200x630.webp'
 heroAlt: 'Jason Cochran and a field supervisor review mobile synchronization states on a rugged tablet in an operations office.'
 infographic: 'offline-state-model'
 ---
 
-“Make it work offline” sounds like a technical requirement. It is really a business decision about which work may continue while the system is uncertain.
+“Make it work offline” sounds technical. In practice, it asks the business to decide which work may continue while the system is uncertain.
 
 I have built offline-first mobile workflows for field users. The hard part was never storing a form on a device. The hard part was making the states around that form understandable and safe: what the user could trust, what the server had accepted, what could be repeated, and what happened when local and authoritative data disagreed.
 
@@ -21,7 +21,7 @@ A reliable offline experience requires product, architecture, security, and oper
 
 Not every workflow should continue without a current connection. A field note may be safe to capture locally. A work-order status change may need a version check when it synchronizes. An action that depends on current authorization, inventory, safety conditions, or equipment state may need to stop.
 
-The question is not “Can the app technically do this offline?” The question is “What promise can the business make when the app cannot confirm the current authoritative state?”
+Ask instead: “What promise can the business make when the app cannot confirm the current authoritative state?”
 
 That produces useful requirements: data the user must have before leaving coverage, maximum acceptable age for reference data, operations allowed while disconnected, operations that require an online decision, local evidence that must survive a restart, and conditions that trigger review instead of automatic synchronization.
 

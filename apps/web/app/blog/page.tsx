@@ -7,7 +7,7 @@ import { getAllBlogPosts, type BlogPostSummary } from '@/lib/blog'
 export const metadata: Metadata = {
   title: 'Architecture in Practice',
   description:
-    'Practical writing from Jason Cochran on software architecture, production engineering, applied AI, and lessons from 28 years of building systems.',
+    'Practical notes from Jason Cochran on software architecture, production engineering, applied AI, and building systems that hold up in production.',
   alternates: { canonical: 'https://jasoncochran.io/blog' },
   openGraph: {
     type: 'website',
@@ -76,8 +76,8 @@ export default async function BlogPage() {
             Architecture in Practice
           </h1>
           <p className="mt-6 max-w-2xl text-lg leading-8 text-hero-muted">
-            Practical lessons on architecture, production engineering, and applied AI from 28 years
-            of building software.
+            Practical notes on architecture, production engineering, and applied AI from 28 years of
+            building software.
           </p>
         </div>
       </section>
@@ -120,7 +120,7 @@ export default async function BlogPage() {
                 href={`/blog/${featuredPost.slug}`}
                 className="mt-7 inline-flex items-center gap-2 self-start text-sm font-semibold text-foreground transition-colors hover:text-primary"
               >
-                Read the article
+                Read the latest article
                 <ArrowRight className="h-4 w-4" aria-hidden="true" />
               </Link>
             </div>

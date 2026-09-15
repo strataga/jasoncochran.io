@@ -15,7 +15,7 @@ Enterprise AI changes who can initiate work and how quickly a system can move th
 
 An agent can retrieve documents, call APIs, create records, trigger workflows, and coordinate other tools. If its permissions are broader than the user’s task, the agent becomes a new privilege-escalation path. If every action appears under one shared service account, the audit trail loses the person, policy, and purpose behind the change.
 
-That is why I treat identity as the control plane for enterprise AI.
+That makes identity the control plane for enterprise AI.
 
 ## Model four identities
 
@@ -29,7 +29,7 @@ The system should preserve the chain: who asked, which workload handled the requ
 
 Authentication establishes identity. Authorization decides whether a specific action is allowed. Keep both outside the model’s judgment.
 
-A prompt saying “only administrators may do this” is not access control. The application or policy layer must enforce tenant, role, resource, action, and context. The model may help interpret intent, but it should not grant itself permission.
+A prompt saying “only administrators may do this” is not access control. The application or policy layer must enforce tenant, role, resource, action, and context. The model may interpret intent, but it cannot grant itself permission.
 
 NIST Zero Trust guidance emphasizes that trust is not implicit from network location. Cloud-native guidance extends that principle to application and service identities. An agent running inside the company network is not automatically trusted.
 
@@ -55,7 +55,7 @@ An agent may read emails, documents, websites, tickets, or API results that cont
 
 Do not let retrieved content redefine policy or expand tools. Validate tool inputs against a strict schema, allowlist operations, and keep authorization server-side. Separate data from instructions. Require human review before high-impact actions.
 
-A guardrail service can reduce risk. It is not a substitute for least privilege.
+A guardrail service can reduce risk, but it cannot substitute for least privilege.
 
 ## Make approval meaningful
 
@@ -69,7 +69,7 @@ Record the approver, policy version, agent version, tool call, and durable resul
 
 Model telemetry matters, but an audit log should answer a business question: who caused this record, permission, payment, work order, or configuration to change?
 
-Useful evidence includes request identity, acting workload, authorization decision, tool and operation, target, input digest, approval, outcome, correlation ID, and recovery or reversal. Minimize sensitive prompt and response storage; more logging is not always safer.
+Useful evidence includes request identity, acting workload, authorization decision, tool and operation, target, input digest, approval, outcome, correlation ID, and recovery or reversal. Minimize sensitive prompt and response storage; more logging can increase exposure.
 
 ## Review questions
 

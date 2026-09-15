@@ -4,17 +4,17 @@ const stages = [
   {
     number: '01',
     title: 'Outcome',
-    description: 'Define the useful result and the constraints that are real today.',
+    description: 'Name the result users need and the constraints the team must work within.',
   },
   {
     number: '02',
     title: 'Boundaries',
-    description: 'Put responsibility into contracts, code, data rules, tests, and ownership.',
+    description: 'Assign owners and enforce responsibilities through code, data rules, and tests.',
   },
   {
     number: '03',
     title: 'Delivery',
-    description: 'Build enough to expose assumptions and learn from implementation.',
+    description: 'Build a working slice that tests the assumptions behind the design.',
   },
   {
     number: '04',
@@ -53,8 +53,8 @@ export function ArchitectureAccountabilityLoop() {
           The architecture accountability loop
         </h2>
         <p className="mt-3 max-w-3xl text-sm leading-6 text-slate-700 sm:text-base">
-          Architecture stays useful when decisions remain connected to delivery evidence and
-          operational reality.
+          Use what you learn from building and running the system to improve the next design
+          decision.
         </p>
       </div>
 
@@ -92,7 +92,7 @@ export function ArchitectureAccountabilityLoop() {
         <section className="bg-[#fffdf7] px-5 py-6 sm:px-8">
           <h3 className="flex items-center gap-2 text-base font-semibold uppercase tracking-[0.06em] text-slate-950">
             <Circle className="h-4 w-4 fill-[#d8e7ef]" aria-hidden="true" />
-            Evidence that keeps it honest
+            Evidence to collect
           </h3>
           <ul className="mt-4 space-y-3">
             {[
@@ -114,9 +114,9 @@ export function ArchitectureAccountabilityLoop() {
           </h3>
           <ul className="mt-4 space-y-3">
             {[
-              'The operating evidence contradicts an assumption',
+              'The running system contradicts an assumption',
               'The cost or risk crosses an agreed threshold',
-              'A smaller responsible design becomes possible',
+              'A simpler design can meet the same requirements',
             ].map((item) => (
               <li key={item} className="flex gap-3 text-sm leading-6 text-slate-700">
                 <Check className="mt-1 h-4 w-4 shrink-0 text-emerald-700" aria-hidden="true" />
@@ -131,8 +131,7 @@ export function ArchitectureAccountabilityLoop() {
         <span className="mr-2 font-mono text-xs font-semibold uppercase tracking-[0.12em] text-slate-950">
           Working principle
         </span>
-        Operational evidence changes what we know, so it should influence the next business and
-        architecture decision.
+        When the evidence changes, revisit the decision and record what the team learned.
       </figcaption>
     </figure>
   )

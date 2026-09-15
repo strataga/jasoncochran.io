@@ -1,15 +1,30 @@
 import Link from 'next/link'
 import type { Metadata } from 'next'
-import { Award, ExternalLink, Calendar, BookOpen, Rocket } from 'lucide-react'
+import { Award, ExternalLink, BookOpen, Rocket } from 'lucide-react'
 
 export const metadata: Metadata = {
   title: 'Certifications',
-  description: 'AI and Cloud certifications. Microsoft Azure AI Fundamentals (AI-900), Azure Fundamentals (AZ-900), and continuous learning in AI-Powered Software Development.',
+  description: 'Microsoft Azure Fundamentals (AZ-900) and Azure AI Fundamentals (AI-900), applied through hands-on software engineering and architecture work.',
+  alternates: { canonical: 'https://jasoncochran.io/certifications' },
   openGraph: {
     title: 'Jason Cochran - AI & Cloud Certifications',
-    description: 'Microsoft Azure and AI certifications for modern software development',
+    description: 'Microsoft Azure and AI credentials supporting hands-on software engineering and architecture work.',
     type: 'website',
     url: 'https://jasoncochran.io/certifications',
+    images: [
+      {
+        url: '/opengraph-image',
+        width: 1200,
+        height: 630,
+        alt: 'Jason Cochran · Senior Software Engineer · Practical, hands-on AI experience',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Jason Cochran - AI & Cloud Certifications',
+    description: 'Microsoft Azure and AI credentials supporting hands-on software engineering and architecture work.',
+    images: ['/opengraph-image'],
   },
 }
 
@@ -18,7 +33,6 @@ const certifications = [
     name: 'Microsoft Azure Fundamentals',
     code: 'AZ-900',
     issuer: 'Microsoft',
-    date: '2024',
     description: 'Foundational knowledge of cloud services and how those services are provided with Microsoft Azure.',
     skills: ['Cloud Concepts', 'Azure Services', 'Security & Compliance', 'Azure Pricing'],
     color: 'red' as const,
@@ -28,7 +42,6 @@ const certifications = [
     name: 'Microsoft Azure AI Fundamentals',
     code: 'AI-900',
     issuer: 'Microsoft',
-    date: '2024',
     description: 'Fundamental AI concepts and Azure AI services for machine learning, computer vision, and natural language processing.',
     skills: ['AI Workloads', 'Machine Learning', 'Computer Vision', 'NLP', 'Azure AI Services'],
     color: 'yellow' as const,
@@ -53,7 +66,7 @@ export default function CertificationsPage() {
           </h1>
 
           <p className="text-xl text-[var(--text-secondary)] max-w-2xl mx-auto leading-relaxed" style={{ fontFamily: 'var(--font-body)' }}>
-            Earned Microsoft credentials in Azure cloud and AI fundamentals
+            Earned Microsoft credentials in Azure cloud and AI fundamentals.
           </p>
         </div>
       </section>
@@ -66,7 +79,7 @@ export default function CertificationsPage() {
               CURRENT CERTIFICATIONS
             </h2>
             <p className="text-lg text-[var(--text-secondary)]" style={{ fontFamily: 'var(--font-body)' }}>
-              Verified foundational credentials in cloud and AI technologies
+              Verified foundational credentials in cloud and AI technologies.
             </p>
           </div>
 
@@ -89,10 +102,6 @@ export default function CertificationsPage() {
                     </h3>
                     <div className="flex items-center gap-4 text-sm text-[var(--text-secondary)] mb-4" style={{ fontFamily: 'var(--font-mono)' }}>
                       <span className="font-semibold">{cert.issuer}</span>
-                      <span className="flex items-center gap-1">
-                        <Calendar className="w-4 h-4" />
-                        {cert.date}
-                      </span>
                     </div>
                   </div>
                   <Award className="w-16 h-16 text-[var(--pop-yellow)] opacity-30 group-hover:opacity-100 transition-opacity" />
@@ -141,9 +150,9 @@ export default function CertificationsPage() {
               CONTINUOUS LEARNING
             </h2>
             <p className="text-lg text-gray-300 mb-6 leading-relaxed" style={{ fontFamily: 'var(--font-body)' }}>
-              With 28 years in the industry, I've learned that staying current is non-negotiable.
-              These certifications add verified foundation knowledge to practical enterprise
-              experience. Advanced AWS and Azure architect credentials will appear here only after
+              With 28 years in the industry, I keep learning because sound decisions depend on
+              current foundations. These certifications add verified cloud and AI knowledge to
+              practical enterprise experience. Additional credentials will appear here only after
               they are earned.
             </p>
             <p className="text-lg text-gray-300 leading-relaxed" style={{ fontFamily: 'var(--font-body)' }}>
@@ -170,7 +179,7 @@ export default function CertificationsPage() {
                 href="/#contact"
                 className="btn-pop btn-pop-primary"
               >
-                START A PROJECT
+                TALK ABOUT YOUR PROJECT
               </Link>
               <Link
                 href="/resume"

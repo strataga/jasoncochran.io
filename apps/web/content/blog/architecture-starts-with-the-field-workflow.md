@@ -4,20 +4,20 @@ seoTitle: 'Oil and Gas Software Architecture Starts in the Field'
 seoDescription: 'A practical framework for designing oil and gas software around field decisions, operational constraints, system boundaries, and measurable outcomes.'
 date: '2026-01-14'
 updated: '2026-09-04'
-summary: 'The best oil and gas software does not begin with a cloud service. It begins with the person, decision, constraint, and operating consequence in the field.'
+summary: 'Good oil and gas software starts with the person, decision, constraint, and operating consequence in the field, then earns its technology choices.'
 tags: [oil and gas, solution architecture, field operations, enterprise software, integration]
 heroImage: '/blog/architecture-starts-with-the-field-workflow/header-1200x630.webp'
 heroAlt: 'Jason Cochran and an operations stakeholder reviewing a field workflow on a laptop and notebook in an ordinary office.'
 infographic: 'field-workflow-first'
 ---
 
-The fastest way to design the wrong oil and gas system is to begin with a list of technologies.
+The fastest way to design the wrong oil and gas system is to start with a list of technologies.
 
 A team can assemble an impressive cloud diagram, connect several data sources, and still miss the decision the software is supposed to improve. In field operations, that mistake is especially expensive. Connectivity varies. Equipment and people move. Work crosses shifts and vendors. Safety and production responsibilities cannot be hand-waved away. The system has to fit the operating environment, not the other way around.
 
-I spent years building oil and gas software and leading delivery on mobile and web-based ERP work. The durable lesson was not tied to one framework: architecture becomes much clearer when the conversation starts with the field workflow.
+I spent years building oil and gas software and leading delivery on mobile and web-based ERP work. The durable lesson is simple: architecture becomes clearer when the conversation starts with the field workflow.
 
-That means asking four questions in order:
+Start with four questions:
 
 1. Who is doing the work, and what decision are they trying to make?
 2. What conditions can interrupt or invalidate that work?
@@ -26,7 +26,7 @@ That means asking four questions in order:
 
 Only then should the team decide which APIs, events, databases, cloud services, or AI capabilities belong in the design.
 
-## Begin with the decision, not the screen
+## Begin with the decision
 
 “Build a field app” is not a useful architecture requirement. It names a delivery surface, not a business result.
 
@@ -49,7 +49,7 @@ An office workflow can quietly assume stable power, a large display, low latency
 
 The design may need to account for intermittent networks, bright sunlight, gloves, dust, vehicle use, older devices, location changes, long-running tasks, and people switching between digital and physical work. Even when every site has nominal connectivity, a dependency failure can produce the same user experience as being offline.
 
-The right response is not to make every application offline-first. It is to decide which parts of the work must continue and what consistency model those parts can tolerate.
+The right response is to decide which parts of the work must continue and what consistency model those parts can tolerate. Some workflows should remain online-only.
 
 For each step, I want to classify the behavior:
 
@@ -74,7 +74,7 @@ Telemetry flowing outward for analysis carries different risk from a command flo
 
 The architecture should make those differences visible. Useful controls can include one-way or brokered data paths, approved schemas, network zones, workload identities, allowlisted operations, rate limits, audit records, and human approval for actions with physical or financial consequence.
 
-The goal is not to slow delivery. It is to prevent convenience from quietly becoming authority.
+The goal is to keep convenience from quietly becoming authority.
 
 ## Name the source of truth for every important fact
 

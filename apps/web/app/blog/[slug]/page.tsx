@@ -113,7 +113,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
               className="mb-10 inline-flex items-center gap-2 text-sm text-hero-muted transition-colors hover:text-hero-foreground"
             >
               <ArrowLeft className="h-4 w-4" aria-hidden="true" />
-              All articles
+              Back to all articles
             </Link>
 
             <ul className="mb-5 flex flex-wrap gap-2" aria-label="Article topics">
@@ -213,7 +213,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                 href="/blog"
                 className="hidden items-center gap-2 text-sm font-semibold text-foreground hover:text-primary sm:inline-flex"
               >
-                View all
+                View all articles
                 <ArrowRight className="h-4 w-4" aria-hidden="true" />
               </Link>
             </div>

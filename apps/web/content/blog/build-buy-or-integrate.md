@@ -4,7 +4,7 @@ seoTitle: 'Build vs. Buy vs. Integrate: An Architecture Framework'
 seoDescription: 'Choose whether to build, buy, or integrate software by evaluating differentiation, lifecycle cost, security, data, operations, and exit options.'
 date: '2026-03-25'
 updated: '2026-09-04'
-summary: 'The decision is not about which option ships first. It is about which capabilities are worth owning and which risks the organization can support.'
+summary: 'Choose whether to build, buy, or integrate by weighing which capabilities are worth owning and which risks the organization can support over time.'
 tags:
   [solution architecture, build vs buy, enterprise software, cloud strategy, technical leadership]
 heroImage: '/blog/build-buy-or-integrate/header-1200x630.webp'
@@ -16,13 +16,13 @@ infographic: 'build-buy-integrate'
 
 Every option creates software the organization must live with. A custom application requires engineering and operational ownership. A commercial product creates configuration, integration, vendor, and data ownership. An integration preserves existing systems but adds contracts, failure modes, and support coordination.
 
-The responsible choice is the one whose long-term obligations match the value the business expects.
+Choose the option whose long-term obligations match the value the business expects.
 
 ## Find the durable advantage
 
 Build when the behavior is central to how the company operates or competes and the organization is willing to improve it for years. Buy when the capability is common, well-supported, and unlikely to benefit from custom engineering. Integrate when existing systems remain valuable and a governed workflow can connect them without pretending they are one product.
 
-Do not call every internal preference a differentiator. Ask whether owning the capability changes a meaningful business result and whether the organization will fund its full lifecycle.
+An internal preference is not automatically a differentiator. Ask whether owning the capability changes a business result and whether the organization will fund its full lifecycle.
 
 <!-- infographic -->
 
@@ -38,7 +38,7 @@ A low first-year number can hide a high switching cost. Ask for a multi-year own
 
 Run a bounded proof around the condition most likely to invalidate the option: identity integration, data residency, API limits, offline behavior, throughput, permission granularity, model quality, or migration feasibility.
 
-A demo of the happy path proves little. A useful proof produces evidence against explicit acceptance criteria and leaves the team with a documented decision.
+A happy-path demo proves little. A bounded proof should produce evidence against explicit acceptance criteria and leave the team with a documented decision.
 
 ## Evaluate security and data boundaries
 
@@ -46,7 +46,7 @@ For each option, identify what data leaves the organization, where it is stored,
 
 For AI products, add model-provider terms, training and retention behavior, prompt and response handling, retrieval boundaries, evaluation evidence, and tool permissions. “Enterprise AI” is not a control description.
 
-The NIST Secure Software Development Framework is useful because buying does not eliminate software risk. It changes which practices the supplier performs and which evidence the customer must require.
+The NIST Secure Software Development Framework is useful here because buying does not eliminate software risk. It changes which practices the supplier performs and which evidence the customer must require.
 
 ## Inspect integration quality before buying features
 
@@ -70,7 +70,7 @@ Score each option against the same criteria: business differentiation, time to f
 
 Weight the criteria for the workflow. A control-adjacent oilfield system should weight safety, availability, and support differently from an internal content tool.
 
-The goal is not to make the spreadsheet decide. It is to make assumptions and consequences discussable.
+The spreadsheet should expose assumptions and consequences so the team can discuss them; it should not pretend to make the decision by itself.
 
 ## Sources and further reading
 

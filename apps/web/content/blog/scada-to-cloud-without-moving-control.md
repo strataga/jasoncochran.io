@@ -17,7 +17,7 @@ The dangerous shortcut is to treat that movement as an ordinary application inte
 
 SCADA and other operational technology systems interact with physical processes. Their safety, availability, timing, and recovery priorities differ from those of a business application. NIST SP 800-82 makes that distinction central to OT security. A cloud architecture should respect it from the first diagram.
 
-The design principle I use is straightforward: move approved data across a controlled boundary without accidentally moving control authority with it.
+Use a straightforward design principle: move approved data across a controlled boundary without moving control authority with it.
 
 ## Begin with direction and authority
 
@@ -25,7 +25,7 @@ Every connection should answer two questions: Which direction does information m
 
 An outbound stream of telemetry for analytics is different from an inbound command. A recommendation shown to an operator is different from an automatic actuation. A scheduled transfer of aggregated values is different from direct access to a live historian.
 
-Architecture discussions become safer when the team labels connections with verbs and authority instead of generic arrows. “Publishes approved telemetry every minute” is more useful than “integrates with cloud.” “Returns a recommendation to an operator workflow; cannot issue a control command” is an enforceable boundary.
+Architecture discussions become safer when the team labels connections with verbs and authority instead of generic arrows. “Publishes approved telemetry every minute” says more than “integrates with cloud.” “Returns a recommendation to an operator workflow; cannot issue a control command” defines an enforceable boundary.
 
 The same clarity should appear in firewall policy, workload identity, API permissions, code, tests, and audit records.
 
@@ -35,7 +35,7 @@ Confidentiality matters everywhere, but OT design must also account for physical
 
 A cloud outage should not stop a control loop that does not need the cloud. A slow analytics consumer should not create backpressure in a control network. A compromised business identity should not become a control identity. A schema change in a data platform should not change device behavior.
 
-A strong design uses a brokered boundary: controlled collection close to the source, explicit filtering and buffering, a demilitarized zone or equivalent segmentation, and narrowly authorized paths into the cloud.
+A sound design uses a brokered boundary: controlled collection close to the source, explicit filtering and buffering, a demilitarized zone or equivalent segmentation, and narrowly authorized paths into the cloud.
 
 <!-- infographic -->
 
@@ -67,7 +67,7 @@ Topic wildcards can be convenient and dangerously broad. Permissions should foll
 
 Operational data can support anomaly detection, maintenance prioritization, document retrieval, investigation, and planning. An AI-generated result should not inherit authority merely because it used operational data.
 
-For an early production use case, I would keep the AI path read-only and advisory. The system can surface evidence, cite the data used, state uncertainty, and propose a next step. A qualified person remains responsible. Automated action is a new architecture and safety decision—not a feature flag on the same design.
+For an early production use case, keep the AI path read-only and advisory. The system can surface evidence, cite the data used, state uncertainty, and propose a next step. A qualified person remains responsible. Automated action is a new architecture and safety decision; it is not a feature flag on the same design.
 
 NIST’s Generative AI Profile identifies risks including confabulation, privacy, information security, and human overreliance. Those risks become more consequential near physical operations.
 
@@ -106,7 +106,7 @@ Without that map, the architecture has components but no operating model.
 9. Who owns each alert and recovery action?
 10. What evidence would justify expanding the system’s authority?
 
-Cloud analytics can make operational data far more useful. The architecture succeeds when it creates that value while preserving the safety, autonomy, and trust boundaries the physical operation requires.
+Cloud analytics can make operational data far more useful. The architecture succeeds when it creates that value while preserving the safety, autonomy, and trust boundaries required by the physical operation.
 
 ## Sources and further reading
 

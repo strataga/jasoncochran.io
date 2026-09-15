@@ -17,7 +17,7 @@ OpenClaw VPS was a managed hosting and control-plane product for private, always
 
 This page describes what I built and learned. It does not describe a live service, active pricing, customer adoption, or current production availability.
 
-## What a user could do
+## What users could do
 
 - Provision and manage a hosted OpenClaw bot
 - Choose and connect an AI provider
@@ -26,7 +26,7 @@ This page describes what I built and learned. It does not describe a live servic
 - Monitor health, usage, and cost information
 - Request operational support without administering the server
 
-## How I built it
+## What I built
 
 It was built with a Bun monorepo, Next.js, React, TypeScript, Convex, authentication, billing, infrastructure provisioning, operational documentation, and automated quality gates. The work covered both the user-facing product and the operational systems needed to provision, observe, support, and recover hosted assistants.
 

@@ -11,11 +11,11 @@ heroAlt: 'Four architecture sketches compare increasingly complex software and A
 infographic: 'ai-pattern-selector'
 ---
 
-AI architecture often starts one step too late. The team asks which vector database or agent framework to use before deciding whether the task needs retrieval or an agent at all.
+AI architecture often starts one step too late. Teams ask which vector database or agent framework to use before deciding whether the task needs retrieval or an agent at all.
 
-I prefer a different rule: use the least probabilistic pattern that solves the real problem.
+Start with the least probabilistic pattern that solves the real problem.
 
-That does not mean avoiding AI. It means preserving determinism, explainability, cost control, and security wherever they create more value than generation.
+This still leaves room for AI. It preserves determinism, explainability, cost control, and security where those properties matter more than generation.
 
 ## Start with the task contract
 
@@ -74,7 +74,7 @@ Measure task success, retrieval quality, unsupported claims, tool selection, arg
 9. How will the full path be evaluated?
 10. What simpler design would we compare it against?
 
-The goal is not to build the most agentic system. It is to build the smallest system that produces a useful, testable, governed result.
+Choose the smallest system that produces a useful, testable, governed result. More autonomy is justified only when the task needs it and the team can evaluate and operate the added paths.
 
 ## Sources and further reading
 

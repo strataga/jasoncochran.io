@@ -613,9 +613,8 @@ export default async function Home() {
           <div className="max-w-[720px] mb-10">
             <h2 className="text-2xl md:text-3xl tracking-tight mb-4">Fractional consulting</h2>
             <p className="text-muted-foreground leading-relaxed">
-              I&apos;m primarily pursuing a full-time senior software engineering role.
-              For teams that need focused help instead, I also offer practical, hands-on
-              architecture support.
+              I&apos;m pursuing a full-time senior software engineering role. I also offer practical,
+              hands-on architecture support for teams that need focused help.
             </p>
           </div>
 
@@ -715,12 +714,12 @@ export default async function Home() {
               >
                 Contact
               </Link>
-              <a
-                href="https://blog.jasoncochran.io"
+              <Link
+                href="/blog"
                 className="text-sm text-muted-foreground hover:text-foreground transition-colors"
               >
                 Blog
-              </a>
+              </Link>
             </div>
 
             <div className="flex items-center gap-4 text-muted-foreground">

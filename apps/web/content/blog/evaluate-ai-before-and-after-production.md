@@ -11,9 +11,9 @@ heroAlt: 'Two reviewers compare AI test cases, edge cases, model outputs, and pr
 infographic: 'ai-evaluation-lifecycle'
 ---
 
-An AI demonstration answers one question: can the system produce an impressive result under selected conditions?
+An AI demonstration answers one narrow question: can the system produce an impressive result under selected conditions?
 
-A production evaluation program answers a harder one: can the organization define, measure, release, observe, and improve useful behavior across the conditions that matter?
+A production evaluation program answers a harder question: can the organization define, measure, release, observe, and improve behavior across the conditions that matter?
 
 That requires more than an accuracy number. Enterprise AI may retrieve protected data, generate unsupported claims, choose a tool, spend money, or prepare a business action. Evaluation has to follow the whole task.
 
@@ -45,7 +45,7 @@ Add operational measures: latency, token and tool cost, rate-limit behavior, ava
 
 Automated evaluators help scale regression checks. They can also share the same blind spots as the system being evaluated.
 
-Use domain experts for high-consequence quality, nuanced correctness, and usefulness. Give reviewers a rubric and evidence, not a vague “looks good” question. Track disagreement; it can reveal an unclear business requirement.
+Use domain experts for high-consequence quality, nuanced correctness, and usefulness. Give reviewers a rubric and evidence, rather than a vague “looks good” question. Track disagreement; it can reveal an unclear business requirement.
 
 ## Gate changes, not only releases
 
@@ -59,7 +59,7 @@ Microsoft Foundry supports dataset and cloud evaluations, including predeploymen
 
 Sample real interactions according to privacy and retention policy. Monitor user feedback, refusals, retrieval misses, tool failures, latency, cost, and escalation. Route severe safety or security signals to an incident process.
 
-Turn confirmed failures into regression cases. Production monitoring without a path back into the evaluation set becomes a dashboard, not a learning system.
+Turn confirmed failures into regression cases. Monitoring becomes a learning system only when production evidence returns to the evaluation set.
 
 ## Avoid common evaluation traps
 
@@ -85,7 +85,7 @@ Turn confirmed failures into regression cases. Production monitoring without a p
 9. Does production evidence become regression coverage?
 10. Who can stop or roll back the capability?
 
-Evaluation is a product and architecture discipline. It creates a durable connection between what the business expects and what the AI system actually does.
+Evaluation is part of product and architecture work. It connects what the business expects to what the AI system actually does, including the failures that should stop a release.
 
 ## Sources and further reading
 

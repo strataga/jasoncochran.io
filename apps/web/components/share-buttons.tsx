@@ -19,10 +19,10 @@ export function ShareButtons({ title, url, description }: ShareButtonsProps) {
   async function copyToClipboard() {
     try {
       await navigator.clipboard.writeText(url)
-      setStatus('Link copied')
+      setStatus('Link copied to clipboard')
       window.setTimeout(() => setStatus(''), 2000)
     } catch {
-      setStatus('Copy failed. Select the address from your browser.')
+      setStatus('Copy failed. You can select the address from your browser.')
     }
   }
 
@@ -34,7 +34,7 @@ export function ShareButtons({ title, url, description }: ShareButtonsProps) {
 
     try {
       await navigator.share({ title, text: description, url })
-      setStatus('Share sheet opened')
+      setStatus('Article shared')
     } catch (error) {
       if (error instanceof DOMException && error.name === 'AbortError') return
       setStatus('Sharing was unavailable. You can copy the link instead.')
@@ -89,7 +89,7 @@ export function ShareButtons({ title, url, description }: ShareButtonsProps) {
             Email
           </a>
           <button type="button" onClick={copyToClipboard} className={linkClass}>
-            {status === 'Link copied' ? (
+            {status === 'Link copied to clipboard' ? (
               <Check className="h-4 w-4" aria-hidden="true" />
             ) : (
               <Link2 className="h-4 w-4" aria-hidden="true" />

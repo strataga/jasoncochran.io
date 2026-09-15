@@ -112,7 +112,7 @@ export default function NotFound() {
             className="text-sm opacity-80"
             style={{ fontFamily: 'var(--font-mono)', color: 'var(--pop-black)' }}
           >
-            This page got vibe-coded into the void
+            This page is missing. Head home to find your way back.
           </p>
         </div>
 
@@ -154,7 +154,7 @@ export default function NotFound() {
               boxShadow: '4px 4px 0 var(--pop-black)',
             }}
           >
-            Escape The Loop
+            Back to home
           </Link>
         </div>
 

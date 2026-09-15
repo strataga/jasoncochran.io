@@ -80,8 +80,8 @@ export default function RalphVideoPage() {
     return (
       <div className="min-h-screen flex items-center justify-center py-16">
         <div className="text-center flex flex-col items-center">
-          <p
-            className="mb-6"
+          <h1
+            className="mb-6 font-normal"
             style={{
               fontFamily: 'var(--font-mono)',
               fontSize: '1.1rem',
@@ -89,7 +89,7 @@ export default function RalphVideoPage() {
             }}
           >
             Looking for the Ralph video?
-          </p>
+          </h1>
           <button
             onClick={handleDownload}
             className="px-8 py-4 font-bold tracking-wide transition-all hover:translate-x-1 hover:-translate-y-1 inline-flex items-center gap-3 cursor-pointer"
@@ -248,7 +248,7 @@ export default function RalphVideoPage() {
               boxShadow: '4px 4px 0 var(--pop-black)',
             }}
           >
-            I Deserved That
+            Back to home
           </Link>
         </div>
 

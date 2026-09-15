@@ -15,7 +15,7 @@ An acquisition creates a business combination before it creates a systems combin
 
 The new organization may inherit multiple ERPs, identity directories, data warehouses, field applications, vendor portals, integration tools, and definitions for the same business concept. Drawing lines between them is easy. Deciding which meaning, authority, and operating model should survive is the real architecture work.
 
-I approach that work as a sequence of controlled decisions rather than a demand to consolidate everything at once.
+Treat that work as a sequence of controlled decisions; consolidation can follow evidence instead of arriving as the first demand.
 
 ## Inventory decisions, not only applications
 
@@ -25,7 +25,7 @@ For each important workflow, identify who makes the decision, which facts they u
 
 This exposes differences a system list hides. Two applications may both contain “well,” “vendor,” or “cost center,” yet use different identifiers, timing, ownership, or approval rules. Copying both into a lake does not reconcile the meaning.
 
-The first useful artifact is a concept and ownership map: business term, authoritative source, steward, consumers, quality expectation, and unresolved conflicts.
+Start with a concept and ownership map: business term, authoritative source, steward, consumers, quality expectation, and unresolved conflicts.
 
 ## Establish a control plane for integration
 
@@ -45,7 +45,7 @@ Azure Integration Services combines API Management, Logic Apps, Service Bus, Eve
 
 ## Put identity before connectivity
 
-“The networks can talk” is not an authorization model.
+Network reachability is not an authorization model.
 
 Each user, workload, device, and pipeline should have a named identity with the minimum permissions needed. Prefer short-lived identity-based access over shared credentials. Keep development and production identities separate. Record both the requesting user and the workload that performed a sensitive action.
 
@@ -94,7 +94,7 @@ These measures help prioritize modernization. The highest-value next change may 
 9. Who owns the connection after the project team leaves?
 10. What measurable result justifies its complexity?
 
-Acquisition integration is not a race to create one giant system. It is a disciplined effort to create shared meaning, explicit authority, and reliable movement while the business continues to operate.
+Acquisition integration should create shared meaning, explicit authority, and reliable movement while the business continues to operate. A single giant system is only one possible outcome.
 
 ## Sources and further reading
 

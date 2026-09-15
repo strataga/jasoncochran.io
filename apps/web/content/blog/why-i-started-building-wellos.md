@@ -11,7 +11,7 @@ heroAlt: 'Jason Cochran sketches an early WellOS workflow beside an operations d
 infographic: 'wellos-platform-map'
 ---
 
-I earned Microsoft Certified: Azure Fundamentals and Microsoft Certified: Azure AI Fundamentals for a practical reason: I wanted to help local oil and gas companies modernize their software and make responsible use of the cloud, AI, and the newer capabilities available in Azure.
+In November 2025, I earned Microsoft Certified: Azure Fundamentals and Microsoft Certified: Azure AI Fundamentals for a practical reason: I wanted to help local oil and gas companies modernize their software and make responsible use of the cloud, AI, and the newer capabilities available in Azure.
 
 That learning led directly to WellOS.
 

@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import type { Metadata } from 'next'
-import { Award, ExternalLink, BookOpen, Rocket } from 'lucide-react'
+import { Award, ExternalLink, Calendar, BookOpen, Rocket } from 'lucide-react'
 
 export const metadata: Metadata = {
   title: 'Certifications',
@@ -33,6 +33,7 @@ const certifications = [
     name: 'Microsoft Azure Fundamentals',
     code: 'AZ-900',
     issuer: 'Microsoft',
+    date: 'November 2025',
     description: 'Foundational knowledge of cloud services and how those services are provided with Microsoft Azure.',
     skills: ['Cloud Concepts', 'Azure Services', 'Security & Compliance', 'Azure Pricing'],
     color: 'red' as const,
@@ -42,6 +43,7 @@ const certifications = [
     name: 'Microsoft Azure AI Fundamentals',
     code: 'AI-900',
     issuer: 'Microsoft',
+    date: 'November 2025',
     description: 'Fundamental AI concepts and Azure AI services for machine learning, computer vision, and natural language processing.',
     skills: ['AI Workloads', 'Machine Learning', 'Computer Vision', 'NLP', 'Azure AI Services'],
     color: 'yellow' as const,
@@ -100,8 +102,12 @@ export default function CertificationsPage() {
                     <h3 className="text-2xl text-[var(--pop-black)] mb-2" style={{ fontFamily: 'var(--font-headline)' }}>
                       {cert.name}
                     </h3>
-                    <div className="flex items-center gap-4 text-sm text-[var(--text-secondary)] mb-4" style={{ fontFamily: 'var(--font-mono)' }}>
+                    <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-[var(--text-secondary)] mb-4" style={{ fontFamily: 'var(--font-mono)' }}>
                       <span className="font-semibold">{cert.issuer}</span>
+                      <span className="flex items-center gap-1">
+                        <Calendar className="w-4 h-4" aria-hidden="true" />
+                        {cert.date}
+                      </span>
                     </div>
                   </div>
                   <Award className="w-16 h-16 text-[var(--pop-yellow)] opacity-30 group-hover:opacity-100 transition-opacity" />

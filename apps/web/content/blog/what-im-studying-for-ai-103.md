@@ -11,7 +11,7 @@ heroAlt: 'Jason Cochran studies agent, tool, retrieval, and model-evaluation con
 infographic: 'ai-103-study-map'
 ---
 
-After earning Microsoft Azure Fundamentals and Azure AI Fundamentals, I wanted to go deeper than cloud and AI vocabulary. I began studying the applied path now covered by **Exam AI-103: Developing AI Apps and Agents on Azure**.
+After earning Microsoft Azure Fundamentals and Azure AI Fundamentals in November 2025, I wanted to go deeper than cloud and AI vocabulary. I began studying the applied path now covered by **Exam AI-103: Developing AI Apps and Agents on Azure**.
 
 Microsoft has changed this certification path as the platform has evolved. AI-102 was retired on June 30, 2026. AI-103 is the current exam tied to the Microsoft Certified: Azure AI Cloud Developer Associate certification. That change is a useful reminder that the credential is a checkpoint, not the destination. The services will keep changing; the engineering responsibilities remain.
 

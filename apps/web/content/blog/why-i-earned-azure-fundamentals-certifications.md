@@ -11,7 +11,7 @@ heroAlt: 'An experienced software architect studying Azure cloud and AI architec
 infographic: 'azure-learning-path'
 ---
 
-I earned Microsoft Certified: Azure Fundamentals (AZ-900) and Microsoft Certified: Azure AI Fundamentals (AI-900) to strengthen the cloud and AI foundations behind my engineering work.
+In November 2025, I earned Microsoft Certified: Azure Fundamentals (AZ-900) and Microsoft Certified: Azure AI Fundamentals (AI-900) to strengthen the cloud and AI foundations behind my engineering work.
 
 After 28 years in software engineering, I did not pursue fundamentals certifications to prove that I had just discovered cloud computing or artificial intelligence. I pursued them because I wanted a current, structured understanding of Microsoft’s platform and vocabulary before offering modernization and AI consulting to oil and gas companies in the Permian Basin.
 

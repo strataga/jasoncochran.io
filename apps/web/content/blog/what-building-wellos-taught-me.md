@@ -11,7 +11,7 @@ heroAlt: 'A realistic software engineering workspace showing an oilfield operati
 infographic: 'wellos-learning-loop'
 ---
 
-WellOS began after I earned Azure Fundamentals and Azure AI Fundamentals. I wanted to use that learning, together with my oil and gas software background, to help local companies modernize and take practical advantage of cloud and AI.
+WellOS began after I earned Azure Fundamentals and Azure AI Fundamentals in November 2025. I wanted to use that learning, together with my oil and gas software background, to help local companies modernize and take practical advantage of cloud and AI.
 
 The product idea centered on a large question: what would a modern operating platform for an upstream oil and gas company look like if field workflows, production data, SCADA, business operations, and cloud delivery were designed together?
 

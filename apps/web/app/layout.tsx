@@ -19,16 +19,16 @@ const jetbrainsMono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: 'Jason Cochran · Hands-On Software Architect',
+    default: 'Jason Cochran · Senior Software Engineer',
     template: '%s | Jason Cochran',
   },
   description:
-    'Hands-on Software Architect with 28 years of experience delivering enterprise applications, integrations, mobile products, cloud-hosted systems, and applied-AI solutions.',
+    'Senior Software Engineer with 28 years of experience building enterprise, web, mobile, and cloud software, with practical, hands-on AI experience.',
   keywords: [
-    'Software Architect',
-    'Application Architect',
-    'AI Solutions Architect',
-    'Principal Engineer',
+    'Senior Software Engineer',
+    'Full-Stack Software Engineer',
+    'Practical AI Experience',
+    'Software Architecture',
     'Architecture Consulting',
     'Production Readiness',
     'ArchGauge',
@@ -45,24 +45,24 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_US',
     url: 'https://jasoncochran.io',
-    title: 'Jason Cochran · Hands-On Software Architect',
+    title: 'Jason Cochran · Senior Software Engineer',
     description:
-      'Hands-on Software Architect with 28 years of experience delivering enterprise applications, integrations, mobile products, cloud-hosted systems, and applied-AI solutions.',
+      'Senior Software Engineer with 28 years of experience building enterprise, web, mobile, and cloud software, with practical, hands-on AI experience.',
     siteName: 'Jason Cochran',
     images: [
       {
         url: '/opengraph-image',
         width: 1200,
         height: 630,
-        alt: 'Jason Cochran · Hands-On Software Architect',
+        alt: 'Jason Cochran · Senior Software Engineer · Practical, hands-on AI experience',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Jason Cochran · Hands-On Software Architect',
+    title: 'Jason Cochran · Senior Software Engineer',
     description:
-      'Hands-on Software Architect with 28 years of experience delivering enterprise applications, integrations, mobile products, cloud-hosted systems, and applied-AI solutions.',
+      'Senior Software Engineer with 28 years of experience building enterprise, web, mobile, and cloud software, with practical, hands-on AI experience.',
     images: ['/opengraph-image'],
   },
 }

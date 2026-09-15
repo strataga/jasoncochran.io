@@ -4,9 +4,9 @@ import { Download, Mail, Phone } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 
 const canonicalUrl = 'https://jasoncochran.io/resume'
-const pageTitle = 'Software Architect Resume and Cover Letter'
+const pageTitle = 'Senior Software Engineer Resume and Cover Letter'
 const pageDescription =
-  'Jason Cochran is a hands-on Software Architect with 28 years of experience across enterprise applications, integrations, mobile, cloud, and applied AI.'
+  'Jason Cochran is a Senior Software Engineer with 28 years of experience building enterprise, web, mobile, and cloud software, with practical, hands-on AI experience.'
 
 export const metadata: Metadata = {
   title: pageTitle,
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
         url: '/opengraph-image',
         width: 1200,
         height: 630,
-        alt: 'Jason Cochran · Hands-On Software Architect',
+        alt: 'Jason Cochran · Senior Software Engineer · Practical, hands-on AI experience',
       },
     ],
   },
@@ -38,12 +38,12 @@ export const metadata: Metadata = {
 const profileJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'ProfilePage',
-  name: 'Jason Cochran software architect resume and cover letter',
+  name: 'Jason Cochran senior software engineer resume and cover letter',
   url: canonicalUrl,
   mainEntity: {
     '@type': 'Person',
     name: 'Jason Cochran',
-    jobTitle: 'Software Architect',
+    jobTitle: 'Senior Software Engineer',
     description: pageDescription,
     url: 'https://jasoncochran.io',
     email: 'mailto:jlcochran2013@gmail.com',
@@ -60,84 +60,102 @@ const profileJsonLd = {
 
 const experience = [
   {
-    role: 'Senior Full-Stack Engineer',
+    role: 'Senior Full Stack Engineer',
     company: 'Servant',
     location: 'Remote',
-    dates: '2025/02–2025/09',
+    dates: 'February 2025 – September 2025',
     highlights: [
       'Delivered an enterprise onboarding flow with NestJS, Next.js, Prisma, React Query, PostgreSQL, and AWS-hosted services.',
       'Owned the production migration from the legacy path, then completed documentation and operational handoff.',
     ],
   },
   {
-    role: 'Senior React Native Engineer',
+    role: 'Senior React Native Developer',
     company: 'Nutrien',
     location: 'Remote',
-    dates: '2023/09–2024/02',
+    dates: 'September 2023 – February 2024',
     highlights: [
       'Built cross-platform iOS and Android features for field representatives in agriculture operations.',
       'Delivered offline-first data collection and workflow screens that synchronized when connectivity returned.',
     ],
   },
   {
-    role: 'Senior Software Engineer',
+    role: 'Senior Software Engineer / Consultant',
     company: 'TxMQ',
     location: 'Remote',
-    dates: '2022/10–2023/06',
+    dates: 'August 2022 – July 2023',
     highlights: [
       'Delivered production features across AngularJS and Ionic client applications.',
       'Led an OpenAI research initiative, prototyped LLM-assisted tools, and presented adoption options to technical leadership.',
     ],
   },
   {
-    role: 'Senior Mobile Engineer',
+    role: 'Senior Mobile Developer',
     company: 'Verizon',
     location: 'Remote',
-    dates: '2021/10–2022/11',
+    dates: 'November 2021 – August 2022',
     highlights: [
       'Delivered the AMC Walking Dead NFT experience through a custom blockchain and JavaScript SDK integration in the Verizon mobile application.',
       'Created a reusable integration boundary and documented the SDK handoff for downstream teams.',
     ],
   },
   {
-    role: 'Solutions Architect',
-    company: 'Self-Employed',
-    location: 'Midland / Remote',
-    dates: '2015–2021',
+    role: 'Web/Mobile Solutions Architect',
+    company: 'Self-employed',
+    location: 'Remote',
+    dates: 'February 2015 – November 2021',
     highlights: [
-      'Delivered more than 30 projects across oil and gas, travel, and enterprise environments, including Key Energy, Warren Equipment, Enertia, and OneTravel.com.',
-      'Carried engagements through discovery, architecture, implementation, support, documentation, mentoring, and handoff.',
+      'Delivered varied client projects spanning custom websites, SaaS applications, and mobile solutions.',
+      'Worked directly with clients to define workflows, choose practical architecture, build software, and support delivery.',
     ],
   },
   {
     role: 'Lead Web/Mobile Developer',
-    company: 'Key Energy',
+    company: 'Key Energy Services',
     location: 'Texas',
-    dates: '2012/05–2015/04',
+    dates: 'May 2012 – April 2015',
     highlights: [
-      'Led a six-person team building and supporting mobile and web-based oil-and-gas ERP software with Ruby on Rails.',
-      'Stayed hands-on by setting direction, removing blockers, reviewing integrations, and writing code alongside the team.',
+      'Built ERP software with Ruby on Rails, Meteor, and Backbone, including a Rails API and an offline user interface.',
+      'Used Jenkins for continuous integration.',
     ],
   },
   {
-    role: 'Earlier Software Engineering Career',
-    company: 'Enterprise / Client Delivery',
-    location: '',
-    dates: '1998–2015',
+    role: 'Web Developer',
+    company: 'Warren Equipment Company',
+    location: 'Texas',
+    dates: 'February 2011 – February 2012',
     highlights: [
-      'Built the foundation of a 28-year career across OneTravel.com, independent consulting, Enertia Software, and Warren Equipment.',
-      'Progressed from implementation into senior engineering, architecture, technical leadership, and client-facing delivery.',
+      'Developed internal corporate websites using ASP.NET, jQuery, HTML, and CSS.',
+    ],
+  },
+  {
+    role: 'Web Developer',
+    company: 'Enertia Software',
+    location: 'Texas',
+    dates: 'November 2007 – February 2011',
+    highlights: [
+      'Developed an ASP.NET (VB.NET) and SQL Server website and help system.',
+      'Used C# regular expressions to link related documents in generated static content.',
+    ],
+  },
+  {
+    role: 'Web Developer',
+    company: 'OneTravel.com',
+    location: 'Remote',
+    dates: 'January 1999 – January 2000',
+    highlights: [
+      'Built air, car, and hotel booking functionality using ColdFusion and SQL Server.',
     ],
   },
 ]
 
-const architectureStrengths = [
+const engineeringStrengths = [
+  'TypeScript, React, Next.js, Node.js, NestJS, React Native, and PostgreSQL',
+  'Practical AI prototyping and AI-assisted development with Claude Code, Cursor, and MCP',
   'Architecture discovery and business-to-technical translation',
   'Application architecture, domain-driven design, APIs, and system boundaries',
   'Enterprise modernization, migrations, CI/CD, observability, and runbooks',
-  'TypeScript, React, Next.js, Node.js, NestJS, React Native, and PostgreSQL',
   'AWS-hosted delivery, Azure foundations, CloudFormation, and infrastructure as code',
-  'Applied AI with evaluation, privacy, cost, and human approval controls',
 ]
 
 export default function ResumePage() {
@@ -159,10 +177,10 @@ export default function ResumePage() {
             </p>
             <h1 className="mb-4 text-4xl tracking-tight sm:text-5xl lg:text-6xl">Jason Cochran</h1>
             <p className="mb-2 max-w-[760px] text-xl font-semibold leading-relaxed text-hero-foreground">
-              Hands-On Software Architect
+              Senior Software Engineer
             </p>
             <p className="mb-7 max-w-[760px] text-sm font-semibold uppercase tracking-[0.1em] text-primary sm:text-base">
-              Enterprise Applications · Integrations · Mobile · Cloud · Applied AI
+              Practical, hands-on AI experience
             </p>
 
             <address className="mb-7 flex max-w-[920px] flex-wrap gap-x-5 gap-y-3 text-sm not-italic text-hero-muted">
@@ -196,7 +214,7 @@ export default function ResumePage() {
 
             <Button
               asChild
-              className="no-print h-11 bg-primary px-6 font-semibold text-primary-foreground hover:bg-primary/90"
+              className="no-print h-auto min-h-11 whitespace-normal text-center bg-primary px-6 py-2 font-semibold text-primary-foreground hover:bg-primary/90"
             >
               <a href="/jason-cochran-architect-application.pdf" download>
                 <Download className="h-4 w-4" aria-hidden="true" />
@@ -220,32 +238,37 @@ export default function ResumePage() {
             <div className="max-w-[820px] space-y-5 text-[1.05rem] leading-8 text-muted-foreground">
               <p className="font-medium text-foreground">Dear Hiring Team,</p>
               <p>
-                I am looking for the kind of architecture role where the work does not stop at a
-                diagram. I enjoy learning how a business operates, making the important tradeoffs
-                clear, and staying close enough to implementation that the architecture works in
-                production.
+                I am looking for a senior software engineering role where I can learn how a business
+                operates, make the important tradeoffs clear, and stay close enough to
+                implementation that the software works in production.
               </p>
               <p>
                 I bring 28 years of software engineering experience across enterprise web, mobile,
-                cloud, integration, architecture, and production delivery. At Key Energy, I led a
-                six-person team building and supporting mobile and web-based oil-and-gas ERP
-                software with Ruby on Rails while remaining hands-on. That work called for practical
-                decisions about field connectivity, operational data, system integration, and
-                software used across the organization.
+                cloud, integration, architecture, and production delivery. At Key Energy Services, I
+                built ERP software with Ruby on Rails, Meteor, and Backbone, including a Rails API
+                and an offline user interface, while remaining hands-on with delivery.
               </p>
               <p>
                 More recently at Servant, I delivered a NestJS and Next.js onboarding platform,
                 moved production traffic from the legacy path, and completed the documentation and
                 operational handoff. At Nutrien, I built offline-first React Native workflows for
                 field representatives. At TxMQ, I delivered AngularJS and Ionic features and led an
-                OpenAI research initiative. At Verizon, I built a custom blockchain and JavaScript
-                SDK integration for the AMC Walking Dead NFT experience.
+                OpenAI research initiative as a distinct prototype and research track. At Verizon, I
+                built a custom blockchain and JavaScript SDK integration for the AMC Walking Dead
+                NFT experience.
               </p>
               <p>
-                From 2015 to 2021, my work as a self-employed Solutions Architect included more than
-                30 projects across oil and gas, travel, and enterprise environments. I worked
-                directly with clients to understand the workflow, choose a practical architecture,
-                build the software, communicate tradeoffs, and leave behind a maintainable handoff.
+                My practical AI experience includes the TxMQ OpenAI research and prototypes,
+                building the archived OpenClaw VPS personal project (no longer online), and using
+                Claude Code, Cursor, and MCP servers throughout development. These projects and
+                tools complement my production engineering background.
+              </p>
+              <p>
+                From February 2015 to November 2021, my work as a self-employed Web/Mobile Solutions
+                Architect included varied client projects spanning custom websites, SaaS
+                applications, and mobile solutions. I worked directly with clients to understand the
+                workflow, choose a practical architecture, build the software, communicate
+                tradeoffs, and leave behind a maintainable handoff.
               </p>
               <p>
                 I continue to learn through personal projects. I built OpenClaw VPS as a hosted
@@ -257,7 +280,7 @@ export default function ResumePage() {
                 one layer of the stack.
               </p>
               <p>
-                I bring a calm, hands-on architecture style. I can lead discovery, write the design,
+                I bring a calm, hands-on engineering style. I can lead discovery, write the design,
                 review the implementation, troubleshoot production issues, mentor engineers, and
                 update the runbook afterward. My goal is architecture that helps people make better
                 decisions and deliver dependable software—not an approval process that slows them
@@ -290,19 +313,31 @@ export default function ResumePage() {
                     Profile
                   </h3>
                   <p className="leading-relaxed text-muted-foreground">
-                    Hands-on software architect with 28 years of experience translating business
-                    workflows into secure, maintainable enterprise applications. Leads discovery,
-                    system design, web and mobile delivery, integrations, modernization, migration,
-                    and technical handoff while staying close to the code.
+                    Senior software engineer with 28 years of experience translating business
+                    workflows into maintainable enterprise applications. Builds web and mobile
+                    products, integrations, cloud-hosted systems, and practical AI prototypes while
+                    staying close to the code.
+                  </p>
+                </section>
+
+                <section aria-labelledby="ai-experience-heading">
+                  <h3 id="ai-experience-heading" className="mb-3 text-xl">
+                    AI experience
+                  </h3>
+                  <p className="leading-relaxed text-muted-foreground">
+                    At TxMQ, led OpenAI research and prototyped LLM-assisted tools as a distinct
+                    research track alongside production AngularJS and Ionic feature delivery. Built
+                    the archived OpenClaw VPS personal project, which is no longer online. Uses
+                    Claude Code, Cursor, and MCP servers throughout development.
                   </p>
                 </section>
 
                 <section aria-labelledby="strengths-heading">
                   <h3 id="strengths-heading" className="mb-3 text-xl">
-                    Architecture strengths
+                    Engineering strengths
                   </h3>
                   <ul className="space-y-2 pl-5 text-sm leading-relaxed text-muted-foreground marker:text-primary">
-                    {architectureStrengths.map((strength) => (
+                    {engineeringStrengths.map((strength) => (
                       <li key={strength}>{strength}</li>
                     ))}
                   </ul>
@@ -365,13 +400,14 @@ export default function ResumePage() {
                   className="mt-10 rounded-lg border border-border bg-white p-6"
                 >
                   <h3 id="project-heading" className="mb-2 text-xl">
-                    OpenClaw VPS · Personal project
+                    OpenClaw VPS · Archived personal project
                   </h3>
                   <p className="leading-relaxed text-muted-foreground">
                     Built a hosted control platform that let users provision and manage an OpenClaw
                     AI assistant through a web dashboard. It was built with Bun, Next.js, React,
                     TypeScript, and Convex and included authentication, billing, infrastructure
-                    provisioning, documentation, and automated quality checks.
+                    provisioning, documentation, and automated quality checks. The project is no
+                    longer online.
                   </p>
                   <Link
                     className="no-print mt-4 inline-block text-sm font-semibold text-primary underline-offset-4 hover:underline"
@@ -404,8 +440,9 @@ export default function ResumePage() {
               Let&apos;s talk about the work
             </h2>
             <p className="mb-6 max-w-[700px] leading-relaxed text-muted-foreground">
-              If your team needs an architect who can connect business needs, technical decisions,
-              and hands-on delivery, I would welcome a conversation about the work.
+              If your team needs a senior software engineer who can connect business needs,
+              technical decisions, and hands-on delivery, I would welcome a conversation about the
+              work.
             </p>
             <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
               <Button asChild>

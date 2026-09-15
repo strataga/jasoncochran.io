@@ -66,7 +66,7 @@ body:has(.resume-print-root) nav {
   margin: 0 auto;
   padding: 0;
   font-size: 9.5pt;
-  line-height: 1.32;
+  line-height: 1.24;
 }
 
 .resume-print-root h1,
@@ -94,6 +94,12 @@ body:has(.resume-print-root) nav {
   margin-bottom: 3pt;
 }
 
+.resume-print-root .tagline-secondary {
+  font-size: 9pt;
+  font-weight: 600;
+  margin-bottom: 3pt;
+}
+
 .resume-print-root .contact {
   font-size: 9pt;
   color: #222;
@@ -111,14 +117,14 @@ body:has(.resume-print-root) nav {
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.06em;
-  margin-top: 6pt;
+  margin-top: 4pt;
   margin-bottom: 3pt;
 }
 
 .resume-print-root h3.role {
   font-size: 10pt;
   font-weight: 600;
-  margin-top: 4pt;
+  margin-top: 2pt;
   margin-bottom: 1pt;
 }
 
@@ -137,7 +143,7 @@ body:has(.resume-print-root) nav {
 .resume-print-root p.summary,
 .resume-print-root p.desc {
   font-size: 9.5pt;
-  line-height: 1.32;
+  line-height: 1.24;
   margin-bottom: 2pt;
 }
 
@@ -149,7 +155,7 @@ body:has(.resume-print-root) nav {
 
 .resume-print-root .skills-row {
   font-size: 9.5pt;
-  line-height: 1.38;
+  line-height: 1.24;
   margin-bottom: 1pt;
 }
 

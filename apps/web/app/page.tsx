@@ -9,9 +9,9 @@ import ContactForm from '@/components/ContactForm'
 import { getAllBlogPosts } from '@/lib/blog'
 
 export const metadata: Metadata = {
-  title: 'Jason Cochran · Hands-On Software Architect',
+  title: { absolute: 'Jason Cochran · Senior Software Engineer' },
   description:
-    'Hands-on Software Architect with 28 years of experience delivering enterprise applications, integrations, mobile products, cloud-hosted systems, and applied-AI solutions.',
+    'Senior Software Engineer with 28 years of experience building enterprise, web, mobile, and cloud software, with practical, hands-on AI experience.',
   alternates: {
     canonical: 'https://jasoncochran.io',
   },
@@ -21,9 +21,9 @@ const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Person',
   name: 'Jason Cochran',
-  jobTitle: 'Software Architect',
+  jobTitle: 'Senior Software Engineer',
   description:
-    'Hands-on Software Architect with 28 years of experience translating business needs into maintainable enterprise applications, integrations, mobile products, cloud-hosted systems, and applied-AI solutions.',
+    'Senior Software Engineer with 28 years of experience building enterprise, web, mobile, and cloud software, with practical, hands-on AI experience.',
   url: 'https://jasoncochran.io',
   email: 'jlcochran2013@gmail.com',
   telephone: '+1-432-260-7580',
@@ -88,7 +88,7 @@ const offerings: Offering[] = [
 
 const careerProof = [
   { value: '28 years', label: 'Designing and delivering software' },
-  { value: '30+ projects', label: 'Independent client projects delivered' },
+  { value: 'Full-stack delivery', label: 'Custom websites, SaaS, and mobile solutions' },
   { value: 'Web + mobile', label: 'Enterprise and field applications' },
   { value: 'Architecture + code', label: 'Hands-on from discovery through handoff' },
 ]
@@ -97,7 +97,7 @@ const selectedResults = [
   {
     company: 'Key Energy',
     title: 'Oil-and-gas ERP delivery',
-    body: 'I led a six-person team building and supporting mobile and web-based oil-and-gas ERP software with Ruby on Rails while remaining hands-on with the delivery.',
+    body: 'I built ERP software with Ruby on Rails, Meteor, and Backbone, including a Rails API and an offline user interface, while remaining hands-on with delivery.',
   },
   {
     company: 'Servant',
@@ -111,8 +111,8 @@ const selectedResults = [
   },
   {
     company: 'Independent consulting',
-    title: 'More than 30 client projects',
-    body: 'Across more than 30 projects as a self-employed Solutions Architect, I worked directly with clients to define workflows, choose practical architecture, build software, and support delivery in oil and gas, travel, and enterprise environments.',
+    title: 'Client software delivery',
+    body: 'As a self-employed Web/Mobile Solutions Architect, I delivered varied client projects spanning custom websites, SaaS applications, and mobile solutions. I worked directly with clients to define workflows, choose practical architecture, build software, and support delivery.',
   },
 ]
 
@@ -145,20 +145,20 @@ export default async function Home() {
         <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-[minmax(0,1fr)_auto] gap-12 items-start">
             <div className="max-w-[820px]">
-              <h1 className="text-5xl md:text-6xl lg:text-[52px] xl:whitespace-nowrap leading-[1.05] tracking-tight font-semibold mb-6">
-                Hands-On <span className="text-primary">Software Architect</span>
+              <h1 className="text-5xl md:text-6xl lg:text-[52px] leading-[1.05] tracking-tight font-semibold mb-6">
+                <span className="text-primary">Senior Software Engineer</span>
               </h1>
               <p className="mb-5 text-sm font-semibold uppercase tracking-[0.1em] text-primary sm:text-base">
-                Enterprise Applications · Integrations · Mobile · Cloud · Applied AI
+                Practical, hands-on AI experience
               </p>
               <p
                 className="text-lg md:text-xl leading-relaxed mb-6 text-hero-muted"
                 style={{ maxWidth: '660px' }}
               >
-                I bring 28 years of experience turning business needs into enterprise applications,
-                web and mobile products, integrations, cloud-hosted systems, and applied-AI
-                solutions. I stay hands-on through design and delivery so the architecture works in
-                production, not only on paper.
+                I’m a senior software engineer with 28 years of experience building enterprise
+                applications, web and mobile products, integrations, and cloud-hosted systems. My
+                practical AI experience includes prototyping LLM-powered tools, building personal AI
+                projects, and using AI coding tools throughout development.
               </p>
 
               <div className="mt-8 flex flex-col sm:flex-row sm:flex-wrap gap-3">
@@ -259,7 +259,7 @@ export default async function Home() {
               <div>
                 <h3 className="text-xl font-semibold mb-2">Connect with Jason</h3>
                 <p className="text-sm text-muted-foreground">
-                  Hiring for an architect or principal-level engineering role? Let&apos;s talk.
+                  Hiring for a senior software engineering role? Let&apos;s talk.
                 </p>
               </div>
               <address className="not-italic flex flex-wrap gap-x-5 gap-y-3 text-sm text-muted-foreground">
@@ -304,6 +304,26 @@ export default async function Home() {
         </div>
       </section>
 
+      {/* AI experience */}
+      <section className="border-b border-border bg-muted/30 py-16 lg:py-24">
+        <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid gap-6 lg:grid-cols-[220px_minmax(0,1fr)] lg:gap-12">
+            <h2 className="text-2xl md:text-3xl tracking-tight">AI experience</h2>
+            <div className="max-w-[820px] space-y-4 text-muted-foreground leading-relaxed lg:text-lg">
+              <p>
+                At TxMQ, I led OpenAI research and prototyped LLM-assisted tools as a distinct
+                research track alongside production feature delivery in AngularJS and Ionic.
+              </p>
+              <p>
+                I built OpenClaw VPS, a personal project for managing hosted AI assistants that is
+                now archived and no longer online. I also use Claude Code, Cursor, and MCP servers
+                throughout development to explore ideas, improve feedback loops, and ship software.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Featured Projects (equal-weight 3-col) */}
       <section id="projects" className="py-16 lg:py-24 bg-white border-y border-border">
         <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
@@ -326,7 +346,7 @@ export default async function Home() {
               <CardContent className="flex flex-col flex-1">
                 <p className="text-muted-foreground leading-relaxed text-sm mb-6">
                   An open-source architecture and production-readiness review platform designed
-                  around cited evidence, reproducible scoring, AI safety controls, and human
+                  around cited evidence, reproducible scoring, planned AI safety controls, and human
                   approval. Follow the decisions and implementation as the system is built.
                 </p>
 
@@ -432,15 +452,15 @@ export default async function Home() {
             <h2 className="text-2xl md:text-3xl tracking-tight">About</h2>
             <div className="space-y-5 text-muted-foreground leading-relaxed lg:text-lg">
               <p>
-                I&apos;m looking for software architecture work where the job does not stop at a
-                diagram. I want to understand how the business operates, make the important
-                tradeoffs clear, and stay close enough to implementation that the architecture works
-                in production and remains understandable after handoff.
+                I&apos;m looking for senior software engineering work where I can understand how the
+                business operates, make the important tradeoffs clear, and stay close to
+                implementation through production and handoff.
               </p>
               <p>
                 I bring 28 years of experience across enterprise web, mobile, cloud, integration,
-                and applied-AI systems. At Key Energy, I led a six-person team building mobile and
-                web-based oil-and-gas ERP software with Ruby on Rails while remaining hands-on. More
+                and practical AI work. At Key Energy Services, I built ERP software with Ruby on
+                Rails, Meteor, and Backbone, including a Rails API and an offline user interface.
+                More
                 recently, my work at Servant, Nutrien, TxMQ, and Verizon has covered production
                 migrations, offline-first field workflows, OpenAI research, and reusable SDK
                 integration.
@@ -593,7 +613,7 @@ export default async function Home() {
           <div className="max-w-[720px] mb-10">
             <h2 className="text-2xl md:text-3xl tracking-tight mb-4">Fractional consulting</h2>
             <p className="text-muted-foreground leading-relaxed">
-              I&apos;m primarily pursuing a full-time architect or principal-level engineering role.
+              I&apos;m primarily pursuing a full-time senior software engineering role.
               For teams that need focused help instead, I also offer practical, hands-on
               architecture support.
             </p>
@@ -638,7 +658,7 @@ export default async function Home() {
             <h2 className="text-2xl md:text-3xl tracking-tight mb-4">Message me</h2>
             <p className="text-muted-foreground leading-relaxed mb-10">
               Tell me what your team is building, where the work is stuck, or what you need from
-              your next architect.
+              your next senior software engineer.
             </p>
             <ContactForm />
           </div>

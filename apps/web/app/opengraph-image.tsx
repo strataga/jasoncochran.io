@@ -1,7 +1,7 @@
 import { ImageResponse } from 'next/og'
 
 export const runtime = 'nodejs'
-export const alt = 'Jason Cochran · Hands-On Software Architect'
+export const alt = 'Jason Cochran · Senior Software Engineer · Practical, hands-on AI experience'
 export const size = { width: 1200, height: 630 }
 export const contentType = 'image/png'
 
@@ -62,7 +62,7 @@ export default async function OpengraphImage() {
               maxWidth: '900px',
             }}
           >
-            Hands-On Software Architect
+            Senior Software Engineer
           </div>
           <div
             style={{
@@ -75,7 +75,7 @@ export default async function OpengraphImage() {
               maxWidth: '900px',
             }}
           >
-            turning hard problems into systems teams can trust.
+            Practical, hands-on AI experience
           </div>
 
           <div
@@ -86,8 +86,7 @@ export default async function OpengraphImage() {
               maxWidth: '900px',
             }}
           >
-            ArchGauge is an open-source architecture and production-readiness case study,
-            currently in development.
+            Enterprise applications · Web and mobile products · Integrations · Cloud
           </div>
         </div>
 

@@ -23,6 +23,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 0.9,
     },
     {
+      url: 'https://jasoncochran.io/projects/fieldbrief',
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.9,
+    },
+    {
       url: 'https://jasoncochran.io/projects/archgauge',
       lastModified: new Date(),
       changeFrequency: 'weekly',

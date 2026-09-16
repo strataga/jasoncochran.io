@@ -54,6 +54,15 @@ const openClawTechStack = [
 
 const fathomlessTechStack = ['Rust', 'SDL3']
 
+const fieldBriefTechStack = [
+  'Next.js',
+  'TypeScript',
+  'C#/.NET API',
+  'Azure SQL',
+  'Azure Foundry',
+  'Databricks',
+]
+
 type Offering = {
   tag: string
   title: string
@@ -319,17 +328,61 @@ export default async function Home() {
                 now archived and no longer online. I also use Claude Code, Cursor, and MCP servers
                 throughout development to explore ideas, improve feedback loops, and ship software.
               </p>
+              <p>
+                I built FieldBrief as a personal experiment with Azure, Azure Foundry, and
+                Databricks: a workspace for exploring public Texas well records and synthetic
+                production data with an AI assistant that cites its sources.
+              </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Featured Projects (equal-weight 3-col) */}
+      {/* Featured Projects */}
       <section id="projects" className="py-16 lg:py-24 bg-white border-y border-border">
         <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-2xl md:text-3xl tracking-tight mb-10">Featured projects</h2>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 items-stretch">
+          <div className="grid md:grid-cols-2 gap-6 lg:gap-8 items-stretch">
+            {/* FieldBrief */}
+            <Card className="border-border flex flex-col h-full">
+              <CardHeader>
+                <div className="mb-3">
+                  <span className="inline-flex items-center text-xs uppercase tracking-[0.08em] text-muted-foreground">
+                    Personal experiment · Hosted demo
+                  </span>
+                </div>
+                <CardTitle className="text-xl">FieldBrief</CardTitle>
+              </CardHeader>
+              <CardContent className="flex flex-col flex-1">
+                <p className="text-muted-foreground leading-relaxed text-sm mb-6">
+                  An oil-well investigation demo built to experiment with Azure, Azure Foundry, and
+                  Databricks. Explore well records, compare readings, and ask an AI assistant to
+                  explain the evidence. Uses public Texas well records and synthetic production data.
+                </p>
+
+                <div className="flex flex-wrap gap-2 mb-6">
+                  {fieldBriefTechStack.map((tech) => (
+                    <Badge
+                      key={tech}
+                      variant="secondary"
+                      className="font-normal bg-muted text-muted-foreground hover:bg-muted"
+                    >
+                      {tech}
+                    </Badge>
+                  ))}
+                </div>
+
+                <Link
+                  href="/projects/fieldbrief"
+                  className="mt-auto inline-flex items-center gap-1.5 text-sm text-primary hover:underline underline-offset-4"
+                >
+                  Read the case study
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </Link>
+              </CardContent>
+            </Card>
+
             {/* ArchGauge */}
             <Card className="border-border flex flex-col h-full">
               <CardHeader>

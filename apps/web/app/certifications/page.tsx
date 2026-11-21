@@ -16,7 +16,7 @@ export const metadata: Metadata = {
         url: '/opengraph-image',
         width: 1200,
         height: 630,
-        alt: 'Jason Cochran · Senior Software Engineer · Practical, hands-on AI experience',
+        alt: 'Jason Cochran · Senior Full Stack Developer · React, Next.js, TypeScript, Node.js',
       },
     ],
   },

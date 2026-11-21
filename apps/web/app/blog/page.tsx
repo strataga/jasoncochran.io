@@ -69,7 +69,7 @@ export default async function BlogPage() {
 
       <section className="bg-hero-bg text-hero-foreground">
         <div className="mx-auto max-w-[1200px] px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
-          <p className="mb-4 font-mono text-xs uppercase tracking-[0.2em] text-primary">
+          <p className="mb-4 font-mono text-xs uppercase tracking-[0.2em] text-hero-accent">
             Architecture &amp; engineering notes
           </p>
           <h1 className="max-w-4xl text-4xl tracking-tight sm:text-5xl lg:text-6xl">

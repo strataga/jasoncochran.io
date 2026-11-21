@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import { useForm } from 'react-hook-form'
+import { isValidContactName } from '@/lib/contact-validation'
 
 interface ContactFormData {
   name: string
@@ -55,16 +56,18 @@ export default function ContactForm() {
   return (
     <div className="w-full">
       {submitStatus === 'success' && (
-        <div className="mb-6 p-5 rounded-md bg-green-50 border border-green-200">
+        <div role="status" className="mb-6 p-5 rounded-md bg-green-50 border border-green-200">
           <h3 className="font-semibold text-green-900 mb-1">Thanks for reaching out.</h3>
           <p className="text-sm text-green-900/80">Your message was sent successfully.</p>
         </div>
       )}
 
       {submitStatus === 'error' && (
-        <div className="mb-6 p-5 rounded-md bg-red-50 border border-red-200">
+        <div role="alert" className="mb-6 p-5 rounded-md bg-red-50 border border-red-200">
           <h3 className="font-semibold text-red-900 mb-1">Something went wrong.</h3>
-          <p className="text-sm text-red-900/80">Please try again, or use the email address listed on the page.</p>
+          <p className="text-sm text-red-900/80">
+            Please try again, or use the email address listed on the page.
+          </p>
         </div>
       )}
 
@@ -75,21 +78,25 @@ export default function ContactForm() {
           </label>
           <input
             id="name"
+            aria-invalid={Boolean(errors.name)}
+            aria-describedby={errors.name ? 'name-error' : undefined}
+            autoComplete="name"
             type="text"
             {...register('name', {
               required: 'Name is required',
               minLength: { value: 2, message: 'Name must be at least 2 characters' },
               maxLength: { value: 100, message: 'Name must be less than 100 characters' },
-              pattern: {
-                value: /^[a-zA-Z\s'-]+$/,
-                message: 'Name can only contain letters, spaces, hyphens, and apostrophes',
-              },
+              validate: (value) =>
+                isValidContactName(value) ||
+                'Enter a name using letters, spaces, hyphens, periods, or apostrophes',
             })}
             className={inputClasses}
             placeholder="Your name"
           />
           {errors.name && (
-            <p className="mt-2 text-sm text-destructive">{errors.name.message}</p>
+            <p id="name-error" role="alert" className="mt-2 text-sm text-destructive">
+              {errors.name.message}
+            </p>
           )}
         </div>
 
@@ -99,6 +106,9 @@ export default function ContactForm() {
           </label>
           <input
             id="email"
+            aria-invalid={Boolean(errors.email)}
+            aria-describedby={errors.email ? 'email-error' : undefined}
+            autoComplete="email"
             type="email"
             {...register('email', {
               required: 'Email is required',
@@ -111,7 +121,9 @@ export default function ContactForm() {
             placeholder="your.email@example.com"
           />
           {errors.email && (
-            <p className="mt-2 text-sm text-destructive">{errors.email.message}</p>
+            <p id="email-error" role="alert" className="mt-2 text-sm text-destructive">
+              {errors.email.message}
+            </p>
           )}
         </div>
 
@@ -121,6 +133,8 @@ export default function ContactForm() {
           </label>
           <textarea
             id="message"
+            aria-invalid={Boolean(errors.message)}
+            aria-describedby={errors.message ? 'message-error' : undefined}
             rows={6}
             {...register('message', {
               required: 'Message is required',
@@ -131,7 +145,9 @@ export default function ContactForm() {
             placeholder="How can I help you?"
           />
           {errors.message && (
-            <p className="mt-2 text-sm text-destructive">{errors.message.message}</p>
+            <p id="message-error" role="alert" className="mt-2 text-sm text-destructive">
+              {errors.message.message}
+            </p>
           )}
         </div>
 

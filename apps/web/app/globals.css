@@ -18,9 +18,9 @@
   --ring: 239 68 68; /* red-500 , focus ring */
 
   /* Coral accent */
-  --primary: 239 68 68; /* red-500 , coral */
+  --primary: 185 28 28; /* red-700: accessible white button text */
   --primary-foreground: 255 255 255;
-  --accent: 239 68 68; /* coral */
+  --accent: 185 28 28;
   --accent-foreground: 255 255 255;
   --secondary: 241 245 249; /* slate-100 */
   --secondary-foreground: 24 24 27;
@@ -29,6 +29,7 @@
   --hero-bg: 15 23 42; /* slate-900 */
   --hero-foreground: 248 250 252;
   --hero-muted: 148 163 184; /* slate-400 */
+  --hero-accent: 248 113 113; /* light coral for text on navy */
 
   /* Destructive */
   --destructive: 220 38 38;
@@ -77,6 +78,7 @@
   --color-hero-bg: rgb(var(--hero-bg));
   --color-hero-foreground: rgb(var(--hero-foreground));
   --color-hero-muted: rgb(var(--hero-muted));
+  --color-hero-accent: rgb(var(--hero-accent));
   --color-destructive: rgb(var(--destructive));
   --color-destructive-foreground: rgb(var(--destructive-foreground));
 
@@ -128,6 +130,9 @@
   }
 
   @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
     *,
     *::before,
     *::after {
@@ -274,8 +279,29 @@
     display: none !important;
   }
 
-  .resume-document {
-    break-before: page;
+  .resume-page {
+    max-width: 100%;
+    padding: 0 !important;
+  }
+
+  .resume-page address {
+    margin-top: 4pt !important;
+    gap: 2pt 10pt;
+    font-size: 9pt;
+  }
+
+  .resume-page section,
+  .resume-page section > div > article {
+    margin-top: 6pt !important;
+    padding-top: 0 !important;
+  }
+
+  .resume-job {
+    break-inside: avoid;
+  }
+
+  .resume-page .space-y-8 > * + * {
+    margin-top: 6pt !important;
   }
 
   /* Reset Tailwind screen-size spacing for print , resume is density-critical */

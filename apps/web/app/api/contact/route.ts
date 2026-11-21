@@ -3,6 +3,7 @@
 // Generate an App Password at https://myaccount.google.com/apppasswords (2FA required).
 import { NextRequest, NextResponse } from 'next/server'
 import nodemailer from 'nodemailer'
+import { isValidContactName } from '@/lib/contact-validation'
 
 import {
   getRailwayClientId,
@@ -114,8 +115,7 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ error: 'Invalid name length' }, { status: 400 })
   }
 
-  const nameRegex = /^[a-zA-Z\s'-]+$/
-  if (!nameRegex.test(trimmedName)) {
+  if (!isValidContactName(trimmedName)) {
     return NextResponse.json({ error: 'Invalid name characters' }, { status: 400 })
   }
 

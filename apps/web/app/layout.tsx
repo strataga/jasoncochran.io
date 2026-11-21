@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Inter, JetBrains_Mono } from 'next/font/google'
 import './globals.css'
 import Navigation from '@/components/Navigation'
+import { profile } from '@/lib/profile'
 
 const inter = Inter({
   subsets: ['latin'],
@@ -19,24 +20,21 @@ const jetbrainsMono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: 'Jason Cochran · Senior Software Engineer',
+    default: `${profile.name} · ${profile.title}`,
     template: '%s | Jason Cochran',
   },
-  description:
-    'Senior Software Engineer with 28 years of experience building enterprise, web, mobile, and cloud software, with practical, hands-on AI experience.',
+  description: profile.description,
   keywords: [
-    'Senior Software Engineer',
-    'Full-Stack Software Engineer',
-    'Practical AI Experience',
-    'Software Architecture',
-    'Architecture Consulting',
-    'Production Readiness',
-    'ArchGauge',
-    'Next.js',
+    'Senior Full Stack Developer',
     'React',
+    'Next.js',
     'TypeScript',
-    'Convex',
-    'MCP',
+    'Node.js',
+    'React Native',
+    'AWS',
+    'Azure',
+    'LayoutLark',
+    'FieldBrief',
   ],
   authors: [{ name: 'Jason Cochran' }],
   creator: 'Jason Cochran',
@@ -45,24 +43,22 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_US',
     url: 'https://jasoncochran.io',
-    title: 'Jason Cochran · Senior Software Engineer',
-    description:
-      'Senior Software Engineer with 28 years of experience building enterprise, web, mobile, and cloud software, with practical, hands-on AI experience.',
+    title: `${profile.name} · ${profile.title}`,
+    description: profile.description,
     siteName: 'Jason Cochran',
     images: [
       {
         url: '/opengraph-image',
         width: 1200,
         height: 630,
-        alt: 'Jason Cochran · Senior Software Engineer · Practical, hands-on AI experience',
+        alt: 'Jason Cochran · Senior Full Stack Developer · React, Next.js, TypeScript, Node.js',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Jason Cochran · Senior Software Engineer',
-    description:
-      'Senior Software Engineer with 28 years of experience building enterprise, web, mobile, and cloud software, with practical, hands-on AI experience.',
+    title: `${profile.name} · ${profile.title}`,
+    description: profile.description,
     images: ['/opengraph-image'],
   },
 }

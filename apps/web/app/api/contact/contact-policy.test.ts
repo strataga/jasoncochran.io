@@ -1,5 +1,37 @@
 import assert from 'node:assert/strict'
 import test from 'node:test'
+import { isValidContactName } from '../../../lib/contact-validation'
+
+test('contact names support international letters, accents, and name punctuation', () => {
+  for (const name of [
+    'José García',
+    'Jose\u0301 García',
+    '李明',
+    'محمد علي',
+    'Anne-Marie',
+    'O’Neill',
+    'J. Smith',
+    ' Jason ',
+  ]) {
+    assert.equal(isValidContactName(name), true, name)
+  }
+})
+
+test('contact names reject markup, embedded controls, empty values, and invalid lengths', () => {
+  for (const name of [
+    '',
+    '  ',
+    '--',
+    'A',
+    'A'.repeat(101),
+    '<script>alert(1)</script>',
+    'Jason\r\nBcc: other@example.com',
+    'Ja\u0000son',
+    'John\tSmith',
+  ]) {
+    assert.equal(isValidContactName(name), false, JSON.stringify(name))
+  }
+})
 
 import {
   getRailwayClientId,
@@ -12,8 +44,12 @@ import {
 
 test('parseContactRequest accepts and trims string fields', () => {
   assert.deepEqual(
-    parseContactRequest({ name: ' Jason ', email: ' jason@example.com ', message: ' Hello there ' }),
-    { name: 'Jason', email: 'jason@example.com', message: 'Hello there' },
+    parseContactRequest({
+      name: ' Jason ',
+      email: ' jason@example.com ',
+      message: ' Hello there ',
+    }),
+    { name: 'Jason', email: 'jason@example.com', message: 'Hello there' }
   )
 })
 
@@ -35,7 +71,7 @@ test('client identity uses only a valid Railway X-Real-IP header', () => {
   assert.equal(getRailwayClientId(new Headers({ 'x-real-ip': '203.0.113.10' })), '203.0.113.10')
   assert.equal(
     getRailwayClientId(new Headers({ 'x-forwarded-for': '198.51.100.9', 'x-real-ip': 'attacker' })),
-    'unknown',
+    'unknown'
   )
 })
 

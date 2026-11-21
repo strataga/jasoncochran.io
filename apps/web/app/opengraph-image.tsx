@@ -1,7 +1,7 @@
 import { ImageResponse } from 'next/og'
 
 export const runtime = 'nodejs'
-export const alt = 'Jason Cochran · Senior Software Engineer · Practical, hands-on AI experience'
+export const alt = 'Jason Cochran · Senior Full Stack Developer · React · Next.js · TypeScript · Node.js'
 export const size = { width: 1200, height: 630 }
 export const contentType = 'image/png'
 
@@ -33,7 +33,7 @@ export default async function OpengraphImage() {
             fontWeight: 600,
           }}
         >
-          <div style={{ width: '40px', height: '2px', background: '#EF4444' }} />
+          <div style={{ width: '40px', height: '2px', background: '#F87171' }} />
           <div>jasoncochran.io</div>
         </div>
 
@@ -54,7 +54,7 @@ export default async function OpengraphImage() {
           <div
             style={{
               display: 'flex',
-              fontSize: '40px',
+              fontSize: '36px',
               fontWeight: 400,
               lineHeight: 1.2,
               color: '#F8FAFC',
@@ -62,20 +62,20 @@ export default async function OpengraphImage() {
               maxWidth: '900px',
             }}
           >
-            Senior Software Engineer
+            Senior Full Stack Developer
           </div>
           <div
             style={{
               display: 'flex',
-              fontSize: '40px',
+              fontSize: '36px',
               fontWeight: 600,
               lineHeight: 1.2,
-              color: '#EF4444',
+              color: '#F87171',
               marginBottom: '24px',
               maxWidth: '900px',
             }}
           >
-            Practical, hands-on AI experience
+            React · Next.js · TypeScript · Node.js
           </div>
 
           <div
@@ -100,7 +100,7 @@ export default async function OpengraphImage() {
             fontWeight: 500,
           }}
         >
-          <div>28 years delivering production software</div>
+          <div>Interfaces · APIs · Databases · Cloud</div>
           <div style={{ color: '#475569' }}>·</div>
           <div>Midland, TX</div>
         </div>

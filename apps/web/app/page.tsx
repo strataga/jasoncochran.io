@@ -89,12 +89,12 @@ export default async function Home() {
             </p>
           </div>
           <Image
-            src="/jason_cochran_photo.webp"
+            src="/jason-cochran.jpg"
             alt="Jason Cochran"
             width={240}
-            height={280}
+            height={240}
             priority
-            className="hidden aspect-[6/7] rounded-xl object-cover lg:block"
+            className="hidden aspect-square rounded-xl object-cover lg:block"
             sizes="240px"
           />
         </div>
